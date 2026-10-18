@@ -1,0 +1,5 @@
+{
+  "port": 3025,
+  "routes": ["/", "/momentum", "/progress", "/recommendations", "/pet"],
+  "outDir": ".shots"
+}

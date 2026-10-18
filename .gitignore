@@ -1,0 +1,38 @@
+node_modules/
+dist/
+build/
+.next/
+coverage/
+
+# Secrets and local env
+.env
+.env.local
+.env.*.local
+
+# Client data and anything private by default
+client-data/
+private/
+
+# Design journal internals (per-session logs and raw logbook are private to the team;
+# training-manual.md and decisions/ are public — do not gitignore them)
+design-journal/logbook/
+design-journal/weekly/
+design-journal/.hook.log
+design-journal/.weekly.log
+
+# Claude Code local settings and memory (user-specific, never shipped)
+.claude/settings.local.json
+.claude/memory/
+
+# OS crud
+.DS_Store
+Thumbs.db
+
+# Study records are personal: kept on this machine only (see data/README.md)
+data/*
+!data/README.md
+
+# app-kit screenshots and build info
+.shots/
+.dev.log
+*.tsbuildinfo
