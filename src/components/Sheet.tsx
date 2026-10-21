@@ -3,7 +3,20 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 /* A card that rises over the page: a native <dialog>, so focus stays inside
  * it, Escape closes it and focus returns to what opened it. A click on the
  * dimmed backdrop closes it too. */
-export function Sheet({ label, tone, onClose, children }: { label: string; tone?: string; onClose: () => void; children: ReactNode }) {
+export function Sheet({
+  label,
+  tone,
+  wide,
+  onClose,
+  children,
+}: {
+  label: string
+  tone?: string
+  /** A wider sheet, for content that should fit without scrolling. */
+  wide?: boolean
+  onClose: () => void
+  children: ReactNode
+}) {
   const ref = useRef<HTMLDialogElement>(null)
   // What opened the sheet, read once before it opens, to give focus back on close.
   const [opener] = useState(() => (document.activeElement instanceof HTMLElement ? document.activeElement : null))
@@ -23,6 +36,7 @@ export function Sheet({ label, tone, onClose, children }: { label: string; tone?
       ref={ref}
       className="sheet"
       data-tone={tone}
+      data-wide={wide || undefined}
       aria-label={label}
       onCancel={(e) => {
         e.preventDefault()

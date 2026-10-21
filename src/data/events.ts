@@ -15,7 +15,11 @@ export type LogEvent = Base &
   (
     | { type: 'effort.set'; day: string; minutes: number; note: string }
     | { type: 'milestone.set'; milestone: string; done: boolean }
+    | { type: 'session.set'; day: string; status: SessionStatus }
   )
+
+/** A planned session marked done or missed; "none" takes the mark back. */
+export type SessionStatus = 'done' | 'missed' | 'none'
 
 export type NewEvent = LogEvent extends infer E ? (E extends LogEvent ? Omit<E, 'id' | 'at'> : never) : never
 
@@ -27,9 +31,11 @@ export type StudyState = {
   effort: Record<string, Effort>
   /** Milestones marked done, keyed by id ("1.1.2"), with when they were marked. */
   done: Record<string, string>
+  /** Planned sessions marked done or missed, keyed by day. Unmarked days are absent. */
+  sessions?: Record<string, 'done' | 'missed'>
 }
 
-export const EMPTY: StudyState = { effort: {}, done: {} }
+export const EMPTY: StudyState = { effort: {}, done: {}, sessions: {} }
 
 /** A full day is 1,440 minutes; nobody studies more than that. */
 const MAX_MINUTES = 1440
@@ -52,6 +58,11 @@ export function validate(raw: unknown): NewEvent | null {
       const id = typeof e.milestone === 'string' && /^[A-Z0-9.]{1,16}$/.test(e.milestone) ? e.milestone : null
       return !id || typeof e.done !== 'boolean' ? null : { type: 'milestone.set', milestone: id, done: e.done }
     }
+    case 'session.set': {
+      const d = day(e.day)
+      const ok = e.status === 'done' || e.status === 'missed' || e.status === 'none'
+      return !d || !ok ? null : { type: 'session.set', day: d, status: e.status as SessionStatus }
+    }
     default:
       return null
   }
@@ -71,6 +82,12 @@ export function apply(state: StudyState, e: LogEvent): StudyState {
       if (e.done) done[e.milestone] = done[e.milestone] || e.at
       else delete done[e.milestone]
       return { ...state, done }
+    }
+    case 'session.set': {
+      const sessions = { ...state.sessions }
+      if (e.status === 'none') delete sessions[e.day]
+      else sessions[e.day] = e.status
+      return { ...state, sessions }
     }
     default:
       return state

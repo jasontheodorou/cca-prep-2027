@@ -188,7 +188,7 @@ class ShortbreadPet extends HTMLElement{
    const dt=Math.min((now-last)/1000,.05);last=now;const k=1-Math.exp(-dt*8);
    yaw+=(targetYaw-yaw)*k;pitch+=(targetPitch-pitch)*k;hover+=(hoverTo-hover)*k;
    const t=now/1000,motion=reduced?0:1,extent=1.48,aspect=w/h;
-   gl.uniformMatrix4fv(uVP,false,new Float32Array(mul(ortho(-extent*aspect,extent*aspect,-extent,extent,.1,40),view([4,3.1+pitch*4.5,6.5],[.07,1.24,0]))));
+   gl.uniformMatrix4fv(uVP,false,new Float32Array(mul(ortho(-extent*aspect,extent*aspect,-extent,extent,4,12),view([4,3.1+pitch*4.5,6.5],[.07,1.24,0]))));
    gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
    let happy=false,chew=0,tilt=0,stretch=1,heart=0,heartY=0;
    let cookieAlpha=0,cookieScale=1,cookieX=0,cookieY=0,crumb=0;
@@ -232,12 +232,16 @@ class ShortbreadPet extends HTMLElement{
    for(const x of [-.76,.35])for(const z of [-.35,.35]){
     const leg=T(x,.35,z);part('leg',leg);part('foot',mul(leg,T(.02,-.23,0)));
    }
-   draw(g.head,head);
+   // The head sits a hair back in depth, and the muzzle half as far, so where
+   // they touch the muzzle always wins, and the eyes, cheeks and nose win over
+   // both, instead of flickering (cca-prep, 21 October 2026).
+   gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(3,8);
+   draw(g.head,head);gl.disable(gl.POLYGON_OFFSET_FILL);
    for(const z of [-.42,.42]){
     const ear=M(head,T(-.065,.54,z));draw(g.ear,ear);draw(g.inner,mul(ear,T(.22,0,0)));
    }
    const muzzle=M(head,T(.60,-.13,0),S(1,1+chew*2,1));
-   draw(g.muzzle,muzzle);draw(g.nose,mul(muzzle,T(.23,.075,0)));
+   gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(1.5,4);draw(g.muzzle,muzzle);gl.disable(gl.POLYGON_OFFSET_FILL);draw(g.nose,mul(muzzle,T(.23,.075,0)));
    const blink=!reduced&&Math.sin(t*1.23)>.996;
    for(const z of [-.39,.39]){
     const eye=M(head,T(.545,.07,z),S(1,happy?.22:blink?.08:1,1));

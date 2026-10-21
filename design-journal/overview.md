@@ -3,20 +3,20 @@ id: overview-cca-prep-2027
 type: overview
 project: cca-prep-2027
 status: active
-last-updated: 2026-10-18
+last-updated: 2026-10-21
 ---
 
 # cca-prep-2027 — Overview
 
-**One-sentence description:** A calm, minimal site, built from sanctum, for Jason's preparation for the Claude Certified Architect – Foundations exam, planned for the week of 15 March 2027.
+**One-sentence description:** A calm, minimal site, built from sanctum, for Jason's preparation for the Claude Certified Architect – Foundations exam, planned for Friday 26 March 2027 (an assumption, not a booking).
 
 ## Current state
 
-Rebuilt on 18 October 2026 for progressive disclosure (decision 003): five tabs (Course, Momentum, Progress, Recommendations, Pet last). Course holds the exam guide's 30 task statements and 4 exercises in study order. Momentum logs minutes per day and shows study days in green. Progress counts ticked milestones (the guide's "Skills in" lines, 147 in all). Recommendations shows only what an agent writes to `data/recommendations.json`; none is connected. Data is sanctum's append-only log pattern (`data/study-log.jsonl`, dev server only).
+Rebuilt on 18 October 2026 for progressive disclosure (decision 003): five tabs (Course, Momentum, Progress, Recommendations, Pet last). Course holds the exam guide's 30 task statements and 4 exercises in study order. Momentum shows today's planned session from Jason's schedule spreadsheet (Done or Missed; missed work moves to later flexible days, decision 006), logs minutes per day and shows study days in green. Progress counts ticked milestones (the guide's "Skills in" lines, 147 in all). Recommendations shows only what an agent writes to `data/recommendations.json`; none is connected. Data is sanctum's append-only log pattern (`data/study-log.jsonl`, dev server only).
 
 ## Active goals
 
-- Jason to use it and react to the first build.
+- Jason to try the schedule in Momentum and react.
 - Jason to decide the Markdown folder, storage and agent connection. Only `src/data/store.ts` and `src/data/recommendations.ts` need to change.
 
 ## Key constraints

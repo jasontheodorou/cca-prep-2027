@@ -167,6 +167,28 @@ try {
   await page.reload()
   check((await page.locator('.today__n').textContent()) === '50 min', 'entries survive a reload')
 
+  // Today's planned session, when the schedule has one with work in it.
+  if (await page.locator('.session').count()) {
+    await page.getByRole('button', { name: 'Missed', exact: true }).click()
+    await page.waitForTimeout(400)
+    check((await study()).sessions?.[key(today)] === 'missed', 'Missed marks the session')
+    check(/You will do it on|you owe nothing|no free day/.test(await page.locator('.session__status').textContent()), 'it says where the work went')
+    await page.getByRole('button', { name: 'Take back' }).click()
+    await page.waitForTimeout(400)
+    check(!(await study()).sessions?.[key(today)], 'Take back clears the mark')
+    await page.getByRole('button', { name: "See all of today's plan" }).click()
+    check(await page.locator('dialog.sheet').getByText('First, do this').isVisible(), 'the whole session opens in a sheet')
+    await page.locator('.sheet__close').click()
+    await page.locator('.sheet__close').waitFor({ state: 'detached' })
+    await page.getByRole('button', { name: 'Done', exact: true }).click()
+    await page.waitForTimeout(400)
+    s = await study()
+    check(s.sessions?.[key(today)] === 'done' && s.effort[key(today)]?.minutes >= 50, 'Done marks the session and keeps the time')
+    await shot(page, 'momentum-session')
+  } else {
+    console.log('  - no planned session today; session checks skipped')
+  }
+
   console.log('\nProgress')
   await page.goto(BASE + '/progress')
   check((await page.locator('.ringcard__n').textContent()).startsWith('1 of 147'), 'the ring counts the one tick')

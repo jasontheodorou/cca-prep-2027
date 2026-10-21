@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react'
 import { readJson, writeJson } from '../lib/storage'
-import { apply, EMPTY, localIso, newId, type LogEvent, type NewEvent, type StudyState } from './events'
+import { apply, EMPTY, localIso, newId, type LogEvent, type NewEvent, type SessionStatus, type StudyState } from './events'
 
 /* One shared copy of the study log for every page, as in sanctum. The local
  * server is the source of truth; the browser keeps a mirror for an instant
@@ -9,7 +9,7 @@ import { apply, EMPTY, localIso, newId, type LogEvent, type NewEvent, type Study
  *
  * This is the only module that knows where records live. To read them from a
  * folder of Markdown files later, replace post() and load() here; the pages
- * only use useStudy(), logEffort() and setMilestone(). */
+ * only use useStudy(), logEffort(), setMilestone() and setSession(). */
 
 export type SaveStatus = 'loading' | 'saved' | 'waiting'
 
@@ -115,6 +115,11 @@ export function logEffort(day: string, minutes: number, note: string) {
 /** Marks a milestone done, or takes the mark back. */
 export function setMilestone(milestone: string, done: boolean) {
   record({ type: 'milestone.set', milestone, done })
+}
+
+/** Marks a planned session done or missed, or takes the mark back with "none". */
+export function setSession(day: string, status: SessionStatus) {
+  record({ type: 'session.set', day, status })
 }
 
 export function useStudy(): Snapshot {

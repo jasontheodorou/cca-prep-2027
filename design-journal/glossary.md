@@ -28,3 +28,7 @@ Jason's study system for the exam (18 October 2026), combining Tim Ferriss's DiS
 - **Set** up the stakes so you do not give up. (Stakes)
 
 Replaces the word DiSSS, which Jason found ugly. Not shown in the app.
+
+## Catch-up
+
+Minutes from a missed Core, Preparation leave or Light review session, moved to later Flexible or Optional buffer days, at most 60 minutes on any day. Worked out afresh from the marks; the schedule file never changes. See decision 006.

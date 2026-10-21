@@ -55,8 +55,9 @@ export const GUIDE = {
 }
 
 export const EXAM = {
-  /** The planned exam week: the third week of March 2027 starts on Monday 15 March. */
-  weekOf: '2027-03-15',
+  /** The planned exam week, from the study schedule: the exam is assumed for
+   * Friday 26 March 2027, in the week starting Monday 22 March. */
+  weekOf: '2027-03-22',
   items: 60,
   format: 'Multiple-choice and multiple-response items. Each item says how many answers to choose.',
   minutes: 120,
