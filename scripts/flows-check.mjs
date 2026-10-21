@@ -125,7 +125,7 @@ try {
   check((await page.locator('.today__n').textContent()) === 'Nothing logged yet', 'today starts neutral')
   check((await page.locator('.month').count()) === 0, 'only this week shows at first')
   await page.getByRole('button', { name: '+ 30 min' }).click()
-  await page.waitForTimeout(400)
+  await page.waitForTimeout(900) // the minutes count up
   check((await page.locator('.today__n').textContent()) === '30 min', 'one tap logs 30 minutes')
   await page.getByRole('button', { name: '+ 15 min' }).click()
   await page.waitForTimeout(400)

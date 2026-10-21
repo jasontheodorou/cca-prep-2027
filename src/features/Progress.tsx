@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { stillMotion, useCountUp } from '../components/Delight'
 import { Head } from '../components/Head'
 import { COURSE } from '../content/course'
 import { useStudy } from '../data/store'
 import { pct, sectionCount, unitCount } from '../lib/progress'
+import { readRaw, writeRaw } from '../lib/storage'
 import { useOpenUnit } from '../lib/useOpenUnit'
 
 /* Progress: one ring for the whole course, then one row per section. A row
@@ -92,16 +94,31 @@ export function Progress() {
   )
 }
 
+/* The ring starts where it stood on your last visit and sweeps forward to
+ * today's value, so the growth since then shows (Delight, 21 October 2026). */
+const SEEN = 'cca-prep.progress.seen'
+
 function Ring({ value }: { value: number }) {
   const r = 42
   const c = 2 * Math.PI * r
+  const [from] = useState(() => {
+    const seen = Number(readRaw(SEEN, 'progress ring'))
+    return Number.isFinite(seen) && seen >= 0 && seen < value && !stillMotion() ? seen : value
+  })
+  const [now, setNow] = useState(from)
+  const n = useCountUp(now, 1100)
+  useEffect(() => {
+    const t = window.setTimeout(() => setNow(value), 250)
+    writeRaw(SEEN, String(value), 'progress ring')
+    return () => window.clearTimeout(t)
+  }, [value])
   return (
     <div className="ring" role="img" aria-label={`${value}% ticked`}>
       <svg viewBox="0 0 100 100" aria-hidden="true">
         <circle cx="50" cy="50" r={r} className="ring__track" />
-        <circle cx="50" cy="50" r={r} className="ring__fill" strokeDasharray={`${(value / 100) * c} ${c}`} />
+        <circle cx="50" cy="50" r={r} className="ring__fill" strokeDasharray={`${(now / 100) * c} ${c}`} />
       </svg>
-      <span className="ring__n">{value}%</span>
+      <span className="ring__n">{n}%</span>
     </div>
   )
 }

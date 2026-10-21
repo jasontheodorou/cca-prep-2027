@@ -25,3 +25,7 @@ Each entry is timeless: it should still make sense without the context of the se
 ---
 
 _No entries yet. The first will be added automatically the first time a session produces material that clears the "would a designer thank me for this in six months?" bar._
+
+## Name new CSS animations so they cannot clash
+
+Added 2026-10-21. A `@keyframes` name is global: a second `@keyframes rise` later in the file silently replaces the first everywhere it is used. The reward animations reused `rise`, ending on white text, and blanked the unit cards and sheets. Prefix every new set of animations (here `dl-`), and grep `@keyframes <name>` before adding one.

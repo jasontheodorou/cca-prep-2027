@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Flecks } from './Delight'
 import { Sheet } from './Sheet'
 import { setMilestone, useStudy } from '../data/store'
 import { findUnit, unitCount, unitMilestones } from '../lib/progress'
@@ -17,6 +18,8 @@ export function UnitSheet({ id, onClose }: { id: string; onClose: () => void }) 
   const [view, setView] = useState<View>('start')
   const [step, setStep] = useState(0)
   const [wording, setWording] = useState(false)
+  // The box just ticked springs and sends out flecks (Delight.tsx).
+  const [popped, setPopped] = useState<{ mid: string; id: number } | null>(null)
   // Moving between views removes the button just pressed, so focus moves to the new view.
   const area = useRef<HTMLDivElement>(null)
   const moved = useRef(false)
@@ -109,8 +112,16 @@ export function UnitSheet({ id, onClose }: { id: string; onClose: () => void }) 
                 return (
                   <li key={mid}>
                     <label className="tickrow" data-on={!!state.done[mid] || undefined}>
-                      <input type="checkbox" checked={!!state.done[mid]} onChange={(e) => setMilestone(mid, e.target.checked)} />
-                      <span className="tickrow__box" aria-hidden="true">
+                      <input
+                        type="checkbox"
+                        checked={!!state.done[mid]}
+                        onChange={(e) => {
+                          setMilestone(mid, e.target.checked)
+                          setPopped(e.target.checked ? { mid, id: Date.now() } : null)
+                        }}
+                      />
+                      <span key={popped?.mid === mid ? popped.id : 'box'} className="tickrow__box" data-pop={popped?.mid === mid || undefined} aria-hidden="true">
+                        {popped?.mid === mid && <Flecks />}
                         <svg viewBox="0 0 16 16" width="14" height="14">
                           <path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
