@@ -1,5 +1,7 @@
 # Working agreement — cca-prep-2027
 
+**Git identity:** commit as `jay.alfredos.labs@gmail.com` (set in this repo's local git config). Vercel blocks any deploy whose commit author is the work email, because that maps to a GitHub account without access to the Vercel project. If a deploy is blocked, never rewrite `main`; land a correctly authored commit on top.
+
 Terse responses. No trailing summaries. Match scope to what was asked.
 
 ## Project context
