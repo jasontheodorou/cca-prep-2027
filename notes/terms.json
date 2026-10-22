@@ -1,4 +1,5 @@
 {
-  "stop_reason": "code",
-  "messages api.": "infra"
+  "fixed tool sequence": "workflow",
+  "messages api.": "infra",
+  "stop_reason": "code"
 }
