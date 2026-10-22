@@ -27,6 +27,22 @@
   --max: 1440px;
   --side: 56px;
   --shadow: 0 0 0 1px #ececf0, 0 1px 2px rgb(24 24 32 / 0.04), 0 10px 28px -14px rgb(24 24 32 / 0.16);
+
+  /* Colours that used to be written in place, named so dark mode can change them. */
+  --line-strong: var(--line-strong);
+  --faint: #a1a1aa;          /* disabled days, placeholders */
+  --on-green: #ffffff;
+  --accent-hover: #382f52;
+  --danger: #a03d3d;
+  --warn: #8a3b12;
+  --bar-track: rgb(255 255 255 / 0.75);
+  --topbar: rgb(255 255 255 / 0.85);
+  --topbar-edge: rgb(24 24 32 / 0.06);
+  --backdrop: rgb(24 24 32 / 0.32);
+  --lift: rgb(24 24 32 / 0.35);
+  --wash: #cfe3cb;
+  --pet-glow: #fbf7f1;
+  color-scheme: light;
 }
 
 /* Section colours: a tint for surfaces and an ink for small marks and bars. */
@@ -37,6 +53,63 @@
 [data-tone='butter'] { --tint: #f9f0d3; --tone: #836922; }
 [data-tone='rose'] { --tint: #f7e5e9; --tone: #944761; }
 [data-tone='sand'] { --tint: #f1ebe2; --tone: #746550; }
+
+/* Night: soft charcoal with a hint of violet, muted pastels, and quiet lavender
+ * buttons with dark words, so nothing glows. Every pair of text and background
+ * colours here reads at 7:1 or better, apart from faint and disabled text. */
+:root[data-theme='dark'] {
+  --bg: #16161b;
+  --card: #1e1e25;
+  --ink: #e9e7f0;
+  --muted: #aeacbb;          /* 7.6:1 on the card */
+  --line: #2d2d37;
+  --line-strong: #3d3d4a;
+  --soft: #26262f;
+  --accent: #b2a9d6;         /* a soft lavender, with dark words */
+  --accent-ink: #17142a;
+  --accent-hover: #c0b8de;
+  --focus: #c3bbe6;
+  --faint: #6c6b7a;
+
+  --green: #84b08b;          /* a muted sage */
+  --green-soft: #1f2b23;
+  --on-green: #0f1a12;
+  --plan: #2c2842;
+  --plan-deep: #3a3454;
+  --plan-edge: #5d557c;
+  --plan-ink: #d6cef2;
+
+  --danger: #e7a2a2;
+  --warn: #e2b08a;
+  --bar-track: rgb(255 255 255 / 0.08);
+  --topbar: rgb(22 22 27 / 0.85);
+  --topbar-edge: rgb(0 0 0 / 0.4);
+  --backdrop: rgb(6 6 10 / 0.6);
+  --lift: rgb(0 0 0 / 0.6);
+  --wash: #2c3f31;
+  --pet-glow: #3a332b;
+  --pet-ink: #d3c4ab;
+  --pet-btn: rgb(255 255 255 / 0.06);
+  --pet-btn-hover: rgb(255 255 255 / 0.11);
+  --pet-edge: rgb(255 255 255 / 0.14);
+  --shadow: 0 0 0 1px #2a2a33, 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 28px -14px rgb(0 0 0 / 0.55);
+  color-scheme: dark;
+}
+
+:root[data-theme='dark'] [data-tone='peach'] { --tint: #33261f; --tone: #e6ae8a; }
+:root[data-theme='dark'] [data-tone='lavender'] { --tint: #29263a; --tone: #bcb0e8; }
+:root[data-theme='dark'] [data-tone='sky'] { --tint: #1e2a34; --tone: #98bedb; }
+:root[data-theme='dark'] [data-tone='butter'] { --tint: #2f2a1b; --tone: #dcc47a; }
+:root[data-theme='dark'] [data-tone='rose'] { --tint: #33242b; --tone: #e4a3b5; }
+:root[data-theme='dark'] [data-tone='sand'] { --tint: #2b2722; --tone: #cdbda3; }
+
+/* The page colour changes gently when switching. */
+body,
+.card,
+.sections,
+.top {
+  transition: background-color 250ms ease, color 250ms ease;
+}
 
 *,
 *::before,
@@ -159,10 +232,10 @@ code {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgb(255 255 255 / 0.85);
+  background: var(--topbar);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgb(24 24 32 / 0.06);
+  box-shadow: 0 1px 0 var(--topbar-edge);
 }
 
 .top__in {
@@ -227,6 +300,138 @@ code {
   background: var(--card);
   color: var(--ink);
   box-shadow: var(--shadow);
+}
+
+/* Manager mode: a small switch at the end of the top bar. Off, each tab
+ * opens straight on its content: no title, no explainers. */
+.mswitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* The two switches: invisible until the pointer comes near them or a key
+ * reaches them. Touch screens have no pointer, so there they always show. */
+.toggles {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+  padding: 8px 4px 8px 32px;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.toggles:hover,
+.toggles:focus-within {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .toggles {
+    opacity: 1;
+  }
+}
+
+/* Day or night: a small track with a sun and a moon; the knob covers the one not in use. */
+.tswitch {
+  display: inline-flex;
+  padding: 6px 4px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.tswitch__track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 44px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--soft);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--muted);
+}
+
+/* Day shows the sun: the knob rests over the moon, and moves over the sun at night. */
+.tswitch__knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transform: translateX(22px);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 1px 2px var(--lift);
+  transition: transform 220ms ease;
+}
+
+.tswitch[aria-checked='true'] .tswitch__knob {
+  transform: none;
+}
+
+.tswitch:hover .tswitch__track {
+  color: var(--ink);
+}
+
+.mswitch:hover {
+  color: var(--ink);
+}
+
+.mswitch__track {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--line);
+  transition: background-color 200ms ease;
+}
+
+.mswitch__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 1px 2px var(--lift);
+  transition: transform 200ms ease;
+}
+
+.mswitch[aria-checked='true'] .mswitch__track {
+  background: var(--accent);
+}
+
+.mswitch[aria-checked='true'] .mswitch__knob {
+  transform: translateX(14px);
+}
+
+html:not([data-manager]) .explainer {
+  display: none;
+}
+
+/* With no title, the first block sits at the top of the page. */
+.wrap > h1.visually-hidden:first-child + *,
+.wrap > h1.visually-hidden:first-child + * > :first-child {
+  margin-top: 0;
+}
+
+/* Clawd, who climbs onto the sections card, is for manager mode only. */
+html:not([data-manager]) .clawd--perch {
+  display: none;
 }
 
 /* ---------------------------------------------------------------- page */
@@ -318,7 +523,7 @@ code {
 }
 
 .btn:hover {
-  background: #382f52;
+  background: var(--accent-hover);
 }
 
 .btn:active {
@@ -347,7 +552,7 @@ code {
 }
 
 .pill:hover {
-  box-shadow: inset 0 0 0 1.5px #d4d4da;
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
 }
 
 .pill:active {
@@ -367,7 +572,7 @@ code {
   color: var(--ink);
   font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: rgb(29 29 34 / 0.3);
+  text-decoration-color: color-mix(in srgb, var(--ink) 30%, transparent);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 4px;
   cursor: pointer;
@@ -536,12 +741,12 @@ code {
   border-radius: 28px;
   background: var(--card);
   color: var(--ink);
-  box-shadow: 0 24px 64px -16px rgb(24 24 32 / 0.35);
+  box-shadow: 0 24px 64px -16px var(--lift);
   animation: pop 240ms ease-out both;
 }
 
 .sheet::backdrop {
-  background: rgb(24 24 32 / 0.32);
+  background: var(--backdrop);
   backdrop-filter: blur(2px);
 }
 
@@ -734,7 +939,7 @@ code {
   height: 28px;
   border-radius: 9px;
   background: var(--card);
-  box-shadow: inset 0 0 0 2px #d4d4da;
+  box-shadow: inset 0 0 0 2px var(--line-strong);
   color: transparent;
   transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
@@ -742,7 +947,7 @@ code {
 .tickrow[data-on] .tickrow__box {
   background: var(--tone, var(--accent));
   box-shadow: none;
-  color: #fff;
+  color: var(--card);
 }
 
 .tickrow input:focus-visible + .tickrow__box {
@@ -780,6 +985,13 @@ code {
   border-bottom: 1px solid var(--line);
 }
 
+.session__week {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
 .session__focus {
   margin: 0;
   font-size: 1.5rem;
@@ -798,13 +1010,31 @@ code {
   font-size: 1.125rem;
 }
 
-.session__status {
-  margin: 12px 0 0;
+/* The study site's pages for the day: quiet pills that open a new tab. */
+.sitelinks {
+  margin-top: 0;
+  margin-bottom: 16px;
 }
 
-.today__left {
-  margin: 0 0 16px;
-  color: var(--muted);
+.sheet .sitelinks {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.pill--link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.weekcard__name {
+  margin: 4px 0 0;
+}
+
+.session__status {
+  margin: 12px 0 0;
 }
 
 .dayplan {
@@ -862,6 +1092,22 @@ code {
   font-style: italic;
 }
 
+/* A saved note reads as saved text, not as a box still waiting for input. */
+.savednote {
+  margin: 8px 0 0;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: var(--soft);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.savednote__meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
 .today__foot {
   min-height: 2em;
   margin: 16px 0 0;
@@ -909,7 +1155,7 @@ code {
 }
 
 .dot:hover:not(:disabled) {
-  box-shadow: inset 0 0 0 1.5px #d4d4da;
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
 }
 
 .dot:active:not(:disabled) {
@@ -919,13 +1165,13 @@ code {
 .dot:disabled {
   background: transparent;
   box-shadow: inset 0 0 0 1px var(--line);
-  color: #a1a1aa;
+  color: var(--faint);
   cursor: default;
 }
 
 .dot[data-studied] {
   background: var(--green);
-  color: #fff;
+  color: var(--on-green);
 }
 
 .dot[data-planned],
@@ -936,12 +1182,12 @@ code {
   color: var(--plan-ink);
 }
 
-/* Catch-up: the same wash, a little deeper, with a small mark under the date. */
-.dot[data-catchup] {
+/* A long session (2 hours or more): the same wash, a little deeper, with a small mark under the date. */
+.dot[data-long] {
   background: var(--plan-deep);
 }
 
-.dot[data-catchup]::after {
+.dot[data-long]::after {
   content: '';
   position: absolute;
   bottom: 18%;
@@ -953,7 +1199,7 @@ code {
   background: var(--plan-ink);
 }
 
-.dot--small[data-catchup]::after {
+.dot--small[data-long]::after {
   bottom: 12%;
   width: 4px;
   height: 4px;
@@ -988,7 +1234,7 @@ code {
   border-radius: 18px;
   border: 1px solid var(--line);
   background: var(--card);
-  box-shadow: 0 2px 4px rgb(24 24 32 / 0.06), 0 30px 60px -24px rgb(24 24 32 / 0.35);
+  box-shadow: 0 2px 4px var(--topbar-edge), 0 30px 60px -24px var(--lift);
   text-align: left;
   opacity: 0;
   transform: scale(0.72) translateY(8px);
@@ -1130,7 +1376,7 @@ code {
   background: var(--plan);
 }
 
-.key--catchup {
+.key--long {
   background: radial-gradient(circle, var(--plan-ink) 2px, var(--plan-deep) 2.5px);
 }
 
@@ -1154,7 +1400,7 @@ code {
 
 .field__error {
   margin: 4px 0 0;
-  color: #a03d3d;
+  color: var(--danger);
   font-weight: 700;
 }
 
@@ -1188,7 +1434,7 @@ code {
 }
 
 .input[aria-invalid='true'] {
-  box-shadow: inset 0 0 0 2.5px #a03d3d;
+  box-shadow: inset 0 0 0 2.5px var(--danger);
 }
 
 .input--short {
@@ -1296,7 +1542,7 @@ code {
   height: 6px;
   overflow: hidden;
   border-radius: 3px;
-  background: rgb(255 255 255 / 0.75);
+  background: var(--bar-track);
 }
 
 .bar span {
@@ -1305,40 +1551,6 @@ code {
   border-radius: 4px;
   background: var(--tone);
   transition: width 500ms ease;
-}
-
-/* ----------------------------------------------------- recommendations */
-
-.rec .h2 {
-  margin-top: 0;
-}
-
-.recs {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.recs .card + .card {
-  margin-top: 12px;
-}
-
-.recs + .row,
-.card + .row {
-  margin-top: 16px;
-}
-
-.note-sample {
-  margin: 32px 0 0;
-  padding: 12px 16px;
-  border-radius: 14px;
-  background: #fbe3dc;
-  color: #8a3a2a;
-  font-weight: 700;
-}
-
-.note-sample + .recs .card:first-child {
-  margin-top: 12px;
 }
 
 /* --------------------------------------------------------------- clawd */
@@ -1418,7 +1630,7 @@ code {
 
 /* A warm biscuit ground that matches the bear, lighter where it stands. */
 .petcard {
-  background: radial-gradient(ellipse 60% 55% at 50% 58%, #fbf7f1, var(--tint));
+  background: radial-gradient(ellipse 60% 55% at 50% 58%, var(--pet-glow), var(--tint));
 }
 
 .petcard__bear {
@@ -1428,6 +1640,377 @@ code {
 .petcard__line {
   max-width: 28em;
   margin-top: 16px;
+}
+
+/* --------------------------------------------------------------- study */
+
+/* Notes on the left, the open note on the right, like a quiet Notion. */
+.study {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.btn--small {
+  min-height: 40px;
+  padding: 0 18px;
+  font-size: 1rem;
+}
+
+.notes__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.notes__search {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.notes__filter,
+.notes__undo {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.notelist {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notelist li + li {
+  margin-top: 4px;
+}
+
+.notelist__item {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 14px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.notelist__item:hover {
+  background: var(--soft);
+}
+
+.notelist__item[aria-current] {
+  background: var(--soft);
+}
+
+/* Smaller, and up to two lines, so more of a long title shows (Jason, 22 October 2026). */
+.notelist__title {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.notelist__meta,
+.notelist__tags {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.notelist__tags {
+  font-variant-numeric: tabular-nums;
+}
+
+.notepad {
+  margin-top: 0;
+  min-height: 70vh;
+}
+
+.notepad__empty {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: 24px 0;
+}
+
+.notepad__empty .muted {
+  margin: 0;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(70vh - 56px);
+}
+
+/* The menu over highlighted words: one small floating pill. */
+.bubble {
+  z-index: 20;
+  padding: 4px;
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: 0 0 0 1px var(--line), 0 12px 28px -12px var(--lift);
+}
+
+.bubble .tools {
+  margin-left: 0;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2px;
+}
+
+.tool {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tool:hover {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.tool[aria-pressed='true'] {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.bubble__link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bubble__input {
+  width: 260px;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--soft);
+  font-size: 1rem;
+  outline: none;
+}
+
+.editor__state[data-state='unsaved'] {
+  color: var(--warn);
+}
+
+.editor__body {
+  flex: 1;
+}
+
+/* The writing area: no box, just the words. */
+.prose {
+  min-height: 40vh;
+  outline: none;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.prose > * + * {
+  margin-top: 0.75em;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin-bottom: 0;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  margin-bottom: 0;
+  font-family: var(--display);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.prose h1 {
+  margin-top: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.prose h2 {
+  margin-top: 1.4em;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.prose h3 {
+  margin-top: 1.2em;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+/* A picture's corner handles: small white dots, shown on hover or when chosen. */
+.prose [data-resize-wrapper] {
+  display: inline-block;
+  max-width: 100%;
+  line-height: 0;
+}
+
+.prose [data-resize-handle] {
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--card);
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.prose [data-resize-handle='top-left'] { margin: -7px 0 0 -7px; cursor: nwse-resize; }
+.prose [data-resize-handle='top-right'] { margin: -7px -7px 0 0; cursor: nesw-resize; }
+.prose [data-resize-handle='bottom-left'] { margin: 0 0 -7px -7px; cursor: nesw-resize; }
+.prose [data-resize-handle='bottom-right'] { margin: 0 -7px -7px 0; cursor: nwse-resize; }
+
+.prose [data-resize-wrapper]:hover [data-resize-handle],
+.prose .ProseMirror-selectednode [data-resize-handle],
+.prose [data-resize-state='true'] [data-resize-handle] {
+  opacity: 1;
+}
+
+.prose img.ProseMirror-selectednode,
+.prose div[data-youtube-video].ProseMirror-selectednode {
+  outline: 2.5px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.prose div[data-youtube-video] iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 12px;
+}
+
+.prose code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--soft);
+}
+
+.prose p.is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  color: var(--faint);
+  pointer-events: none;
+}
+
+.prose h1.is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  color: var(--faint);
+  pointer-events: none;
+}
+
+.editor__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: 32px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+/* Tags stay quiet: small grey words, a tint only on hover. */
+.notetags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin: 0;
+}
+
+.notetag {
+  padding: 2px 8px;
+  margin-left: -8px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.notetag:hover {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.notetag + .notetag {
+  margin-left: 0;
+}
+
+.notetags__none {
+  color: var(--faint);
+  font-size: 1rem;
+}
+
+.editor__meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+@media (min-width: 960px) {
+  .study {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 9fr);
+    gap: 40px;
+    align-items: start;
+    margin-top: 48px;
+  }
+
+  .notes {
+    position: sticky;
+    top: 104px;
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+  }
+
+  .notepad {
+    padding: 40px 48px;
+  }
 }
 
 /* ---------------------------------------------------------- wide screens */
@@ -1616,25 +2199,6 @@ code {
     font-size: 2.25rem;
   }
 
-  .recs {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 32px;
-  }
-
-  .recs .card {
-    margin-top: 0;
-  }
-
-  .recs .card + .card {
-    margin-top: 0;
-  }
-
-  .rec {
-    padding: 40px;
-  }
-
   .sec__row {
     min-height: 72px;
     padding: 12px 28px;
@@ -1684,9 +2248,19 @@ code {
   .clawd--perch {
     right: 20px;
   }
-  /* Room for him to stand above the stacked card. */
+  /* Room for him to stand above the stacked card, in manager mode. */
   .perch {
     margin-top: 96px;
+  }
+  html:not([data-manager]) .perch {
+    margin-top: 32px;
+  }
+  .toggles {
+    order: 1;
+    padding: 0;
+  }
+  .top nav {
+    order: 2;
   }
   .top__in {
     padding: 12px 16px;
@@ -1772,7 +2346,7 @@ code {
   height: 40px;
   margin: -20px 0 0 -20px;
   border-radius: 50%;
-  background: #cfe3cb;
+  background: var(--wash);
   pointer-events: none;
   animation: dl-wash 1100ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
@@ -1812,7 +2386,7 @@ code {
 
 @keyframes dl-rise {
   from { background-position: 0 0; color: var(--muted); }
-  to { background-position: 0 100%; color: #fff; }
+  to { background-position: 0 100%; color: var(--on-green); }
 }
 
 .dot-ripple {

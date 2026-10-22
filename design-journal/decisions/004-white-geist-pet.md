@@ -3,9 +3,10 @@ id: decision-004-white-geist-pet
 type: decision
 date: 2026-10-18
 topic: interface
+summary: The settled look (full width, Geist font, white, muted section colours) and why the Pet tab with Shortbread was added.
 tags: [layout, type, colour, pet]
 status: accepted
-related: [decision-003-progressive-disclosure-rebuild, logbook-2026-10-18]
+related: [decision-003-progressive-disclosure-rebuild, decision-008-study-rewards, experiment-2026-10-22-shortbread-face-flicker, logbook-2026-10-18]
 ---
 
 # 004 Full width, Geist, white, and a Pet tab

@@ -36,11 +36,11 @@ export function Progress() {
           <p className="ringcard__n">
             {all.n} of {all.of} ticked
           </p>
-          <button type="button" className="link small" aria-expanded={explain} onClick={() => setExplain((e) => !e)}>
+          <button type="button" className="link small explainer" aria-expanded={explain} onClick={() => setExplain((e) => !e)}>
             What does this measure?
           </button>
           {explain && (
-            <p className="muted small reveal">
+            <p className="muted small reveal explainer">
               The share of the course’s milestones you have ticked. Study time does not tick anything, and this is not a
               predicted exam score.
             </p>

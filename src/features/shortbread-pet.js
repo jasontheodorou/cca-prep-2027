@@ -6,15 +6,15 @@ class ShortbreadPet extends HTMLElement{
   const root=this.attachShadow({mode:'open'});
   root.innerHTML=`
   <style>
-  :host{display:block;width:100%;max-width:380px;color:#81735f;color-scheme:light}
+  :host{display:block;width:100%;max-width:380px;color:var(--pet-ink,#81735f);color-scheme:light}
   *{box-sizing:border-box}
   canvas{display:block;width:100%;aspect-ratio:1.18;background:transparent;cursor:grab;touch-action:pan-y;outline:none}
   canvas:active{cursor:grabbing}
   canvas:focus-visible{outline:1px solid #b9ac94;outline-offset:-7px;border-radius:20px}
   .panel{display:flex;gap:6px;justify-content:center;padding:0 8px 8px;max-height:65px;overflow:hidden;opacity:1;transform:translateY(0);transition:opacity .55s ease,transform .55s ease,max-height .55s ease,padding .55s ease}
   .panel[data-used]{opacity:0;transform:translateY(5px);max-height:0;padding-block:0;pointer-events:none}
-  button{appearance:none;display:flex;align-items:center;justify-content:center;gap:6px;min-height:38px;flex:1;max-width:118px;padding:9px 7px;border:1px solid #9b8b682b;border-radius:12px;background:#e9e1d54d;color:#81735f;font:500 11px/1.2 system-ui,-apple-system,sans-serif;cursor:pointer;white-space:nowrap;transition:background .18s,transform .18s}
-  button:hover:not(:disabled){background:#e3dacb88;transform:translateY(-1px)}
+  button{appearance:none;display:flex;align-items:center;justify-content:center;gap:6px;min-height:38px;flex:1;max-width:118px;padding:9px 7px;border:1px solid var(--pet-edge,#9b8b682b);border-radius:12px;background:var(--pet-btn,#e9e1d54d);color:var(--pet-ink,#81735f);font:500 11px/1.2 system-ui,-apple-system,sans-serif;cursor:pointer;white-space:nowrap;transition:background .18s,transform .18s}
+  button:hover:not(:disabled){background:var(--pet-btn-hover,#e3dacb88);transform:translateY(-1px)}
   button:active:not(:disabled){transform:translateY(1px)}
   button:focus-visible{outline:2px solid #b6a387;outline-offset:-3px}
   button:disabled{cursor:default}

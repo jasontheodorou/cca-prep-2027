@@ -36,3 +36,6 @@ data/*
 .shots/
 .dev.log
 *.tsbuildinfo
+
+# Vellum's own working files (snapshots, undo, helper log)
+design-journal/.state/

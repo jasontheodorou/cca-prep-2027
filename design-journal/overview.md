@@ -1,42 +1,57 @@
 ---
 id: overview-cca-prep-2027
 type: overview
-project: cca-prep-2027
+date: 2026-10-22
+summary: One-screen state of the cca-prep site: what it does now, what is open and what to watch out for.
+tags: [overview]
 status: active
-last-updated: 2026-10-21
+related: [decision-006-schedule-in-momentum, decision-007-recommendations-removed, decision-008-study-rewards, logbook-2026-10-22]
 ---
 
 # cca-prep-2027 — Overview
 
-**One-sentence description:** A calm, minimal site, built from sanctum, for Jason's preparation for the Claude Certified Architect – Foundations exam, planned for Friday 26 March 2027 (an assumption, not a booking).
+## What this is
 
-## Current state
+A calm, minimal study site, built from sanctum, for Jason's Claude Certified Architect – Foundations exam. The exam is planned for Saturday 20 March 2027 (not yet booked).
 
-Rebuilt on 18 October 2026 for progressive disclosure (decision 003): five tabs (Course, Momentum, Progress, Recommendations, Pet last). Course holds the exam guide's 30 task statements and 4 exercises in study order. Momentum shows today's planned session from Jason's schedule spreadsheet (Done or Missed; missed work moves to later flexible days, decision 006), logs minutes per day and shows study days in green. Progress counts ticked milestones (the guide's "Skills in" lines, 147 in all). Recommendations shows only what an agent writes to `data/recommendations.json`; none is connected. Data is sanctum's append-only log pattern (`data/study-log.jsonl`, dev server only).
+## Where things stand
 
-## Active goals
+- Five tabs: Course, Progress, Momentum, Notes, Pet. Notes holds notes saved as Markdown in notes/, committed automatically (decision 010). Recommendations was removed on 21 October (decision 007).
+- Momentum shows today's job from the study plan (study-plan.md, imported by scripts/import-plan.py), with links to claudecertificationguide.com, Done and Missed. Missed days are not moved (decision 009).
+- Seven small reward animations play when Jason studies (decision 008).
+- Page titles and explainers are hidden unless manager mode is on. A day-to-night switch gives a soft night mode (decision 011). Both switches fade in only when the pointer is near them.
+- Runs locally at `localhost:3005` (Vellum moved it from 3025). Pushed to GitHub up to commit 739613d; the Recommendations removal is not yet committed.
 
-- Jason to try the schedule in Momentum and react.
-- Jason to decide the Markdown folder, storage and agent connection. Only `src/data/store.ts` and `src/data/recommendations.ts` need to change.
+## Recent sessions
 
-## Key constraints
+- 21–22 Oct: schedule in Momentum, plain words, rewards, Shortbread flicker fix, Recommendations removed, Vercel deploy unblocked.
+- 18 Oct: first build from sanctum, rebuilt for progressive disclosure, restyled white with Geist and a Pet tab.
 
-- Five tabs, Pet last. White, Geist, muted section colours (decision 004). Green means study time only.
-- The official exam guide (v1.0, July 2026, `~/Desktop/cca.pdf`) is the only authority for course content.
-- No backend, auth, external service or agent framework without asking Jason.
-- No guilt: missed days stay plain; no streaks, badges or score predictions.
+## Open questions
 
-## Stakeholders
+- What caused the 404 Jason saw? Needs the address shown in the browser.
+- Does Shortbread's face still flicker after the second fix?
+- Where should the notes folder and study data live? Only `src/data/store.ts` would change.
 
-- Jason Theodorou decides.
+## Next steps
 
-## Stack / environment
+- Commit and push the Recommendations removal.
+- Jason to use the schedule day to day and react.
 
-- Runs on `localhost:3025`
-- Project directory: `/Users/jason.theodorou/projects/cca-prep-2027`
-- Vite, React 19, TypeScript, Mantine, Framer Motion, React Router (as sanctum)
-- Checks: `npm run verify`, `npm run check:flows`
+## Key decisions
 
----
+- 001 Separate app from sanctum, append-only study log
+- 002 Course order and milestones
+- 003 Progressive disclosure
+- 004 White, Geist, Pet tab
+- 006 Schedule in Momentum with catch-up
+- 007 Recommendations removed
+- 008 Small rewards for studying
 
-**Note to Claude:** this file is injected into every session as persistent project memory. Keep it concise — one screen. Update it whenever the project state changes meaningfully (new goal, phase change, stakeholder shift). Don't let it accrete detail; detail belongs in the logbook, decisions, experiments.
+## Watch out for
+
+- Commit as the personal email in this repo, or Vercel blocks the deploy.
+- Study marks only save through the local server; the Vercel copy cannot save them.
+- Name new CSS animations with a unique prefix; a clash blanked the site's text once.
+- No guilt: no streaks, badges, red, or counts of missed days. Green means study time only.
+- The official exam guide (v1.0, July 2026) is the only authority for course content.

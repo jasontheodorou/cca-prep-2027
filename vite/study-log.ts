@@ -7,15 +7,11 @@ import { localIso, newId, replay, validate, type LogEvent } from '../src/data/ev
  * Copied from sanctum's life log.
  *   GET  /api/study            current state, rebuilt from the log
  *   POST /api/study            append one event: { type, ...fields, id?, at? }
- *   GET  /api/recommendations  data/recommendations.json as an agent wrote it,
- *                              or { connected: false } when there is none,
- *                              or { connected: true, error } when it cannot be read
  * Events are appended to data/study-log.jsonl, one JSON object per line, and
  * never rewritten. A deployed (static) site has no API. */
 
 export function studyLog(dir = 'data'): Plugin {
   const log = resolve(dir, 'study-log.jsonl')
-  const recs = resolve(dir, 'recommendations.json')
 
   const read = (): LogEvent[] => {
     if (!existsSync(log)) return []
@@ -39,18 +35,6 @@ export function studyLog(dir = 'data'): Plugin {
   }
 
   const handler: Connect.NextHandleFunction = (req, res, next) => {
-    if (req.url?.startsWith('/api/recommendations')) {
-      if (req.method !== 'GET') return send(res, 405, { error: 'Use GET' })
-      if (!existsSync(recs)) return send(res, 200, { connected: false })
-      try {
-        // Checked again in the browser (src/data/recommendations.ts).
-        return send(res, 200, { connected: true, file: JSON.parse(readFileSync(recs, 'utf8')) })
-      } catch {
-        // Still a 200: the server is fine, the agent's file is not.
-        return send(res, 200, { connected: true, error: 'data/recommendations.json is not valid JSON.' })
-      }
-    }
-
     if (!req.url?.startsWith('/api/study')) return next()
     if (req.method === 'GET') return send(res, 200, { state: replay(read()) })
     if (req.method !== 'POST') return send(res, 405, { error: 'Use GET or POST' })

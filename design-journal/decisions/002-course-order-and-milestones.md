@@ -3,6 +3,7 @@ id: decision-002-course-order-and-milestones
 type: decision
 date: 2026-10-18
 topic: course
+summary: How the exam guide was turned into course units, in what order, and how 147 milestones measure progress.
 tags: [course, disss, progress, exam-guide]
 status: accepted
 related: [decision-001-sanctum-copy-and-study-log, logbook-2026-10-18]

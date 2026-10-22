@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&display=swap" />
 
     <link rel="icon" href="/cc.svg" type="image/svg+xml" />
+    <script>
+      // Day or night before the page draws (src/lib/theme.ts keeps it after).
+      try {
+        var t = localStorage.getItem('cca-prep.theme')
+        if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
 
     <title>exam prep</title>
     <meta name="description" content="Preparation for the Claude Certified Architect – Foundations exam." />

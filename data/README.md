@@ -2,7 +2,7 @@
 
 This folder holds Jason's own study records from the exam prep site. It stays on this machine: everything here except this guide is ignored by git.
 
-It exists so an agent can read it and recommend what to do next. Read the study log; never edit or rewrite it.
+It exists so an agent can read it. Read the study log; never edit or rewrite it.
 
 ## study-log.jsonl
 
@@ -20,25 +20,8 @@ A milestone id is a unit id and a line number: `1.1.2` is the second "able to do
 
 Time logged and milestones ticked are separate on purpose. Time shows effort; ticks show what Jason says he can do. Never infer one from the other.
 
-## recommendations.json (written by the agent)
-
-The Recommendations tab shows this file and nothing else. Without it, the tab says no agent is connected.
-
-```json
-{
-  "agent": "Name of the agent",
-  "generatedAt": "2026-10-20T07:30:00+01:00",
-  "items": [
-    { "action": "One short instruction", "reason": "Why, in a sentence.", "unit": "1.3" }
-  ]
-}
-```
-
-- Only the first three items are shown. Fewer is better.
-- `unit` is optional. When it is a unit id from the course, the tab links to that unit.
-
-## Context for recommendations
+## Context for an agent reading the log
 
 - The exam is planned for Friday 26 March 2027 (an assumption, not a booking). The day-by-day plan is in `src/content/schedule.json`; days marked done or missed are `session.set` events. The exam has 60 items in 120 minutes, across 4 of the 6 scenarios in the guide.
 - Jason is a busy parent with limited energy and childcare commitments. The plan is about an hour each weekday and one longer session of three to four hours a week, with flexibility. He also has two full employer-provided preparation days in total.
-- Missed days are normal. Suggestions should notice what is working, be specific and small, and never frame gaps as failure. Do not predict exam scores or chances of passing.
+- Missed days are normal. Anything written for Jason should notice what is working, be specific and small, and never frame gaps as failure. Do not predict exam scores or chances of passing.

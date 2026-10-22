@@ -55,9 +55,8 @@ export const GUIDE = {
 }
 
 export const EXAM = {
-  /** The planned exam week, from the study schedule: the exam is assumed for
-   * Friday 26 March 2027, in the week starting Monday 22 March. */
-  weekOf: '2027-03-22',
+  /** The planned exam day, from the study plan (22 October 2026). */
+  day: '2027-03-20',
   items: 60,
   format: 'Multiple-choice and multiple-response items. Each item says how many answers to choose.',
   minutes: 120,

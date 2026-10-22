@@ -3,6 +3,7 @@ id: decision-005-how-i-study
 type: decision
 date: 2026-10-18
 topic: routine
+summary: A "How I study" card and seven-step sheet on Course, removed the same day because it felt overcomplicated.
 tags: [routine, method, disss, progressive-disclosure]
 status: superseded
 related: [decision-003-progressive-disclosure-rebuild, decision-004-white-geist-pet, logbook-2026-10-18]

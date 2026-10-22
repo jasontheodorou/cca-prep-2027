@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
-import { Link, NavLink, Route, Routes, useLocation, useSearchParams } from 'react-router-dom'
+import { Link, Navigate, NavLink, Route, Routes, useLocation, useSearchParams } from 'react-router-dom'
 import { TABS } from './pages'
+import { setManagerMode, useManagerMode } from './lib/managerMode'
+import { setTheme, useTheme } from './lib/theme'
 import { UnitSheet } from './components/UnitSheet'
 import { Course } from './features/Course'
 import { Momentum } from './features/Momentum'
 import { Progress } from './features/Progress'
-import { Recommendations } from './features/Recommendations'
+import { Study } from './features/Study'
 import { Pet } from './features/Pet'
 
 /* Five tabs. A course unit opens in a sheet over whichever tab you are on,
@@ -15,6 +17,8 @@ export function App() {
   const [params, setParams] = useSearchParams()
   const unit = params.get('unit')
   const { pathname } = useLocation()
+  const manager = useManagerMode()
+  const theme = useTheme()
 
   useEffect(() => {
     const tab = TABS.find((t) => t.path === pathname) ?? TABS[0]
@@ -32,6 +36,42 @@ export function App() {
             <img className="brand__mark" src="/cc.svg" alt="" width="28" height="28" />
             exam prep
           </Link>
+          {/* Both switches stay hidden until the pointer comes near them (Jason, 22 October 2026). */}
+          <div className="toggles">
+            <button
+              type="button"
+              className="tswitch"
+              role="switch"
+              aria-checked={theme === 'dark'}
+              aria-label="Dark mode"
+              title={theme === 'dark' ? 'Switch to day' : 'Switch to night'}
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            >
+              <span className="tswitch__track" aria-hidden="true">
+                <svg className="tswitch__sun" viewBox="0 0 16 16" width="12" height="12">
+                  <circle cx="8" cy="8" r="3" fill="currentColor" />
+                  <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                </svg>
+                <svg className="tswitch__moon" viewBox="0 0 16 16" width="12" height="12">
+                  <path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1Z" fill="currentColor" />
+                </svg>
+                <span className="tswitch__knob" />
+              </span>
+            </button>
+            <button
+              type="button"
+              className="mswitch"
+              role="switch"
+              aria-checked={manager}
+              aria-label="Manager mode"
+              title="Manager mode: page titles and explainers"
+              onClick={() => setManagerMode(!manager)}
+            >
+              <span className="mswitch__track" aria-hidden="true">
+                <span className="mswitch__knob" />
+              </span>
+            </button>
+          </div>
           <nav aria-label="Main">
             <ul className="tabs">
               {TABS.map((t) => (
@@ -48,8 +88,9 @@ export function App() {
       <Routes>
         <Route path="/" element={<Course />} />
         <Route path="/momentum" element={<Momentum />} />
+        <Route path="/notes" element={<Study />} />
+        <Route path="/study" element={<Navigate to="/notes" replace />} />
         <Route path="/progress" element={<Progress />} />
-        <Route path="/recommendations" element={<Recommendations />} />
         <Route path="/pet" element={<Pet />} />
         <Route path="*" element={<Course />} />
       </Routes>

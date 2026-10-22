@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Checks the core interactions in a real browser: tab navigation, logging,
  * editing, backfilling and removing study time, ticking and unticking
- * milestones, opening course units, and the recommendation states.
+ * milestones and opening course units.
  *
  * It starts its own server on port 3026 with an empty, temporary data folder,
  * so it never touches data/study-log.jsonl.
@@ -11,7 +11,7 @@
 
 import { chromium } from 'playwright'
 import { spawn } from 'node:child_process'
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -22,7 +22,7 @@ const SHOTS = shotsAt > -1 ? process.argv[shotsAt + 1] : null
 const dir = mkdtempSync(join(tmpdir(), 'cca-flows-'))
 
 const server = spawn('npx', ['vite', '--port', String(PORT), '--strictPort'], {
-  env: { ...process.env, STUDY_DATA_DIR: dir },
+  env: { ...process.env, STUDY_DATA_DIR: dir, NOTES_DIR: join(dir, 'notes'), NOTES_COMMIT: 'off' },
   stdio: 'ignore',
 })
 for (let i = 0; i < 60; i++) {
@@ -66,7 +66,7 @@ try {
 
   console.log('\nTabs')
   await page.goto(BASE + '/')
-  for (const [label, path] of [['Momentum', '/momentum'], ['Progress', '/progress'], ['Recommendations', '/recommendations'], ['Pet', '/pet'], ['Course', '/']]) {
+  for (const [label, path] of [['Momentum', '/momentum'], ['Notes', '/notes'], ['Progress', '/progress'], ['Pet', '/pet'], ['Course', '/']]) {
     await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: label }).click()
     await page.waitForURL(BASE + path)
     await page.locator('h1', { hasText: label }).waitFor()
@@ -150,7 +150,7 @@ try {
 
   await page.getByRole('button', { name: 'Show every week to the exam' }).click()
   check((await page.locator('.month').count()) >= 6, 'every month to the exam shows on request')
-  check((await page.locator('.month .dot[data-exam]').count()) === 7, 'the exam week is marked')
+  check((await page.locator('.month .dot[data-exam]').count()) === 1, 'the exam day is marked')
   await page.locator(`.month .dot[aria-label^="${longDay(key(earlier))}"]`).click()
   await page.locator('dialog.sheet').getByRole('textbox', { name: 'Minutes studied' }).fill('')
   await page.locator('dialog.sheet').getByRole('button', { name: 'Save' }).click()
@@ -172,12 +172,12 @@ try {
     await page.getByRole('button', { name: 'Missed', exact: true }).click()
     await page.waitForTimeout(400)
     check((await study()).sessions?.[key(today)] === 'missed', 'Missed marks the session')
-    check(/You will do it on|you owe nothing|no free day/.test(await page.locator('.session__status').textContent()), 'it says where the work went')
+    check(/does not move to another day|optional/.test(await page.locator('.session__status').textContent()), 'it says missed work is not moved')
     await page.getByRole('button', { name: 'Take back' }).click()
     await page.waitForTimeout(400)
     check(!(await study()).sessions?.[key(today)], 'Take back clears the mark')
     await page.getByRole('button', { name: "See all of today's plan" }).click()
-    check(await page.locator('dialog.sheet').getByText('First, do this').isVisible(), 'the whole session opens in a sheet')
+    check(await page.locator('dialog.sheet').getByText('The job', { exact: true }).isVisible(), 'the whole day opens in a sheet')
     await page.locator('.sheet__close').click()
     await page.locator('.sheet__close').waitFor({ state: 'detached' })
     await page.getByRole('button', { name: 'Done', exact: true }).click()
@@ -189,13 +189,35 @@ try {
     console.log('  - no planned session today; session checks skipped')
   }
 
+  console.log('\nNotes')
+  await page.goto(BASE + '/notes')
+  await page.getByRole('button', { name: 'New note' }).first().click()
+  await page.locator('.prose').waitFor()
+  await page.waitForTimeout(300)
+  await page.keyboard.type('Hooks: a PostToolUse hook can block a refund. ')
+  await page.keyboard.press(process.platform === 'darwin' ? 'Meta+b' : 'Control+b')
+  await page.keyboard.type('Code beats prompts')
+  await page.waitForTimeout(1500)
+  const noteFiles = existsSync(join(dir, 'notes')) ? readdirSync(join(dir, 'notes')).filter((f) => f.endsWith('.md')) : []
+  check(noteFiles.length === 1, 'a new note saves itself as a file')
+  const noteText = noteFiles.length ? readFileSync(join(dir, 'notes', noteFiles[0]), 'utf8') : ''
+  check(/\*\*Code beats prompts\*\*/.test(noteText), 'bold is kept in the file')
+  check(/^tags: \[.*1\.5.*\]$/m.test(noteText), 'the note is tagged with the exam topic it covers')
+  check(await page.locator('.notetag').first().isVisible(), 'the tag shows on the note')
+  await page.reload()
+  check((await page.locator('.prose strong').textContent()) === 'Code beats prompts', 'the note comes back after a reload')
+
   console.log('\nProgress')
   await page.goto(BASE + '/progress')
   check((await page.locator('.ringcard__n').textContent()).startsWith('1 of 147'), 'the ring counts the one tick')
   check((await page.locator('.unitrow').count()) === 0, 'no unit lists at first')
+  check(!(await page.getByRole('button', { name: 'What does this measure?' }).isVisible()), 'explainers are hidden outside manager mode')
+  await page.getByRole('switch', { name: 'Manager mode' }).click()
+  check(await page.locator('.head .h1').isVisible(), 'manager mode shows the page title')
   check(!(await page.getByText('not a predicted exam score').count()), 'the explanation waits behind a link')
   await page.getByRole('button', { name: 'What does this measure?' }).click()
   check(await page.getByText('not a predicted exam score').isVisible(), 'and shows when asked')
+  await page.getByRole('switch', { name: 'Manager mode' }).click()
   await page.locator('.sec__row').first().click()
   check((await page.locator('.unitrow').count()) === 6, 'a section opens to its units')
   await shot(page, 'progress')
@@ -208,42 +230,9 @@ try {
   await page.locator('dialog.sheet').waitFor({ state: 'detached' })
   check((await page.locator('.ringcard__n').textContent()).startsWith('0 of 147'), 'the ring goes back to 0')
 
-  console.log('\nRecommendations')
-  await page.goto(BASE + '/recommendations')
-  await page.locator('.rec .h2').waitFor()
-  check((await page.locator('.rec .h2').textContent()) === 'No agent connected yet', 'with no file it says no agent is connected')
-  await shot(page, 'rec-none')
-  writeFileSync(join(dir, 'recommendations.json'), '{ not json')
-  await page.getByRole('button', { name: 'Check again' }).click()
-  await page.getByText('could not be read').waitFor()
-  check(true, 'a broken file shows the error state')
-  writeFileSync(
-    join(dir, 'recommendations.json'),
-    JSON.stringify({
-      agent: 'Test agent',
-      generatedAt: '2026-10-18T09:00:00+01:00',
-      items: [
-        { action: 'One', reason: 'Because one.', unit: '1.1' },
-        { action: 'Two', reason: 'Because two.' },
-        { action: 'Three', reason: 'Because three.' },
-        { action: 'Four', reason: 'Because four.' },
-      ],
-    }),
-  )
-  await page.getByRole('button', { name: 'Try again' }).click()
-  await page.locator('.recs .card').first().waitFor()
-  check((await page.locator('.recs .card').count()) === 1, 'one suggestion shows first')
-  await page.getByRole('button', { name: 'Show 2 more' }).click()
-  check((await page.locator('.recs .card').count()) === 3, 'then at most three')
-  await page.getByRole('button', { name: 'Open The agentic loop' }).click()
-  check(page.url().includes('unit=1.1'), 'a suggestion can open its unit')
-  await page.keyboard.press('Escape')
-  await page.goto(BASE + '/recommendations?preview=sample')
-  check(await page.locator('.note-sample').isVisible(), 'the design sample is labelled as not advice')
-
   console.log('\nPhone')
   const phone = await open({ width: 390, height: 844 })
-  for (const path of ['/', '/momentum', '/progress', '/recommendations', '/pet']) {
+  for (const path of ['/', '/momentum', '/notes', '/progress', '/pet']) {
     await phone.goto(BASE + path)
     const wide = await phone.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)
     check(!wide, `no sideways scroll on a phone at ${path}`)

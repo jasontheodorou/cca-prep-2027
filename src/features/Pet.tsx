@@ -12,7 +12,7 @@ export function Pet() {
       <Head title="Pet" line="This is Shortbread, a small bear who keeps you company." />
       <section className="card card--tone petcard" data-tone="sand" aria-label="Shortbread">
         <div className="petcard__bear">{createElement('shortbread-pet', { 'storage-key': 'cca-prep.pet' })}</div>
-        <p className="muted petcard__line">Once a day you can give a treat, share some study time or pet them on the head.</p>
+        <p className="muted petcard__line explainer">Once a day you can give a treat, share some study time or pet them on the head.</p>
       </section>
     </main>
   )

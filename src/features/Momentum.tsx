@@ -1,34 +1,49 @@
-import { useMemo, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { DrawnTick, Peek, stillMotion, useCountUp } from '../components/Delight'
 import { Head } from '../components/Head'
 import { Sheet } from '../components/Sheet'
-import { EXAM } from '../content/course'
 import type { Effort } from '../data/events'
 import { logEffort, setSession, useStudy } from '../data/store'
 import { readRaw, writeRaw } from '../lib/storage'
 import { dayKey, duration, longDay, mondayOf, parseDay } from '../lib/dates'
-import { hasWork, plan, SCHEDULE, total, type PlannedDay } from '../lib/schedule'
+import { EXAM_DAY, hasWork, isBuild, isLesson, isOptional, sessionOn, startsWithCards, type Session } from '../lib/schedule'
 import { useNow } from '../lib/useNow'
 
-/* Momentum: today first, with today's planned session (Done or Missed) and
- * one-tap time. Then this week as seven dots, green where study was logged
- * and ringed where a session is planned. Every other week waits behind a
- * button. Any past day opens a small sheet to fill in or change. Missed
- * sessions move to later flexible days (src/lib/schedule.ts). Days with
- * nothing logged are plain: no warnings, no streaks. */
+/* Momentum: today first, with today's job from the study plan (Done or
+ * Missed) and one-tap time. Then this week as seven dots, green where study
+ * was logged and washed where study is planned. Every other week waits
+ * behind a button. Any past day opens a small sheet to fill in or change.
+ * Missed days are not moved anywhere, as the plan says. Days with nothing
+ * logged are plain: no warnings, no streaks. */
 
 const ADD = [15, 30, 60]
 const SET = [15, 30, 60, 120]
 const short = (m: number) => duration(m).replace(' minutes', ' min').replace(' minute', ' min')
+
+/** "21 October at 10:42", from a record's ISO time. */
+const savedAt = (iso: string) => {
+  const d = new Date(iso)
+  return `${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long' })} at ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`
+}
 /** "Thursday 5 November" */
 const dayName = (k: string) => parseDay(k).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }).replace(',', '')
-const list = (items: string[]) => (items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`)
 
-type Plan = ReturnType<typeof plan>
-
-/** Optional days: they never hold back the week's ripple. */
-const OPTIONAL = new Set(['Flexible', 'Optional buffer'])
+/** How long the day is, in the plan's own terms. */
+function length(s: Session) {
+  switch (s.kind) {
+    case 'Long block':
+      return '2-hour block'
+    case 'Half-day':
+      return 'Half-day, about 3½ hours'
+    case 'Full day':
+      return 'Full day off work'
+    case 'Optional':
+      return `Optional, ${duration(s.minutes)}`
+    default:
+      return duration(s.minutes)
+  }
+}
 
 export function Momentum() {
   const { state } = useStudy()
@@ -39,39 +54,42 @@ export function Momentum() {
   const [undo, setUndo] = useState<{ minutes: number; note: string; added: number } | null>(null)
   const [all, setAll] = useState(false)
   const [reading, setReading] = useState<string | null>(null)
-  // A day ahead opens its session; today and earlier days open the day sheet.
+  // A day ahead opens its plan; today and earlier days open the day sheet.
   const pick = (k: string) => (k > today ? setReading(k) : setEditing(k))
-  const marks = useMemo(() => state.sessions ?? {}, [state.sessions])
-  const planned = useMemo(() => plan(marks, today), [marks, today])
-  const session = planned.days.get(today)
+  const marks = state.sessions ?? {}
+  const session = sessionOn(today)
 
   // Rewards (src/components/Delight.tsx): each is a key that plays its
   // animation once when it changes.
   const todayRef = useRef<HTMLElement>(null)
   const [wash, setWash] = useState<{ id: number; x: number; y: number } | null>(null)
   const [fresh, setFresh] = useState<{ k: string; id: number } | null>(null)
-  const [cleared, setCleared] = useState<{ k: string; id: number } | null>(null)
   const [peek, setPeek] = useState<number | null>(null)
   const [wave, setWave] = useState<number | null>(null)
   const shown = useCountUp(entry?.minutes ?? 0)
 
-  /** A session marked done: the card's wash, the missed-work dot floating
-   * away, Shortbread's peek, and the week's ripple when it completes it. */
+  const week = Array.from({ length: 7 }, (_, i) => {
+    const d = mondayOf(now)
+    d.setDate(d.getDate() + i)
+    return dayKey(d)
+  })
+  const weekMinutes = week.reduce((t, k) => t + (state.effort[k]?.minutes ?? 0), 0)
+
+  /** A day marked done: the card's wash, Shortbread's peek, and the week's
+   * ripple the first time it completes every study day in its week. */
   const celebrateDone = (day: string, from?: DOMRect) => {
     const id = Date.now()
     const card = todayRef.current?.getBoundingClientRect()
     if (from && card) setWash({ id, x: from.left + from.width / 2 - card.left, y: from.top + from.height / 2 - card.top })
-    if (total(planned.days.get(day)?.catchUp ?? []) > 0) setCleared({ k: day, id })
     if (!stillMotion()) setPeek(id)
-    // The week ripples once, the first time every main session in it is done.
     const monday = dayKey(mondayOf(parseDay(day)))
     const after = { ...marks, [day]: 'done' as const }
     const days = Array.from({ length: 7 }, (_, i) => {
       const d = parseDay(monday)
       d.setDate(d.getDate() + i)
-      return planned.days.get(dayKey(d))
+      return sessionOn(dayKey(d))
     })
-    const owed = days.filter((d) => d && ((d.minutes > 0 && !OPTIONAL.has(d.kind)) || d.catchUp.length > 0))
+    const owed = days.filter((d) => hasWork(d) && !isOptional(d))
     const key = `cca-prep.week-done.${monday}`
     if (owed.length && owed.every((d) => after[d!.day] === 'done') && !readRaw(key, 'week ripple')) {
       writeRaw(key, '1', 'week ripple')
@@ -85,117 +103,107 @@ export function Momentum() {
     setFresh({ k: today, id: Date.now() })
   }
 
-  const week = Array.from({ length: 7 }, (_, i) => {
-    const d = mondayOf(now)
-    d.setDate(d.getDate() + i)
-    return dayKey(d)
-  })
-  const weekMinutes = week.reduce((t, k) => t + (state.effort[k]?.minutes ?? 0), 0)
-
   return (
     <main id="main" className="wrap">
       <Head title="Momentum" line="Any amount counts." />
 
       <div className="mo-top">
-      <section ref={todayRef} className="card today" data-studied={entry ? true : undefined} aria-labelledby="today">
-        {wash && <span key={wash.id} className="today__wash" style={{ left: wash.x, top: wash.y }} aria-hidden="true" />}
-        <p className="eyebrow" id="today">
-          Today
-        </p>
-        {session && hasWork(session) && (
-          <TodaySession
-            p={session}
-            mark={marks[today]}
-            entry={entry}
-            onRead={() => setReading(today)}
-            onDone={(from) => {
-              celebrateDone(today, from)
-              setFresh({ k: today, id: Date.now() })
-            }}
-          />
-        )}
-        {planned.leftOver.length > 0 && (
-          <p className="today__left">
-            {duration(total(planned.leftOver))} of missed work has no free day before the exam. Think about moving the exam. Do not cram.
+        <section ref={todayRef} className="card today" data-studied={entry ? true : undefined} aria-labelledby="today">
+          {wash && <span key={wash.id} className="today__wash" style={{ left: wash.x, top: wash.y }} aria-hidden="true" />}
+          <p className="eyebrow" id="today">
+            Today
           </p>
-        )}
-        <p className="today__n">{entry ? short(shown || entry.minutes) : 'Nothing logged yet'}</p>
-        {entry?.note && <p className="today__note">“{entry.note}”</p>}
-        <div className="row">
-          {ADD.map((m) => (
-            <button key={m} type="button" className="pill" onClick={() => add(m)}>
-              + {short(m)}
-            </button>
-          ))}
-        </div>
-        <p className="today__foot" role="status">
-          {undo ? (
-            <>
-              Added {short(undo.added)}.{' '}
-              <button
-                type="button"
-                className="link"
-                onClick={() => {
-                  logEffort(today, undo.minutes, undo.note)
-                  setUndo(null)
-                }}
-              >
-                Undo
-              </button>
-            </>
-          ) : (
-            <button type="button" className="link small" onClick={() => setEditing(today)}>
-              {entry ? 'Change time or add a note' : 'Enter a different time'}
-            </button>
+          {session && hasWork(session) && (
+            <TodaySession
+              s={session}
+              mark={marks[today]}
+              entry={entry}
+              onRead={() => setReading(today)}
+              onDone={(from) => {
+                celebrateDone(today, from)
+                setFresh({ k: today, id: Date.now() })
+              }}
+            />
           )}
-        </p>
-      </section>
+          {session && !hasWork(session) && (
+            <div className="session">
+              <p className="session__week">{session.week}</p>
+              <h2 className="session__focus">{session.title}</h2>
+              <p className="session__start">{session.task}</p>
+            </div>
+          )}
+          <p className="today__n">{entry ? short(shown || entry.minutes) : 'Nothing logged yet'}</p>
+          {entry?.note && <p className="today__note">“{entry.note}”</p>}
+          <div className="row">
+            {ADD.map((m) => (
+              <button key={m} type="button" className="pill" onClick={() => add(m)}>
+                + {short(m)}
+              </button>
+            ))}
+          </div>
+          <p className="today__foot" role="status">
+            {undo ? (
+              <>
+                Added {short(undo.added)}.{' '}
+                <button
+                  type="button"
+                  className="link"
+                  onClick={() => {
+                    logEffort(today, undo.minutes, undo.note)
+                    setUndo(null)
+                  }}
+                >
+                  Undo
+                </button>
+              </>
+            ) : (
+              <button type="button" className="link small" onClick={() => setEditing(today)}>
+                {entry ? 'Change time or add a note' : 'Enter a different time'}
+              </button>
+            )}
+          </p>
+        </section>
 
-      <section className="card weekcard" aria-labelledby="week">
-        <div className="block__head">
-          <h2 className="h3" id="week">
-            This week
-          </h2>
-          {weekMinutes > 0 && <p className="muted small">{duration(weekMinutes)}</p>}
-        </div>
-        <ul className="week" key={wave ?? 'week'} data-wave={wave ? true : undefined}>
-          {week.map((k) => {
-            const e = state.effort[k]
-            const future = k > today
-            const d = parseDay(k)
-            return (
+        <section className="card weekcard" aria-labelledby="week">
+          <div className="block__head">
+            <h2 className="h3" id="week">
+              This week
+            </h2>
+            {weekMinutes > 0 && <p className="muted small">{duration(weekMinutes)}</p>}
+          </div>
+          {sessionOn(week[0])?.week && <p className="muted small weekcard__name">{sessionOn(week[0])!.week}</p>}
+          <ul className="week" key={wave ?? 'week'} data-wave={wave ? true : undefined}>
+            {week.map((k) => (
               <li key={k}>
                 <DayDot
                   k={k}
-                  e={e}
-                  p={planned.days.get(k)}
+                  e={state.effort[k]}
+                  s={sessionOn(k)}
                   mark={marks[k]}
                   today={today}
-                  disabled={future}
+                  disabled={k > today}
                   onPick={pick}
                   fresh={fresh?.k === k ? fresh.id : undefined}
-                  cleared={cleared?.k === k ? cleared.id : undefined}
                 />
                 <span className="week__wd" aria-hidden="true">
-                  {d.toLocaleDateString('en-GB', { weekday: 'narrow' })}
+                  {parseDay(k).toLocaleDateString('en-GB', { weekday: 'narrow' })}
                 </span>
               </li>
-            )
-          })}
-        </ul>
-        <button type="button" className="link small" aria-expanded={all} onClick={() => setAll((a) => !a)}>
-          {all ? 'Hide other weeks' : 'Show every week to the exam'}
-        </button>
-      </section>
+            ))}
+          </ul>
+          <button type="button" className="link small" aria-expanded={all} onClick={() => setAll((a) => !a)}>
+            {all ? 'Hide other weeks' : 'Show every week to the exam'}
+          </button>
+        </section>
       </div>
-      {all && <Months effort={state.effort} planned={planned} marks={marks} today={today} onPick={pick} />}
+      {all && <Months effort={state.effort} marks={marks} today={today} onPick={pick} />}
 
       {editing && (
         <DaySheet
           key={editing}
           day={editing}
           entry={state.effort[editing]}
-          p={planned.days.get(editing)}
+          s={sessionOn(editing)}
           mark={marks[editing]}
           onRead={() => setReading(editing)}
           onDone={() => celebrateDone(editing)}
@@ -203,7 +211,7 @@ export function Momentum() {
         />
       )}
       {peek && <Peek id={peek} onDone={() => setPeek(null)} />}
-      {reading && planned.days.get(reading) && <SessionSheet p={planned.days.get(reading)!} onClose={() => setReading(null)} />}
+      {reading && sessionOn(reading) && <SessionSheet s={sessionOn(reading)!} onClose={() => setReading(null)} />}
     </main>
   )
 }
@@ -211,18 +219,17 @@ export function Momentum() {
 function DayDot({
   k,
   e,
-  p,
+  s,
   mark,
   today,
   disabled,
   onPick,
   small,
   fresh,
-  cleared,
 }: {
   k: string
   e?: Effort
-  p?: PlannedDay
+  s?: Session
   mark?: 'done' | 'missed'
   today: string
   disabled?: boolean
@@ -230,19 +237,15 @@ function DayDot({
   small?: boolean
   /** Changes when time was just logged: the dot fills up and ripples. */
   fresh?: number
-  /** Changes when this day's missed work was just done: its mark floats away. */
-  cleared?: number
 }) {
-  const work = p && hasWork(p) && !mark
-  const extra = p ? total(p.catchUp) : 0
-  const ahead = work && k >= today
+  const work = hasWork(s) && !mark
+  const ahead = !!s && k >= today && (work || s.kind === 'Exam')
   const label =
     `${longDay(k)}${e ? `, ${duration(e.minutes)}` : ''}${k === today ? ', today' : ''}` +
-    (work ? `, planned: ${p.focus}, ${duration(p.minutes + extra)}` : '') +
-    (work && extra ? `, including ${duration(extra)} you missed` : '') +
-    (mark === 'missed' ? ', missed' : '')
-  const day = parseDay(k).getDate()
-  const exam = k >= EXAM.weekOf && k <= dayKey(new Date(parseDay(EXAM.weekOf).getTime() + 6 * 86_400_000))
+    (work ? `, planned: ${s!.title}, ${length(s!)}` : '') +
+    (s && !hasWork(s) && s.kind !== 'Exam' ? `, ${s.title.toLowerCase()}` : '') +
+    (mark === 'missed' ? ', missed' : '') +
+    (k === EXAM_DAY ? ', exam day' : '')
   return (
     <span className="dotcell" data-col={(parseDay(k).getDay() + 6) % 7}>
       <button
@@ -252,53 +255,49 @@ function DayDot({
         data-fresh={fresh ? true : undefined}
         data-studied={e ? true : undefined}
         data-today={k === today || undefined}
-        data-exam={exam || undefined}
+        data-exam={k === EXAM_DAY || undefined}
         data-planned={work || undefined}
-        data-catchup={(work && extra > 0) || undefined}
-        // A planned day ahead opens its session; other days ahead have nothing to open.
+        data-long={(work && s!.minutes >= 120) || undefined}
+        // A planned day ahead opens its plan; other days ahead have nothing to open.
         disabled={disabled && !ahead}
         aria-label={label}
         onClick={() => onPick(k)}
       >
-        {day}
+        {parseDay(k).getDate()}
       </button>
-      {ahead && <SessionPop p={p} />}
+      {ahead && <SessionPop s={s!} />}
       {fresh && <span key={`r${fresh}`} className="dot-ripple" aria-hidden="true" />}
-      {cleared && <span key={`c${cleared}`} className="dot-float" aria-hidden="true" />}
     </span>
   )
 }
 
 /* The popped day, borrowed from sanctum's calendar: on hover or focus a card
- * lifts off the page over a planned day ahead and shows what the session
- * holds. Hidden from assistive tech, which has the same facts in the label. */
-function SessionPop({ p }: { p: PlannedDay }) {
-  const extra = total(p.catchUp)
+ * lifts off the page over a planned day ahead and shows what the day holds.
+ * Hidden from assistive tech, which has the same facts in the label. */
+function SessionPop({ s }: { s: Session }) {
   return (
     <span className="pop" aria-hidden="true">
       <span className="pop__day">
-        {parseDay(p.day).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })}, {duration(p.minutes + extra)}
+        {parseDay(s.day).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })}, {length(s).toLowerCase()}
       </span>
-      <span className="pop__focus">{p.focus}</span>
-      <span className="pop__start">{p.start}</span>
+      <span className="pop__focus">{s.title}</span>
+      <span className="pop__start">{s.week}</span>
     </span>
   )
 }
 
 function Months({
   effort,
-  planned,
   marks,
   today,
   onPick,
 }: {
   effort: Record<string, Effort>
-  planned: Plan
   marks: Record<string, 'done' | 'missed'>
   today: string
   onPick: (k: string) => void
 }) {
-  const end = parseDay(EXAM.weekOf)
+  const end = parseDay(EXAM_DAY)
   const first = Object.keys(effort).sort()[0]
   const start = parseDay(first && first < '2026-10-01' ? first : '2026-10-01')
   const months: Date[] = []
@@ -319,9 +318,7 @@ function Months({
               ))}
               {Array.from({ length: count }, (_, i) => {
                 const k = dayKey(new Date(m.getFullYear(), m.getMonth(), i + 1))
-                return (
-                  <DayDot key={k} k={k} e={effort[k]} p={planned.days.get(k)} mark={marks[k]} today={today} disabled={k > today} onPick={onPick} small />
-                )
+                return <DayDot key={k} k={k} e={effort[k]} s={sessionOn(k)} mark={marks[k]} today={today} disabled={k > today} onPick={onPick} small />
               })}
             </div>
           </section>
@@ -331,8 +328,8 @@ function Months({
         {[
           ['green', 'Study logged'],
           ['planned', 'Study planned'],
-          ['catchup', 'Has missed work added'],
-          ['exam', 'Planned exam week'],
+          ['long', 'Long session: 2 hours or more'],
+          ['exam', 'Exam day'],
         ].map(([k, text]) => (
           <span key={k} className="legend">
             <span className={`key key--${k}`} aria-hidden="true" /> {text}
@@ -346,7 +343,7 @@ function Months({
 function DaySheet({
   day,
   entry,
-  p,
+  s,
   mark,
   onRead,
   onDone,
@@ -354,16 +351,17 @@ function DaySheet({
 }: {
   day: string
   entry?: Effort
-  p?: PlannedDay
+  s?: Session
   mark?: 'done' | 'missed'
   onRead: () => void
-  /** Called when the day's session is marked done here. */
+  /** Called when the day is marked done here. */
   onDone: () => void
   onClose: () => void
 }) {
   const [minutes, setMinutes] = useState(entry ? String(entry.minutes) : '')
   const [note, setNote] = useState(entry?.note ?? '')
-  const [showNote, setShowNote] = useState(!!entry?.note)
+  // A saved note shows as saved text; the box only opens to add or edit one.
+  const [showNote, setShowNote] = useState(false)
   const [error, setError] = useState('')
 
   const save = () => {
@@ -379,15 +377,15 @@ function DaySheet({
   return (
     <Sheet label={longDay(day)} onClose={onClose}>
       <h2 className="h2">{longDay(day)}</h2>
-      {p && (hasWork(p) || mark) && (
+      {s && (hasWork(s) || mark) && (
         <div className="dayplan">
           <p className="dayplan__what">
-            Planned: {p.focus}, {duration(p.minutes + total(p.catchUp))}.{' '}
+            Planned: {s.title}, {length(s).toLowerCase()}.{' '}
             <button type="button" className="link small" onClick={onRead}>
               See the plan
             </button>
           </p>
-          <div className="row" role="group" aria-label="Planned session">
+          <div className="row" role="group" aria-label="Planned study">
             {(['done', 'missed', 'none'] as const).map((st) => (
               <button
                 key={st}
@@ -397,7 +395,7 @@ function DaySheet({
                 onClick={() => {
                   if (st === 'done' && mark !== 'done') onDone()
                   setSession(day, st)
-                  if (st === 'done' && !minutes) setMinutes(String(p.minutes + total(p.catchUp)))
+                  if (st === 'done' && !minutes) setMinutes(String(s.minutes))
                 }}
               >
                 {st === 'done' ? 'Done' : st === 'missed' ? 'Missed' : 'Not marked'}
@@ -445,7 +443,18 @@ function DaySheet({
             <label className="field__label" htmlFor="note">
               Note
             </label>
-            <textarea id="note" className="input" rows={2} maxLength={1000} value={note} onChange={(e) => setNote(e.target.value)} />
+            <textarea id="note" className="input" rows={4} maxLength={1000} value={note} onChange={(e) => setNote(e.target.value)} />
+          </>
+        ) : entry?.note ? (
+          <>
+            <p className="field__label">Note</p>
+            <p className="savednote">{entry.note}</p>
+            <p className="savednote__meta">
+              Saved {savedAt(entry.at)}.{' '}
+              <button type="button" className="link small" onClick={() => setShowNote(true)}>
+                Edit note
+              </button>
+            </p>
           </>
         ) : (
           <button type="button" className="link small" onClick={() => setShowNote(true)}>
@@ -475,31 +484,47 @@ function DaySheet({
   )
 }
 
-/** Today's planned session: what to start with, then Done or Missed. */
+/** The study site's pages for the day, opened in a new tab. */
+function SiteLinks({ s }: { s: Session }) {
+  if (!s.links.length) return null
+  return (
+    <div className="row sitelinks">
+      {s.links.map((l) => (
+        <a key={l.href} className="pill pill--link" href={l.href} target="_blank" rel="noreferrer">
+          {l.label}
+          <span className="visually-hidden"> (opens in a new tab)</span>
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+            <path d="M6 3h7v7M13 3L4 12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
+      ))}
+    </div>
+  )
+}
+
+/** Today's job from the plan, then Done or Missed. */
 function TodaySession({
-  p,
+  s,
   mark,
   entry,
   onRead,
   onDone,
 }: {
-  p: PlannedDay
+  s: Session
   mark?: 'done' | 'missed'
   entry?: Effort
   onRead: () => void
   /** Called with the Done button's place, for the card's wash. */
   onDone: (from: DOMRect) => void
 }) {
-  const today = p.day
-  const extra = total(p.catchUp)
-  const all = p.minutes + extra
+  const today = s.day
   // Time logged before Done, so taking Done back can restore it.
   const [before, setBefore] = useState<Effort | null | undefined>(undefined)
 
   const done = (from: DOMRect) => {
     onDone(from)
     setBefore(entry ?? null)
-    if ((entry?.minutes ?? 0) < all) logEffort(today, all, entry?.note ?? '')
+    if ((entry?.minutes ?? 0) < s.minutes) logEffort(today, s.minutes, entry?.note ?? '')
     setSession(today, 'done')
   }
   const takeBack = () => {
@@ -510,10 +535,11 @@ function TodaySession({
 
   return (
     <div className="session">
-      <h2 className="session__focus">{p.focus}</h2>
+      <p className="session__week">{s.week}</p>
+      <h2 className="session__focus">{s.title}</h2>
       <p className="session__meta">
-        {p.minutes ? `${p.label} (${duration(p.minutes)})` : p.label}
-        {extra > 0 && `, plus ${duration(extra)} you missed on ${list(p.catchUp.map((m) => dayName(m.from)))}`}
+        {length(s)}
+        {startsWithCards(s) && '. Start with 10 minutes of flashcards'}
       </p>
       {mark ? (
         <p className="session__status" role="status">
@@ -521,8 +547,10 @@ function TodaySession({
             <span className="session__done">
               <DrawnTick /> Done.
             </span>
+          ) : isOptional(s) ? (
+            'Skipped. It was optional.'
           ) : (
-            `Missed. ${movedText(p)}`
+            'Missed. It does not move to another day. Carry on with the plan as it is.'
           )}{' '}
           <button type="button" className="link" onClick={takeBack}>
             Take back
@@ -530,7 +558,8 @@ function TodaySession({
         </p>
       ) : (
         <>
-          <p className="session__start">{p.start}</p>
+          {s.task && <p className="session__start">{s.task}</p>}
+          <SiteLinks s={s} />
           <div className="row">
             <button type="button" className="btn" onClick={(e) => done(e.currentTarget.getBoundingClientRect())}>
               Done
@@ -548,53 +577,45 @@ function TodaySession({
   )
 }
 
-function movedText(p: PlannedDay) {
-  if (p.movedTo.length) return `You will do it on ${list(p.movedTo.map((m) => dayName(m.to)))}.`
-  if (p.kind === 'Flexible' && !p.catchUp.length) return 'This hour was a choice, so you owe nothing.'
-  return 'There is no free day left for it before the exam.'
-}
-
-/** Everything the schedule says about one day. */
-function SessionSheet({ p, onClose }: { p: PlannedDay; onClose: () => void }) {
-  const units = p.objectives.split(/[,;]\s*/).filter((o) => /^\d\.\d$/.test(o.trim()))
-  const parts: [string, string][] = [
-    ['First, do this', p.start],
-    ['Warm up', p.recall],
-    ["Today's job", p.task],
-    ['How to do it', p.how],
-    ['Short on time?', p.minimum],
-    ['Write it down', p.evidence],
+/** Everything the plan says about one day, with the plan's standing rules
+ * that apply to it. */
+function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
+  const friday = parseDay(s.day).getDay() === 5 && s.kind === 'Daily'
+  const rows: [string, React.ReactNode][] = [
+    ['First', startsWithCards(s) ? '10 minutes of flashcards. Every day, without fail.' : ''],
+    ['The job', s.task ? `${s.title}. ${s.task}` : s.title],
+    ['The sandbox step', s.build ? `${s.build}.` : ''],
+    [
+      'Exam topics',
+      s.units.length
+        ? s.units.map((u, i) => (
+            <span key={u}>
+              {i > 0 && ', '}
+              <Link className="link" to={`/?unit=${u}`}>
+                {u}
+              </Link>
+            </span>
+          ))
+        : '',
+    ],
+    [
+      'Working a lesson',
+      isLesson(s)
+        ? 'Read What You Need to Know once, properly. Do the Concept Check straight away; if it goes badly, read again. Read the Exam Traps. Answer the Practice Scenario before revealing it, and say out loud why the other three are wrong. Leave the Build Exercise for Saturday. Tick Mark Complete.'
+        : '',
+    ],
+    ['Afterwards', isBuild(s) ? 'Write three sentences in NOTES.md saying what surprised you. It takes two minutes.' : ''],
+    ['If a day has to go', friday ? 'Make it this one. Never the Saturday block, and never the flashcards.' : ''],
   ]
-  // One screen, no scrolling (Jason, 21 October 2026): a wide sheet with the
-  // labels beside the text, and the exam topics in the opening line.
   return (
-    <Sheet label={p.focus} wide onClose={onClose}>
-      <h2 className="h2">{p.focus}</h2>
+    <Sheet label={s.title} wide onClose={onClose}>
+      <h2 className="h2">{s.title}</h2>
       <p className="sheet__lead">
-        {dayName(p.day)}. {p.label}
-        {p.minutes ? ` (${duration(p.minutes)})` : ''}. Exam topics:{' '}
-        {units.length
-          ? units.map((u, i) => (
-              <span key={u}>
-                {i > 0 && ', '}
-                <Link to={`/?unit=${u.trim()}`}>{u.trim()}</Link>
-              </span>
-            ))
-          : p.objectives.toLowerCase()}
-        .
+        {dayName(s.day)}. {s.week}. {length(s)}.
       </p>
+      <SiteLinks s={s} />
       <dl className="plan">
-        {p.catchUp.length > 0 && (
-          <div className="plan__row">
-            <dt>Work you missed</dt>
-            <dd>
-              {p.catchUp.map((m) => (
-                <CatchUp key={m.from} m={m} />
-              ))}
-            </dd>
-          </div>
-        )}
-        {parts
+        {rows
           .filter(([, text]) => text)
           .map(([title, text]) => (
             <div key={title} className="plan__row">
@@ -604,15 +625,5 @@ function SessionSheet({ p, onClose }: { p: PlannedDay; onClose: () => void }) {
           ))}
       </dl>
     </Sheet>
-  )
-}
-
-function CatchUp({ m }: { m: { from: string; minutes: number } }) {
-  const from = SCHEDULE.find((s) => s.day === m.from)
-  return (
-    <p>
-      {duration(m.minutes)} from {dayName(m.from)}
-      {from ? `: ${from.focus}. ${from.task}` : '.'}
-    </p>
   )
 }

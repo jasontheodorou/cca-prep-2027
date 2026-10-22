@@ -3,9 +3,10 @@ id: decision-006-schedule-in-momentum
 type: decision
 date: 2026-10-21
 topic: schedule
-tags: [schedule, catch-up, momentum]
-status: accepted
-related: [decision-003-progressive-disclosure-rebuild, logbook-2026-10-21]
+summary: How the day-by-day study schedule is imported into Momentum, marked Done or Missed, and how missed work is spread over later days.
+tags: [schedule, catch-up, momentum, plain-language]
+status: superseded
+related: [decision-003-progressive-disclosure-rebuild, decision-007-recommendations-removed, decision-008-study-rewards, decision-009-new-study-plan, logbook-2026-10-21, logbook-2026-10-22]
 ---
 
 # 006 The study schedule lives in Momentum, with catch-up on flexible days
@@ -34,3 +35,15 @@ Jason made a day-by-day schedule in Excel with ChatGPT (`~/Desktop/dsp.xlsx`, co
 
 - The spreadsheet's Status and Actual hours columns are ignored; the site records those.
 - A missed 3-hour Saturday spreads over three flexible days; a missed preparation day over five.
+- The online copy on Vercel cannot save marks, because the study log is written by a server that only runs on Jason's computer.
+
+## Changed later the same day
+
+- The rings were replaced. Jason: "I don't like the black outline". Planned days now have a soft plum fill; days with catch-up have a deeper fill and a small dot. Hovering a planned day ahead pops out a card (borrowed from sanctum's calendar). Touch screens tap through to the session instead.
+- All schedule text is rewritten in very plain words, at Jason's request ("Reading age of 5"). The spreadsheet is left alone: `scripts/plain-words.json` maps each original sentence to its plain version, and the importer swaps it in and lists any sentence with no plain version yet. Exam terms (tool_use, MCP, schema) stay, with a plain explanation, because the exam uses them.
+- Pop-out cards cut from 29 to about 17 words on average, over two rounds. The session sheet is 840px wide with labels beside the text, so no day needs scrolling.
+
+## Checks
+
+- Five new flow checks cover marking sessions. All flow checks and the layout check passed, tested on an empty copy of the data so real records were untouched.
+- All 112 planned days were opened at 1440x800 and 1280x720; none needed scrolling.

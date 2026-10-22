@@ -3,8 +3,10 @@ id: glossary
 type: glossary
 date: 2026-04-19
 topic: knowledge-base
+summary: Plain definitions of words with a special meaning in this project, such as COMPASS, catch-up and Shortbread.
 tags: [vocabulary, convention]
 status: accepted
+related: [decision-006-schedule-in-momentum, decision-004-white-geist-pet]
 ---
 
 # Glossary — cca-prep-2027
@@ -12,8 +14,6 @@ status: accepted
 Short, unambiguous definitions of project-specific vocabulary. For humans onboarding, and for any AI scanner resolving terms without guessing.
 
 ---
-
-_No terms yet. Add a new `## Term name` section whenever a project-specific word or phrase enters our vocabulary and a first-time reader could plausibly misinterpret it._
 
 ## COMPASS
 
@@ -32,3 +32,11 @@ Replaces the word DiSSS, which Jason found ugly. Not shown in the app.
 ## Catch-up
 
 Minutes from a missed Core, Preparation leave or Light review session, moved to later Flexible or Optional buffer days, at most 60 minutes on any day. Worked out afresh from the marks; the schedule file never changes. See decision 006.
+
+## Shortbread
+
+The 3D bear on the Pet tab, copied unchanged from the sanctum project. A flat picture of him also peeks in as a reward after a session is marked Done. See decisions 004 and 008.
+
+## Plain words file
+
+`scripts/plain-words.json`. It maps each sentence in the schedule spreadsheet to a very simple version. The importer swaps the simple version in, so the spreadsheet itself never changes.
