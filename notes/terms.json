@@ -1,6 +1,8 @@
 {
+  "end_turn": "code",
   "fixed tool sequence": "workflow",
   "messages api.": "infra",
   "programmatic enforcement": "workflow",
-  "stop_reason": "code"
+  "stop_reason": "code",
+  "tool_use": "code"
 }
