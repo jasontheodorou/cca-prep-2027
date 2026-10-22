@@ -7,7 +7,8 @@ import { readJson, writeJson } from '../lib/storage'
  * load or save, so nothing typed is lost while the server is stopped. */
 
 export type Note = { id: string; title: string; created: string; updated: string; tags: string[]; markdown: string }
-export type NotesStatus = 'loading' | 'ready' | 'offline'
+/** "readonly": the online copy, showing the notes as they were when it was built. */
+export type NotesStatus = 'loading' | 'ready' | 'offline' | 'readonly'
 
 type Snapshot = { notes: Note[]; status: NotesStatus }
 
@@ -54,6 +55,7 @@ async function load() {
     const res = await fetch('/api/notes', { cache: 'no-store' })
     if (!res.ok) throw new Error(String(res.status))
     const server = (await res.json()).notes as Note[]
+    if (!Array.isArray(server)) throw new Error('No notes server')
     const byId = new Map(server.map((n) => [n.id, n]))
     // Drafts the server never got are shown, and sent again.
     for (const d of Object.values(drafts())) {
@@ -63,6 +65,11 @@ async function load() {
     set({ notes: sorted([...byId.values()]), status: 'ready' })
     for (const d of Object.values(drafts())) void saveNote(d)
   } catch {
+    // No server: on the online copy, show the notes it was built with, read only.
+    if (import.meta.env.PROD) {
+      const { SNAPSHOT } = await import('./notes-snapshot')
+      return set({ notes: SNAPSHOT, status: 'readonly' })
+    }
     set({ notes: sorted(Object.values(drafts())), status: 'offline' })
   }
 }

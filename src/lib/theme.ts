@@ -27,8 +27,12 @@ mark()
 export function setTheme(next: Theme) {
   theme = next
   writeRaw(KEY, next, 'theme')
+  // No transitions while the colours swap, or each element fades on its own and the page flickers.
+  const root = document.documentElement
+  root.classList.add('theme-switching')
   mark()
   listeners.forEach((l) => l())
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('theme-switching')))
 }
 
 export function useTheme() {

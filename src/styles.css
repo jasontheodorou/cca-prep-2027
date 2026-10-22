@@ -103,12 +103,14 @@
 :root[data-theme='dark'] [data-tone='rose'] { --tint: #33242b; --tone: #e4a3b5; }
 :root[data-theme='dark'] [data-tone='sand'] { --tint: #2b2722; --tone: #cdbda3; }
 
-/* The page colour changes gently when switching. */
-body,
-.card,
-.sections,
-.top {
-  transition: background-color 250ms ease, color 250ms ease;
+/* Switching day and night changes every colour at once. Elements that
+ * normally ease their colours (buttons, tabs, rows) would each fade at
+ * their own speed and flicker, so all transitions pause for that moment
+ * (src/lib/theme.ts adds the class for two frames). */
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
 }
 
 *,

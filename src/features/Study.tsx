@@ -110,9 +110,11 @@ export function Study() {
             <h2 className="h3" id="notes-head">
               Notes
             </h2>
-            <button type="button" className="btn btn--small" onClick={create}>
-              New note
-            </button>
+            {status !== 'readonly' && (
+              <button type="button" className="btn btn--small" onClick={create}>
+                New note
+              </button>
+            )}
           </div>
           <label className="visually-hidden" htmlFor="note-search">
             Search notes
@@ -125,6 +127,7 @@ export function Study() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
+          {status === 'readonly' && <p className="notes__filter">Read only here. Notes are written on your computer.</p>}
           {tag && (
             <p className="notes__filter">
               Only notes tagged {tagName(tag)}.{' '}
@@ -170,14 +173,15 @@ export function Study() {
 
         <section className="card notepad" aria-label="Note">
           {open ? (
-            <NoteEditor key={open.id} note={open} fresh={fresh === open.id} offline={status === 'offline'} onTag={(t) => go(open.id, t)} onDelete={() => remove(open)} />
+            <NoteEditor key={open.id} note={open} fresh={fresh === open.id} readOnly={status === 'readonly'} offline={status === 'offline'} onTag={(t) => go(open.id, t)} onDelete={() => remove(open)} />
           ) : (
             <div className="notepad__empty">
               <p className="h3">{notes.length ? 'Choose a note, or start a new one.' : 'Your first note'}</p>
-              <p className="muted">Headings, bold, links, screenshots and videos. It saves as you type.</p>
-              <button type="button" className="btn" onClick={create}>
-                New note
-              </button>
+              {status !== 'readonly' && (
+                <button type="button" className="btn" onClick={create}>
+                  New note
+                </button>
+              )}
             </div>
           )}
         </section>
@@ -189,6 +193,7 @@ export function Study() {
 function NoteEditor({
   note,
   fresh,
+  readOnly,
   offline,
   onTag,
   onDelete,
@@ -196,6 +201,8 @@ function NoteEditor({
   note: Note
   /** Just made: the cursor goes straight to the end, ready to type. */
   fresh: boolean
+  /** The online copy: the note can be read but not changed. */
+  readOnly: boolean
   offline: boolean
   onTag: (t: string) => void
   onDelete: () => void
@@ -247,6 +254,7 @@ function NoteEditor({
     content: note.markdown,
     contentType: 'markdown',
     immediatelyRender: true,
+    editable: !readOnly,
     editorProps: {
       attributes: { class: 'prose', 'aria-label': 'Note text' },
       handlePaste: (view, event) => {
@@ -374,6 +382,9 @@ function NoteEditor({
             <span className="notetags__none">No exam topic yet</span>
           )}
         </p>
+        {readOnly ? (
+          <p className="editor__meta">Last saved {when(note.updated)}.</p>
+        ) : (
         <p className="editor__meta">
           <span className="editor__state" role="status" data-state={state}>
             {state === 'saving' ? 'Saving…' : state === 'unsaved' || offline ? 'Not saved yet: the local server is not running. Kept in this browser.' : `Saved ${when(note.updated)}`}
@@ -383,6 +394,7 @@ function NoteEditor({
             Delete note
           </button>
         </p>
+        )}
       </div>
     </div>
   )
