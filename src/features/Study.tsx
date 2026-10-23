@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Mark } from '@tiptap/core'
 import { EditorContent, useEditor, type Editor } from '@tiptap/react'
 import { BubbleMenu } from '@tiptap/react/menus'
 import StarterKit from '@tiptap/starter-kit'
@@ -9,7 +10,10 @@ import { Placeholder } from '@tiptap/extensions'
 import { Markdown } from '@tiptap/markdown'
 import { NodeSelection } from '@tiptap/pm/state'
 import { Head } from '../components/Head'
-import { deleteNote, newNoteId, saveNote, uploadImage, useNotes, type Note } from '../data/notes'
+import { deleteNote, newNoteId, saveNote, setTerm, uploadImage, useNotes, type Note } from '../data/notes'
+import { AutoMark, joined, type AutoKind, type Terms } from '../lib/autoMark'
+import { sessionOn } from '../lib/schedule'
+import { TitleTags, titleTagsKey } from '../lib/titleTags'
 import { dayKey } from '../lib/dates'
 import { autoTags, tagName } from '../lib/tags'
 
@@ -42,6 +46,21 @@ const Picture = Image.extend({
       : helpers.createNode('image', { src: token.href, title: token.title, alt: token.text }),
 })
 
+// Infra and workflow: like code, on a lilac or a green band (Jason,
+// 22 October 2026). Markdown has no mark for them, so the file keeps them as
+// <span data-infra>words</span> or <span data-workflow>words</span>, which
+// GitHub shows as plain words. A word can be only one of code, infra and workflow.
+const spanMark = (name: 'infra' | 'workflow') =>
+  Mark.create({
+    name,
+    excludes: 'code infra workflow',
+    parseHTML: () => [{ tag: `span[data-${name}]` }],
+    renderHTML: () => ['span', { [`data-${name}`]: '', class: name }, 0],
+    renderMarkdown: (node, h) => `<span data-${name}>${h.renderChildren(node)}</span>`,
+  })
+const Infra = spanMark('infra')
+const Workflow = spanMark('workflow')
+
 /** The note's title: its first line, however it is styled. */
 const titleOf = (e: Editor) => e.state.doc.firstChild?.textContent.trim().slice(0, 120) || 'New note'
 
@@ -53,7 +72,7 @@ const when = (iso: string) => {
 }
 
 export function Study() {
-  const { notes, status } = useNotes()
+  const { notes, status, terms } = useNotes()
   const [params, setParams] = useSearchParams()
   const [query, setQuery] = useState('')
   const [deleted, setDeleted] = useState<Note | null>(null)
@@ -173,7 +192,7 @@ export function Study() {
 
         <section className="card notepad" aria-label="Note">
           {open ? (
-            <NoteEditor key={open.id} note={open} fresh={fresh === open.id} readOnly={status === 'readonly'} offline={status === 'offline'} onTag={(t) => go(open.id, t)} onDelete={() => remove(open)} />
+            <NoteEditor key={open.id} note={open} terms={terms} fresh={fresh === open.id} readOnly={status === 'readonly'} offline={status === 'offline'} onTag={(t) => go(open.id, t)} onDelete={() => remove(open)} />
           ) : (
             <div className="notepad__empty">
               <p className="h3">{notes.length ? 'Choose a note, or start a new one.' : 'Your first note'}</p>
@@ -194,6 +213,7 @@ function NoteEditor({
   note,
   fresh,
   readOnly,
+  terms,
   offline,
   onTag,
   onDelete,
@@ -203,6 +223,8 @@ function NoteEditor({
   fresh: boolean
   /** The online copy: the note can be read but not changed. */
   readOnly: boolean
+  /** The code and infra word list every note follows. */
+  terms: Terms
   offline: boolean
   onTag: (t: string) => void
   onDelete: () => void
@@ -249,6 +271,10 @@ function NoteEditor({
       }),
       Video.configure({ nocookie: true, addPasteHandler: true, width: 640, height: 360 }),
       Placeholder.configure({ placeholder: ({ pos }) => (pos === 0 ? 'Title' : '') }),
+      Infra,
+      Workflow,
+      AutoMark,
+      TitleTags,
       Markdown,
     ],
     content: note.markdown,
@@ -272,6 +298,7 @@ function NoteEditor({
       },
     },
     onUpdate: ({ editor: e }) => {
+      if (readOnly) return
       pending.current = true
       setState('saving')
       window.clearTimeout(timer.current)
@@ -279,6 +306,22 @@ function NoteEditor({
     },
     onSelectionUpdate: () => redraw((n) => n + 1),
   })
+
+  // The tags under the title: the exam topics, or else the plan's week the note was started in.
+  const onTagRef = useRef(onTag)
+  onTagRef.current = onTag
+  useEffect(() => {
+    if (!editor) return
+    const week = sessionOn(dayKey(new Date(note.created)))?.week
+    editor.view.dispatch(editor.state.tr.setMeta(titleTagsKey, { units: tags, week, onUnit: (id: string) => onTagRef.current(id) }))
+  }, [editor, tags, note.created])
+
+  // The note follows the code and infra word list: on opening, and whenever the list changes.
+  useEffect(() => {
+    if (!editor) return
+    editor.storage.autoMark.terms = terms
+    editor.view.dispatch(editor.state.tr.setMeta('autoMarkRefresh', true))
+  }, [editor, terms])
 
   // A new note opens with the cursor ready to type.
   useEffect(() => {
@@ -311,6 +354,26 @@ function NoteEditor({
       {label}
     </button>
   )
+
+  // Code, infra and workflow go through the word list, so every note follows: marking
+  // adds the words, unmarking takes the whole marked word off the list.
+  const markAs = (kind: AutoKind) => {
+    const on = editor.isActive(kind)
+    if (on) editor.chain().focus().extendMarkRange(kind).run()
+    // Whole words only: a selection inside a word grows to the whole word.
+    let { from, to } = editor.state.selection
+    const $from = editor.state.doc.resolve(from)
+    const block = $from.parent.textContent
+    const offset = $from.start()
+    while (from > offset && joined(block, from - offset)) from--
+    while (to < offset + block.length && joined(block, to - offset)) to++
+    editor.commands.setTextSelection({ from, to })
+    const words = editor.state.doc.textBetween(from, to, ' ').trim()
+    if (!words) return
+    void setTerm(words, on ? null : kind)
+    if (on) editor.chain().focus().unsetMark(kind).run()
+    else editor.chain().focus().setMark(kind).run()
+  }
 
   const applyLink = () => {
     const href = url.trim()
@@ -362,6 +425,9 @@ function NoteEditor({
             {tool('Heading', editor.isActive('heading', { level: 2 }), () => editor.chain().focus().toggleHeading({ level: 2 }).run())}
             {tool('Bold', editor.isActive('bold'), () => editor.chain().focus().toggleBold().run(), '⌘B')}
             {tool('Italic', editor.isActive('italic'), () => editor.chain().focus().toggleItalic().run(), '⌘I')}
+            {tool('Code', editor.isActive('code'), () => markAs('code'))}
+            {tool('Infra', editor.isActive('infra'), () => markAs('infra'))}
+            {tool('Wflow', editor.isActive('workflow'), () => markAs('workflow'))}
             {tool('Link', editor.isActive('link'), () => {
               setUrl(editor.getAttributes('link').href ?? '')
               setLinking(true)
@@ -371,21 +437,10 @@ function NoteEditor({
       </BubbleMenu>
       <EditorContent editor={editor} className="editor__body" />
       <div className="editor__foot">
-        <p className="notetags" aria-label="Exam topics">
-          {tags.length ? (
-            tags.map((t) => (
-              <button key={t} type="button" className="notetag" title="Show notes with this tag" onClick={() => onTag(t)}>
-                {tagName(t)}
-              </button>
-            ))
-          ) : (
-            <span className="notetags__none">No exam topic yet</span>
-          )}
-        </p>
         {readOnly ? (
-          <p className="editor__meta">Last saved {when(note.updated)}.</p>
+          <p className="editor__meta editor__meta--end">Last saved {when(note.updated)}.</p>
         ) : (
-        <p className="editor__meta">
+        <p className="editor__meta editor__meta--end">
           <span className="editor__state" role="status" data-state={state}>
             {state === 'saving' ? 'Saving…' : state === 'unsaved' || offline ? 'Not saved yet: the local server is not running. Kept in this browser.' : `Saved ${when(note.updated)}`}
           </span>

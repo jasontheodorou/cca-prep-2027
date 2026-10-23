@@ -42,11 +42,14 @@ export const hasWork = (s?: Session) => !!s && s.minutes > 0
 
 export const isOptional = (s?: Session) => !s || s.kind === 'Optional' || s.minutes === 0
 
-/** Study days open with 10 minutes of flashcards (the plan's default). */
-export const startsWithCards = (s: Session) => ['Daily', 'Long block', 'Half-day'].includes(s.kind)
+/** The day the flashcards are made; there are none to go through before it. */
+const DECK_DAY = SCHEDULE.find((s) => /flashcards/i.test(s.title))?.day ?? ''
 
-/** Saturday's long block: the sandbox, a build exercise or a mock exam. */
-export const isBuild = (s: Session) => s.kind === 'Long block' && /sandbox/i.test(`${s.title} ${s.task}`)
+/** Study days open with 10 minutes of flashcards (the plan's default), once they exist. */
+export const startsWithCards = (s: Session) => s.day > DECK_DAY && ['Daily', 'Long block', 'Half-day'].includes(s.kind)
 
-/** A lesson day: the plan's six-step way of working through a lesson applies. */
-export const isLesson = (s: Session) => /^Lesson \d\.\d/.test(s.title)
+/** A day working on the practice project (the plan's "sandbox"). */
+export const isBuild = (s: Session) => !!s.build || /practice project/i.test(`${s.title} ${s.task}`)
+
+/** A first-time lesson day (not a re-read): the plan's way of working through a lesson applies. */
+export const isLesson = (s: Session) => /^Lesson \d\.\d:/.test(s.title)

@@ -12,6 +12,8 @@ import { extname, relative, resolve } from 'node:path'
  *   PUT    /api/notes/:id          save one: { title, created, tags, markdown }
  *   DELETE /api/notes/:id          delete one
  *   POST   /api/notes/images       save a pasted image (raw bytes), returns { src }
+ *   GET    /api/notes/terms        the code, infra and workflow word list (notes/terms.json)
+ *   PUT    /api/notes/terms        replace it: { terms: { "stop_reason": "code" } }
  *   GET    /notes-files/images/x   an image
  *
  * In a file, images are written as images/x.png, so the notes read properly
@@ -137,6 +139,38 @@ export function notes(dir = 'notes'): Plugin {
         writeFileSync(resolve(images, name), bytes)
         commitSoon()
         return send(res, 200, { src: `/notes-files/images/${name}` })
+      }
+
+      if (url === '/api/notes/terms') {
+        const path = resolve(root, 'terms.json')
+        if (req.method === 'GET') {
+          // The first time, the list starts from the words already marked in notes.
+          if (!existsSync(path)) {
+            const seed: Record<string, string> = {}
+            for (const n of all()) {
+              for (const m of n.markdown.matchAll(/(?<!`)`([^`\n]{1,60})`(?!`)/g)) if (m[1].trim()) seed[m[1].trim().toLowerCase()] = 'code'
+              for (const m of n.markdown.matchAll(/<span data-(infra|workflow)>([^<\n]{1,60})<\/span>/g)) if (m[2].trim()) seed[m[2].trim().toLowerCase()] = m[1]
+            }
+            mkdirSync(root, { recursive: true })
+            writeFileSync(path, JSON.stringify(seed, null, 2) + '\n')
+            commitSoon()
+          }
+          return send(res, 200, { terms: JSON.parse(readFileSync(path, 'utf8')) })
+        }
+        if (req.method === 'PUT') {
+          const raw = JSON.parse((await body(req, 200_000)).toString('utf8')).terms ?? {}
+          const clean: Record<string, string> = {}
+          for (const [k, v] of Object.entries(raw)) {
+            const t = String(k).trim().toLowerCase()
+            if (t && t.length <= 60 && (v === 'code' || v === 'infra' || v === 'workflow')) clean[t] = v
+          }
+          const sorted = Object.fromEntries(Object.entries(clean).sort(([a], [b]) => a.localeCompare(b)))
+          mkdirSync(root, { recursive: true })
+          writeFileSync(path, JSON.stringify(sorted, null, 2) + '\n')
+          commitSoon()
+          return send(res, 200, { terms: sorted })
+        }
+        return send(res, 405, { error: 'Use GET or PUT' })
       }
 
       const id = url.slice('/api/notes/'.length)

@@ -1,5 +1,13 @@
 /* Geist, a modern interface typeface, for everything: tight and heavier for
- * headings, regular for text. */
+ * headings, regular for text. Paper Mono only for code in notes. */
+
+@font-face {
+  font-family: 'Paper Mono';
+  src: url('/fonts/PaperMono-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* exam prep: one wide column, soft rounded cards, pastel section colours.
  * Green means study time and nothing else. Gaps are on an 8px scale. */
@@ -42,6 +50,9 @@
   --lift: rgb(24 24 32 / 0.35);
   --wash: #cfe3cb;
   --pet-glow: #fbf7f1;
+  --code-bg: #f2ebdf;
+  --infra-bg: #ece5f7;
+  --workflow-bg: #e2f0e0;
   color-scheme: light;
 }
 
@@ -88,6 +99,9 @@
   --lift: rgb(0 0 0 / 0.6);
   --wash: #2c3f31;
   --pet-glow: #3a332b;
+  --code-bg: #322c24;
+  --infra-bg: #2f2942;
+  --workflow-bg: #233127;
   --pet-ink: #d3c4ab;
   --pet-btn: rgb(255 255 255 / 0.06);
   --pet-btn-hover: rgb(255 255 255 / 0.11);
@@ -1837,6 +1851,20 @@ html:not([data-manager]) .clawd--perch {
   margin-bottom: 0;
 }
 
+/* Lists sit close: each point is one line apart, with only a small gap. */
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+
+.prose li p {
+  margin: 0;
+}
+
+.prose li + li {
+  margin-top: 0.2em;
+}
+
 .prose h1,
 .prose h2,
 .prose h3 {
@@ -1922,10 +1950,29 @@ html:not([data-manager]) .clawd--perch {
   border-radius: 12px;
 }
 
-.prose code {
-  padding: 1px 6px;
+/* Code and infra: highlighted words in Paper Mono, lower case, on a light
+ * sand band (code), a light lilac one (infra) or a light green one
+ * (workflow) (Jason, 22 October 2026).
+ * Lower case is shown only: the note keeps the letters as typed. */
+.prose code,
+.prose .infra,
+.prose .workflow {
+  text-transform: lowercase;
+  padding: 2px 6px;
   border-radius: 6px;
-  background: var(--soft);
+  background: var(--code-bg);
+  color: var(--ink);
+  font-family: 'Paper Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.prose .infra {
+  background: var(--infra-bg);
+}
+
+.prose .workflow {
+  background: var(--workflow-bg);
 }
 
 .prose p.is-empty::before {
@@ -1955,38 +2002,73 @@ html:not([data-manager]) .clawd--perch {
   border-top: 1px solid var(--line);
 }
 
-/* Tags stay quiet: small grey words, a tint only on hover. */
-.notetags {
+/* Tags under the title: the exam section as a small tinted pill, then each
+ * topic as its number and a quiet name. Small, and never louder than the title. */
+.titletags {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 6px;
-  margin: 0;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 10px 0 4px;
+  user-select: none;
 }
 
-.notetag {
-  padding: 2px 8px;
-  margin-left: -8px;
-  border: 0;
+.titletags__section {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px 3px 8px;
   border-radius: 999px;
+  background: var(--tint);
+  color: var(--tone);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.titletags__section::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+.titletags__unit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 2px 0;
+  border: 0;
   background: none;
   color: var(--muted);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
   cursor: pointer;
 }
 
-.notetag:hover {
-  background: var(--soft);
+.titletags__unit:hover .titletags__name {
   color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.notetag + .notetag {
-  margin-left: 0;
-}
-
-.notetags__none {
+.titletags__id {
+  font-family: 'Paper Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
   color: var(--faint);
-  font-size: 1rem;
+}
+
+.titletags__week {
+  color: var(--faint);
+  font-size: 0.8125rem;
+}
+
+.prose .titletags + * {
+  margin-top: 1em;
+}
+
+.editor__meta--end {
+  margin-left: auto;
 }
 
 .editor__meta {

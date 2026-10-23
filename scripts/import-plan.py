@@ -20,6 +20,11 @@ from datetime import date, timedelta
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / 'src' / 'content' / 'schedule.json'
+# Plain English for each day and week (reading age 14), checked against the plan's own words.
+PLAIN = json.loads((Path(__file__).resolve().parent / 'plain-plan.json').read_text())
+SECTIONS = {'1': 'Agents', '2': 'Tools and MCP', '3': 'Claude Code', '4': 'Prompts and output', '5': 'Context and reliability'}
+LESSON_STEPS = 'Read it, then do its quick quiz, its common-mistakes box and its practice question.'
+unplain = []
 SITE = 'https://claudecertificationguide.com'
 MONTHS = {m: i + 1 for i, m in enumerate(
     ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])}
@@ -82,24 +87,24 @@ def units(text):
 
 
 def links(text, lessons):
-    out = [{'label': f'Lesson {u}', 'href': SITE + LESSONS[u][1]} for u in lessons]
+    out = [{'label': f'Open lesson {u}', 'href': SITE + LESSONS[u][1]} for u in lessons]
     t = text.lower()
     if '/diagnostic' in t:
-        out.append({'label': 'Diagnostic test', 'href': SITE + '/diagnostic'})
+        out.append({'label': 'Starting test', 'href': SITE + '/diagnostic'})
     drills = re.findall(r'drill(?: mode)?,? domains? (\d)(?: and (\d))?', t)
     for a, b in drills:
         for n in filter(None, (a, b)):
-            out.append({'label': f'Drill domain {n}', 'href': f'{SITE}/drill?domain={n}'})
+            out.append({'label': f'Practice questions: {SECTIONS[n]}', 'href': f'{SITE}/drill?domain={n}'})
     if 'drill' in t and not drills:
-        out.append({'label': 'Drill mode', 'href': SITE + '/drill'})
+        out.append({'label': 'Practice questions', 'href': SITE + '/drill'})
     for n in re.findall(r'/quick-reference/domain-(\d)', t):
-        out.append({'label': f'Quick reference, domain {n}', 'href': f'{SITE}/quick-reference/domain-{n}'})
+        out.append({'label': f'Quick reference: {SECTIONS[n]}', 'href': f'{SITE}/quick-reference/domain-{n}'})
     if 'quick reference' in t and '/quick-reference/' not in t:
         out.append({'label': 'Quick reference', 'href': SITE + '/quick-reference'})
     if '/exercises' in t or 'build exercise' in t:
-        out.append({'label': 'Build exercises', 'href': SITE + '/exercises'})
+        out.append({'label': 'Hands-on exercises', 'href': SITE + '/exercises'})
     if 'mock exam' in t:
-        out.append({'label': 'Mock exam', 'href': SITE + '/mock-exam'})
+        out.append({'label': 'Practice exam', 'href': SITE + '/mock-exam'})
     seen = set()
     return [l for l in out if not (l['href'] in seen or seen.add(l['href']))]
 
@@ -135,6 +140,12 @@ def session(day, week, task):
     out = {'day': day.isoformat(), 'kind': kind, 'minutes': minutes, 'week': week, 'title': title,
            'task': detail, 'units': lessons, 'links': links(text, lessons)}
     # A sandbox day carries that step's fuller description from section 3.
+    plain = PLAIN['days'].get(day.isoformat())
+    if plain and plain['was'] == task.strip():
+        out['title'] = plain['title']
+        out['task'] = plain['task'] or (LESSON_STEPS if plain['title'].startswith('Lesson') else '')
+    else:
+        unplain.append(day.isoformat())
     step = re.search(r'(?:Sandbox step|sandbox as step) (\d+)', text)
     if step and step.group(1) in STEPS:
         out['build'] = STEPS[step.group(1)]
@@ -144,6 +155,35 @@ def session(day, week, task):
 def off(day, week, kind, title, task, minutes=0):
     return {'day': day.isoformat(), 'kind': kind, 'minutes': minutes, 'week': week, 'title': title,
             'task': task, 'units': [], 'links': []}
+
+
+FIXED = {'Off', 'Optional', 'Exam'}
+
+
+def pull_ahead(days, start):
+    """Moves the study days from start['from'] into the study days from
+    start['on'], up to the first break, keeping days off on their dates."""
+    if not start:
+        return days
+    # Only up to the first break: work never moves across a holiday, so the
+    # day gained becomes a spare day just before it, and later weeks keep
+    # their dates (and the days off work they were planned around).
+    brk = next((d['day'] for d in days if d['kind'] == 'Off' and d['day'] > start['on']), '9999')
+    tasks = [d for d in days if d['kind'] not in FIXED and start['from'] <= d['day'] < brk]
+    slots = [d['day'] for d in days if d['kind'] not in FIXED and start['on'] <= d['day'] < brk]
+    by_day = {d['day']: d for d in days}
+    for day, task in zip(slots, tasks):
+        by_day[day] = {**task, 'day': day}
+    for day in slots[len(tasks):]:
+        week = by_day[day]['week']
+        by_day[day] = {'day': day, 'kind': 'Spare', 'minutes': 0, 'week': week, 'title': start['spare']['title'],
+                       'task': start['spare']['task'], 'units': [], 'links': []}
+    t = start.get('today')
+    if t:
+        old = by_day.get(t['day'])
+        by_day[t['day']] = {'day': t['day'], 'kind': 'Daily', 'minutes': 30, 'week': old['week'] if old else '',
+                            'title': t['title'], 'task': t['task'], 'units': [], 'links': []}
+    return [by_day[k] for k in sorted(by_day)]
 
 
 def main(path):
@@ -183,24 +223,29 @@ def main(path):
             d = a
             while d <= b:
                 if christmas and d in optional:
-                    days.append(off(d, label, 'Optional', 'Optional flashcards', '10 minutes, to stop the deck going cold. Skip it guilt-free if the house is chaos.', 10))
+                    days.append(off(d, label, 'Optional', 'Flashcards, if you like', '10 minutes, so you do not forget them. Skip it if the house is busy.', 10))
                 elif christmas:
-                    days.append(off(d, label, 'Off', 'Christmas', 'Off. Put everything down.'))
+                    days.append(off(d, label, 'Off', 'Christmas', 'Time off. No studying.'))
                 else:
-                    days.append(off(d, label, 'Off', 'Holiday', 'Off. Optional 10 minutes of flashcards on travel days. Nothing else.'))
+                    days.append(off(d, label, 'Off', 'Holiday', 'Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.'))
                 d += timedelta(days=1)
             continue
         exam = re.search(r'(\w+day) (\d+) (\w+) — EXAM DAY', head)
         if exam:
             m = MONTHS[exam.group(3)]
             days.append(off(date(year(m), m, int(exam.group(2))), 'Exam day', 'Exam', 'Exam day',
-                            'Nothing new. Breakfast, your one-page answer patterns once over coffee, then put it away.'))
+                            'Nothing new today. Have breakfast, read your page of answer rules once, then put it away.'))
+    for d in days:
+        d['week'] = PLAIN['weeks'].get(d['week'], d['week'])
     days.sort(key=lambda s: s['day'])
+    days = pull_ahead(days, PLAIN.get('start'))
     for a, b in zip(days, days[1:]):
         if date.fromisoformat(b['day']) - date.fromisoformat(a['day']) != timedelta(days=1):
             sys.exit(f'Gap in the plan between {a["day"]} and {b["day"]}')
     OUT.write_text(json.dumps(days, indent=1, ensure_ascii=False) + '\n')
     hours = sum(s['minutes'] for s in days) / 60
+    if unplain:
+        print('No plain English yet (the plan\'s own words are used): ' + ', '.join(unplain))
     print(f'{len(days)} days, {days[0]["day"]} to {days[-1]["day"]}, {hours:.0f} hours planned. Wrote {OUT}')
 
 

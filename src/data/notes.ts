@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from 'react'
 import { readJson, writeJson } from '../lib/storage'
+import type { AutoKind, Terms } from '../lib/autoMark'
 
 /* Study notes: one shared copy for every page. The local server keeps them
  * as Markdown files in notes/, committed to git (vite/notes.ts). The browser
@@ -10,11 +11,11 @@ export type Note = { id: string; title: string; created: string; updated: string
 /** "readonly": the online copy, showing the notes as they were when it was built. */
 export type NotesStatus = 'loading' | 'ready' | 'offline' | 'readonly'
 
-type Snapshot = { notes: Note[]; status: NotesStatus }
+type Snapshot = { notes: Note[]; status: NotesStatus; terms: Terms }
 
 const DRAFTS = 'cca-prep.notes.drafts'
 
-let snapshot: Snapshot = { notes: [], status: 'loading' }
+let snapshot: Snapshot = { notes: [], status: 'loading', terms: {} }
 const listeners = new Set<() => void>()
 let started = false
 
@@ -62,13 +63,14 @@ async function load() {
       const s = byId.get(d.id)
       if (!s || s.updated < d.updated) byId.set(d.id, d)
     }
-    set({ notes: sorted([...byId.values()]), status: 'ready' })
+    const terms = (await (await fetch('/api/notes/terms', { cache: 'no-store' })).json()).terms as Terms
+    set({ notes: sorted([...byId.values()]), status: 'ready', terms })
     for (const d of Object.values(drafts())) void saveNote(d)
   } catch {
     // No server: on the online copy, show the notes it was built with, read only.
     if (import.meta.env.PROD) {
-      const { SNAPSHOT } = await import('./notes-snapshot')
-      return set({ notes: SNAPSHOT, status: 'readonly' })
+      const { SNAPSHOT, TERMS } = await import('./notes-snapshot')
+      return set({ notes: SNAPSHOT, status: 'readonly', terms: TERMS })
     }
     set({ notes: sorted(Object.values(drafts())), status: 'offline' })
   }
@@ -88,6 +90,22 @@ export async function saveNote(n: Note): Promise<boolean> {
   } catch {
     set({ status: 'offline' })
     return false
+  }
+}
+
+/** Adds words to the code and infra list, or takes them off with null. */
+export async function setTerm(term: string, kind: AutoKind | null) {
+  const t = term.trim().toLowerCase()
+  if (!t || t.length > 60) return
+  const terms = { ...snapshot.terms }
+  if (kind) terms[t] = kind
+  else delete terms[t]
+  set({ terms })
+  try {
+    const res = await fetch('/api/notes/terms', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ terms }) })
+    if (!res.ok) throw new Error(String(res.status))
+  } catch {
+    set({ status: 'offline' })
   }
 }
 

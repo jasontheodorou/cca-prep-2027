@@ -33,9 +33,9 @@ const dayName = (k: string) => parseDay(k).toLocaleDateString('en-GB', { weekday
 function length(s: Session) {
   switch (s.kind) {
     case 'Long block':
-      return '2-hour block'
+      return '2 hours'
     case 'Half-day':
-      return 'Half-day, about 3½ hours'
+      return 'Half a day, about 3½ hours'
     case 'Full day':
       return 'Full day off work'
     case 'Optional':
@@ -582,9 +582,8 @@ function TodaySession({
 function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
   const friday = parseDay(s.day).getDay() === 5 && s.kind === 'Daily'
   const rows: [string, React.ReactNode][] = [
-    ['First', startsWithCards(s) ? '10 minutes of flashcards. Every day, without fail.' : ''],
-    ['The job', s.task ? `${s.title}. ${s.task}` : s.title],
-    ['The sandbox step', s.build ? `${s.build}.` : ''],
+    ['First', startsWithCards(s) ? '10 minutes of flashcards. Every day.' : ''],
+    ['What to do', s.task || s.title],
     [
       'Exam topics',
       s.units.length
@@ -599,13 +598,13 @@ function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
         : '',
     ],
     [
-      'Working a lesson',
+      'How to do a lesson',
       isLesson(s)
-        ? 'Read What You Need to Know once, properly. Do the Concept Check straight away; if it goes badly, read again. Read the Exam Traps. Answer the Practice Scenario before revealing it, and say out loud why the other three are wrong. Leave the Build Exercise for Saturday. Tick Mark Complete.'
+        ? 'Read the lesson once, properly. Do its quick quiz (Concept Check) straight away, and read the lesson again if that goes badly. Read its common-mistakes box (Exam Traps). Answer its practice question before looking at the answer, and say out loud why the other three answers are wrong. Leave its hands-on exercise for Saturday. Then press Mark Complete.'
         : '',
     ],
-    ['Afterwards', isBuild(s) ? 'Write three sentences in NOTES.md saying what surprised you. It takes two minutes.' : ''],
-    ['If a day has to go', friday ? 'Make it this one. Never the Saturday block, and never the flashcards.' : ''],
+    ['Afterwards', isBuild(s) ? 'Write three sentences in Notes about what surprised you. It takes two minutes.' : ''],
+    ['If you have to skip a day', friday ? 'Skip this one. Never skip Saturday, and never skip the flashcards.' : ''],
   ]
   return (
     <Sheet label={s.title} wide onClose={onClose}>

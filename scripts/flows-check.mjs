@@ -177,7 +177,7 @@ try {
     await page.waitForTimeout(400)
     check(!(await study()).sessions?.[key(today)], 'Take back clears the mark')
     await page.getByRole('button', { name: "See all of today's plan" }).click()
-    check(await page.locator('dialog.sheet').getByText('The job', { exact: true }).isVisible(), 'the whole day opens in a sheet')
+    check(await page.locator('dialog.sheet').getByText('What to do', { exact: true }).isVisible(), 'the whole day opens in a sheet')
     await page.locator('.sheet__close').click()
     await page.locator('.sheet__close').waitFor({ state: 'detached' })
     await page.getByRole('button', { name: 'Done', exact: true }).click()
@@ -203,7 +203,7 @@ try {
   const noteText = noteFiles.length ? readFileSync(join(dir, 'notes', noteFiles[0]), 'utf8') : ''
   check(/\*\*Code beats prompts\*\*/.test(noteText), 'bold is kept in the file')
   check(/^tags: \[.*1\.5.*\]$/m.test(noteText), 'the note is tagged with the exam topic it covers')
-  check(await page.locator('.notetag').first().isVisible(), 'the tag shows on the note')
+  check(await page.locator('.titletags__unit').first().isVisible(), 'the tag shows under the title')
   await page.reload()
   check((await page.locator('.prose strong').textContent()) === 'Code beats prompts', 'the note comes back after a reload')
 

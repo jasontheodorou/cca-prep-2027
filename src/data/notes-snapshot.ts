@@ -1,3 +1,4 @@
+import type { Terms } from '../lib/autoMark'
 import type { Note } from './notes'
 
 /* The notes as they were when the site was built, for the online copy,
@@ -35,3 +36,7 @@ export const SNAPSHOT: Note[] = Object.values(FILES)
     return n ? [n] : []
   })
   .sort((a, b) => b.updated.localeCompare(a.updated))
+
+/** The code and infra word list as it was when the site was built. */
+const LISTS = import.meta.glob('../../notes/terms.json', { import: 'default', eager: true }) as Record<string, Terms>
+export const TERMS: Terms = Object.values(LISTS)[0] ?? {}
