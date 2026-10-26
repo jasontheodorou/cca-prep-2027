@@ -3,6 +3,5 @@
   "fixed tool sequence": "workflow",
   "programmatic enforcement": "workflow",
   "stop_reason": "code",
-  "tool_use": "code",
-  "|messages api.": "infra"
+  "tool_use": "code"
 }
