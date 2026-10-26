@@ -13,7 +13,12 @@ import { Plugin, PluginKey, type EditorState, type Transaction } from '@tiptap/p
  *   marks part of "hooks". Letters, digits and _ join a word, and so do
  *   - . / @ ~ $ between them, so a full stop after a word does not.
  * - The rule runs on every change and when a note opens, so a note always
- *   matches the list, whichever order things happened in. */
+ *   matches the list, whichever order things happened in.
+ *
+ * Infra is different (Jason, 26 October 2026: "so I don't accidentally make
+ * common words marked as infra"). It is not on the list. Typing | before a
+ * word works like Markdown: once the word is finished, the | goes and the
+ * word is infra, in that one place only. */
 
 export type AutoKind = 'code' | 'infra' | 'workflow'
 export type Terms = Record<string, AutoKind>
@@ -33,8 +38,13 @@ export function joined(text: string, i: number) {
   if (JOIN.test(a) && CORE.test(b)) return CORE.test(text[i - 2] ?? '')
   return false
 }
-const KINDS: AutoKind[] = ['code', 'infra', 'workflow']
+// The kinds the list controls. Infra is marked one place at a time.
+const KINDS: AutoKind[] = ['code', 'workflow']
 export const autoMarkKey = new PluginKey('autoMark')
+
+/** A block's text with one stand-in character for each line break or other
+ * inline item, so a place in the text is the same place in the note. */
+export const blockText = (node: PMNode) => node.textBetween(0, node.content.size, undefined, '\ufffc')
 
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
@@ -46,7 +56,8 @@ function wanted(text: string, terms: Terms) {
   const pattern = new RegExp(words.map(escape).join('|'), 'giu')
   for (const m of text.matchAll(pattern)) {
     if (joined(text, m.index!) || joined(text, m.index! + m[0].length)) continue
-    out.push({ from: m.index!, to: m.index! + m[0].length, kind: terms[m[0].toLowerCase()] })
+    const kind = terms[m[0].toLowerCase()]
+    if (KINDS.includes(kind)) out.push({ from: m.index!, to: m.index! + m[0].length, kind })
   }
   return out
 }
@@ -59,7 +70,7 @@ export function applyRule(state: EditorState, terms: Terms): Transaction | null 
     if (node.type.name === 'codeBlock') return false
     const start = pos + 1
     const end = pos + node.nodeSize - 1
-    const want = wanted(node.textContent, terms)
+    const want = wanted(blockText(node), terms)
     for (const kind of KINDS) {
       const type = state.schema.marks[kind]
       if (!type) continue
@@ -74,6 +85,40 @@ export function applyRule(state: EditorState, terms: Terms): Transaction | null 
   // Typing straight after a marked word carries on in plain text.
   tr.setStoredMarks((state.storedMarks ?? state.selection.$head.marks()).filter((m) => !KINDS.includes(m.type.name as AutoKind)))
   return tr.setMeta(autoMarkKey, true)
+}
+
+/** "|word" followed by a word, as written. The | must not follow a letter or digit. */
+const BAR = /(?<![\p{L}\p{N}_])\|([\p{L}\p{N}_]+(?:[-./@~$][\p{L}\p{N}_]+)*)/gu
+
+/** Turns every finished "|word" into the word marked infra, without the |.
+ * A word the cursor is still at the end of waits until it is finished. */
+export function applyBars(state: EditorState): Transaction | null {
+  const type = state.schema.marks.infra
+  if (!type) return null
+  const { empty, head } = state.selection
+  const found: { bar: number; end: number }[] = []
+  state.doc.descendants((node: PMNode, pos: number) => {
+    if (!node.isTextblock) return
+    if (node.type.name === 'codeBlock') return false
+    const text = blockText(node)
+    for (const m of text.matchAll(BAR)) {
+      const bar = pos + 1 + m.index!
+      const end = bar + m[0].length
+      // A word just followed by - . / @ ~ $ may go on, as in "CLAUDE.md", so it waits too.
+      const more = JOIN.test(text[m.index! + m[0].length] ?? '') ? 1 : 0
+      if (empty && head > bar && head <= end + more) continue
+      found.push({ bar, end })
+    }
+    return false
+  })
+  if (!found.length) return null
+  const tr = state.tr
+  // From the end backwards, so earlier places do not move.
+  for (const { bar, end } of found.reverse()) {
+    tr.addMark(bar + 1, end, type.create())
+    tr.delete(bar, bar + 1)
+  }
+  return tr
 }
 
 export const AutoMark = Extension.create<object, { terms: Terms }>({
@@ -91,7 +136,8 @@ export const AutoMark = Extension.create<object, { terms: Terms }>({
         appendTransaction: (trs, _old, state) => {
           if (!trs.some((tr) => tr.docChanged || tr.getMeta('autoMarkRefresh'))) return null
           if (trs.every((tr) => tr.getMeta(autoMarkKey))) return null
-          return applyRule(state, storage.terms)
+          // Bars first; the list rule then runs on the result.
+          return applyBars(state) ?? applyRule(state, storage.terms)
         },
       }),
     ]

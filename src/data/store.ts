@@ -117,7 +117,7 @@ export function setMilestone(milestone: string, done: boolean) {
   record({ type: 'milestone.set', milestone, done })
 }
 
-/** Marks a planned session done or missed, or takes the mark back with "none". */
+/** Marks a planned session done, missed or caught up, or takes the mark back with "none". */
 export function setSession(day: string, status: SessionStatus) {
   record({ type: 'session.set', day, status })
 }

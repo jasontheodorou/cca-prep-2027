@@ -18,8 +18,10 @@ export type LogEvent = Base &
     | { type: 'session.set'; day: string; status: SessionStatus }
   )
 
-/** A planned session marked done or missed; "none" takes the mark back. */
-export type SessionStatus = 'done' | 'missed' | 'none'
+/** A planned session marked done, missed or caught up (missed, then done
+ * later); "none" takes the mark back. */
+export type SessionStatus = SessionMark | 'none'
+export type SessionMark = 'done' | 'missed' | 'caught'
 
 export type NewEvent = LogEvent extends infer E ? (E extends LogEvent ? Omit<E, 'id' | 'at'> : never) : never
 
@@ -31,8 +33,8 @@ export type StudyState = {
   effort: Record<string, Effort>
   /** Milestones marked done, keyed by id ("1.1.2"), with when they were marked. */
   done: Record<string, string>
-  /** Planned sessions marked done or missed, keyed by day. Unmarked days are absent. */
-  sessions?: Record<string, 'done' | 'missed'>
+  /** Planned sessions marked done, missed or caught up, keyed by day. Unmarked days are absent. */
+  sessions?: Record<string, SessionMark>
 }
 
 export const EMPTY: StudyState = { effort: {}, done: {}, sessions: {} }
@@ -60,7 +62,7 @@ export function validate(raw: unknown): NewEvent | null {
     }
     case 'session.set': {
       const d = day(e.day)
-      const ok = e.status === 'done' || e.status === 'missed' || e.status === 'none'
+      const ok = e.status === 'done' || e.status === 'missed' || e.status === 'caught' || e.status === 'none'
       return !d || !ok ? null : { type: 'session.set', day: d, status: e.status as SessionStatus }
     }
     default:

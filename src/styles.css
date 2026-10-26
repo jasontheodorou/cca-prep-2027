@@ -43,6 +43,8 @@
   --accent-hover: #382f52;
   --danger: #a03d3d;
   --warn: #8a3b12;
+  --trap: #8b1a1a;           /* EXAM TRAP in notes: a dark red, 9:1 on white */
+  --missed: #fbe2e2;         /* a missed day: a light red box, with --trap for its date */
   --bar-track: rgb(255 255 255 / 0.75);
   --topbar: rgb(255 255 255 / 0.85);
   --topbar-edge: rgb(24 24 32 / 0.06);
@@ -92,6 +94,8 @@
 
   --danger: #e7a2a2;
   --warn: #e2b08a;
+  --trap: #f2a7a7;           /* a soft red that stays readable at night */
+  --missed: #3d2427;
   --bar-track: rgb(255 255 255 / 0.08);
   --topbar: rgb(22 22 27 / 0.85);
   --topbar-edge: rgb(0 0 0 / 0.4);
@@ -1053,6 +1057,27 @@ html:not([data-manager]) .clawd--perch {
   margin: 12px 0 0;
 }
 
+.session__missed {
+  margin: 0 0 12px;
+  color: var(--trap);
+  font-weight: 600;
+}
+
+/* Caught up: the button flashes to green, then the day turns green. */
+.dayplan .caughtup {
+  margin-top: 12px;
+}
+
+.caughtup[data-flash] {
+  animation: dl-caught 700ms ease-out both;
+}
+
+@keyframes dl-caught {
+  0% { background: var(--accent); transform: scale(1); }
+  35% { background: var(--green); color: var(--on-green); transform: scale(1.06); }
+  100% { background: var(--green); color: var(--on-green); transform: scale(1); }
+}
+
 .dayplan {
   margin-top: 16px;
   padding-bottom: 20px;
@@ -1336,6 +1361,13 @@ html:not([data-manager]) .clawd--perch {
   color: var(--accent);
 }
 
+/* Missed: a light red box, square-cornered so it differs by shape as well as colour. */
+.dot[data-missed] {
+  border-radius: 10px;
+  background: var(--missed);
+  color: var(--trap);
+}
+
 .dot--small {
   max-width: 40px;
   font-size: 0.8125rem;
@@ -1394,6 +1426,12 @@ html:not([data-manager]) .clawd--perch {
 
 .key--long {
   background: radial-gradient(circle, var(--plan-ink) 2px, var(--plan-deep) 2.5px);
+}
+
+.key--missed {
+  border-radius: 4px;
+  background: var(--missed);
+  box-shadow: inset 0 0 0 1px var(--trap);
 }
 
 .key--exam {
@@ -1955,6 +1993,10 @@ html:not([data-manager]) .clawd--perch {
  * (workflow) (Jason, 22 October 2026).
  * Lower case is shown only: the note keeps the letters as typed. */
 .prose code,
+.prose .examtrap {
+  color: var(--trap);
+}
+
 .prose .infra,
 .prose .workflow {
   text-transform: lowercase;
@@ -1969,6 +2011,9 @@ html:not([data-manager]) .clawd--perch {
 
 .prose .infra {
   background: var(--infra-bg);
+  /* Infra names keep the capitals they were written with, as Claude's
+   * own names do, such as AgentDefinition (Jason, 26 October 2026). */
+  text-transform: none;
 }
 
 .prose .workflow {

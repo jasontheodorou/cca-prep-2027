@@ -14,6 +14,7 @@ import { deleteNote, newNoteId, saveNote, setTerm, uploadImage, useNotes, type N
 import { AutoMark, joined, type AutoKind, type Terms } from '../lib/autoMark'
 import { sessionOn } from '../lib/schedule'
 import { TitleTags, titleTagsKey } from '../lib/titleTags'
+import { ExamTrap } from '../lib/examTrap'
 import { dayKey } from '../lib/dates'
 import { autoTags, tagName } from '../lib/tags'
 
@@ -274,6 +275,7 @@ function NoteEditor({
       Infra,
       Workflow,
       AutoMark,
+      ExamTrap,
       TitleTags,
       Markdown,
     ],
@@ -355,7 +357,7 @@ function NoteEditor({
     </button>
   )
 
-  // Code, infra and workflow go through the word list, so every note follows: marking
+  // Code and workflow go through the word list, so every note follows: marking
   // adds the words, unmarking takes the whole marked word off the list.
   const markAs = (kind: AutoKind) => {
     const on = editor.isActive(kind)
@@ -370,6 +372,8 @@ function NoteEditor({
     editor.commands.setTextSelection({ from, to })
     const words = editor.state.doc.textBetween(from, to, ' ').trim()
     if (!words) return
+    // Infra is marked here only, never through the list.
+    if (kind === 'infra') return void editor.chain().focus().toggleMark('infra').run()
     void setTerm(words, on ? null : kind)
     if (on) editor.chain().focus().unsetMark(kind).run()
     else editor.chain().focus().setMark(kind).run()

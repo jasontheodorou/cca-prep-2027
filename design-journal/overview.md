@@ -19,6 +19,7 @@ A calm, minimal study site, built from sanctum, for Jason's Claude Certified Arc
 - Five tabs: Course, Progress, Momentum, Notes, Pet. Notes holds notes saved as Markdown in notes/, committed automatically (decision 010). Recommendations was removed on 21 October (decision 007).
 - Momentum shows today's job from the study plan (study-plan.md, imported by scripts/import-plan.py), with links to claudecertificationguide.com, Done and Missed. Missed days are not moved (decision 009).
 - Seven small reward animations play when Jason studies (decision 008).
+- A missed day shows as a light red box; Caught up flashes green and turns it green, with no time logged (decision 012).
 - Page titles and explainers are hidden unless manager mode is on. A day-to-night switch gives a soft night mode (decision 011). Both switches fade in only when the pointer is near them.
 - Runs locally at `localhost:3005` (Vellum moved it from 3025). Pushed to GitHub up to commit cc14bfa (22 October), including the notes.
 

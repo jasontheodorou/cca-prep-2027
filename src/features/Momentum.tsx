@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { DrawnTick, Peek, stillMotion, useCountUp } from '../components/Delight'
 import { Head } from '../components/Head'
 import { Sheet } from '../components/Sheet'
-import type { Effort } from '../data/events'
+import type { Effort, SessionMark } from '../data/events'
 import { logEffort, setSession, useStudy } from '../data/store'
 import { readRaw, writeRaw } from '../lib/storage'
 import { dayKey, duration, longDay, mondayOf, parseDay } from '../lib/dates'
@@ -14,8 +14,9 @@ import { useNow } from '../lib/useNow'
  * Missed) and one-tap time. Then this week as seven dots, green where study
  * was logged and washed where study is planned. Every other week waits
  * behind a button. Any past day opens a small sheet to fill in or change.
- * Missed days are not moved anywhere, as the plan says. Days with nothing
- * logged are plain: no warnings, no streaks. */
+ * Missed days are not moved anywhere, as the plan says. A day marked
+ * missed shows as a light red box until Caught up turns it green (Jason,
+ * 26 October 2026). Days with nothing logged are plain: no streaks. */
 
 const ADD = [15, 30, 60]
 const SET = [15, 30, 60, 120]
@@ -58,6 +59,8 @@ export function Momentum() {
   const pick = (k: string) => (k > today ? setReading(k) : setEditing(k))
   const marks = state.sessions ?? {}
   const session = sessionOn(today)
+  // A missed day needs no time.
+  const noTime = marks[today] === 'missed' || marks[today] === 'caught'
 
   // Rewards (src/components/Delight.tsx): each is a key that plays its
   // animation once when it changes.
@@ -91,7 +94,7 @@ export function Momentum() {
     })
     const owed = days.filter((d) => hasWork(d) && !isOptional(d))
     const key = `cca-prep.week-done.${monday}`
-    if (owed.length && owed.every((d) => after[d!.day] === 'done') && !readRaw(key, 'week ripple')) {
+    if (owed.length && owed.every((d) => after[d!.day] === 'done' || after[d!.day] === 'caught') && !readRaw(key, 'week ripple')) {
       writeRaw(key, '1', 'week ripple')
       if (monday === week[0]) setWave(id)
     }
@@ -132,16 +135,18 @@ export function Momentum() {
               <p className="session__start">{session.task}</p>
             </div>
           )}
-          <p className="today__n">{entry ? short(shown || entry.minutes) : 'Nothing logged yet'}</p>
-          {entry?.note && <p className="today__note">“{entry.note}”</p>}
-          <div className="row">
-            {ADD.map((m) => (
-              <button key={m} type="button" className="pill" onClick={() => add(m)}>
-                + {short(m)}
-              </button>
-            ))}
-          </div>
-          <p className="today__foot" role="status">
+          {!noTime && <p className="today__n">{entry ? short(shown || entry.minutes) : 'Nothing logged yet'}</p>}
+          {!noTime && entry?.note && <p className="today__note">“{entry.note}”</p>}
+          {!noTime && (
+            <div className="row">
+              {ADD.map((m) => (
+                <button key={m} type="button" className="pill" onClick={() => add(m)}>
+                  + {short(m)}
+                </button>
+              ))}
+            </div>
+          )}
+          <p className="today__foot" role="status" hidden={noTime}>
             {undo ? (
               <>
                 Added {short(undo.added)}.{' '}
@@ -230,7 +235,7 @@ function DayDot({
   k: string
   e?: Effort
   s?: Session
-  mark?: 'done' | 'missed'
+  mark?: SessionMark
   today: string
   disabled?: boolean
   onPick: (k: string) => void
@@ -239,12 +244,15 @@ function DayDot({
   fresh?: number
 }) {
   const work = hasWork(s) && !mark
+  // An optional day skipped is not a miss, so it stays plain.
+  const missed = mark === 'missed' && !isOptional(s)
   const ahead = !!s && k >= today && (work || s.kind === 'Exam')
   const label =
     `${longDay(k)}${e ? `, ${duration(e.minutes)}` : ''}${k === today ? ', today' : ''}` +
     (work ? `, planned: ${s!.title}, ${length(s!)}` : '') +
     (s && !hasWork(s) && s.kind !== 'Exam' ? `, ${s.title.toLowerCase()}` : '') +
-    (mark === 'missed' ? ', missed' : '') +
+    (missed ? ', missed' : '') +
+    (mark === 'caught' ? ', caught up' : '') +
     (k === EXAM_DAY ? ', exam day' : '')
   return (
     <span className="dotcell" data-col={(parseDay(k).getDay() + 6) % 7}>
@@ -253,7 +261,8 @@ function DayDot({
         type="button"
         className={small ? 'dot dot--small' : 'dot'}
         data-fresh={fresh ? true : undefined}
-        data-studied={e ? true : undefined}
+        data-studied={e || mark === 'caught' ? true : undefined}
+        data-missed={missed || undefined}
         data-today={k === today || undefined}
         data-exam={k === EXAM_DAY || undefined}
         data-planned={work || undefined}
@@ -293,7 +302,7 @@ function Months({
   onPick,
 }: {
   effort: Record<string, Effort>
-  marks: Record<string, 'done' | 'missed'>
+  marks: Record<string, SessionMark>
   today: string
   onPick: (k: string) => void
 }) {
@@ -326,7 +335,8 @@ function Months({
       })}
       <p className="muted small">
         {[
-          ['green', 'Study logged'],
+          ['green', 'Study logged or caught up'],
+          ['missed', 'Missed'],
           ['planned', 'Study planned'],
           ['long', 'Long session: 2 hours or more'],
           ['exam', 'Exam day'],
@@ -352,7 +362,7 @@ function DaySheet({
   day: string
   entry?: Effort
   s?: Session
-  mark?: 'done' | 'missed'
+  mark?: SessionMark
   onRead: () => void
   /** Called when the day is marked done here. */
   onDone: () => void
@@ -402,84 +412,98 @@ function DaySheet({
               </button>
             ))}
           </div>
-        </div>
-      )}
-      <form
-        className="dayform"
-        noValidate
-        onSubmit={(e) => {
-          e.preventDefault()
-          save()
-        }}
-      >
-        <label className="field__label" htmlFor="minutes">
-          Minutes studied
-        </label>
-        {error && (
-          <p className="field__error" id="minutes-error" role="alert">
-            {error}
-          </p>
-        )}
-        <div className="row">
-          <input
-            id="minutes"
-            className="input input--short"
-            inputMode="numeric"
-            autoComplete="off"
-            value={minutes}
-            aria-invalid={error ? true : undefined}
-            aria-describedby={error ? 'minutes-error' : undefined}
-            onChange={(e) => setMinutes(e.target.value)}
-          />
-          {SET.map((m) => (
-            <button key={m} type="button" className="pill" aria-pressed={minutes === String(m)} onClick={() => setMinutes(String(m))}>
-              {short(m)}
-            </button>
-          ))}
-        </div>
-
-        {showNote ? (
-          <>
-            <label className="field__label" htmlFor="note">
-              Note
-            </label>
-            <textarea id="note" className="input" rows={4} maxLength={1000} value={note} onChange={(e) => setNote(e.target.value)} />
-          </>
-        ) : entry?.note ? (
-          <>
-            <p className="field__label">Note</p>
-            <p className="savednote">{entry.note}</p>
-            <p className="savednote__meta">
-              Saved {savedAt(entry.at)}.{' '}
-              <button type="button" className="link small" onClick={() => setShowNote(true)}>
-                Edit note
+          {mark === 'missed' && !isOptional(s) && <CaughtUp onCaught={() => setSession(day, 'caught')} />}
+          {mark === 'caught' && (
+            <p className="session__status">
+              <span className="session__done">
+                <DrawnTick /> Caught up.
+              </span>{' '}
+              <button type="button" className="link" onClick={() => setSession(day, 'missed')}>
+                Take back
               </button>
             </p>
-          </>
-        ) : (
-          <button type="button" className="link small" onClick={() => setShowNote(true)}>
-            Add a note
-          </button>
-        )}
+          )}
+        </div>
+      )}
+      {/* A missed day needs no time. */}
+      {mark !== 'missed' && mark !== 'caught' && (
+        <form
+          className="dayform"
+          noValidate
+          onSubmit={(e) => {
+            e.preventDefault()
+            save()
+          }}
+        >
+          <label className="field__label" htmlFor="minutes">
+            Minutes studied
+          </label>
+          {error && (
+            <p className="field__error" id="minutes-error" role="alert">
+              {error}
+            </p>
+          )}
+          <div className="row">
+            <input
+              id="minutes"
+              className="input input--short"
+              inputMode="numeric"
+              autoComplete="off"
+              value={minutes}
+              aria-invalid={error ? true : undefined}
+              aria-describedby={error ? 'minutes-error' : undefined}
+              onChange={(e) => setMinutes(e.target.value)}
+            />
+            {SET.map((m) => (
+              <button key={m} type="button" className="pill" aria-pressed={minutes === String(m)} onClick={() => setMinutes(String(m))}>
+                {short(m)}
+              </button>
+            ))}
+          </div>
 
-        <div className="row row--end">
-          {entry && (
-            <button
-              type="button"
-              className="link small"
-              onClick={() => {
-                logEffort(day, 0, '')
-                onClose()
-              }}
-            >
-              Clear this day
+          {showNote ? (
+            <>
+              <label className="field__label" htmlFor="note">
+                Note
+              </label>
+              <textarea id="note" className="input" rows={4} maxLength={1000} value={note} onChange={(e) => setNote(e.target.value)} />
+            </>
+          ) : entry?.note ? (
+            <>
+              <p className="field__label">Note</p>
+              <p className="savednote">{entry.note}</p>
+              <p className="savednote__meta">
+                Saved {savedAt(entry.at)}.{' '}
+                <button type="button" className="link small" onClick={() => setShowNote(true)}>
+                  Edit note
+                </button>
+              </p>
+            </>
+          ) : (
+            <button type="button" className="link small" onClick={() => setShowNote(true)}>
+              Add a note
             </button>
           )}
-          <button type="submit" className="btn">
-            Save
-          </button>
-        </div>
-      </form>
+
+          <div className="row row--end">
+            {entry && (
+              <button
+                type="button"
+                className="link small"
+                onClick={() => {
+                  logEffort(day, 0, '')
+                  onClose()
+                }}
+              >
+                Clear this day
+              </button>
+            )}
+            <button type="submit" className="btn">
+              Save
+            </button>
+          </div>
+        </form>
+      )}
     </Sheet>
   )
 }
@@ -511,7 +535,7 @@ function TodaySession({
   onDone,
 }: {
   s: Session
-  mark?: 'done' | 'missed'
+  mark?: SessionMark
   entry?: Effort
   onRead: () => void
   /** Called with the Done button's place, for the card's wash. */
@@ -541,18 +565,26 @@ function TodaySession({
         {length(s)}
         {startsWithCards(s) && '. Start with 10 minutes of flashcards'}
       </p>
-      {mark ? (
+      {mark === 'missed' && !isOptional(s) ? (
+        <div className="session__status" role="status">
+          <p className="session__missed">Missed.</p>
+          <div className="row">
+            <CaughtUp onCaught={() => setSession(today, 'caught')} />
+            <button type="button" className="link" onClick={takeBack}>
+              Take back
+            </button>
+          </div>
+        </div>
+      ) : mark ? (
         <p className="session__status" role="status">
-          {mark === 'done' ? (
+          {mark === 'done' || mark === 'caught' ? (
             <span className="session__done">
-              <DrawnTick /> Done.
+              <DrawnTick /> {mark === 'done' ? 'Done.' : 'Caught up.'}
             </span>
-          ) : isOptional(s) ? (
-            'Skipped. It was optional.'
           ) : (
-            'Missed. It does not move to another day. Carry on with the plan as it is.'
+            'Skipped. It was optional.'
           )}{' '}
-          <button type="button" className="link" onClick={takeBack}>
+          <button type="button" className="link" onClick={mark === 'caught' ? () => setSession(today, 'missed') : takeBack}>
             Take back
           </button>
         </p>
@@ -574,6 +606,27 @@ function TodaySession({
         </>
       )}
     </div>
+  )
+}
+
+/** For a missed day done later. The button flashes to green, then the day
+ * is marked caught up. */
+function CaughtUp({ onCaught }: { onCaught: () => void }) {
+  const [flash, setFlash] = useState(false)
+  return (
+    <button
+      type="button"
+      className="btn caughtup"
+      data-flash={flash || undefined}
+      disabled={flash}
+      onClick={() => {
+        if (stillMotion()) return onCaught()
+        setFlash(true)
+        setTimeout(onCaught, 700)
+      }}
+    >
+      Caught up
+    </button>
   )
 }
 
