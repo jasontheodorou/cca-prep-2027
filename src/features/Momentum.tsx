@@ -7,7 +7,7 @@ import type { Effort, SessionMark } from '../data/events'
 import { logEffort, setSession, useStudy } from '../data/store'
 import { readRaw, writeRaw } from '../lib/storage'
 import { dayKey, duration, longDay, mondayOf, parseDay } from '../lib/dates'
-import { EXAM_DAY, hasWork, isBuild, isLesson, isOptional, sessionOn, startsWithCards, type Session } from '../lib/schedule'
+import { LAST_DAY, hasWork, isBuild, isExam, isLesson, isOptional, sessionOn, startsWithCards, type Session } from '../lib/schedule'
 import { useNow } from '../lib/useNow'
 
 /* Momentum: today first, with today's job from the study plan (Done or
@@ -253,7 +253,7 @@ function DayDot({
     (s && !hasWork(s) && s.kind !== 'Exam' ? `, ${s.title.toLowerCase()}` : '') +
     (missed ? ', missed' : '') +
     (mark === 'caught' ? ', caught up' : '') +
-    (k === EXAM_DAY ? ', exam day' : '')
+    (isExam(s) ? ', exam day' : '')
   return (
     <span className="dotcell" data-col={(parseDay(k).getDay() + 6) % 7}>
       <button
@@ -264,7 +264,7 @@ function DayDot({
         data-studied={e || mark === 'caught' ? true : undefined}
         data-missed={missed || undefined}
         data-today={k === today || undefined}
-        data-exam={k === EXAM_DAY || undefined}
+        data-exam={isExam(s) || undefined}
         data-planned={work || undefined}
         data-long={(work && s!.minutes >= 120) || undefined}
         // A planned day ahead opens its plan; other days ahead have nothing to open.
@@ -306,7 +306,7 @@ function Months({
   today: string
   onPick: (k: string) => void
 }) {
-  const end = parseDay(EXAM_DAY)
+  const end = parseDay(LAST_DAY)
   const first = Object.keys(effort).sort()[0]
   const start = parseDay(first && first < '2026-10-01' ? first : '2026-10-01')
   const months: Date[] = []
@@ -563,7 +563,7 @@ function TodaySession({
       <h2 className="session__focus">{s.title}</h2>
       <p className="session__meta">
         {length(s)}
-        {startsWithCards(s) && '. Start with 10 minutes of flashcards'}
+        {startsWithCards(s) && '. Start with 5 minutes of flashcards'}
       </p>
       {mark === 'missed' && !isOptional(s) ? (
         <div className="session__status" role="status">
@@ -635,7 +635,7 @@ function CaughtUp({ onCaught }: { onCaught: () => void }) {
 function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
   const friday = parseDay(s.day).getDay() === 5 && s.kind === 'Daily'
   const rows: [string, React.ReactNode][] = [
-    ['First', startsWithCards(s) ? '10 minutes of flashcards. Every day.' : ''],
+    ['First', startsWithCards(s) ? '5 minutes of flashcards.' : ''],
     ['What to do', s.task || s.title],
     [
       'Exam topics',
@@ -653,7 +653,7 @@ function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
     [
       'How to do a lesson',
       isLesson(s)
-        ? 'Read the lesson once, properly. Do its quick quiz (Concept Check) straight away, and read the lesson again if that goes badly. Read its common-mistakes box (Exam Traps). Answer its practice question before looking at the answer, and say out loud why the other three answers are wrong. Leave its hands-on exercise for Saturday. Then press Mark Complete.'
+        ? 'Today is for reading. Read the lesson once, properly, then do its quick quiz (Concept Check). Stop at 30 minutes. Tomorrow you build it and the day after you test it. Its common-mistakes box (Exam Traps) and practice question come on the test day.'
         : '',
     ],
     ['Afterwards', isBuild(s) ? 'Write three sentences in Notes about what surprised you. It takes two minutes.' : ''],

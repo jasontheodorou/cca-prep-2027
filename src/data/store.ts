@@ -2,8 +2,8 @@ import { useSyncExternalStore } from 'react'
 import { readJson, writeJson } from '../lib/storage'
 import { apply, EMPTY, localIso, newId, type LogEvent, type NewEvent, type SessionStatus, type StudyState } from './events'
 
-/* One shared copy of the study log for every page, as in sanctum. The local
- * server is the source of truth; the browser keeps a mirror for an instant
+/* One shared copy of the study log for every page, as in sanctum. The server
+ * (api/study.ts online, vite/study-log.ts locally) is the source of truth; the browser keeps a mirror for an instant
  * first paint and a queue of events that could not be sent yet, retried every
  * 30 seconds and whenever the tab comes back.
  *

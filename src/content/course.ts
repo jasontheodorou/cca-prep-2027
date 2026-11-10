@@ -55,8 +55,9 @@ export const GUIDE = {
 }
 
 export const EXAM = {
-  /** The planned exam day, from the study plan (22 October 2026). */
-  day: '2027-03-20',
+  /** The planned exam day: 20 March, then 22 May, 29 May and now 26 June
+   * (10 November 2026). Jason's deadline to pass is 30 June 2027. */
+  day: '2027-06-26',
   items: 60,
   format: 'Multiple-choice and multiple-response items. Each item says how many answers to choose.',
   minutes: 120,

@@ -6,7 +6,7 @@ topic: notes
 summary: Infra is no longer on the word list; typing |word marks that one word infra and hides the bar, like a Markdown shortcut.
 tags: [notes, editor, infra, markdown]
 status: accepted
-related: [decision-010-study-notes, logbook-2026-10-26]
+related: [decision-010-study-notes, logbook-2026-10-26, training-manual]
 ---
 
 # 013 Infra words are marked with a | shortcut
@@ -34,3 +34,9 @@ Marking "agent" as infra put the infra band on every "agent" in every note, beca
 
 - To make another "agent" infra, type |agent again or use the button there.
 - "Messages api." keeps its infra mark in its note, and is off the list.
+- An open notes tab keeps the old rules until the page is reloaded. Jason reported "its not working" until he reloaded.
+- Infra words show with the capitals typed (`text-transform: none`), because names such as AgentDefinition are case-sensitive in Claude's tools. Workflow words still show in lower case.
+
+## Checks
+
+Tested in a headless browser with saves intercepted: "|agent", "|CLAUDE.md" and "|hooks." became infra with no bar; "a | b" and "x|y" were left alone. A later fix (`blockText`) stopped a Shift+Enter line break earlier in the paragraph from shifting the mark one letter. Jason confirmed it worked after a reload: "ok nwo it is".

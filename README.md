@@ -1,6 +1,6 @@
 # cca-prep-2027
 
-A small, calm site for preparing for the Claude Certified Architect – Foundations exam (planned for Saturday 20 March 2027). It shows one small thing first and reveals more only when asked.
+A small, calm site for preparing for the Claude Certified Architect – Foundations exam (planned for Saturday 26 June 2027). It shows one small thing first and reveals more only when asked.
 
 Four tabs, and Pet:
 
@@ -9,13 +9,13 @@ Four tabs, and Pet:
 
 ## The study plan
 
-`src/content/schedule.json` is made from the study plan, a Markdown file:
+`src/content/schedule.json` is made by a script that holds the plan as lists of days:
 
 ```
-python3 scripts/import-plan.py ~/Desktop/study-plan.md
+python3 scripts/build-plan.py
 ```
 
-Change the plan, then run this again. Only its day-by-day section is read.
+Change the lists in the script, then run it again. No day is longer than 30 minutes, Friday is a spare day, and each lesson takes three days: read it, build it, test it. Each section ends with one of the exam guide's four exercises, one step a day. The exam is planned for Saturday 26 June 2027.
 - **Study**: notes on one side, the open note on the other. Headings, bold, lists, links, pasted screenshots and YouTube videos. Everything saves itself as Markdown in `notes/`, committed to git a minute after the last change, and each note is tagged with the exam task statements it covers.
 - **Progress**: one ring for the whole course and one bar per section. The figures are the share ticked, not a predicted score.
 
@@ -30,9 +30,25 @@ Opens at http://localhost:3025 (Vellum runs it at http://localhost:3005).
 
 ## Where records are kept
 
-Study time and ticks are appended to `data/study-log.jsonl` by the local dev server, as in sanctum. The browser keeps a copy, so changes made while the server is stopped are sent when it is back. A deployed static site has no server, so it would not save anything. See `data/README.md` for the format.
+The online site at https://cca-prep-2027.vercel.app is the main copy since 10 November 2026. Its functions in `api/` keep the study log and the notes in a private Vercel Blob store. The local dev server keeps its own copies in `data/study-log.jsonl` and `notes/`, as in sanctum. The two do not sync by themselves:
 
-Only `src/data/store.ts` knows where data lives. Moving the records to a folder of Markdown files means changing that file.
+```
+vercel env pull .env.local --yes
+node --env-file=.env.local scripts/pull-from-live.mjs   # online to this machine
+node --env-file=.env.local scripts/push-to-live.mjs     # this machine to online
+```
+
+The browser keeps a copy of the study log, so changes made while offline are sent later. See `data/README.md` for the format.
+
+## The password gate
+
+`middleware.ts` runs on Vercel before every page, file and API call. Nothing is served without the gate's cookie except the sign-in page. The password is the `SITE_PASSWORD` setting on the Vercel project, and a copy is in the Mac Keychain:
+
+```
+security find-generic-password -s cca-prep-2027-site-password -w
+```
+
+To change it, run `vercel env add SITE_PASSWORD -e production -e preview --sensitive --force` and deploy again. Every browser is then signed out.
 
 ## Checks
 

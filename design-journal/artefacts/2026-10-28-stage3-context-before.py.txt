@@ -1,0 +1,260 @@
+"""
+Stage 3: passing context with where-it-came-from details.
+
+This stage moves from the Messages API to the Claude Agent SDK. A coordinator
+starts two research subagents AT THE SAME TIME, then hands everything they
+found to a third, synthesis subagent. Every fact must keep its source.
+
+Install once (one line):
+    python3 -m pip install --user --break-system-packages claude-agent-sdk
+
+Run it (new Terminal window, API key set):
+    python3 stage3_context.py
+"""
+
+import asyncio
+import json
+
+from claude_agent_sdk import (
+    AgentDefinition, AssistantMessage, ClaudeAgentOptions, ResultMessage,
+    TextBlock, ToolUseBlock, create_sdk_mcp_server, query, tool,
+)
+
+MODEL = "claude-opus-5-5"
+TOPIC = "solar and wind power"
+
+
+# =====================================================================
+# Made-up data for the tools (stubs, like Stages 1 and 2).
+# This time every result carries WHERE it came from.
+# =====================================================================
+
+FAKE_WEB = [
+    {"words": ("solar", "photovoltaic", "panel"),
+     "title": "Solar costs, 2010 to 2025",
+     "url": "https://example.org/solar-costs",
+     "text": "Solar panel prices fell about 90% between 2010 and 2025."},
+    {"words": ("solar", "perovskite", "efficiency"),
+     "title": "Tandem cells pass 33%",
+     "url": "https://example.org/tandem-cells",
+     "text": "Perovskite-silicon tandem cells have passed 33% efficiency in the lab."},
+    {"words": ("wind", "turbine", "offshore"),
+     "title": "The biggest offshore turbines",
+     "url": "https://example.org/offshore-turbines",
+     "text": "The biggest offshore wind turbines are now over 250 metres tall."},
+    {"words": ("wind", "floating"),
+     "title": "Floating wind farms",
+     "url": "https://example.org/floating-wind",
+     "text": "Floating platforms let turbines work in water too deep for fixed foundations."},
+]
+
+FAKE_DOCS = {
+    "solar-report-2026.pdf": {
+        4: "Solar was the fastest-growing source of new power in 2025.",
+        9: "Rooftop solar now covers about 1 in 6 UK homes.",
+    },
+    "wind-industry-review.pdf": {
+        2: "The UK gets around 30% of its electricity from wind.",
+        7: "Wind output drops on calm days, so storage matters.",
+    },
+}
+
+
+def text_reply(data):
+    """Tools in the Agent SDK return a list of content blocks."""
+    return {"content": [{"type": "text", "text": json.dumps(data, indent=2)}]}
+
+
+@tool("web_search", "Search the web. Each result has a title, a URL and the text found.", {"query": str})
+async def web_search(args):
+    q = args["query"].lower()
+    hits = [{"title": r["title"], "url": r["url"], "text": r["text"]}
+            for r in FAKE_WEB if any(w in q for w in r["words"])]
+    return text_reply(hits or f"No results for '{args['query']}'.")
+
+
+@tool("list_documents", "List the documents in the research library.", {})
+async def list_documents(args):
+    return text_reply(list(FAKE_DOCS))
+
+
+@tool("read_document", "Read one library document by exact file name. Text comes back page by page.", {"name": str})
+async def read_document(args):
+    pages = FAKE_DOCS.get(args["name"])
+    if pages is None:
+        return text_reply(f"No document called '{args['name']}'.")
+    return text_reply([{"page": n, "text": t} for n, t in pages.items()])
+
+
+# The SDK runs these Python functions as a small tool server inside this script.
+# Claude sees them as mcp__research__web_search and so on.
+RESEARCH_SERVER = create_sdk_mcp_server(
+    name="research", version="1.0.0",
+    tools=[web_search, list_documents, read_document],
+)
+WEB_TOOL = "mcp__research__web_search"
+DOC_TOOLS = ["mcp__research__list_documents", "mcp__research__read_document"]
+
+
+# =====================================================================
+# Step 3: the output format. Content fields and where-it-came-from
+# fields are kept apart.
+# =====================================================================
+
+FINDING_FORMAT = """Reply with JSON only, no other text, as a list of findings:
+[
+  {
+    "content": {
+      "claim": "one fact, in one sentence",
+      "analysis": "why it matters, in one sentence"
+    },
+    "source": {
+      "source_url": "the URL, or null",
+      "document_name": "the file name, or null",
+      "page_number": the page number, or null,
+      "confidence": "high", "medium" or "low",
+      "retrieved_by": "web-researcher" or "doc-analyst"
+    }
+  }
+]
+Copy every source field exactly. Never leave out or shorten a source."""
+
+
+# =====================================================================
+# Step 2: two research subagents, each with ONLY the tools it needs,
+# and Step 4: a synthesis subagent with no tools at all
+# =====================================================================
+
+AGENTS = {
+    "web-researcher": AgentDefinition(
+        description="Searches the web. Use for any research that needs web sources.",
+        prompt="You are a web research subagent. Search for each part of the topic you are given. "
+               "Report only what your searches return, with the URL and title of each result.\n\n" + FINDING_FORMAT,
+        tools=[WEB_TOOL],
+    ),
+    "doc-analyst": AgentDefinition(
+        description="Reads the document library. Use for any research that needs documents.",
+        prompt="You are a document analysis subagent. List the library, read the documents that match "
+               "the topic you are given, and report what they say, with the page number of each fact.\n\n" + FINDING_FORMAT,
+        tools=DOC_TOOLS,
+    ),
+    "synthesiser": AgentDefinition(
+        description="Combines findings into one list of facts. Use after all research is done.",
+        prompt="You combine research findings. You are given every finding in full. "
+               "Merge duplicates, but keep every source of every fact. "
+               "Never add a fact that has no source.\n\n" + FINDING_FORMAT,
+        tools=[],
+    ),
+}
+
+
+# =====================================================================
+# Steps 1 and 6: the coordinator. Agent is in allowedTools, and it must
+# start both research subagents in ONE reply so they run side by side.
+# =====================================================================
+
+COORDINATOR_SYSTEM = (
+    "You are the coordinator of a research team. You never research anything yourself. "
+    "Subagents know nothing except what you put in their prompt."
+)
+
+COORDINATOR_PROMPT = f"""Research this topic: "{TOPIC}".
+
+1. In ONE reply, start BOTH the web-researcher and the doc-analyst subagents,
+   so they work at the same time. Give each the full topic and the goal:
+   "find specific facts, each with its source".
+2. When both have finished, start the synthesiser. Paste BOTH subagents'
+   JSON into its prompt IN FULL. Do not summarise, drop or shorten anything.
+3. Your final answer is the synthesiser's JSON, copied exactly, with no other text."""
+
+
+async def one_message(text):
+    """Custom tools need the prompt sent as a stream, so we yield it once."""
+    yield {"type": "user", "message": {"role": "user", "content": text}}
+
+
+def parse_json(text):
+    text = text.replace("```json", "").replace("```", "").strip()
+    start = min(i for i in (text.find("{"), text.find("[")) if i != -1)
+    return json.loads(text[start:])
+
+
+async def coordinator():
+    options = ClaudeAgentOptions(
+        model=MODEL,
+        system_prompt=COORDINATOR_SYSTEM,
+        agents=AGENTS,
+        mcp_servers={"research": RESEARCH_SERVER},
+        # Agent must be here, or starting a subagent is refused, because
+        # nobody is there to approve it. The research tools are listed too,
+        # so the subagents can use them without asking.
+        allowed_tools=["Agent", "Task", WEB_TOOL, *DOC_TOOLS],
+    )
+
+    started_together = 0
+    final = None
+
+    async for message in query(prompt=one_message(COORDINATOR_PROMPT), options=options):
+        if isinstance(message, AssistantMessage):
+            # parent_tool_use_id is empty for the coordinator, set for a subagent
+            who = "coordinator" if message.parent_tool_use_id is None else "  subagent"
+            starts = [b for b in message.content
+                      if isinstance(b, ToolUseBlock) and b.name in ("Agent", "Task")]
+            for block in message.content:
+                if isinstance(block, ToolUseBlock):
+                    label = block.input.get("subagent_type", "") if block in starts else ""
+                    print(f"[{who}] uses {block.name} {label}")
+                elif isinstance(block, TextBlock) and who == "coordinator":
+                    print(f"[{who}] {block.text[:120]}")
+            if who == "coordinator":
+                started_together = max(started_together, len(starts))
+        elif isinstance(message, ResultMessage):
+            final = message
+    return final, started_together
+
+
+# =====================================================================
+# Step 5: check every fact has a source
+# =====================================================================
+
+def check_sources(facts):
+    missing = []
+    for f in facts:
+        s = f.get("source", {})
+        has_web = bool(s.get("source_url"))
+        has_doc = bool(s.get("document_name")) and s.get("page_number") is not None
+        if not (has_web or has_doc):
+            missing.append(f["content"]["claim"])
+    return missing
+
+
+def write_report(facts):
+    lines = [f"# {TOPIC.capitalize()}", ""]
+    for f in facts:
+        c, s = f["content"], f["source"]
+        where = s.get("source_url") or f"{s.get('document_name')}, page {s.get('page_number')}"
+        lines += [f"- {c['claim']} {c['analysis']}",
+                  f"  Source: {where} (confidence {s.get('confidence')}, found by {s.get('retrieved_by')})"]
+    with open("stage3_report.md", "w", encoding="utf-8") as fh:
+        fh.write("\n".join(lines) + "\n")
+
+
+if __name__ == "__main__":
+    result, started_together = asyncio.run(coordinator())
+    if result is None or result.is_error:
+        raise SystemExit(f"The run did not finish cleanly: {result}")
+
+    facts = parse_json(result.result)
+    missing = check_sources(facts)
+
+    print("\n=== CHECKS ===")
+    print(f"  Facts in the synthesis:           {len(facts)}")
+    print(f"  Facts with no source:             {len(missing)}")
+    for claim in missing:
+        print(f"    - {claim}")
+    print(f"  Research subagents in one reply:  {started_together} (want 2)")
+    if result.total_cost_usd is not None:
+        print(f"  Cost of this run:                 ${result.total_cost_usd:.2f}")
+
+    write_report(facts)
+    print("\nReport saved to stage3_report.md")

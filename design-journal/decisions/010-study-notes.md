@@ -6,7 +6,7 @@ topic: notes
 summary: A Study tab for notes, a minimal Notion-like editor saving Markdown files to notes/ in git, auto-tagged with exam task statements.
 tags: [study, notes, editor, tiptap, markdown, git, tags]
 status: accepted
-related: [decision-007-recommendations-removed, decision-009-new-study-plan, logbook-2026-10-22]
+related: [decision-007-recommendations-removed, decision-009-new-study-plan, logbook-2026-10-22, decision-015-shareable-app-separate-project]
 ---
 
 # 010 Study: notes saved as Markdown in the repository

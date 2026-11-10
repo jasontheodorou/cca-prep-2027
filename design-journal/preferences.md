@@ -2,10 +2,10 @@
 id: preferences
 type: preferences
 date: 2026-10-22
-summary: What Jason likes, rejects and asks for, in Jason's own words, for the schedule, wording, rewards and layout.
-tags: [preferences, taste, wording, schedule, rewards]
+summary: What Jason likes, rejects and asks for, in Jason's own words, for the schedule, wording, rewards, layout, the notes editor, sharing the app and how course concepts are explained.
+tags: [preferences, taste, wording, schedule, rewards, learning, notes, billing, sharing]
 status: active
-related: [decision-006-schedule-in-momentum, decision-007-recommendations-removed, decision-008-study-rewards]
+related: [decision-015-shareable-app-separate-project, logbook-2026-11-02, decision-006-schedule-in-momentum, decision-007-recommendations-removed, decision-008-study-rewards, decision-013-infra-bar-shortcut, logbook-2026-10-26, logbook-2026-10-28]
 ---
 
 # Preferences
@@ -15,7 +15,7 @@ person with a date, and says what it means in practice.
 
 ## Layout and tabs
 
-- Keep to the existing tabs. The schedule went under Momentum, not a new tab: "it would need to live under momentum" (21 October 2026). Recommendations was removed: "we dont need it" (21 October 2026). Menu is now Course, Momentum, Progress, Pet.
+- Keep to the existing tabs. The schedule went under Momentum, not a new tab: "it would need to live under momentum" (21 October 2026). Recommendations was removed: "we dont need it" (21 October 2026). Menu is now Course, Progress, Momentum, Notes, Pet (22 October 2026).
 
 ## Schedule in Momentum
 
@@ -25,6 +25,32 @@ person with a date, and says what it means in practice.
 ## Wording
 
 - Wants very plain words: "write everything in plain English for a total dumbo to understand ... Reading age of 5" (21 October 2026). Then cut card text twice: "can we cut it by 30%", "Lose another 10%. There should be no need to scroll down". Means: short sentences, few words, and measure the cut.
+
+## Notes editor
+
+- Prefers typed markup to word lists for marking terms. Dropped a shared infra list after "agent" got marked everywhere, then: "we use it as essentially a form of markdown syntax" (26 October 2026). Means: marks apply where typed, and the marker character hides once used.
+- Changed the infra marker twice in one sitting: _ first, then "ok forget that let's use | instead, using _ creates problems" (26 October 2026). Means: avoid characters that already mean something in Markdown.
+- Wants names kept exactly as typed: "retain the case for infra as I have written it e.g. AgentDefinition not agentdefinition" (26 October 2026).
+
+## Learning
+
+- Wants course concepts explained very simply, then tied to what Jason already knows. Asked "in dumbo language what did I actually do" (26 October 2026), then tested each idea with his own guesses ("so its for people who want to build python web apps"). Means: say what the thing is for in one line, then correct or confirm each guess directly with "Yes", "Partly" or "No".
+- Short explanations should have a paragraph break after every sentence or two. Asked for "5 sentences" in "dumbo language", then on getting one block: "good but give me that with some para breaks you goofball" (28 October 2026). Means: never send a short explanation as one dense paragraph.
+- Skips exercise steps that are not needed to learn the point. Left the stage 2 fusion fix with "can we just move on", then "ok we dont need that" once it was explained (28 October 2026). Means: explain the lesson behind a failed check, offer the fix once, and move on if he declines.
+- For secrets, wants one command that prompts for the value: "give me a command that then prompts me to enter the api key on a new line" (26 October 2026). Means: never ask for a key in chat; give a hidden-input command that stores it in the Keychain.
+- Types the course's commands himself with `!` in the Claude Code prompt when that is the point of the exercise (26 October 2026). Means: give one copy-paste line at a time, and explain any error before the next step.
+
+## Tools and billing
+
+- Wants Claude Code on the claude.ai subscription, not paid API billing: "stop using api and use claude.ai" (26 October 2026). Means: keep any API key for course code out of the shell setup that Claude Code reads. The key was put back in `~/.zshrc` later that day, so this is not settled.
+
+## Sharing the app
+
+- Wants a light helper, not a product: "it doesnt need to be enterprise grade just a lil helper" (29 October 2026). Means: prefer no server, no sign-in and no database when sharing.
+- Wants a simple password only: "nothing much too personal here just study notes for an exam right" (29 October 2026). Means: one shared password, no accounts.
+- Wants to set it up once and hand out a link, while a cloned copy should "work straight out the box" (29 October 2026). Means: no settings needed to run; optional settings for Claude features.
+- Keeps Shortbread in shared versions: "I think that Shortbread should stay honestly" (29 October 2026).
+- Not worried about API cost: "We have so much juice on the API key" (29 October 2026). Means: using Claude for features is fine; still suggest a spending limit.
 
 ## Rewards and motion
 

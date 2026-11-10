@@ -1,6 +1,8 @@
 # Study records
 
-This folder holds Jason's own study records from the exam prep site. It stays on this machine: everything here except this guide is ignored by git.
+This folder holds Jason's own study records from the exam prep site. Everything here except this guide is ignored by git.
+
+Since 10 November 2026 the online site is the main copy and keeps the log in a private store. The file here can be out of date: run `node --env-file=.env.local scripts/pull-from-live.mjs` before reading it.
 
 It exists so an agent can read it. Read the study log; never edit or rewrite it.
 
@@ -22,6 +24,6 @@ Time logged and milestones ticked are separate on purpose. Time shows effort; ti
 
 ## Context for an agent reading the log
 
-- The exam is planned for Friday 26 March 2027 (an assumption, not a booking). The day-by-day plan is in `src/content/schedule.json`; days marked done or missed are `session.set` events. The exam has 60 items in 120 minutes, across 4 of the 6 scenarios in the guide.
-- Jason is a busy parent with limited energy and childcare commitments. The plan is about an hour each weekday and one longer session of three to four hours a week, with flexibility. He also has two full employer-provided preparation days in total.
+- The exam is planned for Saturday 26 June 2027 (an assumption, not a booking). Jason's own deadline to pass is 30 June 2027. The day-by-day plan is in `src/content/schedule.json`; days marked done or missed are `session.set` events. The exam has 60 items in 120 minutes, across 4 of the 6 scenarios in the guide.
+- Jason is a busy parent with limited energy and childcare commitments. Since 10 November 2026 the plan is 30 minutes a day at most, six days a week, with Friday spare. Each lesson takes three days: read it, build it, test it. Each section ends with one of the guide's four exercises, one step a day. The plan is made by `scripts/build-plan.py`.
 - Missed days are normal. Anything written for Jason should notice what is working, be specific and small, and never frame gaps as failure. Do not predict exam scores or chances of passing.

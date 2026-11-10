@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Reads Jason's study plan (Markdown) and writes src/content/schedule.json.
 
+No longer how the schedule is made. Since 9 November 2026 build-plan.py
+writes it (decision 016) and borrows this file's list of lesson pages.
+Running this would bring back the old plan.
+
 The plan is the source: change it, then run this again.
 
   python3 scripts/import-plan.py ~/Desktop/study-plan.md
@@ -186,6 +190,75 @@ def pull_ahead(days, start):
     return [by_day[k] for k in sorted(by_day)]
 
 
+def stretch(days, plan):
+    """Spreads the work not yet done out to a later exam day (see
+    plain-plan.json, 'stretch'). Days off keep their dates."""
+    if not plan:
+        return days
+    D = date.fromisoformat
+    resume, on, exam = D(plan['resume']), D(plan['on']), D(plan['exam'])
+    old_exam = D(days[-1]['day'])
+    taper_from = old_exam - timedelta(days=5)
+    fixed = {D(d['day']): d for d in days if d['kind'] in ('Off', 'Optional') and D(d['day']) >= on}
+    work = [d for d in days if d['kind'] not in FIXED | {'Spare'} and resume <= D(d['day']) < taper_from]
+    taper = [d for d in days if taper_from <= D(d['day']) < old_exam]
+    # Where each piece of work sat among the old plan's study days, as a share of them.
+    old_slots = [D(d['day']) for d in days if d['kind'] not in FIXED and resume <= D(d['day']) < taper_from]
+    new_end = exam - timedelta(days=len(taper))
+    new_slots = [on + timedelta(days=i) for i in range((new_end - on).days) if on + timedelta(days=i) not in fixed]
+    allowed = {'Long block': {5}, 'Half-day': {2}}  # Saturday, Wednesday
+    short_days = {0, 1, 3, 6}                        # Monday, Tuesday, Thursday, Sunday
+    # Packing and coming back belong next to a holiday, wherever the work around them moves.
+    edges = {'Pack for your holiday': [], 'Welcome back': []}
+    for s in work:
+        if s['title'] in edges:
+            edges[s['title']].append(s)
+    work = [s for s in work if s['title'] not in edges]
+    taken, last, out = {}, {}, []
+    holidays = sorted(k for k, d in fixed.items() if d['kind'] == 'Off')
+    starts = [k for k in holidays if k - timedelta(days=1) not in fixed]
+    ends = [k for k in holidays if k + timedelta(days=1) not in fixed]
+    for a, b in zip(starts, ends):
+        if b - a < timedelta(days=6) or a.month == 12:
+            continue  # Christmas has its own goodbye, the day the answer rules are written
+        for title, day in (('Pack for your holiday', a - timedelta(days=1)), ('Welcome back', b + timedelta(days=1))):
+            if edges[title] and day in new_slots:
+                taken[day] = {**edges[title].pop(0), 'day': day.isoformat()}
+    for s in work:
+        share = old_slots.index(D(s['day'])) / len(old_slots)
+        target = new_slots[int(share * len(new_slots))]
+        ok = allowed.get(s['kind'], short_days)
+        group = s['kind'] if s['kind'] in allowed else 'short'
+        start = max(target - timedelta(days=3) if group != 'short' else target, last.get(group, on - timedelta(days=1)) + timedelta(days=1))
+        day = next((d for d in new_slots if d >= start and d.weekday() in ok and d not in taken), None)
+        if day is None:
+            sys.exit(f'No room before the exam for {s["day"]} {s["title"]}')
+        task = s['task']
+        if day + timedelta(days=1) not in fixed:
+            task = task.replace(' Then stop for Christmas.', '')
+        taken[day] = {**s, 'day': day.isoformat(), 'task': task}
+        last[group] = day
+    out = [d for d in days if D(d['day']) < resume]
+    for d in days:
+        if resume <= D(d['day']) < on and d['kind'] not in FIXED:
+            out.append({**d, 'kind': 'Off', 'minutes': 0, 'title': plan['moved']['title'], 'task': plan['moved']['task'], 'units': [], 'links': []})
+        elif resume <= D(d['day']) < on:
+            out.append(d)
+    week = work[0]['week']
+    for d in new_slots:
+        if d in taken:
+            week = taken[d]['week']
+            out.append(taken[d])
+        else:
+            out.append({'day': d.isoformat(), 'kind': 'Off', 'minutes': 0, 'week': week, 'title': plan['rest']['title'],
+                        'task': plan['rest']['task'], 'units': [], 'links': []})
+    out += [d for k, d in fixed.items() if k < new_end]
+    for i, t in enumerate(taper):
+        out.append({**t, 'day': (new_end + timedelta(days=i)).isoformat()})
+    out.append({**days[-1], 'day': exam.isoformat()})
+    return sorted(out, key=lambda s: s['day'])
+
+
 def main(path):
     text = Path(path).expanduser().read_text()
     sandbox = text[text.index('## 3. The sandbox project'):text.index('## 4.')]
@@ -239,6 +312,7 @@ def main(path):
         d['week'] = PLAIN['weeks'].get(d['week'], d['week'])
     days.sort(key=lambda s: s['day'])
     days = pull_ahead(days, PLAIN.get('start'))
+    days = stretch(days, PLAIN.get('stretch'))
     for a, b in zip(days, days[1:]):
         if date.fromisoformat(b['day']) - date.fromisoformat(a['day']) != timedelta(days=1):
             sys.exit(f'Gap in the plan between {a["day"]} and {b["day"]}')

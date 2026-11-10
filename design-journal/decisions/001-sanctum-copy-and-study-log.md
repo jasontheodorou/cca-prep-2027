@@ -6,7 +6,7 @@ topic: architecture
 summary: Why cca-prep is a separate app copied from sanctum, and how study records are kept in an append-only log file.
 tags: [sanctum, data, storage, agent]
 status: accepted
-related: [decision-002-course-order-and-milestones, decision-007-recommendations-removed, logbook-2026-10-18]
+related: [decision-002-course-order-and-milestones, decision-007-recommendations-removed, logbook-2026-10-18, decision-015-shareable-app-separate-project]
 ---
 
 # 001 A separate app built from sanctum, with sanctum's study log

@@ -1,16 +1,17 @@
 import SESSIONS from '../content/schedule.json'
 
-/* The study schedule, from Jason's study plan (scripts/import-plan.py reads
- * ~/Desktop/study-plan.md). The site never changes it.
+/* The study schedule, written by scripts/build-plan.py (decision 016). The
+ * site never changes it.
  *
- * There is no catch-up. The plan's own rule: a missed day is not added to
- * another day, and two weeks are never squeezed into one. If a day has to
- * go, make it Friday. A missed holiday week swaps with the nearest study
- * week, which means editing the plan and importing it again. */
+ * No day is longer than 30 minutes. Each lesson takes three days: read it,
+ * build it, test it. Friday is a spare day with nothing planned, which is
+ * where a missed day can go. Each section ends with one of the exam guide's
+ * four exercises, one step a day. The exam is planned for 26 June 2027. */
 
 export type Session = {
   day: string
-  /** "Daily", "Long block", "Half-day", "Full day", "Short day", "Optional", "Off", "Exam" */
+  /** "Daily" (reading, questions), "Practice" (hands-on), "Optional", "Off", "Exam".
+   * Days before 9 November 2026 also use "Long block". */
   kind: string
   minutes: number
   /** "Week 1 · Domain 1, first half" */
@@ -33,8 +34,13 @@ const BY_DAY = new Map(SCHEDULE.map((s) => [s.day, s]))
 
 export const sessionOn = (day: string) => BY_DAY.get(day)
 
-/** The exam: the plan's last day. */
-export const EXAM_DAY = SCHEDULE[SCHEDULE.length - 1].day
+/** The exam: the plan's first day of kind "Exam". */
+export const EXAM_DAY = SCHEDULE.find((s) => s.kind === 'Exam')!.day
+
+/** The plan's last day. */
+export const LAST_DAY = SCHEDULE[SCHEDULE.length - 1].day
+
+export const isExam = (s?: Session) => s?.kind === 'Exam'
 
 /** A day with study planned: Done and Missed apply to it. Optional days
  * (Christmas flashcards) can be marked but are never owed. */
@@ -45,11 +51,12 @@ export const isOptional = (s?: Session) => !s || s.kind === 'Optional' || s.minu
 /** The day the flashcards are made; there are none to go through before it. */
 const DECK_DAY = SCHEDULE.find((s) => /flashcards/i.test(s.title))?.day ?? ''
 
-/** Study days open with 10 minutes of flashcards (the plan's default), once they exist. */
-export const startsWithCards = (s: Session) => s.day > DECK_DAY && ['Daily', 'Long block', 'Half-day'].includes(s.kind)
-
-/** A day working on the practice project (the plan's "sandbox"). */
-export const isBuild = (s: Session) => !!s.build || /practice project/i.test(`${s.title} ${s.task}`)
-
 /** A first-time lesson day (not a re-read): the plan's way of working through a lesson applies. */
 export const isLesson = (s: Session) => /^Lesson \d\.\d:/.test(s.title)
+
+/** Question and revision days open with 5 minutes of flashcards, once they
+ * exist. Lesson days and hands-on days keep the whole 30 minutes. */
+export const startsWithCards = (s: Session) => s.day > DECK_DAY && s.kind === 'Daily' && !isLesson(s)
+
+/** A hands-on day in the practice project. */
+export const isBuild = (s: Session) => s.kind === 'Practice' || !!s.build || /practice project/i.test(`${s.title} ${s.task}`)

@@ -1,0 +1,2751 @@
+[
+ {
+  "day": "2026-10-22",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 0 · Getting started",
+  "title": "Set up your notes",
+  "task": "Set up the study notes app, write a practice note from any section of the exam guide, and configure commands like infra, wflow and code within the markdown.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-10-23",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 0 · Getting started",
+  "title": "Start your practice project",
+  "task": "Your practice project is a small pretend helper that handles shop refunds. You will add to it every Saturday until March. Today: make a new folder with git, add a CLAUDE.md file, and make three simple pretend tools (find a customer, look up an order, give a refund) that read from one JSON file.",
+  "units": [],
+  "links": [],
+  "build": "Repo, root CLAUDE.md, three MCP tools (get_customer, lookup_order, process_refund) over a JSON file"
+ },
+ {
+  "day": "2026-10-24",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 0 · Getting started",
+  "title": "Start your flashcards",
+  "task": "Make a set of flashcards, on paper or in a flashcard app. Copy 15 facts from the study site's quick reference page for Agents. Use its facts, not your own.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference: Agents",
+    "href": "https://claudecertificationguide.com/quick-reference/domain-1"
+   }
+  ]
+ },
+ {
+  "day": "2026-10-25",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Lesson 1.1: the agent loop",
+  "task": "Read the lesson, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "1.1"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.1",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-1-agentic-loops"
+   }
+  ]
+ },
+ {
+  "day": "2026-10-26",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Lesson 1.2: several agents working together",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "1.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.2",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-2-orchestration-patterns"
+   }
+  ]
+ },
+ {
+  "day": "2026-10-27",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Lesson 1.3: starting helper agents and giving them what they need",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "1.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.3",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-3-subagent-invocation-context"
+   }
+  ]
+ },
+ {
+  "day": "2026-10-28",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Moved to later",
+  "task": "This day's work moved when the exam moved to May.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-10-29",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Moved to later",
+  "task": "This day's work moved when the exam moved to May.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-10-30",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Moved to later",
+  "task": "This day's work moved when the exam moved to May.",
+  "units": [],
+  "links": [],
+  "build": "The agentic loop: send → inspect stop_reason → run tool → append result → repeat. Terminate only on end_turn"
+ },
+ {
+  "day": "2026-10-31",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Moved to later",
+  "task": "This day's work moved when the exam moved to May.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-01",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Moved to later",
+  "task": "This day's work moved when the exam moved to May.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-02",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Lesson 1.4: forcing steps to happen, and handing over to a person",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "1.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.4",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-4-workflow-enforcement-handoff"
+   }
+  ]
+ },
+ {
+  "day": "2026-11-03",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Lesson 1.5: hooks",
+  "task": "Hooks are bits of code that run at set moments, for example after a tool is used.",
+  "units": [
+   "1.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.5",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks"
+   }
+  ]
+ },
+ {
+  "day": "2026-11-04",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-05",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-06",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-07",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Build an agent loop",
+  "task": "Do the study site's hands-on exercise \"Build a Multi-Tool Agent Loop\" (about 45 minutes). Then add the same thing to your practice project.",
+  "units": [],
+  "links": [
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "build": "The agentic loop: send → inspect stop_reason → run tool → append result → repeat. Terminate only on end_turn"
+ },
+ {
+  "day": "2026-11-08",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 1 · Agents, part 1",
+  "title": "Practice questions: Agents",
+  "task": "Answer 20 practice questions on Agents. For each one you get wrong, write down why the right answer is right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ]
+ },
+ {
+  "day": "2026-11-09",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Lesson 1.6: breaking a big job into smaller ones",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "1.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.6",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition"
+   }
+  ]
+ },
+ {
+  "day": "2026-11-10",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Lesson 1.7: picking up where you left off",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "1.7"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.7",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
+   }
+  ]
+ },
+ {
+  "day": "2026-11-11",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-12",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Read the common mistakes for Agents",
+  "task": "Read the common-mistakes box from each of the seven Agents lessons. Nothing else today.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-13",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-14",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Make your tools report errors clearly",
+  "task": "Make each tool in your practice project say clearly what went wrong. Cause four kinds of error on purpose: a short glitch, bad input, a rule being broken, and no permission. Watch how the agent reacts to each.",
+  "units": [],
+  "links": [],
+  "build": "Structured errors on every tool: errorCategory, isRetryable, readable message. Force each category"
+ },
+ {
+  "day": "2026-11-15",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Write four questions of your own",
+  "task": "Write four exam-style questions about Agents. Give each one the right answer and three wrong answers that sound believable. Do not write why yet.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-16",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Answer your own questions",
+  "task": "Answer yesterday's four questions without looking. Then write why each wrong answer is wrong.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-17",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Practice questions: Agents",
+  "task": "Answer 20 practice questions on Agents. Aim for 14 or more right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ]
+ },
+ {
+  "day": "2026-11-18",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 2 · Agents, part 2",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-19",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Lesson 3.1: where CLAUDE.md files go",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "3.1"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.1",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-1-claude-md-hierarchy"
+   }
+  ]
+ },
+ {
+  "day": "2026-11-20",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-21",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-22",
+  "kind": "Short day",
+  "minutes": 15,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Pack for your holiday",
+  "task": "15 minutes of flashcards, then stop.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-23",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 5 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-24",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 5 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-25",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 5 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-26",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 5 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-27",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 5 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-28",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 5 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-29",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 5 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-11-30",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 6 · Prompts and output",
+  "title": "Welcome back",
+  "task": "Go through all your flashcards, then read everything you have written in Notes so far.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-01",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Lesson 3.2: your own commands and skills",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "3.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.2",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-2-slash-commands-skills"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-02",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-03",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Lesson 3.3: rules for certain files only",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "3.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.3",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-3-path-specific-rules"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-04",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-05",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Set up Claude Code in your practice project",
+  "task": "Add Claude Code's settings to your practice project: a rules folder, a /review command, a skill, and an MCP settings file. Check that each rule only applies to the files it is meant for.",
+  "units": [],
+  "links": [],
+  "build": "The Claude Code layer: .claude/rules/ with glob frontmatter, /review in .claude/commands/, a skill with context: fork and allowed-tools, .mcp.json with ${SOME_TOKEN}"
+ },
+ {
+  "day": "2026-12-06",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Lesson 3.4: plan first, or just do it",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "3.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.4",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-4-plan-mode-execution"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-07",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Lesson 3.5: improving the result over several rounds",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "3.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.5",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-08",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Flashcards and practice: Claude Code",
+  "task": "Copy every file location and setting name from the quick reference page for Claude Code onto flashcards. Then answer 15 practice questions on Claude Code.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Claude Code",
+    "href": "https://claudecertificationguide.com/drill?domain=3"
+   },
+   {
+    "label": "Quick reference: Claude Code",
+    "href": "https://claudecertificationguide.com/quick-reference/domain-3"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-09",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 3 · Claude Code: the easiest marks",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-10",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Lesson 3.6: Claude Code in automatic checks",
+  "task": "This is about running Claude Code by itself, for example to review code whenever someone shares changes.",
+  "units": [
+   "3.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.6",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-11",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-12",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Make Claude review your code automatically",
+  "task": "Set up a GitHub Action that runs Claude Code on its own and posts review comments. Do it now, while lesson 3.6 is fresh.",
+  "units": [
+   "3.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.6",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
+   }
+  ],
+  "build": "A GitHub Action running claude -p with --output-format json to post review comments"
+ },
+ {
+  "day": "2026-12-13",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Practice questions: Claude Code",
+  "task": "Answer 20 practice questions. Aim for 16 or more right. This section is mostly remembering facts, so if you score lower, add more flashcards.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Claude Code",
+    "href": "https://claudecertificationguide.com/drill?domain=3"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-14",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Lesson 4.1: clear instructions that avoid false alarms",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.1"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.1",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-1-system-prompts"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-15",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Lesson 4.2: teaching with examples",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.2",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-2-few-shot-prompting"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-16",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-17",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "All your flashcards",
+  "task": "Go through every flashcard. Then read the common-mistakes boxes for Claude Code again.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-18",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-19",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 4 · Finish Claude Code, start Prompts",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-20",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 6 · Prompts and output",
+  "title": "Lesson 4.3: getting answers in a fixed format",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.3",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-3-structured-output"
+   }
+  ]
+ },
+ {
+  "day": "2026-12-21",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-22",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-23",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-24",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-25",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-26",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-27",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-28",
+  "kind": "Optional",
+  "minutes": 10,
+  "week": "Christmas · Time off",
+  "title": "Flashcards, if you like",
+  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-29",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-30",
+  "kind": "Optional",
+  "minutes": 10,
+  "week": "Christmas · Time off",
+  "title": "Flashcards, if you like",
+  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-31",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-01",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-02",
+  "kind": "Optional",
+  "minutes": 10,
+  "week": "Christmas · Time off",
+  "title": "Flashcards, if you like",
+  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-03",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-04",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 6 · Prompts and output",
+  "title": "Lesson 4.4: checking answers and trying again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.4",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-4-validation-retry-loops"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-05",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 6 · Prompts and output",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-06",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 6 · Prompts and output",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-07",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 6 · Prompts and output",
+  "title": "Lesson 4.5: sending lots of work at once",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.5",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-08",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 6 · Prompts and output",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-09",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 6 · Prompts and output",
+  "title": "Pull facts out of documents",
+  "task": "Add a tool that pulls set facts out of documents into a fixed format. Give it documents with some facts missing, and check it leaves those blank instead of making them up.",
+  "units": [],
+  "links": [],
+  "build": "An extraction tool as a JSON schema. Feed it documents with missing fields; confirm null, not invention"
+ },
+ {
+  "day": "2027-01-10",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 6 · Prompts and output",
+  "title": "Lesson 4.6: getting a second, independent check",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.6",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-11",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 6 · Prompts and output",
+  "title": "Practice questions: Prompts and output",
+  "task": "Answer 20 practice questions.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Prompts and output",
+    "href": "https://claudecertificationguide.com/drill?domain=4"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-12",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Lesson 2.1: describing tools clearly",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "2.1"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.1",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-1-tool-schema-design"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-13",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-14",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Lesson 2.2: helpful error messages from tools",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "2.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.2",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-2-structured-error-responses"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-15",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-16",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-17",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Lesson 2.3: which agent gets which tools",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "2.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.3",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-3-tool-distribution-choice"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-18",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Lesson 2.4: connecting MCP servers",
+  "task": "MCP is the standard way to plug outside tools into Claude.",
+  "units": [
+   "2.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.4",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-4-mcp-server-integration"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-19",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Lesson 2.5: Claude Code's built-in tools",
+  "task": "Read, Write, Edit, Bash, Grep and Glob: what each one is for.",
+  "units": [
+   "2.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.5",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-5-built-in-tools"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-20",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-21",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Practice questions: Tools and MCP",
+  "task": "Answer 20 practice questions.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Tools and MCP",
+    "href": "https://claudecertificationguide.com/drill?domain=2"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-22",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-23",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 7 · Tools and MCP",
+  "title": "Check answers and try again",
+  "task": "Add a step that checks each answer and, if it is wrong, sends it back with the problem. Test one mistake a retry can fix (wrong format) and one it cannot (the fact is not in the document).",
+  "units": [],
+  "links": [],
+  "build": "A validation-retry loop sending back the document, the failed extraction, and the specific error"
+ },
+ {
+  "day": "2027-01-24",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Lesson 5.1: keeping track in long conversations",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "5.1"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.1",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-1-context-window-management"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-25",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Lesson 5.2: when to pass to a person, and unclear requests",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "5.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.2",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-2-escalation-ambiguity"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-26",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Lesson 5.3: passing errors between agents",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "5.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.3",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-27",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-28",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Lesson 5.4: finding your way around a big codebase",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "5.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.4",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-29",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-30",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Lesson 5.6: where facts came from, then practice",
+  "task": "Do the last lesson, then answer 20 practice questions on Context and reliability. That is all 30 lessons done.",
+  "units": [
+   "5.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.6",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance"
+   },
+   {
+    "label": "Practice questions: Context and reliability",
+    "href": "https://claudecertificationguide.com/drill?domain=5"
+   }
+  ]
+ },
+ {
+  "day": "2027-01-31",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Lesson 5.5: when a person should check the work",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "5.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.5",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration"
+   }
+  ]
+ },
+ {
+  "day": "2027-02-01",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 8 · Context and reliability, then a break",
+  "title": "Write your nine answer rules",
+  "task": "By hand, on one page, write the nine rules from your plan that help you pick the right answer, in your own words.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-02",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "All your flashcards",
+  "task": "You will have forgotten some. That is normal, and it comes back quickly.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-03",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-04",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Flashcards and your answer rules",
+  "task": "Go through your flashcards again, then read your page of nine answer rules.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-05",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-06",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-07",
+  "kind": "Short day",
+  "minutes": 15,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Pack for your holiday",
+  "task": "15 minutes of flashcards, then stop.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-08",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 14 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-09",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 14 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-10",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 14 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-11",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 14 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-12",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 14 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-13",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 14 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-14",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 14 · Holiday",
+  "title": "Holiday",
+  "task": "Time off. If you like, 10 minutes of flashcards on travel days. Nothing else.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-15",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Welcome back",
+  "task": "Go through all your flashcards.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-16",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Take the starting test again",
+  "task": "Take the diagnostic test again. Compare each section's score with your first try on 23 October, and write both in Notes.",
+  "units": [],
+  "links": [
+   {
+    "label": "Starting test",
+    "href": "https://claudecertificationguide.com/diagnostic"
+   }
+  ]
+ },
+ {
+  "day": "2027-02-17",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-18",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Read up on your two weakest sections",
+  "task": "Read the quick reference pages for the two sections you scored lowest in.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference",
+    "href": "https://claudecertificationguide.com/quick-reference"
+   }
+  ]
+ },
+ {
+  "day": "2027-02-19",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-20",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Add two hooks to your practice project",
+  "task": "Add one hook that tidies dates into one format after a tool runs, and one that stops any refund over $500 and passes it to a person instead.",
+  "units": [],
+  "links": [],
+  "build": "A PostToolUse hook normalising three date formats; an interception hook blocking refunds over $500"
+ },
+ {
+  "day": "2027-02-21",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Write four questions on your weakest section",
+  "task": "Each with the right answer and three believable wrong ones.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-22",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 9 · Back to it, and see how far you have come",
+  "title": "Answer your questions, then practise",
+  "task": "Answer Friday's four questions without looking. Then answer 20 practice questions on your weakest section.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions",
+    "href": "https://claudecertificationguide.com/drill"
+   }
+  ]
+ },
+ {
+  "day": "2027-02-23",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 10 · Agents again",
+  "title": "Lessons 1.1 and 1.2 again",
+  "task": "Read the common-mistakes box first, then do the quick quiz.",
+  "units": [
+   "1.1",
+   "1.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.1",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-1-agentic-loops"
+   },
+   {
+    "label": "Open lesson 1.2",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-2-orchestration-patterns"
+   }
+  ]
+ },
+ {
+  "day": "2027-02-24",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 10 · Agents again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-25",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 10 · Agents again",
+  "title": "Lessons 1.3 and 1.4 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "1.3",
+   "1.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.3",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-3-subagent-invocation-context"
+   },
+   {
+    "label": "Open lesson 1.4",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-4-workflow-enforcement-handoff"
+   }
+  ]
+ },
+ {
+  "day": "2027-02-26",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 10 · Agents again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-27",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 10 · Agents again",
+  "title": "Make one agent run two helpers at once",
+  "task": "In your practice project, make a main agent start two helper agents at the same time using the Task tool. Check that Task is in the list of tools it is allowed to use.",
+  "units": [],
+  "links": [],
+  "build": "A coordinator spawning two subagents via the Task tool, in parallel, in one response. Findings carry source and date"
+ },
+ {
+  "day": "2027-02-28",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 10 · Agents again",
+  "title": "Lessons 1.5 and 1.6 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "1.5",
+   "1.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.5",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks"
+   },
+   {
+    "label": "Open lesson 1.6",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-01",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 10 · Agents again",
+  "title": "Lesson 1.7 again, then practice",
+  "task": "Then answer 15 practice questions on Agents.",
+  "units": [
+   "1.7"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.7",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
+   },
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-02",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 10 · Agents again",
+  "title": "Practice questions: Agents",
+  "task": "Answer 20. Aim for 17 or more right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-03",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 10 · Agents again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-04",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 10 · Agents again",
+  "title": "Explain it out loud",
+  "task": "Without notes, explain in under three minutes how one main agent runs several helpers. Write it down, then check it against lesson 1.2.",
+  "units": [
+   "1.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.2",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-2-orchestration-patterns"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-05",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 10 · Agents again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-06",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 10 · Agents again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-07",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 11 · Claude Code again",
+  "title": "Lessons 3.1 and 3.2 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "3.1",
+   "3.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.1",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-1-claude-md-hierarchy"
+   },
+   {
+    "label": "Open lesson 3.2",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-2-slash-commands-skills"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-08",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 11 · Claude Code again",
+  "title": "Lessons 3.3 and 3.4 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "3.3",
+   "3.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.3",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-3-path-specific-rules"
+   },
+   {
+    "label": "Open lesson 3.4",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-4-plan-mode-execution"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-09",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 11 · Claude Code again",
+  "title": "Lessons 3.5 and 3.6 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "3.5",
+   "3.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.5",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement"
+   },
+   {
+    "label": "Open lesson 3.6",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-10",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 11 · Claude Code again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-11",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 11 · Claude Code again",
+  "title": "Practice questions: Claude Code",
+  "task": "Answer 20. Aim for 18 or more right: this section is all remembering facts.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Claude Code",
+    "href": "https://claudecertificationguide.com/drill?domain=3"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-12",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 11 · Claude Code again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-13",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 11 · Claude Code again",
+  "title": "Handle a helper that takes too long",
+  "task": "Make one helper agent time out on purpose. Check the main agent gets a clear error, carries on with what it has, and says what is missing.",
+  "units": [],
+  "links": [],
+  "build": "Make a subagent time out. Coordinator gets structured error context and still finishes, annotating coverage gaps"
+ },
+ {
+  "day": "2027-03-14",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 11 · Claude Code again",
+  "title": "Write out where every file goes",
+  "task": "From memory, list where each Claude Code file lives: the three kinds of CLAUDE.md, commands, skills, rules, .mcp.json and ~/.claude.json. Check it against the quick reference.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference",
+    "href": "https://claudecertificationguide.com/quick-reference"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-15",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 11 · Claude Code again",
+  "title": "Practice questions: Claude Code again",
+  "task": "Turn anything you still get wrong into a flashcard tonight.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Claude Code",
+    "href": "https://claudecertificationguide.com/drill?domain=3"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-16",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 12 · Prompts again · Half-days start",
+  "title": "Lessons 4.1 and 4.2 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.1",
+   "4.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.1",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-1-system-prompts"
+   },
+   {
+    "label": "Open lesson 4.2",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-2-few-shot-prompting"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-17",
+  "kind": "Half-day",
+  "minutes": 210,
+  "week": "Week 12 · Prompts again · Half-days start",
+  "title": "Work through exam situation 6",
+  "task": "In the exam guide, read situation 6, about pulling facts out of documents. Write ten questions it could lead to and answer them. Then read lessons 4.3 to 4.5 again and check your answers.",
+  "units": [
+   "4.3",
+   "4.4",
+   "4.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.3",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-3-structured-output"
+   },
+   {
+    "label": "Open lesson 4.4",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-4-validation-retry-loops"
+   },
+   {
+    "label": "Open lesson 4.5",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-18",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 12 · Prompts again · Half-days start",
+  "title": "Lessons 4.3 and 4.4 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.3",
+   "4.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.3",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-3-structured-output"
+   },
+   {
+    "label": "Open lesson 4.4",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-4-validation-retry-loops"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-19",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 12 · Prompts again · Half-days start",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-20",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 12 · Prompts again · Half-days start",
+  "title": "Make your fact-finding tool sturdier",
+  "task": "Let every fact be left blank. Add \"other\" (with a note) and \"unclear\" to every fixed list of choices. Add instructions that tidy formats, alongside the strict format.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-21",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 12 · Prompts again · Half-days start",
+  "title": "Lessons 4.5 and 4.6 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "4.5",
+   "4.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.5",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
+   },
+   {
+    "label": "Open lesson 4.6",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-22",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 12 · Prompts again · Half-days start",
+  "title": "Practice questions: Prompts and output",
+  "task": "Answer 20 practice questions.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Prompts and output",
+    "href": "https://claudecertificationguide.com/drill?domain=4"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-23",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 12 · Prompts again · Half-days start",
+  "title": "Flashcards on sending work in bulk",
+  "task": "Make flashcards for the batch facts: half the price, up to 24 hours, no promised speed, custom_id to match answers, no back-and-forth tool use. Then answer more practice questions on Prompts and output.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Prompts and output",
+    "href": "https://claudecertificationguide.com/drill?domain=4"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-24",
+  "kind": "Half-day",
+  "minutes": 210,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Work through exam situation 1",
+  "task": "Read situation 1, about a customer support agent. Write and answer ten questions on it. Then answer 30 practice questions across Tools and MCP, and Context and reliability.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Tools and MCP",
+    "href": "https://claudecertificationguide.com/drill?domain=2"
+   },
+   {
+    "label": "Practice questions: Context and reliability",
+    "href": "https://claudecertificationguide.com/drill?domain=5"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-25",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Lessons 2.1 and 2.2 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "2.1",
+   "2.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.1",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-1-tool-schema-design"
+   },
+   {
+    "label": "Open lesson 2.2",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-2-structured-error-responses"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-26",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-27",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-28",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Lessons 2.3 and 2.4 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "2.3",
+   "2.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.3",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-3-tool-distribution-choice"
+   },
+   {
+    "label": "Open lesson 2.4",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-4-mcp-server-integration"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-29",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Lesson 2.5 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "2.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.5",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-5-built-in-tools"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-30",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Practice questions: Tools and MCP",
+  "task": "Answer 20. Aim for 17 or more right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Tools and MCP",
+    "href": "https://claudecertificationguide.com/drill?domain=2"
+   }
+  ]
+ },
+ {
+  "day": "2027-03-31",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-01",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-02",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-03",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Rewrite your tool descriptions",
+  "task": "Rewrite each tool's description in your practice project the way lesson 2.1 teaches: what goes in, example requests, unusual cases, and when to use it instead of a similar tool.",
+  "units": [
+   "2.1"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.1",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-1-tool-schema-design"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-04",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 13 · Tools and MCP again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-05",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Lessons 5.1 and 5.2 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "5.1",
+   "5.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.1",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-1-context-window-management"
+   },
+   {
+    "label": "Open lesson 5.2",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-2-escalation-ambiguity"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-06",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-07",
+  "kind": "Half-day",
+  "minutes": 210,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Work through exam situation 3",
+  "task": "Read situation 3, about several agents doing research together. Write and answer ten questions. Then read lessons 5.3 and 5.6 again and check your answers.",
+  "units": [
+   "5.3",
+   "5.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.3",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation"
+   },
+   {
+    "label": "Open lesson 5.6",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-08",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Lessons 5.4 and 5.5 again",
+  "task": "Read it, then do its quick quiz, its common-mistakes box and its practice question.",
+  "units": [
+   "5.4",
+   "5.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.4",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration"
+   },
+   {
+    "label": "Open lesson 5.5",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-09",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-10",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Do a hands-on exercise",
+  "task": "On the study site, do a hands-on exercise you have not tried yet, from your weakest section.",
+  "units": [],
+  "links": [
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-11",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Practice questions: Context and reliability",
+  "task": "Answer 20 practice questions.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Context and reliability",
+    "href": "https://claudecertificationguide.com/drill?domain=5"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-12",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-13",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 15 · Context and reliability again",
+  "title": "Practice questions: every section",
+  "task": "Answer 10 questions in each of the five sections. Write down each score: it shows how next Saturday's practice exam may go.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions",
+    "href": "https://claudecertificationguide.com/drill"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-14",
+  "kind": "Half-day",
+  "minutes": 210,
+  "week": "Week 16 · First practice exam",
+  "title": "Answer your 18 questions",
+  "task": "Answer the 18 questions you wrote yesterday, properly and in writing. Then compare your thinking with the 12 sample questions and answers in the exam guide.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-15",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 16 · First practice exam",
+  "title": "An easy day",
+  "task": "Flashcards, then read your page of nine answer rules.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-16",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 16 · First practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-17",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 16 · First practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-18",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 16 · First practice exam",
+  "title": "Read the six exam situations again",
+  "task": "For each situation in the exam guide, write the three questions you would expect.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-19",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 16 · First practice exam",
+  "title": "Rest day",
+  "task": "Flashcards only. Save your energy for Saturday.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-20",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 16 · First practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-21",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 16 · First practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-22",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 16 · First practice exam",
+  "title": "Get ready for the real exam",
+  "task": "Check your Pearson VUE booking. Check your ID is in date and the name matches your booking exactly. If you are taking it online, run their computer check and clear the room. Then stop.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-23",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 16 · First practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-24",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 16 · First practice exam",
+  "title": "Practice exam 1",
+  "task": "All 60 questions in 2 hours, timed, with no notes. Start at the same time of day as your real exam.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-25",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 16 · First practice exam",
+  "title": "Mark your practice exam",
+  "task": "Write each section's score in Notes. List the three topics you did worst on by number, for example 2.3, 5.1 and 4.4.",
+  "units": [
+   "2.3",
+   "5.1",
+   "4.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.3",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-3-tool-distribution-choice"
+   },
+   {
+    "label": "Open lesson 5.1",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-1-context-window-management"
+   },
+   {
+    "label": "Open lesson 4.4",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-4-validation-retry-loops"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-26",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Your weakest topic",
+  "task": "Read its lesson again and copy out its common-mistakes box by hand.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-27",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Your second-weakest topic",
+  "task": "Read its lesson again and copy out its common-mistakes box by hand.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-28",
+  "kind": "Half-day",
+  "minutes": 210,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Your third-weakest topic",
+  "task": "Read its lesson and copy out its common-mistakes box. Then rebuild that part of your practice project from scratch, without notes. Then answer practice questions on those sections.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions",
+    "href": "https://claudecertificationguide.com/drill"
+   }
+  ]
+ },
+ {
+  "day": "2027-04-29",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-30",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-01",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Finish your practice project",
+  "task": "Finish anything left in your practice project. Then read all of your Notes: five months of what you have learned.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-02",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Learn from your wrong answers",
+  "task": "For every question you got wrong in practice exam 1, write one sentence on why the right answer is right.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-03",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Practice your two weakest sections",
+  "task": "Answer 20 questions on each.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions",
+    "href": "https://claudecertificationguide.com/drill"
+   }
+  ]
+ },
+ {
+  "day": "2027-05-04",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "All your flashcards",
+  "task": "Any card you get wrong twice, rewrite as a question instead.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-05",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 17 · Fix your weak spots",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-06",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 18 · Second practice exam",
+  "title": "Common mistakes: Agents",
+  "task": "Read every common-mistakes box for Agents. This section is over a quarter of the exam.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-07",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 18 · Second practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-08",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 18 · Second practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-09",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 18 · Second practice exam",
+  "title": "Common mistakes: Claude Code, and Prompts",
+  "task": "Read every common-mistakes box for both sections.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-10",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 18 · Second practice exam",
+  "title": "Read all five quick reference pages",
+  "task": "",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference",
+    "href": "https://claudecertificationguide.com/quick-reference"
+   }
+  ]
+ },
+ {
+  "day": "2027-05-11",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 18 · Second practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-12",
+  "kind": "Half-day",
+  "minutes": 210,
+  "week": "Week 18 · Second practice exam",
+  "title": "Common mistakes: Tools, and Context",
+  "task": "Read every common-mistakes box for both sections. Then answer 50 mixed practice questions.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions",
+    "href": "https://claudecertificationguide.com/drill"
+   }
+  ]
+ },
+ {
+  "day": "2027-05-13",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 18 · Second practice exam",
+  "title": "Rest day",
+  "task": "Flashcards only.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-14",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Week 18 · Second practice exam",
+  "title": "Day off",
+  "task": "No studying today. Catch up on a missed day if you want to.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-15",
+  "kind": "Long block",
+  "minutes": 120,
+  "week": "Week 18 · Second practice exam",
+  "title": "Practice exam 2",
+  "task": "Same as last time: 60 questions, 2 hours, no notes, same time of day.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ]
+ },
+ {
+  "day": "2027-05-16",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 18 · Second practice exam",
+  "title": "Mark your practice exam",
+  "task": "Any section where you got less than 7 in 10 is what you work on Monday and Tuesday.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-17",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 19 · Ease off before the exam",
+  "title": "Your weakest section",
+  "task": "Work on your weakest section from practice exam 2. If every section was 7 in 10 or better, do flashcards and read your answer rules instead.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-18",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 19 · Ease off before the exam",
+  "title": "Your second-weakest section",
+  "task": "Or, if you have no weak sections, answer the 12 sample questions in the exam guide without looking.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-19",
+  "kind": "Daily",
+  "minutes": 30,
+  "week": "Week 19 · Ease off before the exam",
+  "title": "The last new thing",
+  "task": "Read the guide's list of what is not in the exam, so you stop reading too much into questions. No new flashcards after tonight.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-20",
+  "kind": "Full day",
+  "minutes": 360,
+  "week": "Week 19 · Ease off before the exam",
+  "title": "Practice exam 3",
+  "task": "Morning: the third practice exam, timed, 2 hours. After lunch: mark it and work only on what it shows you got wrong. Stop by 5pm.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ]
+ },
+ {
+  "day": "2027-05-21",
+  "kind": "Full day",
+  "minutes": 300,
+  "week": "Week 19 · Ease off before the exam",
+  "title": "Last day before the exam",
+  "task": "Morning: say your nine answer rules out loud, then go through all your flashcards once. Early afternoon: your one-page summary and your list of where Claude Code's files go. Stop by 3pm, go for a walk and have an early night. No revision after 3pm.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-22",
+  "kind": "Exam",
+  "minutes": 0,
+  "week": "Exam day",
+  "title": "Exam day",
+  "task": "Nothing new today. Have breakfast, read your page of answer rules once, then put it away.",
+  "units": [],
+  "links": []
+ }
+]

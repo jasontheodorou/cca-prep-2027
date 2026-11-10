@@ -1,648 +1,662 @@
 {
-  "_about": "Plain English for the study plan (Jason, 22 October 2026: 'rewrite in plain English please, for a reading age of 14 ... assume I am getting stuck in to learning the material from today'). Keyed by date. 'was' is the plan's own words for that day: if the plan changes, the importer keeps the plan's words for that day and lists it, so this file can be updated.",
-  "weeks": {
-    "Week 0 · Setup and baseline": "Week 0 · Getting started",
-    "Week 1 · Domain 1, first half": "Week 1 · Agents, part 1",
-    "Week 2 · Domain 1, second half": "Week 2 · Agents, part 2",
-    "Week 3 · Domain 3, the cheap marks": "Week 3 · Claude Code: the easiest marks",
-    "Week 4 · Domain 3 finish, Domain 4 open": "Week 4 · Finish Claude Code, start Prompts",
-    "Week 5 · Holiday one": "Week 5 · Holiday",
-    "Week 6 · Domain 4": "Week 6 · Prompts and output",
-    "Week 7 · Domain 2": "Week 7 · Tools and MCP",
-    "Week 8 · Domain 5, then stop": "Week 8 · Context and reliability, then a break",
-    "Christmas · Off": "Christmas · Time off",
-    "Week 9 · Restart and measure": "Week 9 · Back to it, and see how far you have come",
-    "Week 10 · Domain 1, second pass": "Week 10 · Agents again",
-    "Week 11 · Domain 3, second pass": "Week 11 · Claude Code again",
-    "Week 12 · Domain 4, second pass · Half-days begin": "Week 12 · Prompts again · Half-days start",
-    "Week 13 · Domain 2, second pass": "Week 13 · Tools and MCP again",
-    "Week 14 · Holiday two": "Week 14 · Holiday",
-    "Week 15 · Domain 5, second pass": "Week 15 · Context and reliability again",
-    "Week 16 · Mock one": "Week 16 · First practice exam",
-    "Week 17 · Repair week": "Week 17 · Fix your weak spots",
-    "Week 18 · Mock two": "Week 18 · Second practice exam",
-    "Week 19 · Taper": "Week 19 · Ease off before the exam",
-    "Exam day": "Exam day"
+ "_about": "Plain English for the study plan (Jason, 22 October 2026: 'rewrite in plain English please, for a reading age of 14 ... assume I am getting stuck in to learning the material from today'). Keyed by date. 'was' is the plan's own words for that day: if the plan changes, the importer keeps the plan's words for that day and lists it, so this file can be updated.",
+ "weeks": {
+  "Week 0 · Setup and baseline": "Week 0 · Getting started",
+  "Week 1 · Domain 1, first half": "Week 1 · Agents, part 1",
+  "Week 2 · Domain 1, second half": "Week 2 · Agents, part 2",
+  "Week 3 · Domain 3, the cheap marks": "Week 3 · Claude Code: the easiest marks",
+  "Week 4 · Domain 3 finish, Domain 4 open": "Week 4 · Finish Claude Code, start Prompts",
+  "Week 5 · Holiday one": "Week 5 · Holiday",
+  "Week 6 · Domain 4": "Week 6 · Prompts and output",
+  "Week 7 · Domain 2": "Week 7 · Tools and MCP",
+  "Week 8 · Domain 5, then stop": "Week 8 · Context and reliability, then a break",
+  "Christmas · Off": "Christmas · Time off",
+  "Week 9 · Restart and measure": "Week 9 · Back to it, and see how far you have come",
+  "Week 10 · Domain 1, second pass": "Week 10 · Agents again",
+  "Week 11 · Domain 3, second pass": "Week 11 · Claude Code again",
+  "Week 12 · Domain 4, second pass · Half-days begin": "Week 12 · Prompts again · Half-days start",
+  "Week 13 · Domain 2, second pass": "Week 13 · Tools and MCP again",
+  "Week 14 · Holiday two": "Week 14 · Holiday",
+  "Week 15 · Domain 5, second pass": "Week 15 · Context and reliability again",
+  "Week 16 · Mock one": "Week 16 · First practice exam",
+  "Week 17 · Repair week": "Week 17 · Fix your weak spots",
+  "Week 18 · Mock two": "Week 18 · Second practice exam",
+  "Week 19 · Taper": "Week 19 · Ease off before the exam",
+  "Exam day": "Exam day"
+ },
+ "days": {
+  "2026-10-22": {
+   "was": "Read Exam Guide sections 3, 4 and 5 only — exam details, blueprint, the six scenarios. Do **not** read the objectives yet.",
+   "title": "Read the start of the official exam guide",
+   "task": "Open the exam guide PDF from Anthropic. Read only sections 3, 4 and 5. They tell you how the exam works, what it covers and the six made-up situations its questions are based on. Skip the long list of learning goals for now."
   },
-  "days": {
-    "2026-10-22": {
-      "was": "Read Exam Guide sections 3, 4 and 5 only — exam details, blueprint, the six scenarios. Do **not** read the objectives yet.",
-      "title": "Read the start of the official exam guide",
-      "task": "Open the exam guide PDF from Anthropic. Read only sections 3, 4 and 5. They tell you how the exam works, what it covers and the six made-up situations its questions are based on. Skip the long list of learning goals for now."
-    },
-    "2026-10-23": {
-      "was": "Sit `/diagnostic` cold. Expect a bad score; that is the point. Record the per-domain split in `NOTES.md`.",
-      "title": "Take the starting test",
-      "task": "On the study site, take the diagnostic test without revising first. A low score is fine: it shows where you are starting from. Write down your score for each of the five exam sections in Notes."
-    },
-    "2026-10-24": {
-      "was": "**[2h]** Sandbox step 1. Repo, `CLAUDE.md`, three stub MCP tools over a JSON file.",
-      "title": "Start your practice project",
-      "task": "Your practice project is a small pretend helper that handles shop refunds. You will add to it every Saturday until March. Today: make a new folder with git, add a CLAUDE.md file, and make three simple pretend tools (find a customer, look up an order, give a refund) that read from one JSON file."
-    },
-    "2026-10-25": {
-      "was": "Create the flashcard deck. Harvest the first 15 cards from `/quick-reference/domain-1`.",
-      "title": "Start your flashcards",
-      "task": "Make a set of flashcards, on paper or in a flashcard app. Copy 15 facts from the study site's quick reference page for Agents. Use its facts, not your own."
-    },
-    "2026-10-26": {
-      "was": "Lesson **1.1 Agentic Loops**. Read, Concept Check, Exam Traps, Practice Scenario.",
-      "title": "Lesson 1.1: the agent loop",
-      "task": "Read the lesson, then do its quick quiz, its common-mistakes box and its practice question."
-    },
-    "2026-10-27": {
-      "was": "Lesson **1.2 Multi-Agent Orchestration**.",
-      "title": "Lesson 1.2: several agents working together",
-      "task": ""
-    },
-    "2026-10-28": {
-      "was": "Lesson **1.3 Subagent Invocation and Context Passing**.",
-      "title": "Lesson 1.3: starting helper agents and giving them what they need",
-      "task": ""
-    },
-    "2026-10-29": {
-      "was": "Lesson **1.4 Workflow Enforcement and Handoff**.",
-      "title": "Lesson 1.4: forcing steps to happen, and handing over to a person",
-      "task": ""
-    },
-    "2026-10-30": {
-      "was": "Lesson **1.5 Agent SDK Hooks**.",
-      "title": "Lesson 1.5: hooks",
-      "task": "Hooks are bits of code that run at set moments, for example after a tool is used."
-    },
-    "2026-10-31": {
-      "was": "**[2h]** Build Exercise \"Build a Multi-Tool Agent Loop\" (45 min), then port it into your sandbox as step 2.",
-      "title": "Build an agent loop",
-      "task": "Do the study site's hands-on exercise \"Build a Multi-Tool Agent Loop\" (about 45 minutes). Then add the same thing to your practice project."
-    },
-    "2026-11-01": {
-      "was": "Drill Mode, domain 1, 20 questions. Log every wrong answer with the reason.",
-      "title": "Practice questions: Agents",
-      "task": "Answer 20 practice questions on Agents. For each one you get wrong, write down why the right answer is right."
-    },
-    "2026-11-02": {
-      "was": "Lesson **1.6 Task Decomposition Strategies**.",
-      "title": "Lesson 1.6: breaking a big job into smaller ones",
-      "task": ""
-    },
-    "2026-11-03": {
-      "was": "Lesson **1.7 Session State and Resumption**.",
-      "title": "Lesson 1.7: picking up where you left off",
-      "task": ""
-    },
-    "2026-11-04": {
-      "was": "Re-read the Exam Traps boxes on all seven Domain 1 lessons. Nothing else.",
-      "title": "Read the common mistakes for Agents",
-      "task": "Read the common-mistakes box from each of the seven Agents lessons. Nothing else today."
-    },
-    "2026-11-05": {
-      "was": "Write four practice questions on Domain 1, each with three plausible distractors. Don't write the explanations.",
-      "title": "Write four questions of your own",
-      "task": "Write four exam-style questions about Agents. Give each one the right answer and three wrong answers that sound believable. Do not write why yet."
-    },
-    "2026-11-06": {
-      "was": "Answer yesterday's four cold, then write why each wrong option fails.",
-      "title": "Answer your own questions",
-      "task": "Answer yesterday's four questions without looking. Then write why each wrong answer is wrong."
-    },
-    "2026-11-07": {
-      "was": "**[2h]** Sandbox step 3 — structured errors on every tool. Force a transient, a validation, a business and a permission error, and watch the agent's behaviour differ.",
-      "title": "Make your tools report errors clearly",
-      "task": "Make each tool in your practice project say clearly what went wrong. Cause four kinds of error on purpose: a short glitch, bad input, a rule being broken, and no permission. Watch how the agent reacts to each."
-    },
-    "2026-11-08": {
-      "was": "Drill Mode, domain 1, 20 questions. Target 70%+.",
-      "title": "Practice questions: Agents",
-      "task": "Answer 20 practice questions on Agents. Aim for 14 or more right."
-    },
-    "2026-11-09": {
-      "was": "Lesson **3.1 CLAUDE.md hierarchy and scoping**.",
-      "title": "Lesson 3.1: where CLAUDE.md files go",
-      "task": ""
-    },
-    "2026-11-10": {
-      "was": "Lesson **3.2 Custom slash commands and skills**.",
-      "title": "Lesson 3.2: your own commands and skills",
-      "task": ""
-    },
-    "2026-11-11": {
-      "was": "Lesson **3.3 Path-specific rules**.",
-      "title": "Lesson 3.3: rules for certain files only",
-      "task": ""
-    },
-    "2026-11-12": {
-      "was": "Lesson **3.4 Plan mode vs direct execution**.",
-      "title": "Lesson 3.4: plan first, or just do it",
-      "task": ""
-    },
-    "2026-11-13": {
-      "was": "Lesson **3.5 Iterative refinement techniques**.",
-      "title": "Lesson 3.5: improving the result over several rounds",
-      "task": ""
-    },
-    "2026-11-14": {
-      "was": "**[2h]** Sandbox step 5 — the entire Claude Code config layer in your repo. Verify the path rules fire only on matching files.",
-      "title": "Set up Claude Code in your practice project",
-      "task": "Add Claude Code's settings to your practice project: a rules folder, a /review command, a skill, and an MCP settings file. Check that each rule only applies to the files it is meant for."
-    },
-    "2026-11-15": {
-      "was": "Harvest every path and frontmatter key from `/quick-reference/domain-3` into the deck. Drill domain 3, 15 questions.",
-      "title": "Flashcards and practice: Claude Code",
-      "task": "Copy every file location and setting name from the quick reference page for Claude Code onto flashcards. Then answer 15 practice questions on Claude Code."
-    },
-    "2026-11-16": {
-      "was": "Lesson **3.6 Claude Code in CI/CD**.",
-      "title": "Lesson 3.6: Claude Code in automatic checks",
-      "task": "This is about running Claude Code by itself, for example to review code whenever someone shares changes."
-    },
-    "2026-11-17": {
-      "was": "Drill domain 3, 20 questions. Target 80%+ — this domain is recall, so anything lower is a deck problem.",
-      "title": "Practice questions: Claude Code",
-      "task": "Answer 20 practice questions. Aim for 16 or more right. This section is mostly remembering facts, so if you score lower, add more flashcards."
-    },
-    "2026-11-18": {
-      "was": "Lesson **4.1 Explicit criteria and false positives**.",
-      "title": "Lesson 4.1: clear instructions that avoid false alarms",
-      "task": ""
-    },
-    "2026-11-19": {
-      "was": "Lesson **4.2 Few-shot prompting**.",
-      "title": "Lesson 4.2: teaching with examples",
-      "task": ""
-    },
-    "2026-11-20": {
-      "was": "Flashcards, full deck. Re-read Domain 3 Exam Traps.",
-      "title": "All your flashcards",
-      "task": "Go through every flashcard. Then read the common-mistakes boxes for Claude Code again."
-    },
-    "2026-11-21": {
-      "was": "**[2h]** Sandbox step 10 — GitHub Action with `claude -p --output-format json`. Done now while 3.6 is fresh.",
-      "title": "Make Claude review your code automatically",
-      "task": "Set up a GitHub Action that runs Claude Code on its own and posts review comments. Do it now, while lesson 3.6 is fresh."
-    },
-    "2026-11-22": {
-      "was": "Pack for the holiday. 15 min flashcards, then stop.",
-      "title": "Pack for your holiday",
-      "task": "15 minutes of flashcards, then stop."
-    },
-    "2026-11-30": {
-      "was": "Re-entry. Flashcards, full deck, plus read `NOTES.md` end to end.",
-      "title": "Welcome back",
-      "task": "Go through all your flashcards, then read everything you have written in Notes so far."
-    },
-    "2026-12-01": {
-      "was": "Lesson **4.3 Structured output via tool_use and JSON schemas**.",
-      "title": "Lesson 4.3: getting answers in a fixed format",
-      "task": ""
-    },
-    "2026-12-02": {
-      "was": "Lesson **4.4 Validation, retry and feedback loops**.",
-      "title": "Lesson 4.4: checking answers and trying again",
-      "task": ""
-    },
-    "2026-12-03": {
-      "was": "Lesson **4.5 Batch processing strategies**.",
-      "title": "Lesson 4.5: sending lots of work at once",
-      "task": ""
-    },
-    "2026-12-04": {
-      "was": "Lesson **4.6 Multi-instance and multi-pass review**.",
-      "title": "Lesson 4.6: getting a second, independent check",
-      "task": ""
-    },
-    "2026-12-05": {
-      "was": "**[2h]** Sandbox step 6 — extraction tool with a JSON schema. Feed it documents with fields missing and confirm it returns null rather than inventing.",
-      "title": "Pull facts out of documents",
-      "task": "Add a tool that pulls set facts out of documents into a fixed format. Give it documents with some facts missing, and check it leaves those blank instead of making them up."
-    },
-    "2026-12-06": {
-      "was": "Drill domain 4, 20 questions.",
-      "title": "Practice questions: Prompts and output",
-      "task": "Answer 20 practice questions."
-    },
-    "2026-12-07": {
-      "was": "Lesson **2.1 Tool interfaces, descriptions and boundaries**.",
-      "title": "Lesson 2.1: describing tools clearly",
-      "task": ""
-    },
-    "2026-12-08": {
-      "was": "Lesson **2.2 Structured error responses for MCP tools**.",
-      "title": "Lesson 2.2: helpful error messages from tools",
-      "task": ""
-    },
-    "2026-12-09": {
-      "was": "Lesson **2.3 Tool distribution and tool_choice**.",
-      "title": "Lesson 2.3: which agent gets which tools",
-      "task": ""
-    },
-    "2026-12-10": {
-      "was": "Lesson **2.4 MCP server integration**.",
-      "title": "Lesson 2.4: connecting MCP servers",
-      "task": "MCP is the standard way to plug outside tools into Claude."
-    },
-    "2026-12-11": {
-      "was": "Lesson **2.5 Built-in tools (Read, Write, Edit, Bash, Grep, Glob)**.",
-      "title": "Lesson 2.5: Claude Code's built-in tools",
-      "task": "Read, Write, Edit, Bash, Grep and Glob: what each one is for."
-    },
-    "2026-12-12": {
-      "was": "**[2h]** Sandbox step 7 — validation-retry loop. Test one error a retry can fix (bad format) and one it cannot (absent information).",
-      "title": "Check answers and try again",
-      "task": "Add a step that checks each answer and, if it is wrong, sends it back with the problem. Test one mistake a retry can fix (wrong format) and one it cannot (the fact is not in the document)."
-    },
-    "2026-12-13": {
-      "was": "Drill domain 2, 20 questions.",
-      "title": "Practice questions: Tools and MCP",
-      "task": "Answer 20 practice questions."
-    },
-    "2026-12-14": {
-      "was": "Lesson **5.1 Conversation context across long interactions**.",
-      "title": "Lesson 5.1: keeping track in long conversations",
-      "task": ""
-    },
-    "2026-12-15": {
-      "was": "Lesson **5.2 Escalation and ambiguity resolution**.",
-      "title": "Lesson 5.2: when to pass to a person, and unclear requests",
-      "task": ""
-    },
-    "2026-12-16": {
-      "was": "Lesson **5.3 Error propagation across multi-agent systems**.",
-      "title": "Lesson 5.3: passing errors between agents",
-      "task": ""
-    },
-    "2026-12-17": {
-      "was": "Lesson **5.4 Context in large codebase exploration**.",
-      "title": "Lesson 5.4: finding your way around a big codebase",
-      "task": ""
-    },
-    "2026-12-18": {
-      "was": "Lesson **5.5 Human review and confidence calibration**.",
-      "title": "Lesson 5.5: when a person should check the work",
-      "task": ""
-    },
-    "2026-12-19": {
-      "was": "**[2h]** Lesson **5.6 Information provenance**, then Drill domain 5, 20 questions. **All 30 lessons now complete.**",
-      "title": "Lesson 5.6: where facts came from, then practice",
-      "task": "Do the last lesson, then answer 20 practice questions on Context and reliability. That is all 30 lessons done."
-    },
-    "2026-12-20": {
-      "was": "Write the nine answer patterns out in your own words, one page, by hand. Then put everything down.",
-      "title": "Write your nine answer rules",
-      "task": "By hand, on one page, write the nine rules from your plan that help you pick the right answer, in your own words. Then stop for Christmas."
-    },
-    "2027-01-04": {
-      "was": "Flashcards, full deck. It will hurt. That is normal and it comes back fast.",
-      "title": "All your flashcards",
-      "task": "You will have forgotten some. That is normal, and it comes back quickly."
-    },
-    "2027-01-05": {
-      "was": "Flashcards again, plus re-read your one-page answer patterns.",
-      "title": "Flashcards and your answer rules",
-      "task": "Go through your flashcards again, then read your page of nine answer rules."
-    },
-    "2027-01-06": {
-      "was": "Sit `/diagnostic` again. Compare with 23 October, per domain. Record both in `NOTES.md`.",
-      "title": "Take the starting test again",
-      "task": "Take the diagnostic test again. Compare each section's score with your first try on 23 October, and write both in Notes."
-    },
-    "2027-01-07": {
-      "was": "Read the Quick Reference pages for your two worst domains.",
-      "title": "Read up on your two weakest sections",
-      "task": "Read the quick reference pages for the two sections you scored lowest in."
-    },
-    "2027-01-08": {
-      "was": "Write four questions on your single worst domain.",
-      "title": "Write four questions on your weakest section",
-      "task": "Each with the right answer and three believable wrong ones."
-    },
-    "2027-01-09": {
-      "was": "**[2h]** Sandbox step 4 — `PostToolUse` date normalisation hook, plus the $500 interception hook redirecting to escalation.",
-      "title": "Add two hooks to your practice project",
-      "task": "Add one hook that tidies dates into one format after a tool runs, and one that stops any refund over $500 and passes it to a person instead."
-    },
-    "2027-01-10": {
-      "was": "Answer Friday's four cold. Drill your worst domain, 20 questions.",
-      "title": "Answer your questions, then practise",
-      "task": "Answer Friday's four questions without looking. Then answer 20 practice questions on your weakest section."
-    },
-    "2027-01-11": {
-      "was": "Re-read **1.1 and 1.2** — Exam Traps first, then Concept Check.",
-      "title": "Lessons 1.1 and 1.2 again",
-      "task": "Read the common-mistakes box first, then do the quick quiz."
-    },
-    "2027-01-12": {
-      "was": "Re-read **1.3 and 1.4**.",
-      "title": "Lessons 1.3 and 1.4 again",
-      "task": ""
-    },
-    "2027-01-13": {
-      "was": "Re-read **1.5 and 1.6**.",
-      "title": "Lessons 1.5 and 1.6 again",
-      "task": ""
-    },
-    "2027-01-14": {
-      "was": "Re-read **1.7**. Drill domain 1, 15 questions.",
-      "title": "Lesson 1.7 again, then practice",
-      "task": "Then answer 15 practice questions on Agents."
-    },
-    "2027-01-15": {
-      "was": "Drill domain 1, 20 questions. Target 85%.",
-      "title": "Practice questions: Agents",
-      "task": "Answer 20. Aim for 17 or more right."
-    },
-    "2027-01-16": {
-      "was": "**[2h]** Sandbox step 8 — coordinator spawning two subagents in parallel via the Task tool, in a single response. Confirm `allowedTools` includes `Task`.",
-      "title": "Make one agent run two helpers at once",
-      "task": "In your practice project, make a main agent start two helper agents at the same time using the Task tool. Check that Task is in the list of tools it is allowed to use."
-    },
-    "2027-01-17": {
-      "was": "Explain hub-and-spoke orchestration out loud from memory in under three minutes. Write it down, then compare against lesson 1.2.",
-      "title": "Explain it out loud",
-      "task": "Without notes, explain in under three minutes how one main agent runs several helpers. Write it down, then check it against lesson 1.2."
-    },
-    "2027-01-18": {
-      "was": "Re-read **3.1 and 3.2**.",
-      "title": "Lessons 3.1 and 3.2 again",
-      "task": ""
-    },
-    "2027-01-19": {
-      "was": "Re-read **3.3 and 3.4**.",
-      "title": "Lessons 3.3 and 3.4 again",
-      "task": ""
-    },
-    "2027-01-20": {
-      "was": "Re-read **3.5 and 3.6**.",
-      "title": "Lessons 3.5 and 3.6 again",
-      "task": ""
-    },
-    "2027-01-21": {
-      "was": "Drill domain 3, 20 questions. Target 90% — this is pure recall.",
-      "title": "Practice questions: Claude Code",
-      "task": "Answer 20. Aim for 18 or more right: this section is all remembering facts."
-    },
-    "2027-01-22": {
-      "was": "From memory, write out the complete path table: user / project / directory CLAUDE.md, commands, skills, rules, `.mcp.json`, `~/.claude.json`. Check against Quick Reference.",
-      "title": "Write out where every file goes",
-      "task": "From memory, list where each Claude Code file lives: the three kinds of CLAUDE.md, commands, skills, rules, .mcp.json and ~/.claude.json. Check it against the quick reference."
-    },
-    "2027-01-23": {
-      "was": "**[2h]** Sandbox step 9 — force a subagent timeout. Coordinator receives structured error context, proceeds on partial results, and annotates coverage gaps.",
-      "title": "Handle a helper that takes too long",
-      "task": "Make one helper agent time out on purpose. Check the main agent gets a clear error, carries on with what it has, and says what is missing."
-    },
-    "2027-01-24": {
-      "was": "Drill domain 3 again. Anything still under 90% becomes a flashcard tonight.",
-      "title": "Practice questions: Claude Code again",
-      "task": "Turn anything you still get wrong into a flashcard tonight."
-    },
-    "2027-01-25": {
-      "was": "Re-read **4.1 and 4.2**.",
-      "title": "Lessons 4.1 and 4.2 again",
-      "task": ""
-    },
-    "2027-01-26": {
-      "was": "Re-read **4.3 and 4.4**.",
-      "title": "Lessons 4.3 and 4.4 again",
-      "task": ""
-    },
-    "2027-01-27": {
-      "was": "**[HALF-DAY]** Scenario 6 walkthrough — Structured Data Extraction. Read the scenario in the Exam Guide, write ten questions it could produce, answer them, then re-read 4.3–4.5 against your answers.",
-      "title": "Work through exam situation 6",
-      "task": "In the exam guide, read situation 6, about pulling facts out of documents. Write ten questions it could lead to and answer them. Then read lessons 4.3 to 4.5 again and check your answers."
-    },
-    "2027-01-28": {
-      "was": "Re-read **4.5 and 4.6**.",
-      "title": "Lessons 4.5 and 4.6 again",
-      "task": ""
-    },
-    "2027-01-29": {
-      "was": "Drill domain 4, 20 questions.",
-      "title": "Practice questions: Prompts and output",
-      "task": "Answer 20 practice questions."
-    },
-    "2027-01-30": {
-      "was": "**[2h]** Harden sandbox step 6 — enum with `\"other\"` + detail and `\"unclear\"`, nullable fields throughout, format normalisation rules in the prompt alongside the strict schema.",
-      "title": "Make your fact-finding tool sturdier",
-      "task": "Let every fact be left blank. Add \"other\" (with a note) and \"unclear\" to every fixed list of choices. Add instructions that tidy formats, alongside the strict format."
-    },
-    "2027-01-31": {
-      "was": "Batch API facts onto cards (50%, 24h, no SLA, `custom_id`, no multi-turn tool calling). Drill domain 4 again.",
-      "title": "Flashcards on sending work in bulk",
-      "task": "Make flashcards for the batch facts: half the price, up to 24 hours, no promised speed, custom_id to match answers, no back-and-forth tool use. Then answer more practice questions on Prompts and output."
-    },
-    "2027-02-01": {
-      "was": "Re-read **2.1 and 2.2**.",
-      "title": "Lessons 2.1 and 2.2 again",
-      "task": ""
-    },
-    "2027-02-02": {
-      "was": "Re-read **2.3 and 2.4**.",
-      "title": "Lessons 2.3 and 2.4 again",
-      "task": ""
-    },
-    "2027-02-03": {
-      "was": "**[HALF-DAY]** Scenario 1 walkthrough — Customer Support Resolution Agent. Ten questions, answered. Then Drill domains 2 and 5, 30 questions combined.",
-      "title": "Work through exam situation 1",
-      "task": "Read situation 1, about a customer support agent. Write and answer ten questions on it. Then answer 30 practice questions across Tools and MCP, and Context and reliability."
-    },
-    "2027-02-04": {
-      "was": "Re-read **2.5**.",
-      "title": "Lesson 2.5 again",
-      "task": ""
-    },
-    "2027-02-05": {
-      "was": "Drill domain 2, 20 questions. Target 85%.",
-      "title": "Practice questions: Tools and MCP",
-      "task": "Answer 20. Aim for 17 or more right."
-    },
-    "2027-02-06": {
-      "was": "**[2h]** Rewrite every tool description in your sandbox to the 2.1 standard: input formats, example queries, edge cases, and when to use it versus the similar tool.",
-      "title": "Rewrite your tool descriptions",
-      "task": "Rewrite each tool's description in your practice project the way lesson 2.1 teaches: what goes in, example requests, unusual cases, and when to use it instead of a similar tool."
-    },
-    "2027-02-07": {
-      "was": "Pack. 15 min flashcards, then stop.",
-      "title": "Pack for your holiday",
-      "task": "15 minutes of flashcards, then stop."
-    },
-    "2027-02-15": {
-      "was": "Re-entry. Flashcards, full deck.",
-      "title": "Welcome back",
-      "task": "Go through all your flashcards."
-    },
-    "2027-02-16": {
-      "was": "Re-read **5.1 and 5.2**.",
-      "title": "Lessons 5.1 and 5.2 again",
-      "task": ""
-    },
-    "2027-02-17": {
-      "was": "**[HALF-DAY]** Scenario 3 walkthrough — Multi-Agent Research System. Ten questions, answered. Then re-read 5.3 and 5.6 against your answers.",
-      "title": "Work through exam situation 3",
-      "task": "Read situation 3, about several agents doing research together. Write and answer ten questions. Then read lessons 5.3 and 5.6 again and check your answers."
-    },
-    "2027-02-18": {
-      "was": "Re-read **5.4 and 5.5**.",
-      "title": "Lessons 5.4 and 5.5 again",
-      "task": ""
-    },
-    "2027-02-19": {
-      "was": "Drill domain 5, 20 questions.",
-      "title": "Practice questions: Context and reliability",
-      "task": "Answer 20 practice questions."
-    },
-    "2027-02-20": {
-      "was": "**[2h]** Go to `/exercises` and do any Build Exercise you have not yet touched, from your weakest domain.",
-      "title": "Do a hands-on exercise",
-      "task": "On the study site, do a hands-on exercise you have not tried yet, from your weakest section."
-    },
-    "2027-02-21": {
-      "was": "Drill all five domains, 10 questions each. Record the split — this predicts Saturday's mock.",
-      "title": "Practice questions: every section",
-      "task": "Answer 10 questions in each of the five sections. Write down each score: it shows how next Saturday's practice exam may go."
-    },
-    "2027-02-22": {
-      "was": "Light. Flashcards plus your one-page answer patterns.",
-      "title": "An easy day",
-      "task": "Flashcards, then read your page of nine answer rules."
-    },
-    "2027-02-23": {
-      "was": "Re-read all six scenarios in the Exam Guide. For each, write the three questions you would expect.",
-      "title": "Read the six exam situations again",
-      "task": "For each situation in the exam guide, write the three questions you would expect."
-    },
-    "2027-02-24": {
-      "was": "**[HALF-DAY]** Answer your eighteen predicted questions properly, in writing. Then compare your reasoning against the twelve sample questions and explanations in the Exam Guide.",
-      "title": "Answer your 18 questions",
-      "task": "Answer the 18 questions you wrote yesterday, properly and in writing. Then compare your thinking with the 12 sample questions and answers in the exam guide."
-    },
-    "2027-02-25": {
-      "was": "Rest from content. Flashcards only. Protect Saturday.",
-      "title": "Rest day",
-      "task": "Flashcards only. Save your energy for Saturday."
-    },
-    "2027-02-26": {
-      "was": "Logistics day: confirm the Pearson VUE booking, check your ID is unexpired and the name matches exactly, run the system check if testing online, clear the room. Then stop.",
-      "title": "Get ready for the real exam",
-      "task": "Check your Pearson VUE booking. Check your ID is in date and the name matches your booking exactly. If you are taking it online, run their computer check and clear the room. Then stop."
-    },
-    "2027-02-27": {
-      "was": "**[2h] MOCK EXAM ONE.** Full 60 questions, 120 minutes, timed, no notes. Start at the same clock time as your real slot.",
-      "title": "Practice exam 1",
-      "task": "All 60 questions in 2 hours, timed, with no notes. Start at the same time of day as your real exam."
-    },
-    "2027-02-28": {
-      "was": "Mark it. Per-domain breakdown into `NOTES.md`. List your three weakest **task statements by number** (e.g. 2.3, 5.1, 4.4).",
-      "title": "Mark your practice exam",
-      "task": "Write each section's score in Notes. List the three topics you did worst on by number, for example 2.3, 5.1 and 4.4."
-    },
-    "2027-03-01": {
-      "was": "Weakest task statement #1 — re-read the lesson, copy out its Exam Traps by hand.",
-      "title": "Your weakest topic",
-      "task": "Read its lesson again and copy out its common-mistakes box by hand."
-    },
-    "2027-03-02": {
-      "was": "Weakest task statement #2 — same treatment.",
-      "title": "Your second-weakest topic",
-      "task": "Read its lesson again and copy out its common-mistakes box by hand."
-    },
-    "2027-03-03": {
-      "was": "**[HALF-DAY]** Weakest task statement #3 — same treatment. Then rebuild that part of the sandbox from scratch with no notes. Then drill those domains.",
-      "title": "Your third-weakest topic",
-      "task": "Read its lesson and copy out its common-mistakes box. Then rebuild that part of your practice project from scratch, without notes. Then answer practice questions on those sections."
-    },
-    "2027-03-04": {
-      "was": "Every question you got wrong in Mock One: write one sentence on why the keyed answer wins.",
-      "title": "Learn from your wrong answers",
-      "task": "For every question you got wrong in practice exam 1, write one sentence on why the right answer is right."
-    },
-    "2027-03-05": {
-      "was": "Drill your two weakest domains, 20 questions each.",
-      "title": "Practice your two weakest sections",
-      "task": "Answer 20 questions on each."
-    },
-    "2027-03-06": {
-      "was": "**[2h]** Finish anything unfinished in the sandbox. Then read `NOTES.md` end to end — five months of your own observations.",
-      "title": "Finish your practice project",
-      "task": "Finish anything left in your practice project. Then read all of your Notes: five months of what you have learned."
-    },
-    "2027-03-07": {
-      "was": "Flashcards, full deck. Anything missed twice gets rewritten as a question, not a card.",
-      "title": "All your flashcards",
-      "task": "Any card you get wrong twice, rewrite as a question instead."
-    },
-    "2027-03-08": {
-      "was": "Re-read every Domain 1 Exam Traps box. That is 27% of the paper.",
-      "title": "Common mistakes: Agents",
-      "task": "Read every common-mistakes box for Agents. This section is over a quarter of the exam."
-    },
-    "2027-03-09": {
-      "was": "Re-read every Domain 3 and Domain 4 Exam Traps box.",
-      "title": "Common mistakes: Claude Code, and Prompts",
-      "task": "Read every common-mistakes box for both sections."
-    },
-    "2027-03-10": {
-      "was": "**[HALF-DAY]** Re-read every Domain 2 and Domain 5 Exam Traps box. Then Drill Mode, 50 mixed questions.",
-      "title": "Common mistakes: Tools, and Context",
-      "task": "Read every common-mistakes box for both sections. Then answer 50 mixed practice questions."
-    },
-    "2027-03-11": {
-      "was": "All five Quick Reference pages, straight through.",
-      "title": "Read all five quick reference pages",
-      "task": ""
-    },
-    "2027-03-12": {
-      "was": "Rest. Flashcards only.",
-      "title": "Rest day",
-      "task": "Flashcards only."
-    },
-    "2027-03-13": {
-      "was": "**[2h] MOCK EXAM TWO.** Same conditions, same clock time.",
-      "title": "Practice exam 2",
-      "task": "Same as last time: 60 questions, 2 hours, no notes, same time of day."
-    },
-    "2027-03-14": {
-      "was": "Mark it. Any domain under 70% is Monday and Tuesday's work.",
-      "title": "Mark your practice exam",
-      "task": "Any section where you got less than 7 in 10 is what you work on Monday and Tuesday."
-    },
-    "2027-03-15": {
-      "was": "Weakest domain from Mock Two. If nothing is under 70%, flashcards plus answer patterns.",
-      "title": "Your weakest section",
-      "task": "Work on your weakest section from practice exam 2. If every section was 7 in 10 or better, do flashcards and read your answer rules instead."
-    },
-    "2027-03-16": {
-      "was": "Second weakest domain. Or, if clean, answer the twelve Exam Guide sample questions cold.",
-      "title": "Your second-weakest section",
-      "task": "Or, if you have no weak sections, answer the 12 sample questions in the exam guide without looking."
-    },
-    "2027-03-17": {
-      "was": "**Last new material.** Read the out-of-scope list so you stop over-reading questions. Stop adding cards tonight.",
-      "title": "The last new thing",
-      "task": "Read the guide's list of what is not in the exam, so you stop reading too much into questions. No new flashcards after tonight."
-    },
-    "2027-03-18": {
-      "was": "**[FULL DAY OFF]** Morning: **Mock Exam Three**, timed, 120 minutes. After lunch: mark it, and work *only* on what it caught. Stop by 5pm.",
-      "title": "Practice exam 3",
-      "task": "Morning: the third practice exam, timed, 2 hours. After lunch: mark it and work only on what it shows you got wrong. Stop by 5pm."
-    },
-    "2027-03-19": {
-      "was": "**[FULL DAY OFF]** Morning: the nine answer patterns out loud, then one full pass of the deck. Early afternoon: your one-page summary and the Domain 3 path table. **Stop by 3pm.** Go for a walk. Early night. No revision after 3pm — none.",
-      "title": "Last day before the exam",
-      "task": "Morning: say your nine answer rules out loud, then go through all your flashcards once. Early afternoon: your one-page summary and your list of where Claude Code's files go. Stop by 3pm, go for a walk and have an early night. No revision after 3pm."
-    }
+  "2026-10-23": {
+   "was": "Sit `/diagnostic` cold. Expect a bad score; that is the point. Record the per-domain split in `NOTES.md`.",
+   "title": "Take the starting test",
+   "task": "On the study site, take the diagnostic test without revising first. A low score is fine: it shows where you are starting from. Write down your score for each of the five exam sections in Notes."
   },
-  "start": {
-    "_about": "Jason, 22 October 2026: 'Pull everything ahead and start from tomorrow.' Study days from 'from' up to the first holiday move into the study days starting 'on', one after another; the study day left over just before the holiday becomes a spare day. Days off, and every week after the first holiday, keep their dates. Earlier study days are dropped.",
-    "from": "2026-10-24",
-    "on": "2026-10-23",
-    "today": {
-      "day": "2026-10-22",
-      "title": "Set up your notes",
-      "task": "Set up the study notes app, write a practice note from any section of the exam guide, and configure commands like infra, wflow and code within the markdown."
-    },
-    "spare": {
-      "title": "Spare day",
-      "task": "Nothing new. Rest, or catch up on anything you missed."
-    }
+  "2026-10-24": {
+   "was": "**[2h]** Sandbox step 1. Repo, `CLAUDE.md`, three stub MCP tools over a JSON file.",
+   "title": "Start your practice project",
+   "task": "Your practice project is a small pretend helper that handles shop refunds. You will add to it every Saturday until March. Today: make a new folder with git, add a CLAUDE.md file, and make three simple pretend tools (find a customer, look up an order, give a refund) that read from one JSON file."
+  },
+  "2026-10-25": {
+   "was": "Create the flashcard deck. Harvest the first 15 cards from `/quick-reference/domain-1`.",
+   "title": "Start your flashcards",
+   "task": "Make a set of flashcards, on paper or in a flashcard app. Copy 15 facts from the study site's quick reference page for Agents. Use its facts, not your own."
+  },
+  "2026-10-26": {
+   "was": "Lesson **1.1 Agentic Loops**. Read, Concept Check, Exam Traps, Practice Scenario.",
+   "title": "Lesson 1.1: the agent loop",
+   "task": "Read the lesson, then do its quick quiz, its common-mistakes box and its practice question."
+  },
+  "2026-10-27": {
+   "was": "Lesson **1.2 Multi-Agent Orchestration**.",
+   "title": "Lesson 1.2: several agents working together",
+   "task": ""
+  },
+  "2026-10-28": {
+   "was": "Lesson **1.3 Subagent Invocation and Context Passing**.",
+   "title": "Lesson 1.3: starting helper agents and giving them what they need",
+   "task": ""
+  },
+  "2026-10-29": {
+   "was": "Lesson **1.4 Workflow Enforcement and Handoff**.",
+   "title": "Lesson 1.4: forcing steps to happen, and handing over to a person",
+   "task": ""
+  },
+  "2026-10-30": {
+   "was": "Lesson **1.5 Agent SDK Hooks**.",
+   "title": "Lesson 1.5: hooks",
+   "task": "Hooks are bits of code that run at set moments, for example after a tool is used."
+  },
+  "2026-10-31": {
+   "was": "**[2h]** Build Exercise \"Build a Multi-Tool Agent Loop\" (45 min), then port it into your sandbox as step 2.",
+   "title": "Build an agent loop",
+   "task": "Do the study site's hands-on exercise \"Build a Multi-Tool Agent Loop\" (about 45 minutes). Then add the same thing to your practice project."
+  },
+  "2026-11-01": {
+   "was": "Drill Mode, domain 1, 20 questions. Log every wrong answer with the reason.",
+   "title": "Practice questions: Agents",
+   "task": "Answer 20 practice questions on Agents. For each one you get wrong, write down why the right answer is right."
+  },
+  "2026-11-02": {
+   "was": "Lesson **1.6 Task Decomposition Strategies**.",
+   "title": "Lesson 1.6: breaking a big job into smaller ones",
+   "task": ""
+  },
+  "2026-11-03": {
+   "was": "Lesson **1.7 Session State and Resumption**.",
+   "title": "Lesson 1.7: picking up where you left off",
+   "task": ""
+  },
+  "2026-11-04": {
+   "was": "Re-read the Exam Traps boxes on all seven Domain 1 lessons. Nothing else.",
+   "title": "Read the common mistakes for Agents",
+   "task": "Read the common-mistakes box from each of the seven Agents lessons. Nothing else today."
+  },
+  "2026-11-05": {
+   "was": "Write four practice questions on Domain 1, each with three plausible distractors. Don't write the explanations.",
+   "title": "Write four questions of your own",
+   "task": "Write four exam-style questions about Agents. Give each one the right answer and three wrong answers that sound believable. Do not write why yet."
+  },
+  "2026-11-06": {
+   "was": "Answer yesterday's four cold, then write why each wrong option fails.",
+   "title": "Answer your own questions",
+   "task": "Answer yesterday's four questions without looking. Then write why each wrong answer is wrong."
+  },
+  "2026-11-07": {
+   "was": "**[2h]** Sandbox step 3 — structured errors on every tool. Force a transient, a validation, a business and a permission error, and watch the agent's behaviour differ.",
+   "title": "Make your tools report errors clearly",
+   "task": "Make each tool in your practice project say clearly what went wrong. Cause four kinds of error on purpose: a short glitch, bad input, a rule being broken, and no permission. Watch how the agent reacts to each."
+  },
+  "2026-11-08": {
+   "was": "Drill Mode, domain 1, 20 questions. Target 70%+.",
+   "title": "Practice questions: Agents",
+   "task": "Answer 20 practice questions on Agents. Aim for 14 or more right."
+  },
+  "2026-11-09": {
+   "was": "Lesson **3.1 CLAUDE.md hierarchy and scoping**.",
+   "title": "Lesson 3.1: where CLAUDE.md files go",
+   "task": ""
+  },
+  "2026-11-10": {
+   "was": "Lesson **3.2 Custom slash commands and skills**.",
+   "title": "Lesson 3.2: your own commands and skills",
+   "task": ""
+  },
+  "2026-11-11": {
+   "was": "Lesson **3.3 Path-specific rules**.",
+   "title": "Lesson 3.3: rules for certain files only",
+   "task": ""
+  },
+  "2026-11-12": {
+   "was": "Lesson **3.4 Plan mode vs direct execution**.",
+   "title": "Lesson 3.4: plan first, or just do it",
+   "task": ""
+  },
+  "2026-11-13": {
+   "was": "Lesson **3.5 Iterative refinement techniques**.",
+   "title": "Lesson 3.5: improving the result over several rounds",
+   "task": ""
+  },
+  "2026-11-14": {
+   "was": "**[2h]** Sandbox step 5 — the entire Claude Code config layer in your repo. Verify the path rules fire only on matching files.",
+   "title": "Set up Claude Code in your practice project",
+   "task": "Add Claude Code's settings to your practice project: a rules folder, a /review command, a skill, and an MCP settings file. Check that each rule only applies to the files it is meant for."
+  },
+  "2026-11-15": {
+   "was": "Harvest every path and frontmatter key from `/quick-reference/domain-3` into the deck. Drill domain 3, 15 questions.",
+   "title": "Flashcards and practice: Claude Code",
+   "task": "Copy every file location and setting name from the quick reference page for Claude Code onto flashcards. Then answer 15 practice questions on Claude Code."
+  },
+  "2026-11-16": {
+   "was": "Lesson **3.6 Claude Code in CI/CD**.",
+   "title": "Lesson 3.6: Claude Code in automatic checks",
+   "task": "This is about running Claude Code by itself, for example to review code whenever someone shares changes."
+  },
+  "2026-11-17": {
+   "was": "Drill domain 3, 20 questions. Target 80%+ — this domain is recall, so anything lower is a deck problem.",
+   "title": "Practice questions: Claude Code",
+   "task": "Answer 20 practice questions. Aim for 16 or more right. This section is mostly remembering facts, so if you score lower, add more flashcards."
+  },
+  "2026-11-18": {
+   "was": "Lesson **4.1 Explicit criteria and false positives**.",
+   "title": "Lesson 4.1: clear instructions that avoid false alarms",
+   "task": ""
+  },
+  "2026-11-19": {
+   "was": "Lesson **4.2 Few-shot prompting**.",
+   "title": "Lesson 4.2: teaching with examples",
+   "task": ""
+  },
+  "2026-11-20": {
+   "was": "Flashcards, full deck. Re-read Domain 3 Exam Traps.",
+   "title": "All your flashcards",
+   "task": "Go through every flashcard. Then read the common-mistakes boxes for Claude Code again."
+  },
+  "2026-11-21": {
+   "was": "**[2h]** Sandbox step 10 — GitHub Action with `claude -p --output-format json`. Done now while 3.6 is fresh.",
+   "title": "Make Claude review your code automatically",
+   "task": "Set up a GitHub Action that runs Claude Code on its own and posts review comments. Do it now, while lesson 3.6 is fresh."
+  },
+  "2026-11-22": {
+   "was": "Pack for the holiday. 15 min flashcards, then stop.",
+   "title": "Pack for your holiday",
+   "task": "15 minutes of flashcards, then stop."
+  },
+  "2026-11-30": {
+   "was": "Re-entry. Flashcards, full deck, plus read `NOTES.md` end to end.",
+   "title": "Welcome back",
+   "task": "Go through all your flashcards, then read everything you have written in Notes so far."
+  },
+  "2026-12-01": {
+   "was": "Lesson **4.3 Structured output via tool_use and JSON schemas**.",
+   "title": "Lesson 4.3: getting answers in a fixed format",
+   "task": ""
+  },
+  "2026-12-02": {
+   "was": "Lesson **4.4 Validation, retry and feedback loops**.",
+   "title": "Lesson 4.4: checking answers and trying again",
+   "task": ""
+  },
+  "2026-12-03": {
+   "was": "Lesson **4.5 Batch processing strategies**.",
+   "title": "Lesson 4.5: sending lots of work at once",
+   "task": ""
+  },
+  "2026-12-04": {
+   "was": "Lesson **4.6 Multi-instance and multi-pass review**.",
+   "title": "Lesson 4.6: getting a second, independent check",
+   "task": ""
+  },
+  "2026-12-05": {
+   "was": "**[2h]** Sandbox step 6 — extraction tool with a JSON schema. Feed it documents with fields missing and confirm it returns null rather than inventing.",
+   "title": "Pull facts out of documents",
+   "task": "Add a tool that pulls set facts out of documents into a fixed format. Give it documents with some facts missing, and check it leaves those blank instead of making them up."
+  },
+  "2026-12-06": {
+   "was": "Drill domain 4, 20 questions.",
+   "title": "Practice questions: Prompts and output",
+   "task": "Answer 20 practice questions."
+  },
+  "2026-12-07": {
+   "was": "Lesson **2.1 Tool interfaces, descriptions and boundaries**.",
+   "title": "Lesson 2.1: describing tools clearly",
+   "task": ""
+  },
+  "2026-12-08": {
+   "was": "Lesson **2.2 Structured error responses for MCP tools**.",
+   "title": "Lesson 2.2: helpful error messages from tools",
+   "task": ""
+  },
+  "2026-12-09": {
+   "was": "Lesson **2.3 Tool distribution and tool_choice**.",
+   "title": "Lesson 2.3: which agent gets which tools",
+   "task": ""
+  },
+  "2026-12-10": {
+   "was": "Lesson **2.4 MCP server integration**.",
+   "title": "Lesson 2.4: connecting MCP servers",
+   "task": "MCP is the standard way to plug outside tools into Claude."
+  },
+  "2026-12-11": {
+   "was": "Lesson **2.5 Built-in tools (Read, Write, Edit, Bash, Grep, Glob)**.",
+   "title": "Lesson 2.5: Claude Code's built-in tools",
+   "task": "Read, Write, Edit, Bash, Grep and Glob: what each one is for."
+  },
+  "2026-12-12": {
+   "was": "**[2h]** Sandbox step 7 — validation-retry loop. Test one error a retry can fix (bad format) and one it cannot (absent information).",
+   "title": "Check answers and try again",
+   "task": "Add a step that checks each answer and, if it is wrong, sends it back with the problem. Test one mistake a retry can fix (wrong format) and one it cannot (the fact is not in the document)."
+  },
+  "2026-12-13": {
+   "was": "Drill domain 2, 20 questions.",
+   "title": "Practice questions: Tools and MCP",
+   "task": "Answer 20 practice questions."
+  },
+  "2026-12-14": {
+   "was": "Lesson **5.1 Conversation context across long interactions**.",
+   "title": "Lesson 5.1: keeping track in long conversations",
+   "task": ""
+  },
+  "2026-12-15": {
+   "was": "Lesson **5.2 Escalation and ambiguity resolution**.",
+   "title": "Lesson 5.2: when to pass to a person, and unclear requests",
+   "task": ""
+  },
+  "2026-12-16": {
+   "was": "Lesson **5.3 Error propagation across multi-agent systems**.",
+   "title": "Lesson 5.3: passing errors between agents",
+   "task": ""
+  },
+  "2026-12-17": {
+   "was": "Lesson **5.4 Context in large codebase exploration**.",
+   "title": "Lesson 5.4: finding your way around a big codebase",
+   "task": ""
+  },
+  "2026-12-18": {
+   "was": "Lesson **5.5 Human review and confidence calibration**.",
+   "title": "Lesson 5.5: when a person should check the work",
+   "task": ""
+  },
+  "2026-12-19": {
+   "was": "**[2h]** Lesson **5.6 Information provenance**, then Drill domain 5, 20 questions. **All 30 lessons now complete.**",
+   "title": "Lesson 5.6: where facts came from, then practice",
+   "task": "Do the last lesson, then answer 20 practice questions on Context and reliability. That is all 30 lessons done."
+  },
+  "2026-12-20": {
+   "was": "Write the nine answer patterns out in your own words, one page, by hand. Then put everything down.",
+   "title": "Write your nine answer rules",
+   "task": "By hand, on one page, write the nine rules from your plan that help you pick the right answer, in your own words. Then stop for Christmas."
+  },
+  "2027-01-04": {
+   "was": "Flashcards, full deck. It will hurt. That is normal and it comes back fast.",
+   "title": "All your flashcards",
+   "task": "You will have forgotten some. That is normal, and it comes back quickly."
+  },
+  "2027-01-05": {
+   "was": "Flashcards again, plus re-read your one-page answer patterns.",
+   "title": "Flashcards and your answer rules",
+   "task": "Go through your flashcards again, then read your page of nine answer rules."
+  },
+  "2027-01-06": {
+   "was": "Sit `/diagnostic` again. Compare with 23 October, per domain. Record both in `NOTES.md`.",
+   "title": "Take the starting test again",
+   "task": "Take the diagnostic test again. Compare each section's score with your first try on 23 October, and write both in Notes."
+  },
+  "2027-01-07": {
+   "was": "Read the Quick Reference pages for your two worst domains.",
+   "title": "Read up on your two weakest sections",
+   "task": "Read the quick reference pages for the two sections you scored lowest in."
+  },
+  "2027-01-08": {
+   "was": "Write four questions on your single worst domain.",
+   "title": "Write four questions on your weakest section",
+   "task": "Each with the right answer and three believable wrong ones."
+  },
+  "2027-01-09": {
+   "was": "**[2h]** Sandbox step 4 — `PostToolUse` date normalisation hook, plus the $500 interception hook redirecting to escalation.",
+   "title": "Add two hooks to your practice project",
+   "task": "Add one hook that tidies dates into one format after a tool runs, and one that stops any refund over $500 and passes it to a person instead."
+  },
+  "2027-01-10": {
+   "was": "Answer Friday's four cold. Drill your worst domain, 20 questions.",
+   "title": "Answer your questions, then practise",
+   "task": "Answer Friday's four questions without looking. Then answer 20 practice questions on your weakest section."
+  },
+  "2027-01-11": {
+   "was": "Re-read **1.1 and 1.2** — Exam Traps first, then Concept Check.",
+   "title": "Lessons 1.1 and 1.2 again",
+   "task": "Read the common-mistakes box first, then do the quick quiz."
+  },
+  "2027-01-12": {
+   "was": "Re-read **1.3 and 1.4**.",
+   "title": "Lessons 1.3 and 1.4 again",
+   "task": ""
+  },
+  "2027-01-13": {
+   "was": "Re-read **1.5 and 1.6**.",
+   "title": "Lessons 1.5 and 1.6 again",
+   "task": ""
+  },
+  "2027-01-14": {
+   "was": "Re-read **1.7**. Drill domain 1, 15 questions.",
+   "title": "Lesson 1.7 again, then practice",
+   "task": "Then answer 15 practice questions on Agents."
+  },
+  "2027-01-15": {
+   "was": "Drill domain 1, 20 questions. Target 85%.",
+   "title": "Practice questions: Agents",
+   "task": "Answer 20. Aim for 17 or more right."
+  },
+  "2027-01-16": {
+   "was": "**[2h]** Sandbox step 8 — coordinator spawning two subagents in parallel via the Task tool, in a single response. Confirm `allowedTools` includes `Task`.",
+   "title": "Make one agent run two helpers at once",
+   "task": "In your practice project, make a main agent start two helper agents at the same time using the Task tool. Check that Task is in the list of tools it is allowed to use."
+  },
+  "2027-01-17": {
+   "was": "Explain hub-and-spoke orchestration out loud from memory in under three minutes. Write it down, then compare against lesson 1.2.",
+   "title": "Explain it out loud",
+   "task": "Without notes, explain in under three minutes how one main agent runs several helpers. Write it down, then check it against lesson 1.2."
+  },
+  "2027-01-18": {
+   "was": "Re-read **3.1 and 3.2**.",
+   "title": "Lessons 3.1 and 3.2 again",
+   "task": ""
+  },
+  "2027-01-19": {
+   "was": "Re-read **3.3 and 3.4**.",
+   "title": "Lessons 3.3 and 3.4 again",
+   "task": ""
+  },
+  "2027-01-20": {
+   "was": "Re-read **3.5 and 3.6**.",
+   "title": "Lessons 3.5 and 3.6 again",
+   "task": ""
+  },
+  "2027-01-21": {
+   "was": "Drill domain 3, 20 questions. Target 90% — this is pure recall.",
+   "title": "Practice questions: Claude Code",
+   "task": "Answer 20. Aim for 18 or more right: this section is all remembering facts."
+  },
+  "2027-01-22": {
+   "was": "From memory, write out the complete path table: user / project / directory CLAUDE.md, commands, skills, rules, `.mcp.json`, `~/.claude.json`. Check against Quick Reference.",
+   "title": "Write out where every file goes",
+   "task": "From memory, list where each Claude Code file lives: the three kinds of CLAUDE.md, commands, skills, rules, .mcp.json and ~/.claude.json. Check it against the quick reference."
+  },
+  "2027-01-23": {
+   "was": "**[2h]** Sandbox step 9 — force a subagent timeout. Coordinator receives structured error context, proceeds on partial results, and annotates coverage gaps.",
+   "title": "Handle a helper that takes too long",
+   "task": "Make one helper agent time out on purpose. Check the main agent gets a clear error, carries on with what it has, and says what is missing."
+  },
+  "2027-01-24": {
+   "was": "Drill domain 3 again. Anything still under 90% becomes a flashcard tonight.",
+   "title": "Practice questions: Claude Code again",
+   "task": "Turn anything you still get wrong into a flashcard tonight."
+  },
+  "2027-01-25": {
+   "was": "Re-read **4.1 and 4.2**.",
+   "title": "Lessons 4.1 and 4.2 again",
+   "task": ""
+  },
+  "2027-01-26": {
+   "was": "Re-read **4.3 and 4.4**.",
+   "title": "Lessons 4.3 and 4.4 again",
+   "task": ""
+  },
+  "2027-01-27": {
+   "was": "**[HALF-DAY]** Scenario 6 walkthrough — Structured Data Extraction. Read the scenario in the Exam Guide, write ten questions it could produce, answer them, then re-read 4.3–4.5 against your answers.",
+   "title": "Work through exam situation 6",
+   "task": "In the exam guide, read situation 6, about pulling facts out of documents. Write ten questions it could lead to and answer them. Then read lessons 4.3 to 4.5 again and check your answers."
+  },
+  "2027-01-28": {
+   "was": "Re-read **4.5 and 4.6**.",
+   "title": "Lessons 4.5 and 4.6 again",
+   "task": ""
+  },
+  "2027-01-29": {
+   "was": "Drill domain 4, 20 questions.",
+   "title": "Practice questions: Prompts and output",
+   "task": "Answer 20 practice questions."
+  },
+  "2027-01-30": {
+   "was": "**[2h]** Harden sandbox step 6 — enum with `\"other\"` + detail and `\"unclear\"`, nullable fields throughout, format normalisation rules in the prompt alongside the strict schema.",
+   "title": "Make your fact-finding tool sturdier",
+   "task": "Let every fact be left blank. Add \"other\" (with a note) and \"unclear\" to every fixed list of choices. Add instructions that tidy formats, alongside the strict format."
+  },
+  "2027-01-31": {
+   "was": "Batch API facts onto cards (50%, 24h, no SLA, `custom_id`, no multi-turn tool calling). Drill domain 4 again.",
+   "title": "Flashcards on sending work in bulk",
+   "task": "Make flashcards for the batch facts: half the price, up to 24 hours, no promised speed, custom_id to match answers, no back-and-forth tool use. Then answer more practice questions on Prompts and output."
+  },
+  "2027-02-01": {
+   "was": "Re-read **2.1 and 2.2**.",
+   "title": "Lessons 2.1 and 2.2 again",
+   "task": ""
+  },
+  "2027-02-02": {
+   "was": "Re-read **2.3 and 2.4**.",
+   "title": "Lessons 2.3 and 2.4 again",
+   "task": ""
+  },
+  "2027-02-03": {
+   "was": "**[HALF-DAY]** Scenario 1 walkthrough — Customer Support Resolution Agent. Ten questions, answered. Then Drill domains 2 and 5, 30 questions combined.",
+   "title": "Work through exam situation 1",
+   "task": "Read situation 1, about a customer support agent. Write and answer ten questions on it. Then answer 30 practice questions across Tools and MCP, and Context and reliability."
+  },
+  "2027-02-04": {
+   "was": "Re-read **2.5**.",
+   "title": "Lesson 2.5 again",
+   "task": ""
+  },
+  "2027-02-05": {
+   "was": "Drill domain 2, 20 questions. Target 85%.",
+   "title": "Practice questions: Tools and MCP",
+   "task": "Answer 20. Aim for 17 or more right."
+  },
+  "2027-02-06": {
+   "was": "**[2h]** Rewrite every tool description in your sandbox to the 2.1 standard: input formats, example queries, edge cases, and when to use it versus the similar tool.",
+   "title": "Rewrite your tool descriptions",
+   "task": "Rewrite each tool's description in your practice project the way lesson 2.1 teaches: what goes in, example requests, unusual cases, and when to use it instead of a similar tool."
+  },
+  "2027-02-07": {
+   "was": "Pack. 15 min flashcards, then stop.",
+   "title": "Pack for your holiday",
+   "task": "15 minutes of flashcards, then stop."
+  },
+  "2027-02-15": {
+   "was": "Re-entry. Flashcards, full deck.",
+   "title": "Welcome back",
+   "task": "Go through all your flashcards."
+  },
+  "2027-02-16": {
+   "was": "Re-read **5.1 and 5.2**.",
+   "title": "Lessons 5.1 and 5.2 again",
+   "task": ""
+  },
+  "2027-02-17": {
+   "was": "**[HALF-DAY]** Scenario 3 walkthrough — Multi-Agent Research System. Ten questions, answered. Then re-read 5.3 and 5.6 against your answers.",
+   "title": "Work through exam situation 3",
+   "task": "Read situation 3, about several agents doing research together. Write and answer ten questions. Then read lessons 5.3 and 5.6 again and check your answers."
+  },
+  "2027-02-18": {
+   "was": "Re-read **5.4 and 5.5**.",
+   "title": "Lessons 5.4 and 5.5 again",
+   "task": ""
+  },
+  "2027-02-19": {
+   "was": "Drill domain 5, 20 questions.",
+   "title": "Practice questions: Context and reliability",
+   "task": "Answer 20 practice questions."
+  },
+  "2027-02-20": {
+   "was": "**[2h]** Go to `/exercises` and do any Build Exercise you have not yet touched, from your weakest domain.",
+   "title": "Do a hands-on exercise",
+   "task": "On the study site, do a hands-on exercise you have not tried yet, from your weakest section."
+  },
+  "2027-02-21": {
+   "was": "Drill all five domains, 10 questions each. Record the split — this predicts Saturday's mock.",
+   "title": "Practice questions: every section",
+   "task": "Answer 10 questions in each of the five sections. Write down each score: it shows how next Saturday's practice exam may go."
+  },
+  "2027-02-22": {
+   "was": "Light. Flashcards plus your one-page answer patterns.",
+   "title": "An easy day",
+   "task": "Flashcards, then read your page of nine answer rules."
+  },
+  "2027-02-23": {
+   "was": "Re-read all six scenarios in the Exam Guide. For each, write the three questions you would expect.",
+   "title": "Read the six exam situations again",
+   "task": "For each situation in the exam guide, write the three questions you would expect."
+  },
+  "2027-02-24": {
+   "was": "**[HALF-DAY]** Answer your eighteen predicted questions properly, in writing. Then compare your reasoning against the twelve sample questions and explanations in the Exam Guide.",
+   "title": "Answer your 18 questions",
+   "task": "Answer the 18 questions you wrote yesterday, properly and in writing. Then compare your thinking with the 12 sample questions and answers in the exam guide."
+  },
+  "2027-02-25": {
+   "was": "Rest from content. Flashcards only. Protect Saturday.",
+   "title": "Rest day",
+   "task": "Flashcards only. Save your energy for Saturday."
+  },
+  "2027-02-26": {
+   "was": "Logistics day: confirm the Pearson VUE booking, check your ID is unexpired and the name matches exactly, run the system check if testing online, clear the room. Then stop.",
+   "title": "Get ready for the real exam",
+   "task": "Check your Pearson VUE booking. Check your ID is in date and the name matches your booking exactly. If you are taking it online, run their computer check and clear the room. Then stop."
+  },
+  "2027-02-27": {
+   "was": "**[2h] MOCK EXAM ONE.** Full 60 questions, 120 minutes, timed, no notes. Start at the same clock time as your real slot.",
+   "title": "Practice exam 1",
+   "task": "All 60 questions in 2 hours, timed, with no notes. Start at the same time of day as your real exam."
+  },
+  "2027-02-28": {
+   "was": "Mark it. Per-domain breakdown into `NOTES.md`. List your three weakest **task statements by number** (e.g. 2.3, 5.1, 4.4).",
+   "title": "Mark your practice exam",
+   "task": "Write each section's score in Notes. List the three topics you did worst on by number, for example 2.3, 5.1 and 4.4."
+  },
+  "2027-03-01": {
+   "was": "Weakest task statement #1 — re-read the lesson, copy out its Exam Traps by hand.",
+   "title": "Your weakest topic",
+   "task": "Read its lesson again and copy out its common-mistakes box by hand."
+  },
+  "2027-03-02": {
+   "was": "Weakest task statement #2 — same treatment.",
+   "title": "Your second-weakest topic",
+   "task": "Read its lesson again and copy out its common-mistakes box by hand."
+  },
+  "2027-03-03": {
+   "was": "**[HALF-DAY]** Weakest task statement #3 — same treatment. Then rebuild that part of the sandbox from scratch with no notes. Then drill those domains.",
+   "title": "Your third-weakest topic",
+   "task": "Read its lesson and copy out its common-mistakes box. Then rebuild that part of your practice project from scratch, without notes. Then answer practice questions on those sections."
+  },
+  "2027-03-04": {
+   "was": "Every question you got wrong in Mock One: write one sentence on why the keyed answer wins.",
+   "title": "Learn from your wrong answers",
+   "task": "For every question you got wrong in practice exam 1, write one sentence on why the right answer is right."
+  },
+  "2027-03-05": {
+   "was": "Drill your two weakest domains, 20 questions each.",
+   "title": "Practice your two weakest sections",
+   "task": "Answer 20 questions on each."
+  },
+  "2027-03-06": {
+   "was": "**[2h]** Finish anything unfinished in the sandbox. Then read `NOTES.md` end to end — five months of your own observations.",
+   "title": "Finish your practice project",
+   "task": "Finish anything left in your practice project. Then read all of your Notes: five months of what you have learned."
+  },
+  "2027-03-07": {
+   "was": "Flashcards, full deck. Anything missed twice gets rewritten as a question, not a card.",
+   "title": "All your flashcards",
+   "task": "Any card you get wrong twice, rewrite as a question instead."
+  },
+  "2027-03-08": {
+   "was": "Re-read every Domain 1 Exam Traps box. That is 27% of the paper.",
+   "title": "Common mistakes: Agents",
+   "task": "Read every common-mistakes box for Agents. This section is over a quarter of the exam."
+  },
+  "2027-03-09": {
+   "was": "Re-read every Domain 3 and Domain 4 Exam Traps box.",
+   "title": "Common mistakes: Claude Code, and Prompts",
+   "task": "Read every common-mistakes box for both sections."
+  },
+  "2027-03-10": {
+   "was": "**[HALF-DAY]** Re-read every Domain 2 and Domain 5 Exam Traps box. Then Drill Mode, 50 mixed questions.",
+   "title": "Common mistakes: Tools, and Context",
+   "task": "Read every common-mistakes box for both sections. Then answer 50 mixed practice questions."
+  },
+  "2027-03-11": {
+   "was": "All five Quick Reference pages, straight through.",
+   "title": "Read all five quick reference pages",
+   "task": ""
+  },
+  "2027-03-12": {
+   "was": "Rest. Flashcards only.",
+   "title": "Rest day",
+   "task": "Flashcards only."
+  },
+  "2027-03-13": {
+   "was": "**[2h] MOCK EXAM TWO.** Same conditions, same clock time.",
+   "title": "Practice exam 2",
+   "task": "Same as last time: 60 questions, 2 hours, no notes, same time of day."
+  },
+  "2027-03-14": {
+   "was": "Mark it. Any domain under 70% is Monday and Tuesday's work.",
+   "title": "Mark your practice exam",
+   "task": "Any section where you got less than 7 in 10 is what you work on Monday and Tuesday."
+  },
+  "2027-03-15": {
+   "was": "Weakest domain from Mock Two. If nothing is under 70%, flashcards plus answer patterns.",
+   "title": "Your weakest section",
+   "task": "Work on your weakest section from practice exam 2. If every section was 7 in 10 or better, do flashcards and read your answer rules instead."
+  },
+  "2027-03-16": {
+   "was": "Second weakest domain. Or, if clean, answer the twelve Exam Guide sample questions cold.",
+   "title": "Your second-weakest section",
+   "task": "Or, if you have no weak sections, answer the 12 sample questions in the exam guide without looking."
+  },
+  "2027-03-17": {
+   "was": "**Last new material.** Read the out-of-scope list so you stop over-reading questions. Stop adding cards tonight.",
+   "title": "The last new thing",
+   "task": "Read the guide's list of what is not in the exam, so you stop reading too much into questions. No new flashcards after tonight."
+  },
+  "2027-03-18": {
+   "was": "**[FULL DAY OFF]** Morning: **Mock Exam Three**, timed, 120 minutes. After lunch: mark it, and work *only* on what it caught. Stop by 5pm.",
+   "title": "Practice exam 3",
+   "task": "Morning: the third practice exam, timed, 2 hours. After lunch: mark it and work only on what it shows you got wrong. Stop by 5pm."
+  },
+  "2027-03-19": {
+   "was": "**[FULL DAY OFF]** Morning: the nine answer patterns out loud, then one full pass of the deck. Early afternoon: your one-page summary and the Domain 3 path table. **Stop by 3pm.** Go for a walk. Early night. No revision after 3pm — none.",
+   "title": "Last day before the exam",
+   "task": "Morning: say your nine answer rules out loud, then go through all your flashcards once. Early afternoon: your one-page summary and your list of where Claude Code's files go. Stop by 3pm, go for a walk and have an early night. No revision after 3pm."
   }
+ },
+ "start": {
+  "_about": "Jason, 22 October 2026: 'Pull everything ahead and start from tomorrow.' Study days from 'from' up to the first holiday move into the study days starting 'on', one after another; the study day left over just before the holiday becomes a spare day. Days off, and every week after the first holiday, keep their dates. Earlier study days are dropped.",
+  "from": "2026-10-24",
+  "on": "2026-10-23",
+  "today": {
+   "day": "2026-10-22",
+   "title": "Set up your notes",
+   "task": "Set up the study notes app, write a practice note from any section of the exam guide, and configure commands like infra, wflow and code within the markdown."
+  },
+  "spare": {
+   "title": "Spare day",
+   "task": "Nothing new. Rest, or catch up on anything you missed."
+  }
+ },
+ "stretch": {
+  "_about": "Jason, 2 November 2026: 'I am struggling to find time to study for this. Push the exam date to May 2027 please. Adjust study times accordingly.' Everything not yet done (from 'resume') is spread out from 'on' to the day before 'exam'. Holidays and Christmas keep their dates. Study days are Monday, Tuesday, Thursday and Sunday for 30-minute sessions, Wednesday for half-days and Saturday for the 2-hour block, so most weeks have Wednesday and Friday off. The last five days before the exam keep the plan's taper. Days between 'resume' and 'on' that were never studied become moved days.",
+  "resume": "2026-10-28",
+  "on": "2026-11-02",
+  "exam": "2027-05-22",
+  "rest": {
+   "title": "Day off",
+   "task": "No studying today. Catch up on a missed day if you want to."
+  },
+  "moved": {
+   "title": "Moved to later",
+   "task": "This day's work moved when the exam moved to May."
+  }
+ }
 }
