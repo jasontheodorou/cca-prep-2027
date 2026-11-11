@@ -19,7 +19,7 @@ A calm, minimal study site, built from sanctum, for Jason's Claude Certified Arc
 - Five tabs: Course, Progress, Momentum, Notes, Pet.
 - Momentum shows today's job. Since 10 November no day is over 30 minutes, Friday is spare, and each lesson takes three days: read it, build it, test it. Each section ends with one of the exam guide's four exercises. Four optional library days (29 January, 12 March, 7 May, 28 May) repeat the exercises and hold a full practice exam. `scripts/build-plan.py` writes the schedule.
 - Notes saves Markdown to notes/ and commits automatically. EXAM TRAP shows in dark red; typing |word marks one word infra.
-- Live at https://cca-prep-2027.vercel.app behind a password gate since 10 November, and that is now the main copy. The study log and notes are in a private Vercel Blob store (decision 018). The password is in the Mac Keychain as `cca-prep-2027-site-password`. Local dev still runs at `localhost:3005`; pull the online records first.
+- Live at https://cca-prep-2027.vercel.app behind a password gate since 10 November, and that is now the main copy. The study log and notes are in a private Vercel Blob store (decision 018). The password (changed 11 November) is in the Mac Keychain as `cca-prep-2027-site-password`. Since 11 November Jason uses only the online site. Do not start or offer the local server; open https://cca-prep-2027.vercel.app instead. Local runs are only for testing code changes before a deploy.
 - A shareable version for colleagues, for any Claude exam, is being built separately as cca-prep-engine (decision 015). This site stays personal.
 
 ## Recent sessions
@@ -40,7 +40,6 @@ A calm, minimal study site, built from sanctum, for Jason's Claude Certified Arc
 
 - Start the practice project (10 November), build lessons 1.1 to 1.3 in it, then lesson 1.4 on 18 November.
 - Commit and push the 2 November schedule change.
-- Fix the `dev` script in package.json to use port 3005.
 - Move the API key out of `~/.zshrc` into the course folder only.
 
 ## Key decisions
@@ -62,7 +61,6 @@ A calm, minimal study site, built from sanctum, for Jason's Claude Certified Arc
 ## Watch out for
 
 - Commit as the personal email in this repo, or Vercel blocks the deploy.
-- `npm run dev` still says port 3025; the site runs on 3005.
 - The browser check "it says missed work is not moved" fails, and did before decision 014.
 - Week names in the plan no longer match calendar weeks after the stretch.
 - After notes editor code changes, the open tab needs a page reload.

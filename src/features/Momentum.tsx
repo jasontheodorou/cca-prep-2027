@@ -9,6 +9,7 @@ import { readRaw, writeRaw } from '../lib/storage'
 import { dayKey, duration, longDay, mondayOf, parseDay } from '../lib/dates'
 import { LAST_DAY, hasWork, isBuild, isExam, isLesson, isOptional, sessionOn, startsWithCards, type Session } from '../lib/schedule'
 import { useNow } from '../lib/useNow'
+import { howTo, type HowTo } from '../lib/howTo'
 
 /* Momentum: today first, with today's job from the study plan (Done or
  * Missed) and one-tap time. Then this week as seven dots, green where study
@@ -509,7 +510,7 @@ function DaySheet({
 }
 
 /** The study site's pages for the day, opened in a new tab. */
-function SiteLinks({ s }: { s: Session }) {
+function SiteLinks({ s }: { s: Pick<Session, 'links'> }) {
   if (!s.links.length) return null
   return (
     <div className="row sitelinks">
@@ -523,6 +524,70 @@ function SiteLinks({ s }: { s: Session }) {
         </a>
       ))}
     </div>
+  )
+}
+
+/** Text with `backticks` round anything to type, shown in the code font. */
+function withCode(text: string) {
+  return text.split('`').map((part, i) => (i % 2 ? <code key={i} className="howto__type">{part}</code> : part))
+}
+
+/** A day's step-by-step help: what it is for, numbered steps, text to copy,
+ * and how to tell it is finished. */
+function HowToSteps({ h }: { h: HowTo }) {
+  return (
+    <div className="howto">
+      <p className="howto__about">{h.about}</p>
+      <ol className="howto__steps">
+        {h.steps.map((step) => (
+          <li key={step}>{withCode(step)}</li>
+        ))}
+      </ol>
+      {h.code && (
+        <>
+          <div className="howto__copyrow">
+            <p className="howto__label">Copy this</p>
+            <CopyButton text={h.code} />
+          </div>
+          <pre className="howto__code">
+            <code>{h.code}</code>
+          </pre>
+        </>
+      )}
+      <p className="howto__done">
+        <strong>You have finished when</strong> {h.done.charAt(0).toLowerCase() + h.done.slice(1)}
+      </p>
+      {h.links && <SiteLinks s={{ links: h.links }} />}
+    </div>
+  )
+}
+
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false)
+  return (
+    <button
+      type="button"
+      className="link small"
+      onClick={() => {
+        navigator.clipboard?.writeText(text).then(() => {
+          setCopied(true)
+          setTimeout(() => setCopied(false), 2000)
+        })
+      }}
+    >
+      {copied ? 'Copied' : 'Copy'}
+    </button>
+  )
+}
+
+/** The pop-out: a day's steps over the page. */
+function HowToSheet({ s, h, onClose }: { s: Session; h: HowTo; onClose: () => void }) {
+  return (
+    <Sheet label={`How to do it: ${s.title}`} wide onClose={onClose}>
+      <p className="eyebrow">Step by step</p>
+      <h2 className="h2">{s.title}</h2>
+      <HowToSteps h={h} />
+    </Sheet>
   )
 }
 
@@ -544,6 +609,8 @@ function TodaySession({
   const today = s.day
   // Time logged before Done, so taking Done back can restore it.
   const [before, setBefore] = useState<Effort | null | undefined>(undefined)
+  const help = howTo(s)
+  const [helping, setHelping] = useState(false)
 
   const done = (from: DOMRect) => {
     onDone(from)
@@ -592,6 +659,14 @@ function TodaySession({
         <>
           {s.task && <p className="session__start">{s.task}</p>}
           <SiteLinks s={s} />
+          {help && (
+            <div className="row sitelinks">
+              <button type="button" className="pill" onClick={() => setHelping(true)}>
+                Show me how, step by step
+              </button>
+            </div>
+          )}
+          {help && helping && <HowToSheet s={s} h={help} onClose={() => setHelping(false)} />}
           <div className="row">
             <button type="button" className="btn" onClick={(e) => done(e.currentTarget.getBoundingClientRect())}>
               Done
@@ -634,6 +709,7 @@ function CaughtUp({ onCaught }: { onCaught: () => void }) {
  * that apply to it. */
 function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
   const friday = parseDay(s.day).getDay() === 5 && s.kind === 'Daily'
+  const help = howTo(s)
   const rows: [string, React.ReactNode][] = [
     ['First', startsWithCards(s) ? '5 minutes of flashcards.' : ''],
     ['What to do', s.task || s.title],
@@ -676,6 +752,12 @@ function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
             </div>
           ))}
       </dl>
+      {help && (
+        <>
+          <h3 className="h3 howto__head">Step by step</h3>
+          <HowToSteps h={help} />
+        </>
+      )}
     </Sheet>
   )
 }

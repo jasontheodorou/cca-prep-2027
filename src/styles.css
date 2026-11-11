@@ -2676,3 +2676,72 @@ html:not([data-manager]) .clawd--perch {
     transition: none;
   }
 }
+
+/* Step-by-step help for days with no study guide link (decision 019). */
+.howto {
+  margin-top: 16px;
+}
+
+.howto__head {
+  margin: 32px 0 0;
+}
+
+.howto__about {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.howto__steps {
+  margin: 20px 0 0;
+  padding-left: 1.6em;
+  display: grid;
+  gap: 10px;
+  font-size: 1.125rem;
+}
+
+.howto__steps li {
+  padding-left: 6px;
+}
+
+.howto__steps li::marker {
+  font-weight: 700;
+}
+
+.howto__copyrow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.howto__label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.howto__code {
+  margin: 8px 0 0;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: var(--soft);
+  overflow-x: auto;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.howto__code code {
+  font-weight: 500;
+}
+
+.howto__done {
+  margin: 24px 0 0;
+  font-size: 1.125rem;
+}
+
+.howto__type {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--soft);
+  overflow-wrap: anywhere;
+}
