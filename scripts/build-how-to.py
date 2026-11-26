@@ -220,7 +220,7 @@ H['Book your exam'] = {
     'about': 'Booking the exam now makes the date real. Most problems on exam day come from the name on the booking not matching your ID.',
     'steps': [
         'Find the booking link in the exam guide or on Anthropic\'s certification page.',
-        'Choose Saturday 24 April 2027. If that day is not offered, take the nearest day before it.',
+        'Choose Sunday 9 May 2027. If that day is not offered, take the nearest day after it.',
         'Type your name exactly as it appears on your passport or driving licence.',
         'Finish the booking and wait for the email.',
         'Check the name in the email matches your ID, letter for letter.',

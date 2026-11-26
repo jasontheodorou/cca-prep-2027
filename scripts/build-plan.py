@@ -13,13 +13,16 @@ exams". Then: "this will go to end of april now and thats fine". See
 design-journal/decisions/021.
 
 The calendar rules are:
-  - day 1 is 1 December 2026 and day 100 is 31 March 2027. Only study days
-    are counted. Christmas and the February holiday are off; no other day is;
+  - day 1 is 1 December 2026 and day 100 is 13 April 2027. Only study days
+    are counted. Christmas and the February holiday are off;
+  - every month has three rest days, spread evenly. Jason, 26 November:
+    "instead of spare days can we please have 3 x off/rest days per month.
+    If we need to push this into may that is fine";
   - one session a day, never more than 60 minutes;
   - most days hold two half-hour jobs, kept in the day's "parts";
-  - 1 to 22 April is practice exams, every day. Jason, 26 November: "whats up
-    with april why so many dead days". 23 April is rest and Saturday 24 April
-    is the exam.
+  - 14 April to 7 May is practice exams. No day is left empty: Jason,
+    26 November, "whats up with april why so many dead days". 8 May is rest
+    and Sunday 9 May is the exam.
 Uses the standard library only.
 """
 
@@ -41,7 +44,8 @@ SITE, LESSONS, SECTIONS = _old.SITE, _old.LESSONS, _old.SECTIONS
 
 D = date.fromisoformat
 START = D('2026-12-01')
-EXAM = D('2027-04-24')          # the last Saturday in April
+EXAM = D('2027-05-09')          # two days after the last study day
+RESTS_A_MONTH = 3
 DAYS = 100                      # days of study before the practice exams
 DAY = 60                        # minutes in a study day
 HOLIDAYS = [
@@ -348,7 +352,7 @@ def skim(units, name, title=None):
 
 SURVEY = phase('See the whole course', [
     two(read('The exam guide: how the exam works', 'Read the start of the exam guide: how the exam is marked, the five sections and their share of the marks, and the six situations. Write the five shares in Notes.'),
-        read('Book your exam', 'Book the exam for Saturday 24 April. Check the name on your ID matches the booking exactly.'),
+        read('Book your exam', 'Book the exam for Sunday 9 May. Check the name on your ID matches the booking exactly.'),
         'How the exam works, then book it'),
     skim(['1.1', '1.2', '1.3', '1.4'], 'Agents'),
     skim(['1.5', '1.6', '1.7'], 'Agents'),
@@ -471,11 +475,33 @@ def holiday(day):
     return None
 
 
+def rest_days(year, month):
+    """Three rest days, spread evenly over the month's days that are not
+    holiday. One that would fall just before a holiday moves three days
+    earlier, so the break does not swallow it."""
+    d, days = date(year, month, 1), []
+    while d.month == month:
+        if not holiday(d):
+            days.append(d)
+        d += timedelta(days=1)
+    out = []
+    for k in range(1, RESTS_A_MONTH + 1):
+        r = days[len(days) * k // (RESTS_A_MONTH + 1)]
+        if any(holiday(r + timedelta(days=i)) for i in (1, 2)):
+            r -= timedelta(days=3)
+        out.append(r)
+    return out
+
+
 def main():
     if len(PLAN) != DAYS:
         sys.exit(f'The plan has {len(PLAN)} days, not {DAYS}')
     last_study = EXAM - timedelta(days=2)
     queue, out, n, week = PLAN + MOCKS, [], 0, PLAN[0]['week']
+    rests, d = set(), START
+    while d <= EXAM:
+        rests.update(rest_days(d.year, d.month))
+        d += timedelta(days=28)
     d = START
     while d <= last_study:
         name = holiday(d)
@@ -485,6 +511,8 @@ def main():
             out.append(off(d, 'Christmas · Time off', 'Christmas', 'Time off. No studying. The 100 days do not count this one.'))
         elif name:
             out.append(off(d, 'Holiday', 'Holiday', 'Time off. No studying. The 100 days do not count this one.'))
+        elif d in rests:
+            out.append(off(d, week, 'Rest day', 'A day off. No studying. The 100 days do not count this one.'))
         elif n < len(queue):
             s = queue[n]
             n += 1
@@ -509,8 +537,11 @@ def main():
 
     hands_on = [s for s in out if s['week'].startswith('Day ') and s['kind'] == 'Practice']
     spare = [s for s in out if s['title'] == 'Spare day']
+    if spare:
+        sys.exit(f'{len(spare)} empty days before the exam, from {spare[0]["day"]}. Move EXAM earlier.')
+    rest = [s for s in out if s['title'] == 'Rest day']
     print(f'{DAYS} study days, {START} to {day100}: {len(hands_on)} with hands-on work')
-    print(f'{len(MOCKS)} practice-exam days to {last_study}, {len(spare)} spare days. Exam {EXAM}. Wrote {OUT}')
+    print(f'{len(MOCKS)} practice-exam days to {last_study}, {len(rest)} rest days. Exam {EXAM}. Wrote {OUT}')
 
 
 if __name__ == '__main__':

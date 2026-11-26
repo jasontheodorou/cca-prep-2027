@@ -152,7 +152,7 @@ try {
   check(s.effort[key(today)]?.minutes === 50 && s.effort[key(today)]?.note === 'Read 3.1', 'the day sheet changes time and adds a note')
 
   await page.getByRole('button', { name: 'Show every week to the exam' }).click()
-  check((await page.locator('.month').count()) === 5, 'the five months from December to the exam show on request')
+  check((await page.locator('.month').count()) === 6, 'the six months from December to the exam show on request')
   check((await page.locator('.month .dot[data-exam]').count()) === 1, 'the exam day is marked')
   await page.locator(`.dot[aria-label^="${longDay(key(earlier))}"]`).first().click()
   await page.locator('dialog.sheet').getByRole('textbox', { name: 'Minutes studied' }).fill('')

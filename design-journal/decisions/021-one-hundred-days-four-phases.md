@@ -3,7 +3,7 @@ id: decision-021-one-hundred-days-four-phases
 type: decision
 date: 2026-11-26
 topic: schedule
-summary: The plan is 100 one-hour study days from 1 December 2026 to 31 March 2027 in four phases (see the whole course, what decides the mark, hard practice, ten sprints), then practice exams in April and the exam on Saturday 24 April 2027.
+summary: The plan is 100 one-hour study days from 1 December 2026 to 13 April 2027 in four phases (see the whole course, what decides the mark, hard practice, ten sprints), with three rest days a month, then five practice exams and the exam on Sunday 9 May 2027.
 tags: [schedule, momentum, study-plan, exam-date, hands-on-practice, sprints]
 status: accepted
 related: [decision-020-one-hour-a-day-exam-in-march, decision-019-step-by-step-help, logbook-2026-11-26]
@@ -27,18 +27,19 @@ And on the dates: "this will go to end of april now and thats fine. lets get it 
 
 ## Decision
 
-- Only study days are counted. Christmas (21 December to 3 January) and the February holiday (8 to 14 February) are off. No other day is off before day 100.
+- Only study days are counted. Christmas (21 December to 3 January) and the February holiday (8 to 14 February) are off.
+- Every month has three rest days, spread evenly over its days that are not holiday. Jason: "instead of spare days can we please have 3 x off/rest days per month. If we need to push this into may that is fine". A rest day that would fall just before a holiday moves three days earlier. Day 100 is 13 April.
 - Days 1 to 10, "See the whole course": day 1 is the exam guide and booking the exam. Days 2 to 10 skim all 30 lessons, three or four a day. Nothing is built.
 - Days 11 to 40, "What decides the mark": day 11 is the test of all five sections. The other 29 days are split by each section's share of the marks in the exam guide: Agents 27% (8 days), Claude Code 20% (6), Prompts and output 20% (6), Tools and MCP 18% (6), Context and reliability 15% (3). The lessons studied are 1.1 to 1.6, 3.1 to 3.4, 4.1 to 4.4, 2.1 to 2.4, 5.1 and 5.2, each read, built and tested.
 - Days 41 to 50, "Hard practice": exam guide exercises 1 and 2 in full, exercise 3 steps 1 to 3 and exercise 4 steps 1 and 2, all in empty folders, plus four builds from memory.
 - Days 51 to 100: ten sprints of five days. Each sprint learns one new lesson (1.7, 3.5, 3.6, 4.5, 4.6, 2.5, 5.3, 5.4, 5.5, 5.6), practises, sits 20 questions on its section and fixes the worst two, then reviews. The six exam situations and the last five exercise steps sit inside the sprints.
-- 1 to 22 April: five practice exams, each as two one-hour sittings, a marking day and a day rebuilding the two weakest topics, then two last days. No day is spare: Jason asked "whats up with april why so many dead days" when the first version left Fridays free. 23 April is rest. The exam is Saturday 24 April 2027. It is not booked.
+- 14 April to 7 May: five practice exams, each as two one-hour sittings, a marking day and a day rebuilding the two weakest topics, then two last days. No day is spare: Jason asked "whats up with april why so many dead days" when the first version left Fridays free. 8 May is rest. The exam is Sunday 9 May 2027, two days after the last study day so that no day is left empty. It is not booked, and whether Sunday sittings exist is not checked.
 - Week labels now read "Day 12 of 100 · What decides the mark · Agents".
 
 ## Consequences
 
 - The guide gives marks by section, not by lesson. Picking each section's first lessons as "highest value" is Claude's judgement: the later lessons build on them.
-- Days 1 to 100 have no spare days. A missed day has to be doubled up, or the day count slips.
+- There are no catch-up days. A missed day has to be doubled up or done on a rest day, or the day count slips.
 - Context and reliability gets only two lessons before the sprints, so sprints 7 to 10 are all on it.
 - Whether the study site's practice exam gives different questions each time is not checked. Five sittings assume it does.
 - Each practice exam is split in two. The real exam is the first 2-hour sitting.

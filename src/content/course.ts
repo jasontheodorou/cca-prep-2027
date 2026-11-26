@@ -56,9 +56,9 @@ export const GUIDE = {
 
 export const EXAM = {
   /** The planned exam day: 20 March, then 22 May, 29 May, 26 June, 27 March
-   * and now 24 April (26 November 2026): 100 days of study from 1 December,
-   * then practice exams. Jason's deadline to pass is the end of April 2027. */
-  day: '2027-04-24',
+   * 24 April and now 9 May (26 November 2026): 100 days of study from
+   * 1 December with three rest days a month, then practice exams. */
+  day: '2027-05-09',
   items: 60,
   format: 'Multiple-choice and multiple-response items. Each item says how many answers to choose.',
   minutes: 120,

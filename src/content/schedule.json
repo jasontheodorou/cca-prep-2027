@@ -5,7 +5,7 @@
   "minutes": 60,
   "week": "Day 1 of 100 · See the whole course",
   "title": "How the exam works, then book it",
-  "task": "First half hour: Read the start of the exam guide: how the exam is marked, the five sections and their share of the marks, and the six situations. Write the five shares in Notes.\nSecond half hour: Book the exam for Saturday 24 April. Check the name on your ID matches the booking exactly.",
+  "task": "First half hour: Read the start of the exam guide: how the exam is marked, the five sections and their share of the marks, and the six situations. Write the five shares in Notes.\nSecond half hour: Book the exam for Sunday 9 May. Check the name on your ID matches the booking exactly.",
   "units": [],
   "links": [],
   "parts": [
@@ -140,6 +140,16 @@
  },
  {
   "day": "2026-12-06",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 5 of 100 · See the whole course",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-07",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 6 of 100 · See the whole course",
@@ -169,7 +179,7 @@
   ]
  },
  {
-  "day": "2026-12-07",
+  "day": "2026-12-08",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 7 of 100 · See the whole course",
@@ -199,7 +209,7 @@
   ]
  },
  {
-  "day": "2026-12-08",
+  "day": "2026-12-09",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 8 of 100 · See the whole course",
@@ -229,7 +239,7 @@
   ]
  },
  {
-  "day": "2026-12-09",
+  "day": "2026-12-10",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 9 of 100 · See the whole course",
@@ -264,7 +274,17 @@
   ]
  },
  {
-  "day": "2026-12-10",
+  "day": "2026-12-11",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 9 of 100 · See the whole course",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-12",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 10 of 100 · See the whole course",
@@ -299,7 +319,7 @@
   ]
  },
  {
-  "day": "2026-12-11",
+  "day": "2026-12-13",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 11 of 100 · What decides the mark · Where you start",
@@ -317,7 +337,7 @@
   ]
  },
  {
-  "day": "2026-12-12",
+  "day": "2026-12-14",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 12 of 100 · What decides the mark · Agents",
@@ -339,7 +359,7 @@
   ]
  },
  {
-  "day": "2026-12-13",
+  "day": "2026-12-15",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 13 of 100 · What decides the mark · Agents",
@@ -365,7 +385,17 @@
   ]
  },
  {
-  "day": "2026-12-14",
+  "day": "2026-12-16",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 13 of 100 · What decides the mark · Agents",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-17",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 14 of 100 · What decides the mark · Agents",
@@ -390,7 +420,7 @@
   ]
  },
  {
-  "day": "2026-12-15",
+  "day": "2026-12-18",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 15 of 100 · What decides the mark · Agents",
@@ -411,7 +441,7 @@
   ]
  },
  {
-  "day": "2026-12-16",
+  "day": "2026-12-19",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 16 of 100 · What decides the mark · Agents",
@@ -432,7 +462,7 @@
   ]
  },
  {
-  "day": "2026-12-17",
+  "day": "2026-12-20",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 17 of 100 · What decides the mark · Agents",
@@ -455,67 +485,6 @@
   "parts": [
    "Test 1.5: the $500 rule",
    "Lesson 1.6: breaking a big job into smaller ones"
-  ]
- },
- {
-  "day": "2026-12-18",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 18 of 100 · What decides the mark · Agents",
-  "title": "Build and test 1.6: breaking a big job into smaller ones",
-  "task": "First half hour: Make a code review that reads each file of your project in its own pass, then does one more pass across all the files together.\nSecond half hour: Run the same review as one big pass. Compare what each way found, and write down which one missed more. Then read the lesson's common-mistakes box and answer its practice question.",
-  "units": [
-   "1.6"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 1.6",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition"
-   }
-  ],
-  "parts": [
-   "Build 1.6: a review in small passes",
-   "Test 1.6: small passes against one big pass"
-  ]
- },
- {
-  "day": "2026-12-19",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 19 of 100 · What decides the mark · Agents",
-  "title": "Questions on Agents, then fix what you got wrong",
-  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
-  "units": [],
-  "links": [
-   {
-    "label": "Practice questions: Agents",
-    "href": "https://claudecertificationguide.com/drill?domain=1"
-   }
-  ],
-  "parts": [
-   "Practice questions: Agents",
-   "Fix what you got wrong: Agents"
-  ]
- },
- {
-  "day": "2026-12-20",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 20 of 100 · What decides the mark · Claude Code",
-  "title": "Lesson 3.1: where CLAUDE.md files go",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Give your practice project a CLAUDE.md. Add one at user level too. Move one long part into its own file and pull it in with @import.",
-  "units": [
-   "3.1"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 3.1",
-    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-1-claude-md-hierarchy"
-   }
-  ],
-  "parts": [
-   "Lesson 3.1: where CLAUDE.md files go",
-   "Build 3.1: three levels of CLAUDE.md"
   ]
  },
  {
@@ -662,6 +631,67 @@
   "day": "2027-01-04",
   "kind": "Practice",
   "minutes": 60,
+  "week": "Day 18 of 100 · What decides the mark · Agents",
+  "title": "Build and test 1.6: breaking a big job into smaller ones",
+  "task": "First half hour: Make a code review that reads each file of your project in its own pass, then does one more pass across all the files together.\nSecond half hour: Run the same review as one big pass. Compare what each way found, and write down which one missed more. Then read the lesson's common-mistakes box and answer its practice question.",
+  "units": [
+   "1.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.6",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition"
+   }
+  ],
+  "parts": [
+   "Build 1.6: a review in small passes",
+   "Test 1.6: small passes against one big pass"
+  ]
+ },
+ {
+  "day": "2027-01-05",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 19 of 100 · What decides the mark · Agents",
+  "title": "Questions on Agents, then fix what you got wrong",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ],
+  "parts": [
+   "Practice questions: Agents",
+   "Fix what you got wrong: Agents"
+  ]
+ },
+ {
+  "day": "2027-01-06",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 20 of 100 · What decides the mark · Claude Code",
+  "title": "Lesson 3.1: where CLAUDE.md files go",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Give your practice project a CLAUDE.md. Add one at user level too. Move one long part into its own file and pull it in with @import.",
+  "units": [
+   "3.1"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.1",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-1-claude-md-hierarchy"
+   }
+  ],
+  "parts": [
+   "Lesson 3.1: where CLAUDE.md files go",
+   "Build 3.1: three levels of CLAUDE.md"
+  ]
+ },
+ {
+  "day": "2027-01-07",
+  "kind": "Practice",
+  "minutes": 60,
   "week": "Day 21 of 100 · What decides the mark · Claude Code",
   "title": "Test 3.1, then lesson 3.2: your own commands and skills",
   "task": "First half hour: Run /memory and check which files loaded. Move a project rule to user level, and write why a new teammate would never get it. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
@@ -685,7 +715,7 @@
   ]
  },
  {
-  "day": "2027-01-05",
+  "day": "2027-01-08",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 22 of 100 · What decides the mark · Claude Code",
@@ -706,7 +736,7 @@
   ]
  },
  {
-  "day": "2027-01-06",
+  "day": "2027-01-09",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 23 of 100 · What decides the mark · Claude Code",
@@ -727,7 +757,7 @@
   ]
  },
  {
-  "day": "2027-01-07",
+  "day": "2027-01-10",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 24 of 100 · What decides the mark · Claude Code",
@@ -753,7 +783,17 @@
   ]
  },
  {
-  "day": "2027-01-08",
+  "day": "2027-01-11",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 24 of 100 · What decides the mark · Claude Code",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-12",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 25 of 100 · What decides the mark · Claude Code",
@@ -774,7 +814,7 @@
   ]
  },
  {
-  "day": "2027-01-09",
+  "day": "2027-01-13",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 26 of 100 · What decides the mark · Prompts and output",
@@ -795,7 +835,7 @@
   ]
  },
  {
-  "day": "2027-01-10",
+  "day": "2027-01-14",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 27 of 100 · What decides the mark · Prompts and output",
@@ -821,7 +861,7 @@
   ]
  },
  {
-  "day": "2027-01-11",
+  "day": "2027-01-15",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 28 of 100 · What decides the mark · Prompts and output",
@@ -842,7 +882,7 @@
   ]
  },
  {
-  "day": "2027-01-12",
+  "day": "2027-01-16",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 29 of 100 · What decides the mark · Prompts and output",
@@ -863,7 +903,7 @@
   ]
  },
  {
-  "day": "2027-01-13",
+  "day": "2027-01-17",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 30 of 100 · What decides the mark · Prompts and output",
@@ -889,7 +929,17 @@
   ]
  },
  {
-  "day": "2027-01-14",
+  "day": "2027-01-18",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 30 of 100 · What decides the mark · Prompts and output",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-19",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 31 of 100 · What decides the mark · Prompts and output",
@@ -910,7 +960,7 @@
   ]
  },
  {
-  "day": "2027-01-15",
+  "day": "2027-01-20",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 32 of 100 · What decides the mark · Tools and MCP",
@@ -931,7 +981,7 @@
   ]
  },
  {
-  "day": "2027-01-16",
+  "day": "2027-01-21",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 33 of 100 · What decides the mark · Tools and MCP",
@@ -957,7 +1007,7 @@
   ]
  },
  {
-  "day": "2027-01-17",
+  "day": "2027-01-22",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 34 of 100 · What decides the mark · Tools and MCP",
@@ -978,7 +1028,7 @@
   ]
  },
  {
-  "day": "2027-01-18",
+  "day": "2027-01-23",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 35 of 100 · What decides the mark · Tools and MCP",
@@ -999,7 +1049,7 @@
   ]
  },
  {
-  "day": "2027-01-19",
+  "day": "2027-01-24",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 36 of 100 · What decides the mark · Tools and MCP",
@@ -1025,7 +1075,17 @@
   ]
  },
  {
-  "day": "2027-01-20",
+  "day": "2027-01-25",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 36 of 100 · What decides the mark · Tools and MCP",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-26",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 37 of 100 · What decides the mark · Tools and MCP",
@@ -1046,7 +1106,7 @@
   ]
  },
  {
-  "day": "2027-01-21",
+  "day": "2027-01-27",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 38 of 100 · What decides the mark · Context and reliability",
@@ -1067,7 +1127,7 @@
   ]
  },
  {
-  "day": "2027-01-22",
+  "day": "2027-01-28",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 39 of 100 · What decides the mark · Context and reliability",
@@ -1093,7 +1153,7 @@
   ]
  },
  {
-  "day": "2027-01-23",
+  "day": "2027-01-29",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 40 of 100 · What decides the mark · Context and reliability",
@@ -1114,7 +1174,7 @@
   ]
  },
  {
-  "day": "2027-01-24",
+  "day": "2027-01-30",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 41 of 100 · Hard practice",
@@ -1135,7 +1195,7 @@
   ]
  },
  {
-  "day": "2027-01-25",
+  "day": "2027-01-31",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 42 of 100 · Hard practice",
@@ -1156,7 +1216,7 @@
   ]
  },
  {
-  "day": "2027-01-26",
+  "day": "2027-02-01",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 43 of 100 · Hard practice",
@@ -1177,7 +1237,7 @@
   ]
  },
  {
-  "day": "2027-01-27",
+  "day": "2027-02-02",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 44 of 100 · Hard practice",
@@ -1198,7 +1258,17 @@
   ]
  },
  {
-  "day": "2027-01-28",
+  "day": "2027-02-03",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 44 of 100 · Hard practice",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-04",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 45 of 100 · Hard practice",
@@ -1219,7 +1289,7 @@
   ]
  },
  {
-  "day": "2027-01-29",
+  "day": "2027-02-05",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 46 of 100 · Hard practice",
@@ -1240,7 +1310,7 @@
   ]
  },
  {
-  "day": "2027-01-30",
+  "day": "2027-02-06",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 47 of 100 · Hard practice",
@@ -1261,7 +1331,7 @@
   ]
  },
  {
-  "day": "2027-01-31",
+  "day": "2027-02-07",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 48 of 100 · Hard practice",
@@ -1279,140 +1349,6 @@
   "parts": [
    "Exercise 3, step 3 of 5: examples for odd documents",
    "Build from memory: Prompts and output"
-  ]
- },
- {
-  "day": "2027-02-01",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 49 of 100 · Hard practice",
-  "title": "Exercise 4, steps 1 and 2 of 5",
-  "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Make a main agent that is allowed the Task tool and passes what it has found to each helper in the helper's prompt. Tick step 1 of exercise 4 on the Progress page.\nSecond half hour: Start the helpers at the same time from one reply. Time it against running them one after another. Tick step 2 of exercise 4 on the Progress page.",
-  "units": [
-   "E4"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 4, step 1 of 5: the main agent",
-   "Exercise 4, step 2 of 5: helpers at the same time"
-  ]
- },
- {
-  "day": "2027-02-02",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 50 of 100 · Hard practice",
-  "title": "Build from memory: Tools and MCP, then practice questions: every section",
-  "task": "First half hour: With no notes, write three tool descriptions and one error with errorCategory and isRetryable. Check Claude picks the right tool.\nSecond half hour: Answer six questions in each of the five sections. Write down each score.",
-  "units": [],
-  "links": [
-   {
-    "label": "Practice questions",
-    "href": "https://claudecertificationguide.com/drill"
-   }
-  ],
-  "parts": [
-   "Build from memory: Tools and MCP",
-   "Practice questions: every section"
-  ]
- },
- {
-  "day": "2027-02-03",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 51 of 100 · Sprint 1 of 10 · Lesson 1.7",
-  "title": "Lesson 1.7: picking up where you left off",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Start a named Claude Code session on your project and ask it to map the code. Close it. Open it again with --resume and carry on.",
-  "units": [
-   "1.7"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 1.7",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
-   }
-  ],
-  "parts": [
-   "Lesson 1.7: picking up where you left off",
-   "Build 1.7: a session you can come back to"
-  ]
- },
- {
-  "day": "2027-02-04",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 52 of 100 · Sprint 1 of 10 · Lesson 1.7",
-  "title": "Test 1.7, then exam situation 1",
-  "task": "First half hour: Change one file, resume the session and tell it which file changed. Then fork the session and try two different fixes side by side. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: In the exam guide, read situation 1, about a customer support agent. Write five questions it could lead to, then answer them.",
-  "units": [
-   "1.7"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 1.7",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
-   }
-  ],
-  "parts": [
-   "Test 1.7: resume and fork",
-   "Exam situation 1"
-  ]
- },
- {
-  "day": "2027-02-05",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 53 of 100 · Sprint 1 of 10 · Lesson 1.7",
-  "title": "Exam situation 3, then your shakiest topic",
-  "task": "First half hour: In the exam guide, read situation 3, about several agents doing research together. Write five questions it could lead to, then answer them.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
-  "units": [],
-  "links": [],
-  "parts": [
-   "Exam situation 3",
-   "Your shakiest topic"
-  ]
- },
- {
-  "day": "2027-02-06",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Day 54 of 100 · Sprint 1 of 10 · Lesson 1.7",
-  "title": "Sprint 1 test: Agents",
-  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
-  "units": [],
-  "links": [
-   {
-    "label": "Practice questions: Agents",
-    "href": "https://claudecertificationguide.com/drill?domain=1"
-   }
-  ],
-  "parts": [
-   "Practice questions: Agents",
-   "Fix what you got wrong: Agents"
-  ]
- },
- {
-  "day": "2027-02-07",
-  "kind": "Daily",
-  "minutes": 60,
-  "week": "Day 55 of 100 · Sprint 1 of 10 · Lesson 1.7",
-  "title": "Sprint 1 review: Agents",
-  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
-  "units": [],
-  "links": [
-   {
-    "label": "Quick reference: Agents",
-    "href": "https://claudecertificationguide.com/quick-reference/domain-1"
-   }
-  ],
-  "parts": [
-   "Common mistakes: Agents",
-   "Sprint review"
   ]
  },
  {
@@ -1489,6 +1425,160 @@
   "day": "2027-02-15",
   "kind": "Practice",
   "minutes": 60,
+  "week": "Day 49 of 100 · Hard practice",
+  "title": "Exercise 4, steps 1 and 2 of 5",
+  "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Make a main agent that is allowed the Task tool and passes what it has found to each helper in the helper's prompt. Tick step 1 of exercise 4 on the Progress page.\nSecond half hour: Start the helpers at the same time from one reply. Time it against running them one after another. Tick step 2 of exercise 4 on the Progress page.",
+  "units": [
+   "E4"
+  ],
+  "links": [
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "parts": [
+   "Exercise 4, step 1 of 5: the main agent",
+   "Exercise 4, step 2 of 5: helpers at the same time"
+  ]
+ },
+ {
+  "day": "2027-02-16",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 50 of 100 · Hard practice",
+  "title": "Build from memory: Tools and MCP, then practice questions: every section",
+  "task": "First half hour: With no notes, write three tool descriptions and one error with errorCategory and isRetryable. Check Claude picks the right tool.\nSecond half hour: Answer six questions in each of the five sections. Write down each score.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions",
+    "href": "https://claudecertificationguide.com/drill"
+   }
+  ],
+  "parts": [
+   "Build from memory: Tools and MCP",
+   "Practice questions: every section"
+  ]
+ },
+ {
+  "day": "2027-02-17",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 51 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Lesson 1.7: picking up where you left off",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Start a named Claude Code session on your project and ask it to map the code. Close it. Open it again with --resume and carry on.",
+  "units": [
+   "1.7"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.7",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
+   }
+  ],
+  "parts": [
+   "Lesson 1.7: picking up where you left off",
+   "Build 1.7: a session you can come back to"
+  ]
+ },
+ {
+  "day": "2027-02-18",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 51 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-19",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 52 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Test 1.7, then exam situation 1",
+  "task": "First half hour: Change one file, resume the session and tell it which file changed. Then fork the session and try two different fixes side by side. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: In the exam guide, read situation 1, about a customer support agent. Write five questions it could lead to, then answer them.",
+  "units": [
+   "1.7"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.7",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
+   }
+  ],
+  "parts": [
+   "Test 1.7: resume and fork",
+   "Exam situation 1"
+  ]
+ },
+ {
+  "day": "2027-02-20",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 53 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Exam situation 3, then your shakiest topic",
+  "task": "First half hour: In the exam guide, read situation 3, about several agents doing research together. Write five questions it could lead to, then answer them.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Exam situation 3",
+   "Your shakiest topic"
+  ]
+ },
+ {
+  "day": "2027-02-21",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 54 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Sprint 1 test: Agents",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ],
+  "parts": [
+   "Practice questions: Agents",
+   "Fix what you got wrong: Agents"
+  ]
+ },
+ {
+  "day": "2027-02-22",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 55 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Sprint 1 review: Agents",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference: Agents",
+    "href": "https://claudecertificationguide.com/quick-reference/domain-1"
+   }
+  ],
+  "parts": [
+   "Common mistakes: Agents",
+   "Sprint review"
+  ]
+ },
+ {
+  "day": "2027-02-23",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 55 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-24",
+  "kind": "Practice",
+  "minutes": 60,
   "week": "Day 56 of 100 · Sprint 2 of 10 · Lesson 3.5",
   "title": "Lesson 3.5: improving the result over several rounds",
   "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Pick a small function. Write its tests first, with odd cases such as empty values. Then ask Claude to make them pass.",
@@ -1507,7 +1597,7 @@
   ]
  },
  {
-  "day": "2027-02-16",
+  "day": "2027-02-25",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 57 of 100 · Sprint 2 of 10 · Lesson 3.5",
@@ -1528,7 +1618,7 @@
   ]
  },
  {
-  "day": "2027-02-17",
+  "day": "2027-02-26",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 58 of 100 · Sprint 2 of 10 · Lesson 3.5",
@@ -1542,7 +1632,7 @@
   ]
  },
  {
-  "day": "2027-02-18",
+  "day": "2027-02-27",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 59 of 100 · Sprint 2 of 10 · Lesson 3.5",
@@ -1561,7 +1651,7 @@
   ]
  },
  {
-  "day": "2027-02-19",
+  "day": "2027-02-28",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 60 of 100 · Sprint 2 of 10 · Lesson 3.5",
@@ -1580,7 +1670,7 @@
   ]
  },
  {
-  "day": "2027-02-20",
+  "day": "2027-03-01",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 61 of 100 · Sprint 3 of 10 · Lesson 3.6",
@@ -1601,7 +1691,7 @@
   ]
  },
  {
-  "day": "2027-02-21",
+  "day": "2027-03-02",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 62 of 100 · Sprint 3 of 10 · Lesson 3.6",
@@ -1622,7 +1712,7 @@
   ]
  },
  {
-  "day": "2027-02-22",
+  "day": "2027-03-03",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 63 of 100 · Sprint 3 of 10 · Lesson 3.6",
@@ -1636,7 +1726,7 @@
   ]
  },
  {
-  "day": "2027-02-23",
+  "day": "2027-03-04",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 64 of 100 · Sprint 3 of 10 · Lesson 3.6",
@@ -1655,7 +1745,7 @@
   ]
  },
  {
-  "day": "2027-02-24",
+  "day": "2027-03-05",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 65 of 100 · Sprint 3 of 10 · Lesson 3.6",
@@ -1674,7 +1764,7 @@
   ]
  },
  {
-  "day": "2027-02-25",
+  "day": "2027-03-06",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 66 of 100 · Sprint 4 of 10 · Lesson 4.5",
@@ -1695,7 +1785,7 @@
   ]
  },
  {
-  "day": "2027-02-26",
+  "day": "2027-03-07",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 67 of 100 · Sprint 4 of 10 · Lesson 4.5",
@@ -1721,7 +1811,17 @@
   ]
  },
  {
-  "day": "2027-02-27",
+  "day": "2027-03-08",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 67 of 100 · Sprint 4 of 10 · Lesson 4.5",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-09",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 68 of 100 · Sprint 4 of 10 · Lesson 4.5",
@@ -1735,7 +1835,7 @@
   ]
  },
  {
-  "day": "2027-02-28",
+  "day": "2027-03-10",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 69 of 100 · Sprint 4 of 10 · Lesson 4.5",
@@ -1754,7 +1854,7 @@
   ]
  },
  {
-  "day": "2027-03-01",
+  "day": "2027-03-11",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 70 of 100 · Sprint 4 of 10 · Lesson 4.5",
@@ -1773,7 +1873,7 @@
   ]
  },
  {
-  "day": "2027-03-02",
+  "day": "2027-03-12",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 71 of 100 · Sprint 5 of 10 · Lesson 4.6",
@@ -1794,7 +1894,7 @@
   ]
  },
  {
-  "day": "2027-03-03",
+  "day": "2027-03-13",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 72 of 100 · Sprint 5 of 10 · Lesson 4.6",
@@ -1815,7 +1915,7 @@
   ]
  },
  {
-  "day": "2027-03-04",
+  "day": "2027-03-14",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 73 of 100 · Sprint 5 of 10 · Lesson 4.6",
@@ -1829,7 +1929,7 @@
   ]
  },
  {
-  "day": "2027-03-05",
+  "day": "2027-03-15",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 74 of 100 · Sprint 5 of 10 · Lesson 4.6",
@@ -1848,7 +1948,17 @@
   ]
  },
  {
-  "day": "2027-03-06",
+  "day": "2027-03-16",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 74 of 100 · Sprint 5 of 10 · Lesson 4.6",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-17",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 75 of 100 · Sprint 5 of 10 · Lesson 4.6",
@@ -1867,7 +1977,7 @@
   ]
  },
  {
-  "day": "2027-03-07",
+  "day": "2027-03-18",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 76 of 100 · Sprint 6 of 10 · Lesson 2.5",
@@ -1888,7 +1998,7 @@
   ]
  },
  {
-  "day": "2027-03-08",
+  "day": "2027-03-19",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 77 of 100 · Sprint 6 of 10 · Lesson 2.5",
@@ -1902,7 +2012,7 @@
   ]
  },
  {
-  "day": "2027-03-09",
+  "day": "2027-03-20",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 78 of 100 · Sprint 6 of 10 · Lesson 2.5",
@@ -1916,7 +2026,7 @@
   ]
  },
  {
-  "day": "2027-03-10",
+  "day": "2027-03-21",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 79 of 100 · Sprint 6 of 10 · Lesson 2.5",
@@ -1935,7 +2045,7 @@
   ]
  },
  {
-  "day": "2027-03-11",
+  "day": "2027-03-22",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 80 of 100 · Sprint 6 of 10 · Lesson 2.5",
@@ -1954,7 +2064,7 @@
   ]
  },
  {
-  "day": "2027-03-12",
+  "day": "2027-03-23",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 81 of 100 · Sprint 7 of 10 · Lesson 5.3",
@@ -1975,7 +2085,17 @@
   ]
  },
  {
-  "day": "2027-03-13",
+  "day": "2027-03-24",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 81 of 100 · Sprint 7 of 10 · Lesson 5.3",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-03-25",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 82 of 100 · Sprint 7 of 10 · Lesson 5.3",
@@ -2001,7 +2121,7 @@
   ]
  },
  {
-  "day": "2027-03-14",
+  "day": "2027-03-26",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 83 of 100 · Sprint 7 of 10 · Lesson 5.3",
@@ -2022,7 +2142,7 @@
   ]
  },
  {
-  "day": "2027-03-15",
+  "day": "2027-03-27",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 84 of 100 · Sprint 7 of 10 · Lesson 5.3",
@@ -2041,7 +2161,7 @@
   ]
  },
  {
-  "day": "2027-03-16",
+  "day": "2027-03-28",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 85 of 100 · Sprint 7 of 10 · Lesson 5.3",
@@ -2060,7 +2180,7 @@
   ]
  },
  {
-  "day": "2027-03-17",
+  "day": "2027-03-29",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 86 of 100 · Sprint 8 of 10 · Lesson 5.4",
@@ -2081,7 +2201,7 @@
   ]
  },
  {
-  "day": "2027-03-18",
+  "day": "2027-03-30",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 87 of 100 · Sprint 8 of 10 · Lesson 5.4",
@@ -2102,7 +2222,7 @@
   ]
  },
  {
-  "day": "2027-03-19",
+  "day": "2027-03-31",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 88 of 100 · Sprint 8 of 10 · Lesson 5.4",
@@ -2116,7 +2236,7 @@
   ]
  },
  {
-  "day": "2027-03-20",
+  "day": "2027-04-01",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 89 of 100 · Sprint 8 of 10 · Lesson 5.4",
@@ -2135,7 +2255,7 @@
   ]
  },
  {
-  "day": "2027-03-21",
+  "day": "2027-04-02",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 90 of 100 · Sprint 8 of 10 · Lesson 5.4",
@@ -2154,7 +2274,7 @@
   ]
  },
  {
-  "day": "2027-03-22",
+  "day": "2027-04-03",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 91 of 100 · Sprint 9 of 10 · Lesson 5.5",
@@ -2175,7 +2295,7 @@
   ]
  },
  {
-  "day": "2027-03-23",
+  "day": "2027-04-04",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 92 of 100 · Sprint 9 of 10 · Lesson 5.5",
@@ -2201,7 +2321,7 @@
   ]
  },
  {
-  "day": "2027-03-24",
+  "day": "2027-04-05",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 93 of 100 · Sprint 9 of 10 · Lesson 5.5",
@@ -2215,7 +2335,7 @@
   ]
  },
  {
-  "day": "2027-03-25",
+  "day": "2027-04-06",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 94 of 100 · Sprint 9 of 10 · Lesson 5.5",
@@ -2234,7 +2354,7 @@
   ]
  },
  {
-  "day": "2027-03-26",
+  "day": "2027-04-07",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 95 of 100 · Sprint 9 of 10 · Lesson 5.5",
@@ -2253,7 +2373,17 @@
   ]
  },
  {
-  "day": "2027-03-27",
+  "day": "2027-04-08",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Day 95 of 100 · Sprint 9 of 10 · Lesson 5.5",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-09",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 96 of 100 · Sprint 10 of 10 · Lesson 5.6",
@@ -2274,7 +2404,7 @@
   ]
  },
  {
-  "day": "2027-03-28",
+  "day": "2027-04-10",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 97 of 100 · Sprint 10 of 10 · Lesson 5.6",
@@ -2300,7 +2430,7 @@
   ]
  },
  {
-  "day": "2027-03-29",
+  "day": "2027-04-11",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 98 of 100 · Sprint 10 of 10 · Lesson 5.6",
@@ -2314,7 +2444,7 @@
   ]
  },
  {
-  "day": "2027-03-30",
+  "day": "2027-04-12",
   "kind": "Practice",
   "minutes": 60,
   "week": "Day 99 of 100 · Sprint 10 of 10 · Lesson 5.6",
@@ -2333,7 +2463,7 @@
   ]
  },
  {
-  "day": "2027-03-31",
+  "day": "2027-04-13",
   "kind": "Daily",
   "minutes": 60,
   "week": "Day 100 of 100 · Sprint 10 of 10 · Lesson 5.6",
@@ -2352,7 +2482,7 @@
   ]
  },
  {
-  "day": "2027-04-01",
+  "day": "2027-04-14",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 1 of 5",
@@ -2370,7 +2500,7 @@
   ]
  },
  {
-  "day": "2027-04-02",
+  "day": "2027-04-15",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 1 of 5",
@@ -2388,7 +2518,17 @@
   ]
  },
  {
-  "day": "2027-04-03",
+  "day": "2027-04-16",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Practice exams · Exam 1 of 5",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-17",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 1 of 5",
@@ -2402,7 +2542,7 @@
   ]
  },
  {
-  "day": "2027-04-04",
+  "day": "2027-04-18",
   "kind": "Practice",
   "minutes": 60,
   "week": "Practice exams · Exam 1 of 5",
@@ -2416,7 +2556,7 @@
   ]
  },
  {
-  "day": "2027-04-05",
+  "day": "2027-04-19",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 2 of 5",
@@ -2434,7 +2574,7 @@
   ]
  },
  {
-  "day": "2027-04-06",
+  "day": "2027-04-20",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 2 of 5",
@@ -2452,7 +2592,7 @@
   ]
  },
  {
-  "day": "2027-04-07",
+  "day": "2027-04-21",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 2 of 5",
@@ -2466,7 +2606,7 @@
   ]
  },
  {
-  "day": "2027-04-08",
+  "day": "2027-04-22",
   "kind": "Practice",
   "minutes": 60,
   "week": "Practice exams · Exam 2 of 5",
@@ -2480,7 +2620,17 @@
   ]
  },
  {
-  "day": "2027-04-09",
+  "day": "2027-04-23",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Practice exams · Exam 2 of 5",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-24",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 3 of 5",
@@ -2498,7 +2648,7 @@
   ]
  },
  {
-  "day": "2027-04-10",
+  "day": "2027-04-25",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 3 of 5",
@@ -2516,7 +2666,7 @@
   ]
  },
  {
-  "day": "2027-04-11",
+  "day": "2027-04-26",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 3 of 5",
@@ -2530,7 +2680,7 @@
   ]
  },
  {
-  "day": "2027-04-12",
+  "day": "2027-04-27",
   "kind": "Practice",
   "minutes": 60,
   "week": "Practice exams · Exam 3 of 5",
@@ -2544,7 +2694,7 @@
   ]
  },
  {
-  "day": "2027-04-13",
+  "day": "2027-04-28",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 4 of 5",
@@ -2562,7 +2712,7 @@
   ]
  },
  {
-  "day": "2027-04-14",
+  "day": "2027-04-29",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 4 of 5",
@@ -2580,7 +2730,7 @@
   ]
  },
  {
-  "day": "2027-04-15",
+  "day": "2027-04-30",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 4 of 5",
@@ -2594,7 +2744,7 @@
   ]
  },
  {
-  "day": "2027-04-16",
+  "day": "2027-05-01",
   "kind": "Practice",
   "minutes": 60,
   "week": "Practice exams · Exam 4 of 5",
@@ -2608,7 +2758,7 @@
   ]
  },
  {
-  "day": "2027-04-17",
+  "day": "2027-05-02",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 5 of 5",
@@ -2626,7 +2776,7 @@
   ]
  },
  {
-  "day": "2027-04-18",
+  "day": "2027-05-03",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 5 of 5",
@@ -2644,7 +2794,7 @@
   ]
  },
  {
-  "day": "2027-04-19",
+  "day": "2027-05-04",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 5 of 5",
@@ -2658,7 +2808,7 @@
   ]
  },
  {
-  "day": "2027-04-20",
+  "day": "2027-05-05",
   "kind": "Practice",
   "minutes": 60,
   "week": "Practice exams · Exam 5 of 5",
@@ -2672,7 +2822,7 @@
   ]
  },
  {
-  "day": "2027-04-21",
+  "day": "2027-05-06",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Last days",
@@ -2686,7 +2836,7 @@
   ]
  },
  {
-  "day": "2027-04-22",
+  "day": "2027-05-07",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Last days",
@@ -2700,7 +2850,7 @@
   ]
  },
  {
-  "day": "2027-04-23",
+  "day": "2027-05-08",
   "kind": "Off",
   "minutes": 0,
   "week": "Practice exams · Last days",
@@ -2710,7 +2860,7 @@
   "links": []
  },
  {
-  "day": "2027-04-24",
+  "day": "2027-05-09",
   "kind": "Exam",
   "minutes": 0,
   "week": "Exam day",
