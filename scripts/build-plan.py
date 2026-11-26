@@ -458,7 +458,6 @@ MOCKS = [
         two(read('Common mistakes: every section', 'Read the common-mistakes boxes you marked as hard. Skip the ones you know.'),
             MIXED,
             'Common mistakes, then questions on every section'),
-        two(EXPLAIN, RULES, 'Explain it out loud, then write your nine answer rules again'),
         hour(read('Last study day', 'Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.')),
     ]),
 ]
@@ -501,9 +500,9 @@ def main():
     last_study = EXAM - timedelta(days=2)
     queue, out, n, week = PLAN + MOCKS, [], 0, PLAN[0]['week']
     rests, d = set(), START
-    while d <= EXAM:
+    while (d.year, d.month) <= (EXAM.year, EXAM.month):
         rests.update(rest_days(d.year, d.month))
-        d += timedelta(days=28)
+        d = (d.replace(day=1) + timedelta(days=32)).replace(day=1)
     d = START
     while d <= last_study:
         name = holiday(d)

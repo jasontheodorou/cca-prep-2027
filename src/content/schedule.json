@@ -2859,6 +2859,16 @@
  },
  {
   "day": "2027-05-08",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Practice exams · Exam 6 of 6",
+  "title": "Rest day",
+  "task": "A day off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-05-09",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Exam 6 of 6",
@@ -2872,7 +2882,7 @@
   ]
  },
  {
-  "day": "2027-05-09",
+  "day": "2027-05-10",
   "kind": "Practice",
   "minutes": 60,
   "week": "Practice exams · Exam 6 of 6",
@@ -2886,7 +2896,7 @@
   ]
  },
  {
-  "day": "2027-05-10",
+  "day": "2027-05-11",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Last days",
@@ -2900,7 +2910,7 @@
   ]
  },
  {
-  "day": "2027-05-11",
+  "day": "2027-05-12",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Last days",
@@ -2916,20 +2926,6 @@
   "parts": [
    "Common mistakes: every section",
    "Practice questions: every section"
-  ]
- },
- {
-  "day": "2027-05-12",
-  "kind": "Daily",
-  "minutes": 60,
-  "week": "Practice exams · Last days",
-  "title": "Explain it out loud, then write your nine answer rules again",
-  "task": "First half hour: With no notes, explain in three minutes how one main agent runs several helpers. Then do the same for hooks. Check both against your Notes.\nSecond half hour: By hand, on one page, write the nine rules from your plan that help you pick the right answer. Use your own words.",
-  "units": [],
-  "links": [],
-  "parts": [
-   "Explain it out loud",
-   "Write your nine answer rules"
   ]
  },
  {

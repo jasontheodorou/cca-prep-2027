@@ -1697,26 +1697,5 @@
     "href": "https://claudecertificationguide.com"
    }
   ]
- },
- "Explain it out loud, then write your nine answer rules again": {
-  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
-  "steps": [
-   "First half hour: explain it out loud. If you can explain something out loud with no notes, you understand it. Saying it shows the gaps quickly.",
-   "Open the voice recorder on your phone and press record.",
-   "Set a 3-minute timer. Explain how one main agent runs several helpers.",
-   "Say who gives out the work, what each helper knows, how results come back, and what happens if one fails.",
-   "Set another 3-minute timer. Explain hooks: what they are and when they run.",
-   "Play the recording back.",
-   "Open Notes and check what you said. Write down anything you missed or got wrong.",
-   "Second half hour: write your nine answer rules. Many exam questions are decided by the same nine rules of judgement. Writing them by hand, in your own words, helps them stick. You will read this page again on your last study day and on exam morning.",
-   "Get one sheet of paper and a pen.",
-   "Open study-plan.md on your Desktop. Go to section 2, \"The answer patterns\".",
-   "Read rule 1. Then look away and write it in your own words, in one line.",
-   "Do the same for rules 2 to 9.",
-   "Check each line against the plan. Fix any that say something different.",
-   "Keep the page somewhere you will see it."
-  ],
-  "done": "You have explained both out loud and written down what you missed. You have one handwritten page with nine lines on it.",
-  "code": "The nine rules, in short:\n1. Fix the cause the evidence points at.\n2. Pick the smallest fix that works first.\n3. If a rule must never break, enforce it in code.\n4. Never route on the model's confidence or the customer's mood.\n5. Structured errors and findings beat vague ones.\n6. Never hide a failure, and never throw everything away for one.\n7. Give each agent only the tools it needs.\n8. Split big jobs into smaller passes.\n9. Clear criteria with examples beat vague instructions."
  }
 }
