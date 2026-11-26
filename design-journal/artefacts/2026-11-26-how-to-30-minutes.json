@@ -1,0 +1,566 @@
+{
+ "Start your practice project": {
+  "about": "Your practice project is a pretend shop helper that sorts out refunds. Nothing in it is real. You will add to it almost every day, so today you only make the folder and two files.",
+  "steps": [
+   "Open Terminal.",
+   "Type `mkdir ~/projects/refund-helper` and press Return. This makes the folder.",
+   "Type `cd ~/projects/refund-helper` and press Return. You are now inside the folder.",
+   "Open the folder in your code editor.",
+   "Make a new file called data.json. Copy the text in the box below into it and save. Change the names if you like.",
+   "Make a new file called CLAUDE.md. Write three lines: what this project is, that data.json is the pretend shop database, and \"Never refund more than $500.\"",
+   "Save both files. That is all for today."
+  ],
+  "code": "{\n  \"customers\": [\n    {\n      \"id\": \"C1\",\n      \"name\": \"Ann Lee\",\n      \"email\": \"ann@example.com\"\n    },\n    {\n      \"id\": \"C2\",\n      \"name\": \"Ben Shaw\",\n      \"email\": \"ben@example.com\"\n    },\n    {\n      \"id\": \"C3\",\n      \"name\": \"Cara Diaz\",\n      \"email\": \"cara@example.com\"\n    },\n    {\n      \"id\": \"C4\",\n      \"name\": \"Dev Patel\",\n      \"email\": \"dev@example.com\"\n    },\n    {\n      \"id\": \"C5\",\n      \"name\": \"Eve Moss\",\n      \"email\": \"eve@example.com\"\n    }\n  ],\n  \"orders\": [\n    {\n      \"id\": \"A100\",\n      \"customer_id\": \"C1\",\n      \"item\": \"Kettle\",\n      \"total\": 40,\n      \"status\": \"delivered\"\n    },\n    {\n      \"id\": \"A101\",\n      \"customer_id\": \"C2\",\n      \"item\": \"Desk\",\n      \"total\": 650,\n      \"status\": \"delivered\"\n    },\n    {\n      \"id\": \"A102\",\n      \"customer_id\": \"C3\",\n      \"item\": \"Lamp\",\n      \"total\": 25,\n      \"status\": \"shipped\"\n    },\n    {\n      \"id\": \"A103\",\n      \"customer_id\": \"C4\",\n      \"item\": \"Chair\",\n      \"total\": 120,\n      \"status\": \"delivered\"\n    },\n    {\n      \"id\": \"A104\",\n      \"customer_id\": \"C5\",\n      \"item\": \"Rug\",\n      \"total\": 90,\n      \"status\": \"refunded\"\n    }\n  ]\n}",
+  "done": "The folder ~/projects/refund-helper has data.json and CLAUDE.md in it."
+ },
+ "Add three tools": {
+  "about": "A tool is an ordinary function in your own code that Claude is allowed to ask for. Claude never opens your file. It asks, your code runs the function, and your code sends back the answer. Today you write three tools and try them yourself. Claude is not involved yet.",
+  "steps": [
+   "In Terminal, type `cd ~/projects/refund-helper` and press Return.",
+   "Make a new file called tools.py next to data.json.",
+   "Copy the code in the box below into tools.py and save.",
+   "Read each tool. get_customer finds a customer by email. lookup_order finds an order by its number. process_refund checks the refund is allowed. Nothing is really paid.",
+   "In Terminal, type `python3 tools.py` and press Return.",
+   "Read the four lines it prints. Two should be details. Two should be clear error messages.",
+   "Add one more line at the bottom that tries a refund of 20 on order A100. Run it again.",
+   "In Notes, write one sentence each on what the three tools do."
+  ],
+  "code": "import json\n\ndata = json.load(open(\"data.json\"))\n\ndef get_customer(email):\n    for c in data[\"customers\"]:\n        if c[\"email\"] == email:\n            return c\n    return {\"error\": f\"No customer with email {email}\"}\n\ndef lookup_order(order_id):\n    for o in data[\"orders\"]:\n        if o[\"id\"] == order_id:\n            return o\n    return {\"error\": f\"No order with ID {order_id}\"}\n\ndef process_refund(order_id, amount):\n    order = lookup_order(order_id)\n    if \"error\" in order:\n        return order\n    if amount > order[\"total\"]:\n        return {\"error\": f\"{amount} is more than the order total of {order['total']}\"}\n    return {\"refunded\": amount, \"order_id\": order_id}\n\n# Try each tool with a right and a wrong input\nprint(get_customer(\"ann@example.com\"))\nprint(get_customer(\"nobody@example.com\"))\nprint(lookup_order(\"A100\"))\nprint(process_refund(\"A100\", 9999))",
+  "done": "Each tool gives the right details for a real customer or order, and a clear error for a wrong one. Clear errors matter: Claude decides what to do next from what a tool sends back."
+ },
+ "Welcome back": {
+  "about": "You have had a break. Today is a gentle way back in, with nothing new to learn.",
+  "steps": [
+   "Get your flashcards.",
+   "Go through every card. Say the answer before you turn it over.",
+   "Put any card you got wrong in a separate pile.",
+   "Go through that pile once more.",
+   "Open the Notes tab on this site.",
+   "Read what you wrote over the last few weeks. Do not change anything.",
+   "Stop at 30 minutes, even if you have not finished."
+  ],
+  "done": "You have been through every card once and read your recent notes."
+ },
+ "Flashcards, if you like": {
+  "about": "An optional 10 minutes over Christmas, so the facts do not fade. Skipping it is fine.",
+  "steps": [
+   "Set a timer for 10 minutes.",
+   "Go through as many flashcards as you can. Say each answer before you turn the card.",
+   "Stop when the timer goes."
+  ],
+  "done": "The 10 minutes are up."
+ },
+ "Fix what you got wrong: Agents": {
+  "about": "Yesterday you answered practice questions on Agents. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+  "steps": [
+   "Open the practice questions for Agents. Answer 10 of them.",
+   "Pick the two wrong answers that confused you most.",
+   "For the first one, write the question in one line in Notes.",
+   "Read the right answer and its reason on the site.",
+   "Open your practice project (~/projects/refund-helper). Change the agent so the question's situation happens, run it, and watch what it does.",
+   "Write one sentence in Notes: why the right answer is right.",
+   "Do the same for the second question."
+  ],
+  "links": [
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ],
+  "done": "Notes has two questions, each with one sentence on why the right answer wins."
+ },
+ "Fix what you got wrong: Prompts and output": {
+  "about": "Yesterday you answered practice questions on Prompts and output. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+  "steps": [
+   "Open the practice questions for Prompts and output. Answer 10 of them.",
+   "Pick the two wrong answers that confused you most.",
+   "For the first one, write the question in one line in Notes.",
+   "Read the right answer and its reason on the site.",
+   "Change your review prompt or your fact-finding tool to match the question. Run it with each answer's idea and compare what comes back.",
+   "Write one sentence in Notes: why the right answer is right.",
+   "Do the same for the second question."
+  ],
+  "links": [
+   {
+    "label": "Practice questions: Prompts and output",
+    "href": "https://claudecertificationguide.com/drill?domain=4"
+   }
+  ],
+  "done": "Notes has two questions, each with one sentence on why the right answer wins."
+ },
+ "Fix what you got wrong: Tools and MCP": {
+  "about": "Yesterday you answered practice questions on Tools and MCP. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+  "steps": [
+   "Open the practice questions for Tools and MCP. Answer 10 of them.",
+   "Pick the two wrong answers that confused you most.",
+   "For the first one, write the question in one line in Notes.",
+   "Read the right answer and its reason on the site.",
+   "Change one tool, its description or its error message to match the question. Run it and see whether Claude now picks or handles the tool differently.",
+   "Write one sentence in Notes: why the right answer is right.",
+   "Do the same for the second question."
+  ],
+  "links": [
+   {
+    "label": "Practice questions: Tools and MCP",
+    "href": "https://claudecertificationguide.com/drill?domain=2"
+   }
+  ],
+  "done": "Notes has two questions, each with one sentence on why the right answer wins."
+ },
+ "Fix what you got wrong: Context and reliability": {
+  "about": "Yesterday you answered practice questions on Context and reliability. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+  "steps": [
+   "Open the practice questions for Context and reliability. Answer 10 of them.",
+   "Pick the two wrong answers that confused you most.",
+   "For the first one, write the question in one line in Notes.",
+   "Read the right answer and its reason on the site.",
+   "Open your practice project (~/projects/refund-helper). Make the question's situation happen, such as a tool failing or a long chat, and watch what the agent does.",
+   "Write one sentence in Notes: why the right answer is right.",
+   "Do the same for the second question."
+  ],
+  "links": [
+   {
+    "label": "Practice questions: Context and reliability",
+    "href": "https://claudecertificationguide.com/drill?domain=5"
+   }
+  ],
+  "done": "Notes has two questions, each with one sentence on why the right answer wins."
+ },
+ "Fix what you got wrong: Claude Code": {
+  "about": "Most Claude Code questions are about where a file goes or what a setting is called. Making each one for real is the quickest way to remember it.",
+  "steps": [
+   "Open the practice questions for Claude Code. Answer 10 of them.",
+   "For every wrong answer that names a file location or a setting, write it on a new flashcard.",
+   "Open your practice project (~/projects/refund-helper).",
+   "Make each file or setting from your new cards for real, in the right place.",
+   "Type `claude` in Terminal inside the folder. Check each one works, for example by typing `/` to see your commands."
+  ],
+  "links": [
+   {
+    "label": "Practice questions: Claude Code",
+    "href": "https://claudecertificationguide.com/drill?domain=3"
+   }
+  ],
+  "done": "Every new flashcard has a real file or setting in your practice project to match."
+ },
+ "Write four questions of your own": {
+  "about": "Writing your own exam questions is the most useful thing you can do on a weeknight. Thinking up wrong answers that sound right makes you say why the right one wins.",
+  "steps": [
+   "Open the Notes tab and start a new note.",
+   "Pick four topics from this section. The Course tab lists them.",
+   "For each topic, write a short situation in two sentences, about a made-up company.",
+   "Write the question underneath.",
+   "Write the right answer, then three wrong answers that sound right.",
+   "Under each wrong answer, write a few words on why it is wrong.",
+   "Use the template in the box below to keep to the same shape."
+  ],
+  "code": "Situation: (two sentences about a made-up company)\nQuestion:\nA. (right answer)\nB. (sounds right) Wrong because:\nC. (sounds right) Wrong because:\nD. (sounds right) Wrong because:",
+  "done": "Notes has four questions, each with one right answer and three wrong ones with reasons."
+ },
+ "Write your nine answer rules": {
+  "about": "Many exam questions are decided by the same nine rules of judgement. Writing them by hand, in your own words, helps them stick. You will read this page again on your last study day and on exam morning.",
+  "steps": [
+   "Get one sheet of paper and a pen.",
+   "Open study-plan.md on your Desktop. Go to section 2, \"The answer patterns\".",
+   "Read rule 1. Then look away and write it in your own words, in one line.",
+   "Do the same for rules 2 to 9.",
+   "Check each line against the plan. Fix any that say something different.",
+   "Keep the page somewhere you will see it."
+  ],
+  "code": "The nine rules, in short:\n1. Fix the cause the evidence points at.\n2. Pick the smallest fix that works first.\n3. If a rule must never break, enforce it in code.\n4. Never route on the model's confidence or the customer's mood.\n5. Structured errors and findings beat vague ones.\n6. Never hide a failure, and never throw everything away for one.\n7. Give each agent only the tools it needs.\n8. Split big jobs into smaller passes.\n9. Clear criteria with examples beat vague instructions.",
+  "done": "You have one handwritten page with nine lines on it."
+ },
+ "Book your exam": {
+  "about": "Booking the exam now makes the date real. Most problems on exam day come from the name on the booking not matching your ID.",
+  "steps": [
+   "Find the booking link in the exam guide or on Anthropic's certification page.",
+   "Choose Saturday 26 June 2027.",
+   "Type your name exactly as it appears on your passport or driving licence.",
+   "Finish the booking and wait for the email.",
+   "Check the name in the email matches your ID, letter for letter.",
+   "Put the date and time in your calendar.",
+   "Use what is left of the 30 minutes on your flashcards."
+  ],
+  "done": "You have a booking email with your name spelt exactly as on your ID."
+ },
+ "Library day 1, if you can: exercise 2 again": {
+  "about": "An optional whole day somewhere quiet, such as the British Library. You finish exercise 2 properly, then do it again from memory. Move the day to any nearby date that suits you.",
+  "steps": [
+   "Pack your laptop, charger, headphones and a lunch.",
+   "Open the hands-on exercises page and find exercise 2, Claude Code for a team.",
+   "Morning: finish any step you did not finish in 30 minutes. Tick it on the Progress page.",
+   "Have lunch away from the screen.",
+   "Afternoon: make a new empty folder, such as ~/projects/from-memory.",
+   "Do the whole exercise again in that folder, without looking at your notes or the first version.",
+   "Compare the two versions. Write three sentences in Notes about what you forgot."
+  ],
+  "links": [
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "done": "The exercise is finished, and done a second time from memory."
+ },
+ "Library day 2, if you can: exercise 3 again": {
+  "about": "An optional whole day somewhere quiet, such as the British Library. You finish exercise 3 properly, then do it again from memory. Move the day to any nearby date that suits you.",
+  "steps": [
+   "Pack your laptop, charger, headphones and a lunch.",
+   "Open the hands-on exercises page and find exercise 3, facts from documents.",
+   "Morning: finish any step you did not finish in 30 minutes. Tick it on the Progress page.",
+   "Have lunch away from the screen.",
+   "Afternoon: make a new empty folder, such as ~/projects/from-memory.",
+   "Do the whole exercise again in that folder, without looking at your notes or the first version.",
+   "Compare the two versions. Write three sentences in Notes about what you forgot."
+  ],
+  "links": [
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "done": "The exercise is finished, and done a second time from memory."
+ },
+ "Library day 3, if you can: exercises 1 and 4 again": {
+  "about": "An optional whole day somewhere quiet, such as the British Library. You finish exercises 1 and 4 properly, then do it again from memory. Move the day to any nearby date that suits you.",
+  "steps": [
+   "Pack your laptop, charger, headphones and a lunch.",
+   "Open the hands-on exercises page and find exercise 1, the support agent, and exercise 4, agents doing research.",
+   "Morning: finish any step you did not finish in 30 minutes. Tick it on the Progress page.",
+   "Have lunch away from the screen.",
+   "Afternoon: make a new empty folder, such as ~/projects/from-memory.",
+   "Do the whole exercise again in that folder, without looking at your notes or the first version.",
+   "Compare the two versions. Write three sentences in Notes about what you forgot."
+  ],
+  "links": [
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "done": "The exercise is finished, and done a second time from memory."
+ },
+ "Library day 4, if you can: a full practice exam": {
+  "about": "An optional whole day somewhere quiet, run like the real exam. If you can only manage one library day, make it this one. Move it to any nearby date that suits you.",
+  "steps": [
+   "Pack your laptop, charger, headphones and a lunch.",
+   "Put your notes and phone away.",
+   "Open the practice exam. Set a timer for 2 hours.",
+   "Answer all 60 questions. Do not look anything up.",
+   "Have lunch away from the screen.",
+   "Mark it. Write each section's score in Notes.",
+   "Pick your two weakest topics. Build each one again from an empty file in a new folder."
+  ],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "done": "You have a score for each section and have rebuilt your two weakest topics."
+ },
+ "Build from memory: Agents": {
+  "about": "Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+  "steps": [
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-agents` and press Return. Then type `cd ~/projects/memory-agents` and press Return.",
+   "Make a file called loop.py.",
+   "Write the loop: send a message, and if stop_reason is tool_use, run the tool Claude asked for.",
+   "Add the tool result to the messages and send again. Stop only when stop_reason is end_turn.",
+   "Add a check in your code that refuses any refund over $500 before the tool runs.",
+   "Run it with `python3 loop.py` and ask for a $600 refund. Check the code blocks it.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Build from memory: Claude Code": {
+  "about": "Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+  "steps": [
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-claude-code` and press Return. Then type `cd ~/projects/memory-claude-code` and press Return.",
+   "Make a CLAUDE.md with two lines about the project.",
+   "Make .claude/rules/tests.md with paths at the top, so it only applies to test files.",
+   "Make .claude/commands/review.md, a command that asks Claude to review a file.",
+   "Make .claude/skills/refunds/SKILL.md with a name and a description at the top.",
+   "Type `claude`. Type `/memory` to see CLAUDE.md is loaded, type `/` to see `/review`, and ask Claude which skills it has.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Build from memory: Prompts and output": {
+  "about": "Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+  "steps": [
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-prompts` and press Return. Then type `cd ~/projects/memory-prompts` and press Return.",
+   "Make a file called extract.py.",
+   "Write a fact-finding tool with a JSON schema. Let each fact be empty if the document does not say.",
+   "Give one field the choices \"unclear\" and \"other\" as well as the real answers.",
+   "Add a check after Claude answers. If it is wrong, send back the document, the answer and the error, and ask again.",
+   "Run it on a short made-up document with one fact missing. Check that fact comes back empty, not made up.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Build from memory: Tools and MCP": {
+  "about": "Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+  "steps": [
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-tools` and press Return. Then type `cd ~/projects/memory-tools` and press Return.",
+   "Make a file called tools.py.",
+   "Write three tools, each with a description that says what it does, what it needs and when to use it.",
+   "Make one tool return an error with errorCategory, isRetryable and a plain message.",
+   "Ask Claude three questions, each needing a different tool. Print the name of the tool it picks.",
+   "Run it. Check Claude picks the right tool each time and handles the error.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Build from memory: Context and reliability": {
+  "about": "Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+  "steps": [
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-context` and press Return. Then type `cd ~/projects/memory-context` and press Return.",
+   "Make a main agent and one helper agent.",
+   "Make the helper fail on purpose, for example by having its tool stop with a timeout.",
+   "Have the helper report the failure with what it tried and any partial results.",
+   "Give the main agent two documents that disagree about one number.",
+   "Run it. Check the main agent finishes, says what is missing, and shows both numbers with where each came from.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Exam situation 1": {
+  "about": "The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+  "steps": [
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 1 about a customer support agent. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Exam situation 2": {
+  "about": "The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+  "steps": [
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 2. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Exam situation 3": {
+  "about": "The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+  "steps": [
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 3 about several agents doing research together. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Exam situation 4": {
+  "about": "The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+  "steps": [
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 4. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Exam situation 5": {
+  "about": "The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+  "steps": [
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 5. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Exam situation 6": {
+  "about": "The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+  "steps": [
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 6 about pulling facts out of documents. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Explain it out loud": {
+  "about": "If you can explain something out loud with no notes, you understand it. Saying it shows the gaps quickly.",
+  "steps": [
+   "Open the voice recorder on your phone and press record.",
+   "Set a 3-minute timer. Explain how one main agent runs several helpers.",
+   "Say who gives out the work, what each helper knows, how results come back, and what happens if one fails.",
+   "Set another 3-minute timer. Explain hooks: what they are and when they run.",
+   "Play the recording back.",
+   "Open Notes and check what you said. Write down anything you missed or got wrong."
+  ],
+  "done": "You have explained both out loud and written down what you missed."
+ },
+ "Mark practice exam 1": {
+  "about": "Marking practice exam 1 shows which topics need work. The next days in the plan use the three topics you write down today.",
+  "steps": [
+   "Open the practice exam and go to your results.",
+   "In Notes, write each section's score, such as \"Agents 12 of 16\".",
+   "Find the three topics with the most wrong answers.",
+   "Write them by lesson number, such as 2.3, 5.1 and 1.6.",
+   "Put the worst one first."
+  ],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "done": "Notes has five section scores and your three weakest topics by number."
+ },
+ "Mark practice exam 2": {
+  "about": "Marking practice exam 2 shows which topics need work. The next days in the plan use the three topics you write down today.",
+  "steps": [
+   "Open the practice exam and go to your results.",
+   "In Notes, write each section's score, such as \"Agents 12 of 16\".",
+   "Find the three topics with the most wrong answers.",
+   "Write them by lesson number, such as 2.3, 5.1 and 1.6.",
+   "Put the worst one first."
+  ],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "done": "Notes has five section scores and your three weakest topics by number."
+ },
+ "Your weakest topic": {
+  "about": "Today you rebuild your weakest topic from nothing, so it sticks before the exam.",
+  "steps": [
+   "Open Notes and find the three topics you wrote down when you marked practice exam 1.",
+   "Take the weakest one. Open that lesson on the study site.",
+   "Read its common-mistakes box (Exam Traps).",
+   "Close the lesson. Make an empty file in your practice project.",
+   "Build the thing the lesson is about again, without looking.",
+   "Compare it with the lesson. Write in Notes what you got wrong."
+  ],
+  "links": [
+   {
+    "label": "Open the study site",
+    "href": "https://claudecertificationguide.com"
+   }
+  ],
+  "done": "You have rebuilt the topic and noted what you got wrong."
+ },
+ "Your second-weakest topic": {
+  "about": "Today you rebuild your second-weakest topic from nothing, so it sticks before the exam.",
+  "steps": [
+   "Open Notes and find the three topics you wrote down when you marked practice exam 1.",
+   "Take the second-weakest one. Open that lesson on the study site.",
+   "Read its common-mistakes box (Exam Traps).",
+   "Close the lesson. Make an empty file in your practice project.",
+   "Build the thing the lesson is about again, without looking.",
+   "Compare it with the lesson. Write in Notes what you got wrong."
+  ],
+  "links": [
+   {
+    "label": "Open the study site",
+    "href": "https://claudecertificationguide.com"
+   }
+  ],
+  "done": "You have rebuilt the topic and noted what you got wrong."
+ },
+ "Learn from your wrong answers": {
+  "about": "Understanding why you got a question wrong is worth more than doing new questions.",
+  "steps": [
+   "Open practice exam 2's results.",
+   "Go to the first question you got wrong.",
+   "Read the right answer and its reason.",
+   "In Notes, write one sentence: why the right answer is right.",
+   "Do the same for every other question you got wrong."
+  ],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "done": "Every wrong answer has one sentence in Notes."
+ },
+ "The six exam situations": {
+  "about": "A last look at the six situations the exam is built around.",
+  "steps": [
+   "Open the exam guide (cca.pdf on your Desktop) and find the six situations.",
+   "Read situation 1.",
+   "Look away and say out loud three questions you would expect about it.",
+   "Do the same for situations 2 to 6."
+  ],
+  "done": "You have said three questions out loud for each of the six."
+ },
+ "Common mistakes: every section": {
+  "about": "A last pass over the traps the examiner likes to set. Only read the ones you find hard.",
+  "steps": [
+   "Open the study site.",
+   "Go through the lessons one at a time.",
+   "Read the common-mistakes box (Exam Traps) only where you marked it as hard, or where you are unsure.",
+   "Skip any you already know.",
+   "Stop at 30 minutes."
+  ],
+  "links": [
+   {
+    "label": "Open the study site",
+    "href": "https://claudecertificationguide.com"
+   }
+  ],
+  "done": "You have read every common-mistakes box you find hard."
+ },
+ "The sample questions": {
+  "about": "The exam guide has 12 sample questions written by the examiner. They are the closest thing to the real exam.",
+  "steps": [
+   "Open the exam guide (cca.pdf on your Desktop) and find the sample questions.",
+   "Cover the answers with a sheet of paper.",
+   "Answer all 12 on the paper.",
+   "Check your answers. Read the reason for any you got wrong.",
+   "Then read the guide's list of what is not in the exam."
+  ],
+  "done": "You have answered all 12 and read what is not in the exam."
+ },
+ "Last study day": {
+  "about": "Two days before the exam. Today is a light review. Nothing new.",
+  "steps": [
+   "Read your page of nine answer rules. Then say them out loud without looking.",
+   "Go through all your flashcards once.",
+   "Stop. Do not start anything new."
+  ],
+  "done": "You have said the nine rules and been through the cards. Then rest."
+ },
+ "Exam day": {
+  "about": "Nothing to learn today.",
+  "steps": [
+   "Have breakfast.",
+   "Have your ID ready, with the same name as your booking.",
+   "Read your page of answer rules once, then put it away.",
+   "In the exam, if two answers both work, pick the smaller, simpler one.",
+   "If you are stuck on a question, pick your best guess and move on."
+  ],
+  "done": "You have sat the exam."
+ }
+}

@@ -1,45 +1,49 @@
 ---
 id: overview-cca-prep-2027
 type: overview
-date: 2026-11-10
+date: 2026-11-16
 summary: One-screen state of the cca-prep site and Jason's exam study: what it does now, what is open and what to watch out for.
 tags: [overview]
 status: active
-related: [decision-009-new-study-plan, decision-010-study-notes, decision-011-night-mode, decision-012-missed-and-caught-up, decision-013-infra-bar-shortcut, decision-014-exam-moved-to-may, decision-015-shareable-app-separate-project, decision-016-thirty-minutes-a-day-two-tries, decision-017-pass-by-30-june, decision-018-live-site-with-gate-and-storage, logbook-2026-11-10, logbook-2026-11-09, logbook-2026-11-02, logbook-2026-10-28, weekly-2026-W44]
+related: [decision-009-new-study-plan, decision-010-study-notes, decision-011-night-mode, decision-012-missed-and-caught-up, decision-013-infra-bar-shortcut, decision-015-shareable-app-separate-project, decision-016-thirty-minutes-a-day-two-tries, decision-017-pass-by-30-june, decision-018-live-site-with-gate-and-storage, decision-019-step-by-step-help, logbook-2026-11-11, logbook-2026-11-10, logbook-2026-11-09, weekly-2026-W44]
 ---
 
 # cca-prep-2027 Overview
 
 ## What this is
 
-A calm, minimal study site, built from sanctum, for Jason's Claude Certified Architect (Foundations) exam. The exam is planned for Saturday 26 June 2027, inside Jason's own deadline of 30 June. It is not booked (decisions 016 and 017).
+A calm, minimal study site, built from sanctum, for Jason's Claude Certified Architect (Foundations) exam. The exam is planned for Saturday 27 March 2027, the end of Jason's own deadline of March. It is not booked (decision 020).
 
 ## Where things stand
 
 - Five tabs: Course, Progress, Momentum, Notes, Pet.
-- Momentum shows today's job. Since 10 November no day is over 30 minutes, Friday is spare, and each lesson takes three days: read it, build it, test it. Each section ends with one of the exam guide's four exercises. Four optional library days (29 January, 12 March, 7 May, 28 May) repeat the exercises and hold a full practice exam. `scripts/build-plan.py` writes the schedule.
-- Notes saves Markdown to notes/ and commits automatically. EXAM TRAP shows in dark red; typing |word marks one word infra.
-- Live at https://cca-prep-2027.vercel.app behind a password gate since 10 November, and that is now the main copy. The study log and notes are in a private Vercel Blob store (decision 018). The password (changed 11 November) is in the Mac Keychain as `cca-prep-2027-site-password`. Since 11 November Jason uses only the online site. Do not start or offer the local server; open https://cca-prep-2027.vercel.app instead. Local runs are only for testing code changes before a deploy.
-- A shareable version for colleagues, for any Claude exam, is being built separately as cca-prep-engine (decision 015). This site stays personal.
+- Jason uses only the live site, https://cca-prep-2027.vercel.app, behind a password gate (decision 018). Do not start or offer the local server. Run locally only to test a code change before a deploy.
+- The site password was changed on 11 November to one Jason chose. It is in the Mac Keychain as `cca-prep-2027-site-password`. The study log and notes are in a private Vercel Blob store.
+- Momentum shows today's job. The plan is one hour a day from 1 December 2026 (decision 020). Most days hold two half-hour jobs, Friday is spare, and the calendar shows December to March only. `scripts/build-plan.py` writes the schedule; run `scripts/build-how-to.py` after it.
+- Days with no study guide link have a "Show me how, step by step" button with numbered steps (decision 019). 38 sets of steps exist, in `scripts/build-how-to.py`.
+- Notes saves Markdown. EXAM TRAP shows in dark red; typing |word marks one word infra.
+- A shareable version for colleagues is a separate project, cca-prep-engine (decision 015). This site stays personal.
+- Everything is committed and pushed. The logbook and weekly notes are kept off GitHub on purpose.
 
 ## Recent sessions
 
-- 10 Nov: deadline to pass set at 30 June; exam moved to 26 June, four official exercises added, August second try dropped.
-- 9 Nov: rebuilt the plan for 30 minutes a day with hands-on practice, a first try on 29 May and a second on 28 August.
-- 2 Nov: moved the exam to 22 May 2027 and spread the rest of the plan to that date.
-- 29 Oct onward: pushed notes live, explained the Friday dot, started cca-prep-engine.
-- 28 Oct: finished the build brief; stage 3's "unsourced fact" was a subagent's note with nowhere to go.
+- 26 Nov: plan rebuilt for one hour a day from 1 December, exam moved to 27 March.
+- 11 Nov: changed the site password, moved to online only, added step-by-step help for days with no study guide link.
+- 10 Nov: deadline to pass set at 30 June, exam moved to 26 June, site went live behind a password gate.
+- 9 Nov: rebuilt the plan for 30 minutes a day with hands-on practice.
 
 ## Open questions
 
-- Did both stage 3 research subagents start in one reply?
+- Is the practice project `~/projects/refund-helper` or practice-helper? The how-to steps assume refund-helper.
+- Should days that have a study guide link also get step-by-step help? Some cards are short, such as "Build 1.1: the agent loop".
+- Are the new steps clear enough? Jason has not said.
 - What is "jev"? Jason thinks it compresses prompts.
 - Does Shortbread's face still flicker?
 
 ## Next steps
 
-- Start the practice project (10 November), build lessons 1.1 to 1.3 in it, then lesson 1.4 on 18 November.
-- Commit and push the 2 November schedule change.
+- 1 December: add three tools, then build the agent loop. Book the exam on 4 December.
+- Fix the folder name in `scripts/build-how-to.py` if the practice project is not refund-helper.
 - Move the API key out of `~/.zshrc` into the course folder only.
 
 ## Key decisions
@@ -55,19 +59,26 @@ A calm, minimal study site, built from sanctum, for Jason's Claude Certified Arc
 - [011](decisions/011-night-mode.md) Night mode
 - [012](decisions/012-missed-and-caught-up.md) Missed and Caught up
 - [013](decisions/013-infra-bar-shortcut.md) Infra bar shortcut
-- [014](decisions/014-exam-moved-to-may.md) Exam moved to May, plan spread out
 - [015](decisions/015-shareable-app-separate-project.md) Shareable app is a separate project
+- [016](decisions/016-thirty-minutes-a-day-two-tries.md) Thirty minutes a day
+- [017](decisions/017-pass-by-30-june.md) Pass by 30 June, exam on 26 June
+- [018](decisions/018-live-site-with-gate-and-storage.md) Live site with password gate and storage
+- [019](decisions/019-step-by-step-help.md) Step-by-step help for days with no study guide link
+- [020](decisions/020-one-hour-a-day-exam-in-march.md) One hour a day, exam on 27 March
 
 ## Watch out for
 
 - Commit as the personal email in this repo, or Vercel blocks the deploy.
-- The browser check "it says missed work is not moved" fails, and did before decision 014.
-- Week names in the plan no longer match calendar weeks after the stretch.
+- To change a Vercel setting, remove it and add it again, check `vercel env ls`, then redeploy. `--force` did not replace the value.
+- The Keychain item's account name is `cca-prep-2027`. A different account name makes a second item.
+- Renaming a day's title in `build-plan.py` loses its how-to steps until `build-how-to.py` uses the same title.
+- `.preship`, the pre-push check, is missing from the project folder.
+- Never write the site password in the journal or in chat summaries.
+- The browser check "it says missed work is not moved" fails, and has for weeks.
 - After notes editor code changes, the open tab needs a page reload.
 - `pip3` is the old Python 3.9. Use `python3 -m pip install --user --break-system-packages`.
 - `ANTHROPIC_API_KEY` is in `~/.zshrc`, so Claude Code may bill the key instead of the claude.ai login.
 - On this Mac, add `--system-certs` when a `uv` download fails (Netskope).
-- Study marks save only through the local server; Vercel shows notes read only.
 - Fixes made in cca-prep-engine do not reach this site unless copied by hand.
 - No guilt: no streaks, badges or counts of missed days.
 - The official exam guide (v1.0, July 2026) is the only authority for course content.

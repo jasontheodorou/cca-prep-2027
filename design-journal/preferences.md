@@ -2,10 +2,10 @@
 id: preferences
 type: preferences
 date: 2026-10-22
-summary: What Jason likes, rejects and asks for, in Jason's own words, for the schedule, wording, rewards, layout, the notes editor, sharing the app and how course concepts are explained.
-tags: [preferences, taste, wording, schedule, rewards, learning, notes, billing, sharing]
+summary: What Jason likes, rejects and asks for, in Jason's own words, for the schedule, wording, step-by-step help, rewards, layout, the notes editor, hosting and passwords, sharing the app and how course concepts are explained.
+tags: [preferences, taste, wording, schedule, rewards, learning, notes, billing, sharing, hosting]
 status: active
-related: [decision-015-shareable-app-separate-project, logbook-2026-11-02, decision-006-schedule-in-momentum, decision-007-recommendations-removed, decision-008-study-rewards, decision-013-infra-bar-shortcut, logbook-2026-10-26, logbook-2026-10-28]
+related: [decision-019-step-by-step-help, logbook-2026-11-11, decision-015-shareable-app-separate-project, logbook-2026-11-02, decision-006-schedule-in-momentum, decision-007-recommendations-removed, decision-008-study-rewards, decision-013-infra-bar-shortcut, logbook-2026-10-26, logbook-2026-10-28]
 ---
 
 # Preferences
@@ -26,6 +26,8 @@ person with a date, and says what it means in practice.
 
 - Wants very plain words: "write everything in plain English for a total dumbo to understand ... Reading age of 5" (21 October 2026). Then cut card text twice: "can we cut it by 30%", "Lose another 10%. There should be no need to scroll down". Means: short sentences, few words, and measure the cut.
 
+- A short task card is not enough when the day has no study guide link: "'build some tools by hand' isnt' enough instruction for todays task" (11 November 2026). Asked for "some kind of pop out instruction section that explains what I need to do in dumbo language", "step by step and clear". Means: keep the card short, and give every such day numbered steps with one action each, text to copy, and a way to tell it is finished (decision 019).
+
 ## Notes editor
 
 - Prefers typed markup to word lists for marking terms. Dropped a shared infra list after "agent" got marked everywhere, then: "we use it as essentially a form of markdown syntax" (26 October 2026). Means: marks apply where typed, and the marker character hides once used.
@@ -40,9 +42,13 @@ person with a date, and says what it means in practice.
 - For secrets, wants one command that prompts for the value: "give me a command that then prompts me to enter the api key on a new line" (26 October 2026). Means: never ask for a key in chat; give a hidden-input command that stores it in the Keychain.
 - Types the course's commands himself with `!` in the Claude Code prompt when that is the point of the exercise (26 October 2026). Means: give one copy-paste line at a time, and explain any error before the next step.
 
-## Tools and billing
+## Tools, hosting and billing
 
 - Wants Claude Code on the claude.ai subscription, not paid API billing: "stop using api and use claude.ai" (26 October 2026). Means: keep any API key for course code out of the shell setup that Claude Code reads. The key was put back in `~/.zshrc` later that day, so this is not settled.
+
+- Uses only the online site: "I will only use the vercel site from now on, not the localhost" (11 November 2026). Means: when asked to open the project, give https://cca-prep-2027.vercel.app and do not start the local server. Run locally only to test a code change before it goes live.
+- Picks his own site password. Replaced a random four-word one with his own choice, and answered advice that it was easier to guess with "yeah yeah" (11 November 2026). Means: set what he asks for, say a risk once, and do not repeat it.
+- Expects finished work to be live: "push everything live if you aint already" (11 November 2026). Means: commit, push and deploy without waiting to be asked, then say what was checked on the live site.
 
 ## Sharing the app
 

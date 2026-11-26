@@ -6,7 +6,7 @@ topic: hosting
 summary: The Vercel site becomes the main copy, behind a password gate checked on the server, with the study log and notes kept in a private Vercel Blob store.
 tags: [vercel, deploy, password-gate, storage, notes, study-log]
 status: accepted
-related: [decision-010-study-notes, decision-001-sanctum-copy-and-study-log, logbook-2026-11-10]
+related: [decision-010-study-notes, decision-001-sanctum-copy-and-study-log, logbook-2026-11-10, logbook-2026-11-11]
 ---
 
 # 018 The live site gets a password gate and its own storage

@@ -40,7 +40,10 @@ const check = (ok, text) => {
 const pad = (n) => String(n).padStart(2, '0')
 const key = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
 const today = new Date()
-const earlier = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3)
+// The calendar starts on 1 December 2026 (decision 020). Before 4 December the
+// earlier day is this week's Monday, which the week row still shows.
+let earlier = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3)
+if (key(earlier) < '2026-12-01') earlier = new Date(today.getFullYear(), today.getMonth(), today.getDate() - ((today.getDay() + 6) % 7))
 const study = async () => (await (await fetch(`${BASE}/api/study`)).json()).state
 
 const browser = await chromium.launch()
@@ -149,9 +152,9 @@ try {
   check(s.effort[key(today)]?.minutes === 50 && s.effort[key(today)]?.note === 'Read 3.1', 'the day sheet changes time and adds a note')
 
   await page.getByRole('button', { name: 'Show every week to the exam' }).click()
-  check((await page.locator('.month').count()) >= 6, 'every month to the exam shows on request')
+  check((await page.locator('.month').count()) === 4, 'the four months from December to the exam show on request')
   check((await page.locator('.month .dot[data-exam]').count()) === 1, 'the exam day is marked')
-  await page.locator(`.month .dot[aria-label^="${longDay(key(earlier))}"]`).click()
+  await page.locator(`.dot[aria-label^="${longDay(key(earlier))}"]`).first().click()
   await page.locator('dialog.sheet').getByRole('textbox', { name: 'Minutes studied' }).fill('')
   await page.locator('dialog.sheet').getByRole('button', { name: 'Save' }).click()
   check(await page.locator('.field__error').isVisible(), 'an empty time is explained')
@@ -160,7 +163,7 @@ try {
   await page.waitForTimeout(400)
   check((await study()).effort[key(earlier)]?.minutes === 15, 'an earlier day can be filled in')
   await shot(page, 'momentum-all')
-  await page.locator(`.month .dot[aria-label^="${longDay(key(earlier))}"]`).click()
+  await page.locator(`.dot[aria-label^="${longDay(key(earlier))}"]`).first().click()
   await page.locator('dialog.sheet').getByRole('button', { name: 'Clear this day' }).click()
   await page.waitForTimeout(400)
   check(!(await study()).effort[key(earlier)], 'a day can be cleared')

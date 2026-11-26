@@ -6,7 +6,7 @@ topic: schedule
 summary: The plan is rebuilt for 30 minutes a day at most, with every lesson read, built and tested over three days, a first try on 29 May 2027 and a second on 28 August in case it is needed.
 tags: [schedule, momentum, study-plan, exam-date, hands-on-practice]
 status: accepted
-related: [decision-014-exam-moved-to-may, decision-009-new-study-plan, logbook-2026-11-09, decision-017-pass-by-30-june]
+related: [decision-014-exam-moved-to-may, decision-009-new-study-plan, logbook-2026-11-09, decision-017-pass-by-30-june, decision-019-step-by-step-help]
 ---
 
 # 016 Thirty minutes a day, hands-on, with a second try planned

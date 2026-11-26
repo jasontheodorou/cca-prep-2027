@@ -3,10 +3,10 @@ id: training-manual
 type: manual
 date: 2026-04-19
 topic: knowledge-base
-summary: Lessons from this project that apply elsewhere, on CSS animation names, 3D flicker, deploy identity, sharing a personal app safely, uv and pip on a locked-down Mac, rich-text editor pitfalls, API key protection, prompt caching and multi-agent design.
+summary: Lessons from this project that apply elsewhere, on CSS animation names, 3D flicker, deploy identity, changing Vercel settings, sharing a personal app safely, uv, pip and the Keychain on a locked-down Mac, rich-text editor pitfalls, API key protection, prompt caching and multi-agent design.
 tags: [lessons, insights, techniques, patterns]
 status: accepted
-related: [decision-015-shareable-app-separate-project, decision-008-study-rewards, decision-013-infra-bar-shortcut, experiment-2026-10-22-shortbread-face-flicker, logbook-2026-10-22, logbook-2026-10-26, logbook-2026-10-28, exp-2026-10-28-stage3-unsourced-fact, exp-2026-10-28-stage2-missing-fusion]
+related: [logbook-2026-11-11, decision-015-shareable-app-separate-project, decision-008-study-rewards, decision-013-infra-bar-shortcut, experiment-2026-10-22-shortbread-face-flicker, logbook-2026-10-22, logbook-2026-10-26, logbook-2026-10-28, exp-2026-10-28-stage3-unsourced-fact, exp-2026-10-28-stage2-missing-fusion]
 ---
 
 # Training Manual — cca-prep-2027
@@ -56,7 +56,19 @@ Deleting notes, logs or journals from a copied project later does not remove the
 
 From decision-015-shareable-app-separate-project.
 
+### Lesson: After changing a Vercel setting, check its "created" time and redeploy
+
+An environment variable is a named setting, such as a password, that Vercel hands to the site when it builds. Two things go wrong when you change one. First, `vercel env add NAME --force` can print nothing and leave the old value in place. Remove the setting with `vercel env rm` and add it again, then run `vercel env ls` and check that "created" shows a few seconds ago. Second, a running site keeps the value it was built with, so redeploy. Then test the real thing: here, a sign-in with the new password and one with the old. The sign you got it wrong: the old password still works on the live site.
+
+From logbook-2026-11-11.
+
 ## Development environment
+
+### Technique: Update a Mac Keychain item with the same service and account, or you get a second item
+
+`security add-generic-password -U` only updates an item when both the service name (`-s`) and the account name (`-a`) match the existing one. With a different account it quietly creates a second item, and `security find-generic-password -s NAME -w` may then return either. Before updating, read the existing item's account with `security find-generic-password -s NAME` (no `-w`) and reuse it. The sign you got it wrong: a script reads back the old secret straight after you "changed" it.
+
+From logbook-2026-11-11.
 
 ### Lesson: On a Netskope-managed Mac, add --system-certs when uv fails to download
 

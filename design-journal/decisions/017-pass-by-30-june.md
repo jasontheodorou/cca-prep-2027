@@ -5,7 +5,7 @@ date: 2026-11-10
 topic: schedule
 summary: The exam moves to Saturday 26 June 2027, inside Jason's 30 June deadline; the four extra weeks go to the exam guide's four exercises, and the August second try is dropped.
 tags: [schedule, momentum, study-plan, exam-date, hands-on-practice]
-status: accepted
+status: superseded
 related: [decision-016-thirty-minutes-a-day-two-tries, logbook-2026-11-10]
 ---
 
@@ -34,3 +34,5 @@ Jason, 10 November 2026, after asking for and getting a guess at his chances: "O
 - There is no planned second try. If the first is not a pass, the plan needs a new decision.
 - About 1 hour of hands-on work per lesson plus about 2.5 hours per exercise.
 - No holiday is marked between February and the exam.
+
+- Replaced on 26 November 2026 by decision 020: one hour a day, exam on 27 March.

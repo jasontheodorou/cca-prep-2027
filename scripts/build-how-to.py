@@ -10,8 +10,11 @@ explains what I need to do in dumbo language, for any task like this which
 doesn't have a link to the study guide ... it should be step by step and
 clear". See design-journal/decisions/019.
 
-Help is keyed by the day's title in schedule.json, so it survives the plan
-being rebuilt as long as titles stay the same. Each entry has:
+Help is keyed by the title of each half-hour job, so it survives the plan
+being rebuilt as long as titles stay the same. Since 26 November 2026 most
+days hold two jobs (decision 020). schedule.json lists them in the day's
+"parts", and this script joins their help into one entry under the day's
+title. Run build-plan.py first. Each entry has:
   about  one or two sentences: what the day is for
   steps  numbered steps, one action each
   code   optional text to copy, shown in a box
@@ -138,9 +141,9 @@ H['Flashcards, if you like'] = {
 def fix_wrong(name, how):
     n = SECTIONS[name]
     return {
-        'about': f'Yesterday you answered practice questions on {name}. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.',
+        'about': f'You have just answered practice questions on {name}. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.',
         'steps': [
-            f'Open the practice questions for {name}. Answer 10 of them.',
+            f'Look at your list of wrong answers on {name}.',
             'Pick the two wrong answers that confused you most.',
             'For the first one, write the question in one line in Notes.',
             'Read the right answer and its reason on the site.',
@@ -217,13 +220,12 @@ H['Book your exam'] = {
     'about': 'Booking the exam now makes the date real. Most problems on exam day come from the name on the booking not matching your ID.',
     'steps': [
         'Find the booking link in the exam guide or on Anthropic\'s certification page.',
-        'Choose Saturday 26 June 2027.',
+        'Choose Saturday 27 March 2027.',
         'Type your name exactly as it appears on your passport or driving licence.',
         'Finish the booking and wait for the email.',
         'Check the name in the email matches your ID, letter for letter.',
         'Put the date and time in your calendar.',
-        'Use what is left of the 30 minutes on your flashcards.',
-    ],
+            ],
     'done': 'You have a booking email with your name spelt exactly as on your ID.',
 }
 
@@ -234,7 +236,7 @@ def library(what, step_name):
         'steps': [
             'Pack your laptop, charger, headphones and a lunch.',
             f'Open the hands-on exercises page and find {step_name}.',
-            'Morning: finish any step you did not finish in 30 minutes. Tick it on the Progress page.',
+            'Morning: finish any step you did not finish in its half hour. Tick it on the Progress page.',
             'Have lunch away from the screen.',
             'Afternoon: make a new empty folder, such as ~/projects/from-memory.',
             'Do the whole exercise again in that folder, without looking at your notes or the first version.',
@@ -448,11 +450,38 @@ H['Exam day'] = {
     'done': 'You have sat the exam.',
 }
 
+# Days made of two half-hour jobs: join the help for each job.
+sched = json.loads((OUT.parent / 'schedule.json').read_text())
+HALVES = ('First half hour', 'Second half hour')
+for day in sched:
+    parts = day.get('parts', [])
+    if len(parts) != 2 or day['title'] in H or not any(t in H for t in parts):
+        continue
+    tasks = [line.split(': ', 1)[1] for line in day['task'].split('\n')]
+    steps, done, links, code = [], [], [], None
+    for half, title, task in zip(HALVES, parts, tasks):
+        h = H.get(title)
+        if not h:
+            steps.append(f'{half}: {task} Use the link on the day\'s card.')
+            continue
+        steps.append(f'{half}: {title[0].lower() + title[1:]}. {h["about"]}')
+        steps += h['steps']
+        done.append(h['done'])
+        links += [x for x in h.get('links', []) if x not in links]
+        code = code or h.get('code')
+    entry = {'about': 'Two jobs today, half an hour each. Stop each one at 30 minutes.', 'steps': steps, 'done': ' '.join(done)}
+    if code:
+        entry['code'] = code
+    if links:
+        entry['links'] = links
+    H[day['title']] = entry
+
 OUT.write_text(json.dumps(H, indent=1, ensure_ascii=False) + '\n')
 
-# Every day with no link and some work should have help.
-sched = json.loads((OUT.parent / 'schedule.json').read_text())
-missing = sorted({s['title'] for s in sched if not s['links'] and s['kind'] != 'Off' and s['day'] >= '2026-11-10' and s['title'] not in H})
+# Every day with no link and some work should have help, and so should every
+# two-job day where either job has none.
+missing = sorted({s['title'] for s in sched if s['kind'] != 'Off' and s['title'] not in H
+                  and (not s['links'] or any(t in H for t in s.get('parts', [])))})
 print(f'{len(H)} entries. Wrote {OUT}')
 if missing:
     print('No help yet for: ' + ', '.join(missing))

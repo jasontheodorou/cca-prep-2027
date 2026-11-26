@@ -51,9 +51,9 @@
   "done": "The 10 minutes are up."
  },
  "Fix what you got wrong: Agents": {
-  "about": "Yesterday you answered practice questions on Agents. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+  "about": "You have just answered practice questions on Agents. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
   "steps": [
-   "Open the practice questions for Agents. Answer 10 of them.",
+   "Look at your list of wrong answers on Agents.",
    "Pick the two wrong answers that confused you most.",
    "For the first one, write the question in one line in Notes.",
    "Read the right answer and its reason on the site.",
@@ -70,9 +70,9 @@
   "done": "Notes has two questions, each with one sentence on why the right answer wins."
  },
  "Fix what you got wrong: Prompts and output": {
-  "about": "Yesterday you answered practice questions on Prompts and output. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+  "about": "You have just answered practice questions on Prompts and output. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
   "steps": [
-   "Open the practice questions for Prompts and output. Answer 10 of them.",
+   "Look at your list of wrong answers on Prompts and output.",
    "Pick the two wrong answers that confused you most.",
    "For the first one, write the question in one line in Notes.",
    "Read the right answer and its reason on the site.",
@@ -89,9 +89,9 @@
   "done": "Notes has two questions, each with one sentence on why the right answer wins."
  },
  "Fix what you got wrong: Tools and MCP": {
-  "about": "Yesterday you answered practice questions on Tools and MCP. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+  "about": "You have just answered practice questions on Tools and MCP. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
   "steps": [
-   "Open the practice questions for Tools and MCP. Answer 10 of them.",
+   "Look at your list of wrong answers on Tools and MCP.",
    "Pick the two wrong answers that confused you most.",
    "For the first one, write the question in one line in Notes.",
    "Read the right answer and its reason on the site.",
@@ -108,9 +108,9 @@
   "done": "Notes has two questions, each with one sentence on why the right answer wins."
  },
  "Fix what you got wrong: Context and reliability": {
-  "about": "Yesterday you answered practice questions on Context and reliability. Today you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+  "about": "You have just answered practice questions on Context and reliability. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
   "steps": [
-   "Open the practice questions for Context and reliability. Answer 10 of them.",
+   "Look at your list of wrong answers on Context and reliability.",
    "Pick the two wrong answers that confused you most.",
    "For the first one, write the question in one line in Notes.",
    "Read the right answer and its reason on the site.",
@@ -174,12 +174,11 @@
   "about": "Booking the exam now makes the date real. Most problems on exam day come from the name on the booking not matching your ID.",
   "steps": [
    "Find the booking link in the exam guide or on Anthropic's certification page.",
-   "Choose Saturday 26 June 2027.",
+   "Choose Saturday 27 March 2027.",
    "Type your name exactly as it appears on your passport or driving licence.",
    "Finish the booking and wait for the email.",
    "Check the name in the email matches your ID, letter for letter.",
-   "Put the date and time in your calendar.",
-   "Use what is left of the 30 minutes on your flashcards."
+   "Put the date and time in your calendar."
   ],
   "done": "You have a booking email with your name spelt exactly as on your ID."
  },
@@ -188,7 +187,7 @@
   "steps": [
    "Pack your laptop, charger, headphones and a lunch.",
    "Open the hands-on exercises page and find exercise 2, Claude Code for a team.",
-   "Morning: finish any step you did not finish in 30 minutes. Tick it on the Progress page.",
+   "Morning: finish any step you did not finish in its half hour. Tick it on the Progress page.",
    "Have lunch away from the screen.",
    "Afternoon: make a new empty folder, such as ~/projects/from-memory.",
    "Do the whole exercise again in that folder, without looking at your notes or the first version.",
@@ -207,7 +206,7 @@
   "steps": [
    "Pack your laptop, charger, headphones and a lunch.",
    "Open the hands-on exercises page and find exercise 3, facts from documents.",
-   "Morning: finish any step you did not finish in 30 minutes. Tick it on the Progress page.",
+   "Morning: finish any step you did not finish in its half hour. Tick it on the Progress page.",
    "Have lunch away from the screen.",
    "Afternoon: make a new empty folder, such as ~/projects/from-memory.",
    "Do the whole exercise again in that folder, without looking at your notes or the first version.",
@@ -226,7 +225,7 @@
   "steps": [
    "Pack your laptop, charger, headphones and a lunch.",
    "Open the hands-on exercises page and find exercise 1, the support agent, and exercise 4, agents doing research.",
-   "Morning: finish any step you did not finish in 30 minutes. Tick it on the Progress page.",
+   "Morning: finish any step you did not finish in its half hour. Tick it on the Progress page.",
    "Have lunch away from the screen.",
    "Afternoon: make a new empty folder, such as ~/projects/from-memory.",
    "Do the whole exercise again in that folder, without looking at your notes or the first version.",
@@ -562,5 +561,408 @@
    "If you are stuck on a question, pick your best guess and move on."
   ],
   "done": "You have sat the exam."
+ },
+ "Add three tools, then build the agent loop": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: add three tools. A tool is an ordinary function in your own code that Claude is allowed to ask for. Claude never opens your file. It asks, your code runs the function, and your code sends back the answer. Today you write three tools and try them yourself. Claude is not involved yet.",
+   "In Terminal, type `cd ~/projects/refund-helper` and press Return.",
+   "Make a new file called tools.py next to data.json.",
+   "Copy the code in the box below into tools.py and save.",
+   "Read each tool. get_customer finds a customer by email. lookup_order finds an order by its number. process_refund checks the refund is allowed. Nothing is really paid.",
+   "In Terminal, type `python3 tools.py` and press Return.",
+   "Read the four lines it prints. Two should be details. Two should be clear error messages.",
+   "Add one more line at the bottom that tries a refund of 20 on order A100. Run it again.",
+   "In Notes, write one sentence each on what the three tools do.",
+   "Second half hour: Write the loop: send a message, run the tool Claude asks for, add the result, and repeat. Stop only when stop_reason is end_turn. Use the link on the day's card."
+  ],
+  "done": "Each tool gives the right details for a real customer or order, and a clear error for a wrong one. Clear errors matter: Claude decides what to do next from what a tool sends back.",
+  "code": "import json\n\ndata = json.load(open(\"data.json\"))\n\ndef get_customer(email):\n    for c in data[\"customers\"]:\n        if c[\"email\"] == email:\n            return c\n    return {\"error\": f\"No customer with email {email}\"}\n\ndef lookup_order(order_id):\n    for o in data[\"orders\"]:\n        if o[\"id\"] == order_id:\n            return o\n    return {\"error\": f\"No order with ID {order_id}\"}\n\ndef process_refund(order_id, amount):\n    order = lookup_order(order_id)\n    if \"error\" in order:\n        return order\n    if amount > order[\"total\"]:\n        return {\"error\": f\"{amount} is more than the order total of {order['total']}\"}\n    return {\"refunded\": amount, \"order_id\": order_id}\n\n# Try each tool with a right and a wrong input\nprint(get_customer(\"ann@example.com\"))\nprint(get_customer(\"nobody@example.com\"))\nprint(lookup_order(\"A100\"))\nprint(process_refund(\"A100\", 9999))"
+ },
+ "Practice questions: Agents": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong. Use the link on the day's card.",
+   "Second half hour: fix what you got wrong: Agents. You have just answered practice questions on Agents. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+   "Look at your list of wrong answers on Agents.",
+   "Pick the two wrong answers that confused you most.",
+   "For the first one, write the question in one line in Notes.",
+   "Read the right answer and its reason on the site.",
+   "Open your practice project (~/projects/refund-helper). Change the agent so the question's situation happens, run it, and watch what it does.",
+   "Write one sentence in Notes: why the right answer is right.",
+   "Do the same for the second question."
+  ],
+  "done": "Notes has two questions, each with one sentence on why the right answer wins.",
+  "links": [
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ]
+ },
+ "Practice questions: Claude Code": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong. Use the link on the day's card.",
+   "Second half hour: fix what you got wrong: Claude Code. Most Claude Code questions are about where a file goes or what a setting is called. Making each one for real is the quickest way to remember it.",
+   "Open the practice questions for Claude Code. Answer 10 of them.",
+   "For every wrong answer that names a file location or a setting, write it on a new flashcard.",
+   "Open your practice project (~/projects/refund-helper).",
+   "Make each file or setting from your new cards for real, in the right place.",
+   "Type `claude` in Terminal inside the folder. Check each one works, for example by typing `/` to see your commands."
+  ],
+  "done": "Every new flashcard has a real file or setting in your practice project to match.",
+  "links": [
+   {
+    "label": "Practice questions: Claude Code",
+    "href": "https://claudecertificationguide.com/drill?domain=3"
+   }
+  ]
+ },
+ "Exercise 2, step 5 of 5, then write your own questions": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Try plan mode and doing it directly on three jobs: a one-file fix, a change across many files, and a feature with several ways to build it. Tick step 5 of exercise 2 on the Progress page. Use the link on the day's card.",
+   "Second half hour: write four questions of your own. Writing your own exam questions is the most useful thing you can do on a weeknight. Thinking up wrong answers that sound right makes you say why the right one wins.",
+   "Open the Notes tab and start a new note.",
+   "Pick four topics from this section. The Course tab lists them.",
+   "For each topic, write a short situation in two sentences, about a made-up company.",
+   "Write the question underneath.",
+   "Write the right answer, then three wrong answers that sound right.",
+   "Under each wrong answer, write a few words on why it is wrong.",
+   "Use the template in the box below to keep to the same shape."
+  ],
+  "done": "Notes has four questions, each with one right answer and three wrong ones with reasons.",
+  "code": "Situation: (two sentences about a made-up company)\nQuestion:\nA. (right answer)\nB. (sounds right) Wrong because:\nC. (sounds right) Wrong because:\nD. (sounds right) Wrong because:"
+ },
+ "Practice questions: Prompts and output": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong. Use the link on the day's card.",
+   "Second half hour: fix what you got wrong: Prompts and output. You have just answered practice questions on Prompts and output. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+   "Look at your list of wrong answers on Prompts and output.",
+   "Pick the two wrong answers that confused you most.",
+   "For the first one, write the question in one line in Notes.",
+   "Read the right answer and its reason on the site.",
+   "Change your review prompt or your fact-finding tool to match the question. Run it with each answer's idea and compare what comes back.",
+   "Write one sentence in Notes: why the right answer is right.",
+   "Do the same for the second question."
+  ],
+  "done": "Notes has two questions, each with one sentence on why the right answer wins.",
+  "links": [
+   {
+    "label": "Practice questions: Prompts and output",
+    "href": "https://claudecertificationguide.com/drill?domain=4"
+   }
+  ]
+ },
+ "Exercise 3, step 5 of 5, then write your own questions": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Send facts with low confidence to a person to check. Work out how often the tool is right, for each type of document and each fact. Tick step 5 of exercise 3 on the Progress page. Use the link on the day's card.",
+   "Second half hour: write four questions of your own. Writing your own exam questions is the most useful thing you can do on a weeknight. Thinking up wrong answers that sound right makes you say why the right one wins.",
+   "Open the Notes tab and start a new note.",
+   "Pick four topics from this section. The Course tab lists them.",
+   "For each topic, write a short situation in two sentences, about a made-up company.",
+   "Write the question underneath.",
+   "Write the right answer, then three wrong answers that sound right.",
+   "Under each wrong answer, write a few words on why it is wrong.",
+   "Use the template in the box below to keep to the same shape."
+  ],
+  "done": "Notes has four questions, each with one right answer and three wrong ones with reasons.",
+  "code": "Situation: (two sentences about a made-up company)\nQuestion:\nA. (right answer)\nB. (sounds right) Wrong because:\nC. (sounds right) Wrong because:\nD. (sounds right) Wrong because:"
+ },
+ "Practice questions: Tools and MCP": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong. Use the link on the day's card.",
+   "Second half hour: fix what you got wrong: Tools and MCP. You have just answered practice questions on Tools and MCP. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+   "Look at your list of wrong answers on Tools and MCP.",
+   "Pick the two wrong answers that confused you most.",
+   "For the first one, write the question in one line in Notes.",
+   "Read the right answer and its reason on the site.",
+   "Change one tool, its description or its error message to match the question. Run it and see whether Claude now picks or handles the tool differently.",
+   "Write one sentence in Notes: why the right answer is right.",
+   "Do the same for the second question."
+  ],
+  "done": "Notes has two questions, each with one sentence on why the right answer wins.",
+  "links": [
+   {
+    "label": "Practice questions: Tools and MCP",
+    "href": "https://claudecertificationguide.com/drill?domain=2"
+   }
+  ]
+ },
+ "Exercise 1, step 5 of 5, then write your own questions": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Send messages that ask for several things at once. Check the agent splits them up, deals with each and gives one answer. Tick step 5 of exercise 1 on the Progress page. Use the link on the day's card.",
+   "Second half hour: write four questions of your own. Writing your own exam questions is the most useful thing you can do on a weeknight. Thinking up wrong answers that sound right makes you say why the right one wins.",
+   "Open the Notes tab and start a new note.",
+   "Pick four topics from this section. The Course tab lists them.",
+   "For each topic, write a short situation in two sentences, about a made-up company.",
+   "Write the question underneath.",
+   "Write the right answer, then three wrong answers that sound right.",
+   "Under each wrong answer, write a few words on why it is wrong.",
+   "Use the template in the box below to keep to the same shape."
+  ],
+  "done": "Notes has four questions, each with one right answer and three wrong ones with reasons.",
+  "code": "Situation: (two sentences about a made-up company)\nQuestion:\nA. (right answer)\nB. (sounds right) Wrong because:\nC. (sounds right) Wrong because:\nD. (sounds right) Wrong because:"
+ },
+ "Practice questions: Context and reliability": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong. Use the link on the day's card.",
+   "Second half hour: fix what you got wrong: Context and reliability. You have just answered practice questions on Context and reliability. Now you take the two that confused you most and make them happen in your practice project, so you can see why the right answer is right.",
+   "Look at your list of wrong answers on Context and reliability.",
+   "Pick the two wrong answers that confused you most.",
+   "For the first one, write the question in one line in Notes.",
+   "Read the right answer and its reason on the site.",
+   "Open your practice project (~/projects/refund-helper). Make the question's situation happen, such as a tool failing or a long chat, and watch what the agent does.",
+   "Write one sentence in Notes: why the right answer is right.",
+   "Do the same for the second question."
+  ],
+  "done": "Notes has two questions, each with one sentence on why the right answer wins.",
+  "links": [
+   {
+    "label": "Practice questions: Context and reliability",
+    "href": "https://claudecertificationguide.com/drill?domain=5"
+   }
+  ]
+ },
+ "Exercise 4, step 5 of 5, then write your own questions": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Give it two sources with different numbers. Check the report keeps both, each with its source. Tick step 5 of exercise 4 on the Progress page. Use the link on the day's card.",
+   "Second half hour: write four questions of your own. Writing your own exam questions is the most useful thing you can do on a weeknight. Thinking up wrong answers that sound right makes you say why the right one wins.",
+   "Open the Notes tab and start a new note.",
+   "Pick four topics from this section. The Course tab lists them.",
+   "For each topic, write a short situation in two sentences, about a made-up company.",
+   "Write the question underneath.",
+   "Write the right answer, then three wrong answers that sound right.",
+   "Under each wrong answer, write a few words on why it is wrong.",
+   "Use the template in the box below to keep to the same shape."
+  ],
+  "done": "Notes has four questions, each with one right answer and three wrong ones with reasons.",
+  "code": "Situation: (two sentences about a made-up company)\nQuestion:\nA. (right answer)\nB. (sounds right) Wrong because:\nC. (sounds right) Wrong because:\nD. (sounds right) Wrong because:"
+ },
+ "Second look: Agents": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard. Use the link on the day's card.",
+   "Second half hour: build from memory: Agents. Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-agents` and press Return. Then type `cd ~/projects/memory-agents` and press Return.",
+   "Make a file called loop.py.",
+   "Write the loop: send a message, and if stop_reason is tool_use, run the tool Claude asked for.",
+   "Add the tool result to the messages and send again. Stop only when stop_reason is end_turn.",
+   "Add a check in your code that refuses any refund over $500 before the tool runs.",
+   "Run it with `python3 loop.py` and ask for a $600 refund. Check the code blocks it.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Questions again: Agents, then exam situation 1": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right? Use the link on the day's card.",
+   "Second half hour: exam situation 1. The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 1 about a customer support agent. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Second look: Claude Code": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard. Use the link on the day's card.",
+   "Second half hour: build from memory: Claude Code. Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-claude-code` and press Return. Then type `cd ~/projects/memory-claude-code` and press Return.",
+   "Make a CLAUDE.md with two lines about the project.",
+   "Make .claude/rules/tests.md with paths at the top, so it only applies to test files.",
+   "Make .claude/commands/review.md, a command that asks Claude to review a file.",
+   "Make .claude/skills/refunds/SKILL.md with a name and a description at the top.",
+   "Type `claude`. Type `/memory` to see CLAUDE.md is loaded, type `/` to see `/review`, and ask Claude which skills it has.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Questions again: Claude Code, then exam situation 2": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right? Use the link on the day's card.",
+   "Second half hour: exam situation 2. The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 2. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Exam situations 3 and 5": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: exam situation 3. The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 3 about several agents doing research together. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers.",
+   "Second half hour: exam situation 5. The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 5. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked. Notes has five questions on this situation, answered and checked."
+ },
+ "Second look: Prompts and output": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard. Use the link on the day's card.",
+   "Second half hour: build from memory: Prompts and output. Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-prompts` and press Return. Then type `cd ~/projects/memory-prompts` and press Return.",
+   "Make a file called extract.py.",
+   "Write a fact-finding tool with a JSON schema. Let each fact be empty if the document does not say.",
+   "Give one field the choices \"unclear\" and \"other\" as well as the real answers.",
+   "Add a check after Claude answers. If it is wrong, send back the document, the answer and the error, and ask again.",
+   "Run it on a short made-up document with one fact missing. Check that fact comes back empty, not made up.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Questions again: Prompts and output, then exam situation 6": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right? Use the link on the day's card.",
+   "Second half hour: exam situation 6. The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 6 about pulling facts out of documents. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Second look: Tools and MCP": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard. Use the link on the day's card.",
+   "Second half hour: build from memory: Tools and MCP. Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-tools` and press Return. Then type `cd ~/projects/memory-tools` and press Return.",
+   "Make a file called tools.py.",
+   "Write three tools, each with a description that says what it does, what it needs and when to use it.",
+   "Make one tool return an error with errorCategory, isRetryable and a plain message.",
+   "Ask Claude three questions, each needing a different tool. Print the name of the tool it picks.",
+   "Run it. Check Claude picks the right tool each time and handles the error.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Questions again: Tools and MCP, then exam situation 4": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right? Use the link on the day's card.",
+   "Second half hour: exam situation 4. The exam builds its questions around six situations from the exam guide. Writing your own questions for one shows you what the examiner is likely to ask.",
+   "Open the exam guide (cca.pdf on your Desktop).",
+   "Find situation 4. Read it twice.",
+   "Open the Notes tab and start a new note.",
+   "Write five questions the situation could lead to. Give each one four answers.",
+   "Close the guide. Answer your five questions.",
+   "Open the guide again and check your answers."
+  ],
+  "done": "Notes has five questions on this situation, answered and checked."
+ },
+ "Second look: Context and reliability": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard. Use the link on the day's card.",
+   "Second half hour: build from memory: Context and reliability. Today you build something again with no help, to find out what you really remember. Getting stuck is useful: it shows you what to revise.",
+   "Close your notes, the study site and your practice project.",
+   "In Terminal, type `mkdir ~/projects/memory-context` and press Return. Then type `cd ~/projects/memory-context` and press Return.",
+   "Make a main agent and one helper agent.",
+   "Make the helper fail on purpose, for example by having its tool stop with a timeout.",
+   "Have the helper report the failure with what it tried and any partial results.",
+   "Give the main agent two documents that disagree about one number.",
+   "Run it. Check the main agent finishes, says what is missing, and shows both numbers with where each came from.",
+   "Now open your practice project (~/projects/refund-helper) and compare.",
+   "Write in Notes the parts you forgot or got wrong."
+  ],
+  "done": "It runs, and Notes lists what you forgot."
+ },
+ "Questions again: Context and reliability, then your nine answer rules": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right? Use the link on the day's card.",
+   "Second half hour: write your nine answer rules. Many exam questions are decided by the same nine rules of judgement. Writing them by hand, in your own words, helps them stick. You will read this page again on your last study day and on exam morning.",
+   "Get one sheet of paper and a pen.",
+   "Open study-plan.md on your Desktop. Go to section 2, \"The answer patterns\".",
+   "Read rule 1. Then look away and write it in your own words, in one line.",
+   "Do the same for rules 2 to 9.",
+   "Check each line against the plan. Fix any that say something different.",
+   "Keep the page somewhere you will see it."
+  ],
+  "done": "You have one handwritten page with nine lines on it.",
+  "code": "The nine rules, in short:\n1. Fix the cause the evidence points at.\n2. Pick the smallest fix that works first.\n3. If a rule must never break, enforce it in code.\n4. Never route on the model's confidence or the customer's mood.\n5. Structured errors and findings beat vague ones.\n6. Never hide a failure, and never throw everything away for one.\n7. Give each agent only the tools it needs.\n8. Split big jobs into smaller passes.\n9. Clear criteria with examples beat vague instructions."
+ },
+ "Your two weakest topics": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: your weakest topic. Today you rebuild your weakest topic from nothing, so it sticks before the exam.",
+   "Open Notes and find the three topics you wrote down when you marked practice exam 1.",
+   "Take the weakest one. Open that lesson on the study site.",
+   "Read its common-mistakes box (Exam Traps).",
+   "Close the lesson. Make an empty file in your practice project.",
+   "Build the thing the lesson is about again, without looking.",
+   "Compare it with the lesson. Write in Notes what you got wrong.",
+   "Second half hour: your second-weakest topic. Today you rebuild your second-weakest topic from nothing, so it sticks before the exam.",
+   "Open Notes and find the three topics you wrote down when you marked practice exam 1.",
+   "Take the second-weakest one. Open that lesson on the study site.",
+   "Read its common-mistakes box (Exam Traps).",
+   "Close the lesson. Make an empty file in your practice project.",
+   "Build the thing the lesson is about again, without looking.",
+   "Compare it with the lesson. Write in Notes what you got wrong."
+  ],
+  "done": "You have rebuilt the topic and noted what you got wrong. You have rebuilt the topic and noted what you got wrong.",
+  "links": [
+   {
+    "label": "Open the study site",
+    "href": "https://claudecertificationguide.com"
+   }
+  ]
+ },
+ "The exam guide: situations and sample questions": {
+  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
+  "steps": [
+   "First half hour: the six exam situations. A last look at the six situations the exam is built around.",
+   "Open the exam guide (cca.pdf on your Desktop) and find the six situations.",
+   "Read situation 1.",
+   "Look away and say out loud three questions you would expect about it.",
+   "Do the same for situations 2 to 6.",
+   "Second half hour: the sample questions. The exam guide has 12 sample questions written by the examiner. They are the closest thing to the real exam.",
+   "Open the exam guide (cca.pdf on your Desktop) and find the sample questions.",
+   "Cover the answers with a sheet of paper.",
+   "Answer all 12 on the paper.",
+   "Check your answers. Read the reason for any you got wrong.",
+   "Then read the guide's list of what is not in the exam."
+  ],
+  "done": "You have said three questions out loud for each of the six. You have answered all 12 and read what is not in the exam."
  }
 }

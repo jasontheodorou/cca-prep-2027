@@ -6,7 +6,7 @@ topic: interface
 summary: Why the site was rebuilt to show one thing at a time, and how each tab hides detail until asked.
 tags: [progressive-disclosure, rebuild, design]
 status: accepted
-related: [decision-001-sanctum-copy-and-study-log, decision-002-course-order-and-milestones, decision-006-schedule-in-momentum, decision-007-recommendations-removed, logbook-2026-10-18]
+related: [decision-001-sanctum-copy-and-study-log, decision-002-course-order-and-milestones, decision-006-schedule-in-momentum, decision-007-recommendations-removed, logbook-2026-10-18, decision-019-step-by-step-help]
 ---
 
 # 003 Rebuilt for progressive disclosure

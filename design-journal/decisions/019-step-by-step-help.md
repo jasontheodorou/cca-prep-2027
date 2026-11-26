@@ -3,9 +3,10 @@ id: decision-019-step-by-step-help
 type: decision
 date: 2026-11-11
 topic: step-by-step help for days with no study guide link
+summary: Days with no study guide link get a "Show me how, step by step" button that opens numbered steps, text to copy and a finish check, so the day's card can stay short.
 tags: [momentum, schedule, wording, help]
 status: accepted
-related: [decision-016-thirty-minutes-a-day-two-tries, decision-003-progressive-disclosure-rebuild, logbook-2026-11-11]
+related: [decision-016-thirty-minutes-a-day-two-tries, decision-003-progressive-disclosure-rebuild, logbook-2026-11-11, preferences, glossary]
 ---
 
 # 019 Step-by-step help for days with no study guide link
@@ -39,3 +40,11 @@ It keeps progressive disclosure (decision 003): short by default, detail when as
 - Renaming a day's title in `build-plan.py` loses its help until the same title is used in `build-how-to.py`.
 - The practice project folder is assumed to be `~/projects/refund-helper`.
 - Days with a study guide link still have no step-by-step help, even when the card is short, such as "Build 1.1: the agent loop".
+- The steps are written by hand, 38 sets so far. Any new no-link day needs its own set.
+
+## Checks
+
+- Type check (`npx tsc -b`) passed.
+- A test browser showed the button and pop-out at desktop and phone widths with no errors.
+- After the deploy, a signed-in test browser on the live site opened the steps on that day's task.
+- Jason has not yet said whether the steps are clear enough.

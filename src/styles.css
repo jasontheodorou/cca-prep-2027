@@ -1028,6 +1028,8 @@ html:not([data-manager]) .clawd--perch {
 .session__start {
   margin: 12px 0 16px;
   font-size: 1.125rem;
+  /* A two-job day puts each half hour on its own line. */
+  white-space: pre-line;
 }
 
 /* The study site's pages for the day: quiet pills that open a new tab. */
@@ -1111,6 +1113,7 @@ html:not([data-manager]) .clawd--perch {
 
 .plan dd {
   margin: 0;
+  white-space: pre-line;
 }
 
 .plan dd p {

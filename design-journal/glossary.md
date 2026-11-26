@@ -3,10 +3,10 @@ id: glossary
 type: glossary
 date: 2026-04-19
 topic: knowledge-base
-summary: Plain definitions of words with a special meaning in this project, such as COMPASS, Caught up, infra, EXAM TRAP, Shortbread, the build brief, the gaps list and cca-prep-engine.
+summary: Plain definitions of words with a special meaning in this project, such as COMPASS, Caught up, infra, EXAM TRAP, Shortbread, the build brief, the gaps list, cca-prep-engine, Show me how and the how-to file.
 tags: [vocabulary, convention]
 status: accepted
-related: [decision-015-shareable-app-separate-project, decision-006-schedule-in-momentum, decision-004-white-geist-pet, decision-009-new-study-plan, decision-010-study-notes, decision-012-missed-and-caught-up, decision-013-infra-bar-shortcut, logbook-2026-10-26, logbook-2026-10-28, exp-2026-10-28-stage3-unsourced-fact]
+related: [decision-019-step-by-step-help, logbook-2026-11-11, decision-015-shareable-app-separate-project, decision-006-schedule-in-momentum, decision-004-white-geist-pet, decision-009-new-study-plan, decision-010-study-notes, decision-012-missed-and-caught-up, decision-013-infra-bar-shortcut, logbook-2026-10-26, logbook-2026-10-28, exp-2026-10-28-stage3-unsourced-fact]
 ---
 
 # Glossary — cca-prep-2027
@@ -68,6 +68,18 @@ A separate list in the stage 3 finding format where a subagent puts notes such a
 ## cca-prep-engine
 
 The shareable version of this app, in `~/projects/cca-prep-engine`, started 29 October 2026. It works for any Claude exam, keeps each person's data in their browser and uses Claude to build study plans. It has its own journal. See decision-015-shareable-app-separate-project.
+
+## Show me how
+
+The "Show me how, step by step" button on a day's card in Momentum, added 11 November 2026. It appears only on days with no link to the study guide. It opens a box with what the day is for, numbered steps, text to copy and how to tell you have finished. See decision-019-step-by-step-help.
+
+## How-to file
+
+`src/content/how-to.json`, the steps behind the Show me how button. `scripts/build-how-to.py` writes it. Each set of steps is matched to a day by the day's title, so renaming a day in `scripts/build-plan.py` loses its steps until the title is changed in both scripts.
+
+## Practice project
+
+The folder where Jason builds the course's hands-on exercises, starting with a JSON file of five customers and their orders. The how-to steps assume it is `~/projects/refund-helper`. Not confirmed: Jason also has a project called practice-helper.
 
 ## Long session dot
 

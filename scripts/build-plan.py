@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
-"""Writes src/content/schedule.json: the 30-minutes-a-day plan.
+"""Writes src/content/schedule.json: the one-hour-a-day plan.
 
   python3 scripts/build-plan.py
 
-This replaces import-plan.py as the way the schedule is made. Jason, 9 and 10
-November 2026: 30 minutes a day is the most he has, every lesson needs
-hands-on practice, and he has until 30 June 2027 to pass. The exam is planned
-for Saturday 26 June. See design-journal/decisions/016 and 017.
+Jason, 26 November 2026: "It needs to be one hour of work a day on this, with
+the goal of ultimately taking and passing the exam by march 2027", then "start
+the study from december" and the calendar "only go up to end of march 2027".
+The exam is planned for Saturday 27 March. See design-journal/decisions/020.
 
 The plan is the lists below, in order. The calendar rules are:
-  - one session a day, never more than 30 minutes;
+  - one session a day, never more than 60 minutes;
+  - most days hold two half-hour jobs, kept in the day's "parts";
   - Friday is a spare day, with nothing planned;
   - four Fridays are library days: optional whole days somewhere quiet. The
     plan works without them;
-  - holidays and Christmas keep their dates;
-  - days before START are kept as they were.
-Each lesson takes three days: read it, build it, test it. Each section ends
-with one of the exam guide's four exercises, one step a day.
+  - Christmas and the February holiday keep their dates;
+  - the plan starts on 1 December. Earlier days are not in it.
+Each lesson has three half-hour jobs: read it, build it, test it. Two jobs fit
+in a day, so two lessons take three days. Each section ends with one of the
+exam guide's four exercises, two steps a day.
 Uses the standard library only.
 """
 
@@ -37,30 +39,33 @@ _spec.loader.exec_module(_old)
 SITE, LESSONS, SECTIONS = _old.SITE, _old.LESSONS, _old.SECTIONS
 
 D = date.fromisoformat
-KEEP_BEFORE = D('2026-10-28')   # days up to lesson 1.3 stay as they were
-START = D('2026-11-10')
-EXAM = D('2027-06-26')         # the last Saturday before Jason's 30 June deadline
+START = D('2026-12-01')
+EXAM = D('2027-03-27')          # the last Saturday in March
+DAY = 60                        # minutes in a study day
 SPARE_WEEKDAY = 4               # Friday
 HOLIDAYS = [
-    (D('2026-11-23'), D('2026-11-29'), 'Holiday'),
     (D('2026-12-21'), D('2027-01-03'), 'Christmas'),
     (D('2027-02-08'), D('2027-02-14'), 'Holiday'),
 ]
 CHRISTMAS_OPTIONAL = {D('2026-12-28'), D('2026-12-30'), D('2027-01-02')}
 
+# Booking takes a few minutes, so it sits on the first spare Friday.
+BOOK = (D('2026-12-04'), 'Book your exam',
+        'A small job for a spare day. Book the exam for Saturday 27 March. Check the name on your ID matches the booking exactly.')
+
 # Jason, 9 November 2026: "may need to find a way to get to the british library
 # for a few days". Each is a whole day that can move to any date near it.
 MOVE = ' Move this day to any date near it that suits you.'
 def _again(what):
-    return (f'A whole day somewhere quiet. Finish any step of {what} that 30 minutes was too short for. '
+    return (f'A whole day somewhere quiet. Finish any step of {what} that an hour was too short for. '
             'Then do it all again in an empty folder, from memory.' + MOVE)
 
 
 LIBRARY = {
-    D('2027-01-29'): ('Library day 1, if you can: exercise 2 again', _again('exercise 2')),
-    D('2027-03-12'): ('Library day 2, if you can: exercise 3 again', _again('exercise 3')),
-    D('2027-05-07'): ('Library day 3, if you can: exercises 1 and 4 again', _again('exercises 1 and 4')),
-    D('2027-05-28'): ('Library day 4, if you can: a full practice exam',
+    D('2027-01-15'): ('Library day 1, if you can: exercise 2 again', _again('exercise 2')),
+    D('2027-01-29'): ('Library day 2, if you can: exercise 3 again', _again('exercise 3')),
+    D('2027-03-05'): ('Library day 3, if you can: exercises 1 and 4 again', _again('exercises 1 and 4')),
+    D('2027-03-19'): ('Library day 4, if you can: a full practice exam',
                       'A whole day somewhere quiet. Morning: all 60 questions in 2 hours, with no notes, like the real exam. After lunch: mark it, then build your two weakest topics again from an empty file. If you can only manage one library day, make it this one.' + MOVE),
 }
 
@@ -84,63 +89,130 @@ DRILL_ALL = {'label': 'Practice questions', 'href': SITE + '/drill'}
 
 
 def read(title, task, units=(), links=()):
-    """A reading, question or writing day."""
+    """A reading, question or writing job of half an hour."""
     return {'kind': 'Daily', 'title': title, 'task': task, 'units': list(units), 'links': list(links)}
 
 
 def practice(title, task, units=(), links=()):
-    """A hands-on day in the practice project."""
+    """A hands-on job of half an hour in the practice project."""
     return {'kind': 'Practice', 'title': title, 'task': task, 'units': list(units), 'links': list(links)}
 
 
-def lesson(u, name, build, test):
-    """Three days: read it, build it, test it."""
+def two(a, b, title):
+    """One study day made of two half-hour jobs. The jobs' own titles are kept
+    in "parts", which is how build-how-to.py finds their step-by-step help."""
+    links = []
+    for link in a['links'] + b['links']:
+        if link not in links:
+            links.append(link)
+    return {'kind': 'Practice' if 'Practice' in (a['kind'], b['kind']) else 'Daily',
+            'title': title,
+            'task': f'First half hour: {a["task"]}\nSecond half hour: {b["task"]}',
+            'units': list(dict.fromkeys(a['units'] + b['units'])),
+            'links': links,
+            'parts': [a['title'], b['title']]}
+
+
+def hour(session):
+    """One study day with a single job that takes the whole hour."""
+    return {**session, 'parts': [session['title']]}
+
+
+def lesson(u, name, build, test, short=False):
+    """Three half-hour jobs: read it, build it, test it. A short lesson builds
+    and tests in one job."""
     link = [lesson_link(u)]
+    mistakes = ' Then read the lesson\'s common-mistakes box and answer its practice question.'
+    tag = lambda s, role: {**s, '_role': role, '_u': u, '_name': name}
+    r = tag(read(f'Lesson {u}: {name}', 'Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.', [u], link), 'read')
+    if short:
+        return [r, tag(practice(f'Build and test {u}: {build[0]}', f'{build[1]} {test[1]}' + mistakes, [u], link), 'build')]
     return [
-        read(f'Lesson {u}: {name}', 'Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.', [u], link),
-        practice(f'Build {u}: {build[0]}', build[1], [u], link),
-        practice(f'Test {u}: {test[0]}', test[1] + ' Then read the lesson\'s common-mistakes box and answer its practice question.', [u], link),
+        r,
+        tag(practice(f'Build {u}: {build[0]}', build[1], [u], link), 'build'),
+        tag(practice(f'Test {u}: {test[0]}', test[1] + mistakes, [u], link), 'test'),
     ]
+
+
+def _pair(a, b):
+    ra, rb = a['_role'], b['_role']
+    if ra == 'read' and rb == 'build' and a['_u'] == b['_u']:
+        title = a['title']
+    elif ra == 'build' and rb == 'test' and a['_u'] == b['_u']:
+        title = f'Build and test {a["_u"]}: {a["_name"]}'
+    elif ra == 'test' and rb == 'read':
+        title = f'Test {a["_u"]}, then lesson {b["_u"]}: {b["_name"]}'
+    else:
+        sys.exit(f'No way to name a day made of "{a["title"]}" and "{b["title"]}"')
+    return two(a, b, title)
+
+
+def days(items):
+    """Pairs the half-hour lesson jobs, in order, into whole days. Whole days
+    already in the list pass through."""
+    out, half = [], None
+    for s in items:
+        if '_role' not in s:
+            if half:
+                sys.exit(f'"{half["title"]}" has no second job before "{s["title"]}"')
+            out.append(s)
+        elif half:
+            out.append(_pair(half, s))
+            half = None
+        else:
+            half = s
+    if half:
+        sys.exit(f'"{half["title"]}" has no second job')
+    return out
 
 
 def closer(n, fix):
+    """One day: 20 questions, then fix the worst two."""
     name = SECTIONS[n]
-    return [
+    return [two(
         read(f'Practice questions: {name}', 'Answer 20 practice questions. Write down the number of each one you get wrong.', links=[drill(n)]),
         practice(f'Fix what you got wrong: {name}', fix),
-        read('Write four questions of your own', f'Write four exam-style questions about {name}. Give each one the right answer and three wrong answers that sound right.'),
-    ]
+        f'Practice questions: {name}',
+    )]
 
 
-def exercise(number, name, intro, steps):
-    """One of the exam guide's four exercises, one step a day. The Progress
-    page has a tick for each step (E1.1 and so on)."""
-    out = []
+def exercise(number, name, intro, steps, section):
+    """One of the exam guide's four exercises, two steps a day. The Progress
+    page has a tick for each step (E1.1 and so on). The last day ends with
+    writing questions about the section just finished."""
+    jobs = []
     for i, (title, task) in enumerate(steps, 1):
         task = (intro + ' ' if i == 1 else '') + task + f' Tick step {i} of exercise {number} on the Progress page.'
-        out.append(practice(f'Exercise {number}, step {i} of {len(steps)}: {title}', task, [f'E{number}'], [EXERCISES]))
-    return phase(f'Exercise {number} · {name}', out)
+        jobs.append(practice(f'Exercise {number}, step {i} of {len(steps)}: {title}', task, [f'E{number}'], [EXERCISES]))
+    own = read('Write four questions of your own', f'Write four exam-style questions about {SECTIONS[section]}. Give each one the right answer and three wrong answers that sound right.')
+    return phase(f'Exercise {number} · {name}', [
+        two(jobs[0], jobs[1], f'Exercise {number}, steps 1 and 2 of 5'),
+        two(jobs[2], jobs[3], f'Exercise {number}, steps 3 and 4 of 5'),
+        two(jobs[4], own, f'Exercise {number}, step 5 of 5, then write your own questions'),
+    ])
 
 
 def phase(week, sessions):
-    return [{**s, 'week': week} for s in sessions]
+    return [{**s, 'week': week} for s in days(sessions)]
 
 
+# "Start your practice project" was done on 10 November 2026.
 SETUP = phase('Build what you have learned', [
-    practice('Start your practice project',
-             'Make a new folder for a pretend helper that handles shop refunds. Add a CLAUDE.md and a JSON file with five made-up customers and orders. You will add to it almost every day.'),
-    practice('Add three tools',
-             'Add three tools that read your JSON file: get_customer, lookup_order and process_refund. Run each one by hand and check what comes back.', ['2.1']),
-    practice('Build 1.1: the agent loop',
-             'Write the loop: send a message, run the tool Claude asks for, add the result, and repeat. Stop only when stop_reason is end_turn.', ['1.1'], [lesson_link('1.1')]),
-    practice('Test 1.1: the agent loop',
-             'Ask for a refund that needs two tools. Print stop_reason each time round the loop. Then read lesson 1.1\'s common-mistakes box again.', ['1.1'], [lesson_link('1.1')]),
-    practice('Build 1.2 and 1.3: one main agent, two helpers',
-             'Make a main agent that starts two helper agents in one reply, using the Task tool. Put everything each helper needs into its prompt.', ['1.2', '1.3'], [lesson_link('1.2'), lesson_link('1.3')]),
-    practice('Test 1.2 and 1.3: what a helper knows',
-             'Leave one fact out of a helper\'s prompt and watch it fail. A helper knows only what you pass it. Put the fact back and run it again.', ['1.2', '1.3'], [lesson_link('1.2'), lesson_link('1.3')]),
-    read('Make your flashcards',
-         'Make a set of flashcards, on paper or in an app. Copy 15 facts from the quick reference page for Agents.', links=[quick('1')]),
+    two(practice('Add three tools',
+                 'Add three tools that read your JSON file: get_customer, lookup_order and process_refund. Run each one by hand and check what comes back.', ['2.1']),
+        practice('Build 1.1: the agent loop',
+                 'Write the loop: send a message, run the tool Claude asks for, add the result, and repeat. Stop only when stop_reason is end_turn.', ['1.1'], [lesson_link('1.1')]),
+        'Add three tools, then build the agent loop'),
+    two(practice('Test 1.1: the agent loop',
+                 'Ask for a refund that needs two tools. Print stop_reason each time round the loop. Then read lesson 1.1\'s common-mistakes box again.', ['1.1'], [lesson_link('1.1')]),
+        practice('Build 1.2 and 1.3: one main agent, two helpers',
+                 'Make a main agent that starts two helper agents in one reply, using the Task tool. Put everything each helper needs into its prompt.', ['1.2', '1.3'], [lesson_link('1.2'), lesson_link('1.3')]),
+        'Test the agent loop, then build two helpers'),
+    two(practice('Test 1.2 and 1.3: what a helper knows',
+                 'Leave one fact out of a helper\'s prompt and watch it fail. A helper knows only what you pass it. Put the fact back and run it again.', ['1.2', '1.3'], [lesson_link('1.2'), lesson_link('1.3')]),
+        read('Make your flashcards',
+             'Make a set of flashcards, on paper or in an app. Copy 15 facts from the quick reference page for Agents.', links=[quick('1')]),
+        'Test your helpers, then make your flashcards'),
 ])
 
 AGENTS = phase('Agents', [
@@ -218,7 +290,7 @@ TOOLS = phase('Tools and MCP', [
             ('two places for servers', 'Add a personal server in ~/.claude.json. Check Claude Code sees both. Then offer your list of orders as an MCP resource.')),
     *lesson('2.5', 'Claude Code\'s built-in tools',
             ('find things with Grep and Glob', 'In Claude Code, find every place process_refund is called, using Grep. Find every test file, using Glob.'),
-            ('when Edit cannot find the place', 'Ask for an edit where the same text appears twice, so Edit cannot find one place. Watch Claude use Read, then Write.')),
+            ('when Edit cannot find the place', 'Ask for an edit where the same text appears twice, so Edit cannot find one place. Watch Claude use Read, then Write.'), short=True),
     *closer('2', 'Pick the two questions you got most wrong. Change a tool, its description or its error in your practice project to try each one out.'),
 ])
 
@@ -245,63 +317,69 @@ CONTEXT = phase('Context and reliability', [
 ])
 
 
-def second_look(n, rebuild, situations):
+def situation(number, about=''):
+    return read(f'Exam situation {number}', f'In the exam guide, read situation {number}{about}. Write five questions it could lead to, then answer them.')
+
+
+RULES = read('Write your nine answer rules', 'By hand, on one page, write the nine rules from your plan that help you pick the right answer. Use your own words.')
+
+
+def second_look(n, rebuild, then, then_title):
+    """Two days: mistakes and a build from memory, then questions and one more job."""
     name = SECTIONS[n]
-    out = [
-        read(f'Common mistakes: {name}', 'Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.', links=[quick(n)]),
-        practice(f'Build from memory: {name}', rebuild),
-        read(f'Practice questions: {name} again', 'Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right?', links=[drill(n)]),
-    ]
-    for number, about in situations:
-        out.append(read(f'Exam situation {number}', f'In the exam guide, read situation {number}{about}. Write five questions it could lead to, then answer them.'))
-    return phase(f'Second look · {name}', out)
+    return phase(f'Second look · {name}', [
+        two(read(f'Common mistakes: {name}', 'Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.', links=[quick(n)]),
+            practice(f'Build from memory: {name}', rebuild),
+            f'Second look: {name}'),
+        two(read(f'Practice questions: {name} again', 'Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right?', links=[drill(n)]),
+            then,
+            f'Questions again: {name}, then {then_title}'),
+    ])
 
 
 REVISION = [
-    *phase('Second look · Where you stand', [
-        read('Test all five sections', 'Take the test of all five sections on the study site. Write each section\'s score in Notes. The lowest two get the most care from now on.', links=[DIAGNOSTIC]),
-        read('Write your nine answer rules', 'By hand, on one page, write the nine rules from your plan that help you pick the right answer. Use your own words.'),
-        read('Book your exam', 'Book the exam for Saturday 26 June, if you have not yet. Check the name on your ID matches the booking exactly. Then go through your flashcards.'),
-    ]),
     *second_look('1', 'With an empty file and no notes, write the agent loop and the block on refunds over $500. Then compare them with your practice project.',
-                 [(1, ', about a customer support agent'), (3, ', about several agents doing research together')]),
+                 situation(1, ', about a customer support agent'), 'exam situation 1'),
     *second_look('3', 'In an empty folder and with no notes, make a CLAUDE.md, a rule with paths, a command and a skill. Check each one loads.',
-                 [(2, ''), (5, '')]),
-    *second_look('4', 'With no notes, write a fact-finding tool that allows empty facts, "unclear" and "other". Add the step that checks the answer and tries again.',
-                 [(6, ', about pulling facts out of documents')]),
-    *second_look('2', 'With no notes, write three tool descriptions and one error with errorCategory and isRetryable. Check Claude picks the right tool.',
-                 [(4, '')]),
-    *second_look('5', 'With no notes, make a helper agent fail and report it properly. Then make a report show both of two numbers that disagree.', []),
-    *phase('Second look · Everything together', [
-        read('Practice questions: every section', 'Answer six questions in each of the five sections. Write down each score.', links=[DRILL_ALL]),
-        read('Explain it out loud', 'With no notes, explain in three minutes how one main agent runs several helpers. Then do the same for hooks. Check both against your Notes.'),
+                 situation(2), 'exam situation 2'),
+    *phase('Second look · Claude Code', [
+        two(situation(3, ', about several agents doing research together'), situation(5), 'Exam situations 3 and 5'),
     ]),
+    *second_look('4', 'With no notes, write a fact-finding tool that allows empty facts, "unclear" and "other". Add the step that checks the answer and tries again.',
+                 situation(6, ', about pulling facts out of documents'), 'exam situation 6'),
+    *second_look('2', 'With no notes, write three tool descriptions and one error with errorCategory and isRetryable. Check Claude picks the right tool.',
+                 situation(4), 'exam situation 4'),
+    *second_look('5', 'With no notes, make a helper agent fail and report it properly. Then make a report show both of two numbers that disagree.',
+                 RULES, 'your nine answer rules'),
 ]
 
 
-def mock(number, week, after):
-    parts = [read(f'Practice exam {number}, part {i} of 4',
-                  f'Questions {i * 15 - 14} to {i * 15} of the practice exam. 30 minutes, no notes. Note where you stopped and carry on tomorrow.', links=[MOCK])
-             for i in range(1, 5)]
-    marking = read(f'Mark practice exam {number}', 'Write each section\'s score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.')
-    return phase(week, parts + [marking] + after)
+def weakest():
+    again = 'Read its common-mistakes box, then build it again in your practice project from an empty file.'
+    return two(practice('Your weakest topic', again), practice('Your second-weakest topic', again), 'Your two weakest topics')
+
+
+def mock(number):
+    return phase(f'Practice exam {number}', [
+        hour(read(f'Practice exam {number}, questions 1 to 30', 'Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.', links=[MOCK])),
+        hour(read(f'Practice exam {number}, questions 31 to 60', 'Questions 31 to 60 of the practice exam. One hour, no notes.', links=[MOCK])),
+        two(read(f'Mark practice exam {number}', 'Write each section\'s score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.'),
+            read('Learn from your wrong answers', f'For every question you got wrong in practice exam {number}, write one sentence on why the right answer is right.'),
+            f'Mark practice exam {number}'),
+        weakest(),
+    ])
 
 
 EXAMS = [
-    *mock(1, 'Practice exam 1', [
-        practice('Your weakest topic', 'Read its common-mistakes box, then build it again in your practice project from an empty file.'),
-        practice('Your second-weakest topic', 'Read its common-mistakes box, then build it again in your practice project from an empty file.'),
-    ]),
-    *mock(2, 'Practice exam 2', [
-        read('Learn from your wrong answers', 'For every question you got wrong in practice exam 2, write one sentence on why the right answer is right.'),
-        practice('Your weakest topic', 'Read its common-mistakes box, then build it again in your practice project from an empty file.'),
-        practice('Your second-weakest topic', 'Read its common-mistakes box, then build it again in your practice project from an empty file.'),
-    ]),
+    *mock(1),
+    *mock(2),
     *phase('Last days before the exam', [
-        read('The six exam situations', 'Read all six situations in the exam guide again. For each, say out loud the three questions you would expect.'),
-        read('Common mistakes: every section', 'Read the common-mistakes boxes you marked as hard. Skip the ones you know.'),
-        read('The sample questions', 'Answer the 12 sample questions in the exam guide without looking. Then read the guide\'s list of what is not in the exam.'),
-        read('Last study day', 'Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.'),
+        two(read('The six exam situations', 'Read all six situations in the exam guide again. For each, say out loud the three questions you would expect.'),
+            read('The sample questions', 'Answer the 12 sample questions in the exam guide without looking. Then read the guide\'s list of what is not in the exam.'),
+            'The exam guide: situations and sample questions'),
+        two(read('Common mistakes: every section', 'Read the common-mistakes boxes you marked as hard. Skip the ones you know.'),
+            read('Last study day', 'Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.'),
+            'Last study day'),
     ]),
 ]
 
@@ -313,7 +391,7 @@ EXERCISE_2 = exercise(2, 'Claude Code for a team', EMPTY, [
     ('a skill that runs apart', 'Make a project skill with context: fork and allowed-tools. Check it runs apart from your main chat.'),
     ('two MCP servers', 'Set up a project MCP server with its token in an environment variable, and a personal one in ~/.claude.json. Check both work.'),
     ('plan mode or not', 'Try plan mode and doing it directly on three jobs: a one-file fix, a change across many files, and a feature with several ways to build it.'),
-])
+], '3')
 
 EXERCISE_3 = exercise(3, 'Facts from documents', EMPTY, [
     ('the fact-finding tool', 'Make a tool with facts that must be there, facts that may be empty, and a list with "other" plus a note. Check missing facts come back empty.'),
@@ -321,7 +399,7 @@ EXERCISE_3 = exercise(3, 'Facts from documents', EMPTY, [
     ('examples for odd documents', 'Add examples for documents laid out in different ways. Check the answers get better.'),
     ('a batch of 100', 'Send 100 documents as one batch. Tomorrow, send only the failures again by custom_id. Compare the time it took with a deadline you set.'),
     ('unsure answers go to a person', 'Send facts with low confidence to a person to check. Work out how often the tool is right, for each type of document and each fact.'),
-])
+], '4')
 
 EXERCISE_1 = exercise(1, 'The support agent', EMPTY, [
     ('the tools', 'Make three or four tools with clear descriptions. Two of them should be alike, so the wording has to tell them apart.'),
@@ -329,7 +407,7 @@ EXERCISE_1 = exercise(1, 'The support agent', EMPTY, [
     ('clear errors', 'Make the tools report errors in a clear shape. Check the agent retries a timeout and explains a broken shop rule to the customer.'),
     ('the hook', 'Add a hook that blocks any refund over a set amount and passes it to a person.'),
     ('several requests in one message', 'Send messages that ask for several things at once. Check the agent splits them up, deals with each and gives one answer.'),
-])
+], '2')
 
 EXERCISE_4 = exercise(4, 'Agents doing research', EMPTY, [
     ('the main agent', 'Make a main agent that is allowed the Task tool and passes what it has found to each helper in the helper\'s prompt.'),
@@ -337,14 +415,10 @@ EXERCISE_4 = exercise(4, 'Agents doing research', EMPTY, [
     ('every finding with its source', 'Give each finding a claim, a quote, a source and a date. Check the final report keeps them.'),
     ('a helper that times out', 'Make one helper time out. Check the main agent carries on with what it has and says what is missing.'),
     ('numbers that disagree', 'Give it two sources with different numbers. Check the report keeps both, each with its source.'),
-])
+], '5')
 
 PLAN = (SETUP + AGENTS + CLAUDE_CODE + EXERCISE_2 + PROMPTS + EXERCISE_3 + TOOLS + EXERCISE_1
         + CONTEXT + EXERCISE_4 + REVISION + EXAMS)
-
-# Dropped first if there are more sessions than days, added back never.
-WELCOME = read('Welcome back', 'Go through all your flashcards. Then read what you wrote in Notes over the last few weeks.')
-
 
 def off(day, week, title, task, kind='Off', minutes=0):
     return {'day': day.isoformat(), 'kind': kind, 'minutes': minutes, 'week': week, 'title': title, 'task': task, 'units': [], 'links': []}
@@ -361,31 +435,26 @@ def fill(first, last, sessions, spare_week):
     """One session on each study day from first to last. Returns the days and
     the sessions that did not fit."""
     out, queue, week = [], list(sessions), spare_week
-    back = False  # the first study day after a holiday
     d = first
     while d <= last:
         name = holiday(d)
         if name == 'Christmas' and d in CHRISTMAS_OPTIONAL:
             out.append(off(d, 'Christmas · Time off', 'Flashcards, if you like', '10 minutes, so you do not forget them. Skip it if the house is busy.', 'Optional', 10))
-            back = True
         elif name == 'Christmas':
             out.append(off(d, 'Christmas · Time off', 'Christmas', 'Time off. No studying.'))
-            back = True
         elif name:
             out.append(off(d, 'Holiday', 'Holiday', 'Time off. No studying.'))
-            back = True
         elif d in LIBRARY:
             out.append(off(d, week, *LIBRARY[d], 'Optional', 300))
+        elif d == BOOK[0]:
+            out.append(off(d, week, BOOK[1], BOOK[2], 'Optional', 15))
         elif d.weekday() == SPARE_WEEKDAY:
             out.append(off(d, week, 'Spare day', 'Nothing planned. Catch up on a missed day, or rest.'))
-        elif back:
-            out.append({**WELCOME, 'day': d.isoformat(), 'minutes': 30, 'week': week})
-            back = False
         elif queue:
             s = queue.pop(0)
             week = s['week']
-            out.append({'day': d.isoformat(), 'kind': s['kind'], 'minutes': 30, 'week': week, 'title': s['title'],
-                        'task': s['task'], 'units': s['units'], 'links': s['links']})
+            out.append({'day': d.isoformat(), 'kind': s['kind'], 'minutes': DAY, 'week': week, 'title': s['title'],
+                        'task': s['task'], 'units': s['units'], 'links': s['links'], 'parts': s['parts']})
         else:
             out.append(off(d, week, 'Spare day', 'Nothing planned. Catch up on a missed day, or rest.'))
         d += timedelta(days=1)
@@ -393,10 +462,10 @@ def fill(first, last, sessions, spare_week):
 
 
 def number_weeks(part):
-    """Names each study week "Week 3 of 27 · Agents", so the plan reads as a
+    """Names each study week "Week 3 of 15 · Agents", so the plan reads as a
     course with an end. Weeks run Monday to Sunday; holiday weeks have no number."""
     monday = lambda s: D(s['day']) - timedelta(days=D(s['day']).weekday())
-    weeks = sorted({monday(s) for s in part if s['minutes'] == 30})
+    weeks = sorted({monday(s) for s in part if s['minutes'] == DAY})
     for s in part:
         if s['week'] in ('Holiday', 'Christmas · Time off') or monday(s) not in weeks:
             continue
@@ -405,38 +474,27 @@ def number_weeks(part):
 
 
 def main():
-    old = json.loads(OUT.read_text())
-    days = [s for s in old if D(s['day']) < KEEP_BEFORE]
-    # Planned days from lesson 1.4 that were never studied.
-    d = KEEP_BEFORE
-    while d < START:
-        days.append(off(d, 'Week 1 · Agents, part 1', 'Moved to later', 'This day\'s work moved when the plan changed on 10 November.'))
-        d += timedelta(days=1)
-
     last_study = EXAM - timedelta(days=2)
     first, left = fill(START, last_study, PLAN, PLAN[0]['week'])
     if left:
         sys.exit(f'{len(left)} sessions do not fit before the exam, starting with "{left[0]["title"]}"')
-    days += number_weeks(first)
-    days.append(off(EXAM - timedelta(days=1), 'Last days before the exam', 'Rest', 'No studying. Get your ID ready and go to bed early.'))
-    days.append(off(EXAM, 'Exam day', 'Exam day', 'Nothing new today. Have breakfast, read your page of answer rules once, then put it away.', 'Exam'))
+    days_ = number_weeks(first)
+    days_.append(off(EXAM - timedelta(days=1), 'Last days before the exam', 'Rest', 'No studying. Get your ID ready and go to bed early.'))
+    days_.append(off(EXAM, 'Exam day', 'Exam day', 'Nothing new today. Have breakfast, read your page of answer rules once, then put it away.', 'Exam'))
 
-    for a, b in zip(days, days[1:]):
+    for a, b in zip(days_, days_[1:]):
         if D(b['day']) - D(a['day']) != timedelta(days=1):
             sys.exit(f'Gap in the plan between {a["day"]} and {b["day"]}')
-    too_long = [s['day'] for s in days if D(s['day']) >= START and s['minutes'] > 30 and s['kind'] != 'Optional']
+    too_long = [s['day'] for s in days_ if s['minutes'] > DAY and s['kind'] != 'Optional']
     if too_long:
-        sys.exit(f'Days over 30 minutes: {too_long}')
-    OUT.write_text(json.dumps(days, indent=1, ensure_ascii=False) + '\n')
+        sys.exit(f'Days over {DAY} minutes: {too_long}')
+    OUT.write_text(json.dumps(days_, indent=1, ensure_ascii=False) + '\n')
 
-    def summary(part, a, b):
-        work = [s for s in part if s['minutes'] == 30]
-        spare = [s for s in part if s['title'] == 'Spare day']
-        hands_on = [s for s in work if s['kind'] == 'Practice']
-        print(f'{a} to {b}: {len(work)} sessions ({len(work) / 2:.0f} hours), {len(hands_on)} hands-on, {len(spare)} spare days')
-
-    summary(first, START, last_study)
-    print(f'{len(days)} days, {days[0]["day"]} to {days[-1]["day"]}. Wrote {OUT}')
+    work = [s for s in first if s['minutes'] == DAY]
+    spare = [s for s in first if s['title'] == 'Spare day']
+    hands_on = [s for s in work if s['kind'] == 'Practice']
+    print(f'{START} to {last_study}: {len(work)} study days ({len(work)} hours), {len(hands_on)} with hands-on work, {len(spare)} spare days')
+    print(f'{len(days_)} days, {days_[0]["day"]} to {days_[-1]["day"]}. Wrote {OUT}')
 
 
 if __name__ == '__main__':

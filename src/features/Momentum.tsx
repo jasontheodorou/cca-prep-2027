@@ -7,7 +7,7 @@ import type { Effort, SessionMark } from '../data/events'
 import { logEffort, setSession, useStudy } from '../data/store'
 import { readRaw, writeRaw } from '../lib/storage'
 import { dayKey, duration, longDay, mondayOf, parseDay } from '../lib/dates'
-import { LAST_DAY, hasWork, isBuild, isExam, isLesson, isOptional, sessionOn, startsWithCards, type Session } from '../lib/schedule'
+import { FIRST_DAY, LAST_DAY, hasWork, isBuild, isExam, isLesson, isOptional, sessionOn, startsWithCards, type Session } from '../lib/schedule'
 import { useNow } from '../lib/useNow'
 import { howTo, type HowTo } from '../lib/howTo'
 
@@ -307,9 +307,9 @@ function Months({
   today: string
   onPick: (k: string) => void
 }) {
+  // The calendar covers the plan only: December 2026 to March 2027.
+  const start = parseDay(FIRST_DAY)
   const end = parseDay(LAST_DAY)
-  const first = Object.keys(effort).sort()[0]
-  const start = parseDay(first && first < '2026-10-01' ? first : '2026-10-01')
   const months: Date[] = []
   for (let d = new Date(start.getFullYear(), start.getMonth(), 1); d <= end; d = new Date(d.getFullYear(), d.getMonth() + 1, 1)) months.push(d)
 
@@ -729,7 +729,7 @@ function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
     [
       'How to do a lesson',
       isLesson(s)
-        ? 'Today is for reading. Read the lesson once, properly, then do its quick quiz (Concept Check). Stop at 30 minutes. Tomorrow you build it and the day after you test it. Its common-mistakes box (Exam Traps) and practice question come on the test day.'
+        ? 'A lesson has three half-hour jobs: read it, build it, test it. Today is the first two. Read the lesson once, properly, and do its quick quiz (Concept Check). Stop at 30 minutes, then build. Tomorrow starts with the test, its common-mistakes box (Exam Traps) and its practice question.'
         : '',
     ],
     ['Afterwards', isBuild(s) ? 'Write three sentences in Notes about what surprised you. It takes two minutes.' : ''],

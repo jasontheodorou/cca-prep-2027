@@ -9,9 +9,9 @@ summary: Every journal entry with a one-line summary. Rebuilt automatically, so 
 ## Start here
 
 - `overview.md`: One-screen state of the cca-prep site and Jason's exam study: what it does now, what is open and what to watch out for.
-- `preferences.md`: What Jason likes, rejects and asks for, in Jason's own words, for the schedule, wording, rewards, layout, the notes editor, sharing the app and how course concepts are explained.
-- `glossary.md`: Plain definitions of words with a special meaning in this project, such as COMPASS, Caught up, infra, EXAM TRAP, Shortbread, the build brief, the gaps list and cca-prep-engine.
-- `training-manual.md`: Lessons from this project that apply elsewhere, on CSS animation names, 3D flicker, deploy identity, sharing a personal app safely, uv and pip on a locked-down Mac, rich-text editor pitfalls, API key protection, prompt caching and multi-agent design.
+- `preferences.md`: What Jason likes, rejects and asks for, in Jason's own words, for the schedule, wording, step-by-step help, rewards, layout, the notes editor, hosting and passwords, sharing the app and how course concepts are explained.
+- `glossary.md`: Plain definitions of words with a special meaning in this project, such as COMPASS, Caught up, infra, EXAM TRAP, Shortbread, the build brief, the gaps list, cca-prep-engine, Show me how and the how-to file.
+- `training-manual.md`: Lessons from this project that apply elsewhere, on CSS animation names, 3D flicker, deploy identity, changing Vercel settings, sharing a personal app safely, uv, pip and the Keychain on a locked-down Mac, rich-text editor pitfalls, API key protection, prompt caching and multi-agent design.
 
 ## Decisions
 
@@ -28,8 +28,12 @@ summary: Every journal entry with a one-line summary. Rebuilt automatically, so 
 - `decisions/011-night-mode.md` (2026-10-22, accepted): A soft night mode for every page, switched by a day-to-night toggle that, like the manager switch, stays hidden until the pointer comes near.
 - `decisions/012-missed-and-caught-up.md` (2026-10-26, accepted): A missed day shows as a light red box in Momentum, needs no time, and a Caught up button flashes green and turns the day green.
 - `decisions/013-infra-bar-shortcut.md` (2026-10-26, accepted): Infra is no longer on the word list; typing |word marks that one word infra and hides the bar, like a Markdown shortcut.
-- `decisions/014-exam-moved-to-may.md` (2026-11-02, accepted): The exam moves to Saturday 22 May 2027 and the rest of the plan is spread out, from about 5 to 8 hours a week down to about 4.
+- `decisions/014-exam-moved-to-may.md` (2026-11-02, superseded): The exam moves to Saturday 22 May 2027 and the rest of the plan is spread out, from about 5 to 8 hours a week down to about 4.
 - `decisions/015-shareable-app-separate-project.md` (2026-11-02, accepted): Why the shareable version for colleagues became a separate project, cca-prep-engine, and why cca-prep-2027 stays Jason's personal study site.
+- `decisions/016-thirty-minutes-a-day-two-tries.md` (2026-11-09, accepted): The plan is rebuilt for 30 minutes a day at most, with every lesson read, built and tested over three days, a first try on 29 May 2027 and a second on 28 August in case it is needed.
+- `decisions/017-pass-by-30-june.md` (2026-11-10, accepted): The exam moves to Saturday 26 June 2027, inside Jason's 30 June deadline; the four extra weeks go to the exam guide's four exercises, and the August second try is dropped.
+- `decisions/018-live-site-with-gate-and-storage.md` (2026-11-10, accepted): The Vercel site becomes the main copy, behind a password gate checked on the server, with the study log and notes kept in a private Vercel Blob store.
+- `decisions/019-step-by-step-help.md` (2026-11-11, accepted): Days with no study guide link get a "Show me how, step by step" button that opens numbered steps, text to copy and a finish check, so the day's card can stay short.
 
 ## Experiments
 
@@ -46,6 +50,9 @@ summary: Every journal entry with a one-line summary. Rebuilt automatically, so 
 
 ## Logbook, newest first
 
+- `logbook/2026-11-11.md` (2026-11-11, active): The site password was changed to one Jason chose, Jason moved to using only the live site, and days with no study guide link gained a "Show me how, step by step" button.
+- `logbook/2026-11-10.md` (2026-11-10, active): Jason asked for a guess at his chances, settled on 30 minutes a day, and set 30 June 2027 as the deadline to pass; the exam moved to 26 June and the four official exercises joined the plan.
+- `logbook/2026-11-09.md` (2026-11-09, active): Rebuilt the whole plan for 30 minutes a day with hands-on practice for every lesson, a first try on 29 May 2027 and a second try on 28 August.
 - `logbook/2026-11-02.md` (2026-11-02, active): Moved the exam to 22 May 2027 and spread the plan out; also, from a session begun 29 October, the notes push, the Friday dot, and the spin-off of a shareable app for any Claude exam.
 - `logbook/2026-10-28.md` (2026-10-28, active): The day the build brief for lessons 1.1 to 1.3 was finished, why stage 3 first flagged an "unsourced fact", and why the stage 2 fusion gap was left unfixed.
 - `logbook/2026-10-27.md` (2026-10-27, active): Short session that opened the project and restarted the local site on port 3005 after it had stopped.
@@ -76,4 +83,7 @@ summary: Every journal entry with a one-line summary. Rebuilt automatically, so 
 - `artefacts/2026-10-28-stage3-report-run1.md`
 - `artefacts/2026-11-02-import-plan-before.py.txt`
 - `artefacts/2026-11-02-schedule-march-exam.json`
+- `artefacts/2026-11-09-schedule-22-may-exam.json`
+- `artefacts/2026-11-10-build-plan-two-tries.py.txt`
+- `artefacts/2026-11-10-schedule-two-tries.json`
 - `artefacts/README.md`

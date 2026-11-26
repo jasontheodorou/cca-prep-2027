@@ -3,10 +3,11 @@ import SESSIONS from '../content/schedule.json'
 /* The study schedule, written by scripts/build-plan.py (decision 016). The
  * site never changes it.
  *
- * No day is longer than 30 minutes. Each lesson takes three days: read it,
- * build it, test it. Friday is a spare day with nothing planned, which is
- * where a missed day can go. Each section ends with one of the exam guide's
- * four exercises, one step a day. The exam is planned for 26 June 2027. */
+ * No day is longer than one hour, and most days hold two half-hour jobs.
+ * Each lesson has three jobs: read it, build it, test it. Friday is a spare
+ * day with nothing planned, which is where a missed day can go. Each section
+ * ends with one of the exam guide's four exercises, two steps a day. The plan
+ * runs from 1 December 2026 to the exam on 27 March 2027 (decision 020). */
 
 export type Session = {
   day: string
@@ -24,6 +25,8 @@ export type Session = {
   units: string[]
   /** Pages on the study site the day uses. */
   links: { label: string; href: string }[]
+  /** The titles of the day's half-hour jobs, when the plan names them. */
+  parts?: string[]
   /** On a sandbox day: that step, as the plan's sandbox table describes it. */
   build?: string
 }
@@ -36,6 +39,9 @@ export const sessionOn = (day: string) => BY_DAY.get(day)
 
 /** The exam: the plan's first day of kind "Exam". */
 export const EXAM_DAY = SCHEDULE.find((s) => s.kind === 'Exam')!.day
+
+/** The plan's first day. The Momentum calendar starts in its month. */
+export const FIRST_DAY = SCHEDULE[0].day
 
 /** The plan's last day. */
 export const LAST_DAY = SCHEDULE[SCHEDULE.length - 1].day
@@ -55,7 +61,7 @@ const DECK_DAY = SCHEDULE.find((s) => /flashcards/i.test(s.title))?.day ?? ''
 export const isLesson = (s: Session) => /^Lesson \d\.\d:/.test(s.title)
 
 /** Question and revision days open with 5 minutes of flashcards, once they
- * exist. Lesson days and hands-on days keep the whole 30 minutes. */
+ * exist. Lesson days and hands-on days keep the whole hour. */
 export const startsWithCards = (s: Session) => s.day > DECK_DAY && s.kind === 'Daily' && !isLesson(s)
 
 /** A hands-on day in the practice project. */
