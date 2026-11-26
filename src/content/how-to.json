@@ -451,6 +451,57 @@
   ],
   "done": "Notes has five section scores and your three weakest topics by number."
  },
+ "Mark practice exam 3": {
+  "about": "Marking practice exam 3 shows which topics need work. The next days in the plan use the three topics you write down today.",
+  "steps": [
+   "Open the practice exam and go to your results.",
+   "In Notes, write each section's score, such as \"Agents 12 of 16\".",
+   "Find the three topics with the most wrong answers.",
+   "Write them by lesson number, such as 2.3, 5.1 and 1.6.",
+   "Put the worst one first."
+  ],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "done": "Notes has five section scores and your three weakest topics by number."
+ },
+ "Mark practice exam 4": {
+  "about": "Marking practice exam 4 shows which topics need work. The next days in the plan use the three topics you write down today.",
+  "steps": [
+   "Open the practice exam and go to your results.",
+   "In Notes, write each section's score, such as \"Agents 12 of 16\".",
+   "Find the three topics with the most wrong answers.",
+   "Write them by lesson number, such as 2.3, 5.1 and 1.6.",
+   "Put the worst one first."
+  ],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "done": "Notes has five section scores and your three weakest topics by number."
+ },
+ "Mark practice exam 5": {
+  "about": "Marking practice exam 5 shows which topics need work. The next days in the plan use the three topics you write down today.",
+  "steps": [
+   "Open the practice exam and go to your results.",
+   "In Notes, write each section's score, such as \"Agents 12 of 16\".",
+   "Find the three topics with the most wrong answers.",
+   "Write them by lesson number, such as 2.3, 5.1 and 1.6.",
+   "Put the worst one first."
+  ],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "done": "Notes has five section scores and your three weakest topics by number."
+ },
  "The exam guide: how the exam works": {
   "about": "Before you study anything, see what the exam is. Knowing how it is marked tells you where to spend your time.",
   "steps": [
@@ -1490,25 +1541,6 @@
    }
   ]
  },
- "Mark practice exam 3": {
-  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
-  "steps": [
-   "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6. Use the link on the day's card.",
-   "Second half hour: learn from your wrong answers. Understanding why you got a question wrong is worth more than doing new questions.",
-   "Open practice exam 2's results.",
-   "Go to the first question you got wrong.",
-   "Read the right answer and its reason.",
-   "In Notes, write one sentence: why the right answer is right.",
-   "Do the same for every other question you got wrong."
-  ],
-  "done": "Every wrong answer has one sentence in Notes.",
-  "links": [
-   {
-    "label": "Practice exam",
-    "href": "https://claudecertificationguide.com/mock-exam"
-   }
-  ]
- },
  "Your two weakest topics after exam 3": {
   "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
   "steps": [
@@ -1535,26 +1567,33 @@
    }
   ]
  },
- "Mark practice exam 4": {
+ "Your two weakest topics after exam 4": {
   "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
   "steps": [
-   "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6. Use the link on the day's card.",
-   "Second half hour: learn from your wrong answers. Understanding why you got a question wrong is worth more than doing new questions.",
-   "Open practice exam 2's results.",
-   "Go to the first question you got wrong.",
-   "Read the right answer and its reason.",
-   "In Notes, write one sentence: why the right answer is right.",
-   "Do the same for every other question you got wrong."
+   "First half hour: your weakest topic. Today you rebuild your weakest topic from nothing, so it sticks before the exam.",
+   "Open Notes and find the three topics you wrote down when you marked your last practice exam.",
+   "Take the weakest one. Open that lesson on the study site.",
+   "Read its common-mistakes box (Exam Traps).",
+   "Close the lesson. Make an empty file in your practice project.",
+   "Build the thing the lesson is about again, without looking.",
+   "Compare it with the lesson. Write in Notes what you got wrong.",
+   "Second half hour: your second-weakest topic. Today you rebuild your second-weakest topic from nothing, so it sticks before the exam.",
+   "Open Notes and find the three topics you wrote down when you marked your last practice exam.",
+   "Take the second-weakest one. Open that lesson on the study site.",
+   "Read its common-mistakes box (Exam Traps).",
+   "Close the lesson. Make an empty file in your practice project.",
+   "Build the thing the lesson is about again, without looking.",
+   "Compare it with the lesson. Write in Notes what you got wrong."
   ],
-  "done": "Every wrong answer has one sentence in Notes.",
+  "done": "You have rebuilt the topic and noted what you got wrong. You have rebuilt the topic and noted what you got wrong.",
   "links": [
    {
-    "label": "Practice exam",
-    "href": "https://claudecertificationguide.com/mock-exam"
+    "label": "Open the study site",
+    "href": "https://claudecertificationguide.com"
    }
   ]
  },
- "Your two weakest topics after exam 4": {
+ "Your two weakest topics after exam 5": {
   "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
   "steps": [
    "First half hour: your weakest topic. Today you rebuild your weakest topic from nothing, so it sticks before the exam.",
@@ -1597,7 +1636,7 @@
   ],
   "done": "You have said three questions out loud for each of the six. You have answered all 12 and read what is not in the exam."
  },
- "Common mistakes, then questions on every section": {
+ "Common mistakes, then your last look": {
   "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
   "steps": [
    "First half hour: common mistakes: every section. A last pass over the traps the examiner likes to set. Only read the ones you find hard.",
@@ -1606,9 +1645,12 @@
    "Read the common-mistakes box (Exam Traps) only where you marked it as hard, or where you are unsure.",
    "Skip any you already know.",
    "Stop at 30 minutes.",
-   "Second half hour: Answer six questions in each of the five sections. Write down each score. Use the link on the day's card."
+   "Second half hour: last study day. Two days before the exam. Today is a light review. Nothing new.",
+   "Read your page of nine answer rules. Then say them out loud without looking.",
+   "Go through all your flashcards once.",
+   "Stop. Do not start anything new."
   ],
-  "done": "You have read every common-mistakes box you find hard.",
+  "done": "You have read every common-mistakes box you find hard. You have said the nine rules and been through the cards. Then rest.",
   "links": [
    {
     "label": "Open the study site",

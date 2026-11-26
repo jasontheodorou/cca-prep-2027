@@ -356,8 +356,8 @@ def mark_exam(n):
     }
 
 
-H['Mark practice exam 1'] = mark_exam(1)
-H['Mark practice exam 2'] = mark_exam(2)
+for _n in range(1, 6):
+    H[f'Mark practice exam {_n}'] = mark_exam(_n)
 
 
 def weak(which):

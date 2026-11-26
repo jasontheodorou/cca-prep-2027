@@ -17,8 +17,9 @@ The calendar rules are:
     are counted. Christmas and the February holiday are off; no other day is;
   - one session a day, never more than 60 minutes;
   - most days hold two half-hour jobs, kept in the day's "parts";
-  - April is practice exams, with Fridays spare. 23 April is rest and
-    Saturday 24 April is the exam.
+  - 1 to 22 April is practice exams, every day. Jason, 26 November: "whats up
+    with april why so many dead days". 23 April is rest and Saturday 24 April
+    is the exam.
 Uses the standard library only.
 """
 
@@ -43,7 +44,6 @@ START = D('2026-12-01')
 EXAM = D('2027-04-24')          # the last Saturday in April
 DAYS = 100                      # days of study before the practice exams
 DAY = 60                        # minutes in a study day
-SPARE_WEEKDAY = 4               # Friday, during the practice exams only
 HOLIDAYS = [
     (D('2026-12-21'), D('2027-01-03'), 'Christmas'),
     (D('2027-02-08'), D('2027-02-14'), 'Holiday'),
@@ -435,7 +435,7 @@ SPRINTS = [
 # After day 100: practice exams until the exam.
 def mock(number):
     again = 'Read its common-mistakes box, then build it again in your practice project from an empty file.'
-    return phase(f'Practice exams · Exam {number} of 4', [
+    return phase(f'Practice exams · Exam {number} of 5', [
         hour(read(f'Practice exam {number}, questions 1 to 30', 'Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.', links=[MOCK])),
         hour(read(f'Practice exam {number}, questions 31 to 60', 'Questions 31 to 60 of the practice exam. One hour, no notes.', links=[MOCK])),
         two(read(f'Mark practice exam {number}', 'Write each section\'s score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.'),
@@ -446,15 +446,14 @@ def mock(number):
 
 
 MOCKS = [
-    *mock(1), *mock(2), *mock(3), *mock(4),
+    *mock(1), *mock(2), *mock(3), *mock(4), *mock(5),
     *phase('Practice exams · Last days', [
         two(read('The six exam situations', 'Read all six situations in the exam guide again. For each, say out loud the three questions you would expect.'),
             read('The sample questions', 'Answer the 12 sample questions in the exam guide without looking. Then read the guide\'s list of what is not in the exam.'),
             'The exam guide: situations and sample questions'),
         two(read('Common mistakes: every section', 'Read the common-mistakes boxes you marked as hard. Skip the ones you know.'),
-            MIXED,
-            'Common mistakes, then questions on every section'),
-        hour(read('Last study day', 'Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.')),
+            read('Last study day', 'Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.'),
+            'Common mistakes, then your last look'),
     ]),
 ]
 
@@ -486,8 +485,6 @@ def main():
             out.append(off(d, 'Christmas · Time off', 'Christmas', 'Time off. No studying. The 100 days do not count this one.'))
         elif name:
             out.append(off(d, 'Holiday', 'Holiday', 'Time off. No studying. The 100 days do not count this one.'))
-        elif n >= DAYS and d.weekday() == SPARE_WEEKDAY:
-            out.append(off(d, week, 'Spare day', 'Nothing planned. Catch up on a missed day, or rest.'))
         elif n < len(queue):
             s = queue[n]
             n += 1

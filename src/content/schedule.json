@@ -2355,7 +2355,7 @@
   "day": "2027-04-01",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 1 of 4",
+  "week": "Practice exams · Exam 1 of 5",
   "title": "Practice exam 1, questions 1 to 30",
   "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
   "units": [],
@@ -2371,19 +2371,9 @@
  },
  {
   "day": "2027-04-02",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Practice exams · Exam 1 of 4",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-04-03",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 1 of 4",
+  "week": "Practice exams · Exam 1 of 5",
   "title": "Practice exam 1, questions 31 to 60",
   "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
   "units": [],
@@ -2398,10 +2388,10 @@
   ]
  },
  {
-  "day": "2027-04-04",
+  "day": "2027-04-03",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 1 of 4",
+  "week": "Practice exams · Exam 1 of 5",
   "title": "Mark practice exam 1",
   "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 1, write one sentence on why the right answer is right.",
   "units": [],
@@ -2412,10 +2402,10 @@
   ]
  },
  {
-  "day": "2027-04-05",
+  "day": "2027-04-04",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Practice exams · Exam 1 of 4",
+  "week": "Practice exams · Exam 1 of 5",
   "title": "Your two weakest topics after exam 1",
   "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
   "units": [],
@@ -2426,10 +2416,10 @@
   ]
  },
  {
-  "day": "2027-04-06",
+  "day": "2027-04-05",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 2 of 4",
+  "week": "Practice exams · Exam 2 of 5",
   "title": "Practice exam 2, questions 1 to 30",
   "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
   "units": [],
@@ -2444,10 +2434,10 @@
   ]
  },
  {
-  "day": "2027-04-07",
+  "day": "2027-04-06",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 2 of 4",
+  "week": "Practice exams · Exam 2 of 5",
   "title": "Practice exam 2, questions 31 to 60",
   "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
   "units": [],
@@ -2462,10 +2452,10 @@
   ]
  },
  {
-  "day": "2027-04-08",
+  "day": "2027-04-07",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 2 of 4",
+  "week": "Practice exams · Exam 2 of 5",
   "title": "Mark practice exam 2",
   "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 2, write one sentence on why the right answer is right.",
   "units": [],
@@ -2476,20 +2466,10 @@
   ]
  },
  {
-  "day": "2027-04-09",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Practice exams · Exam 2 of 4",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-04-10",
+  "day": "2027-04-08",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Practice exams · Exam 2 of 4",
+  "week": "Practice exams · Exam 2 of 5",
   "title": "Your two weakest topics after exam 2",
   "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
   "units": [],
@@ -2500,10 +2480,10 @@
   ]
  },
  {
-  "day": "2027-04-11",
+  "day": "2027-04-09",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 3 of 4",
+  "week": "Practice exams · Exam 3 of 5",
   "title": "Practice exam 3, questions 1 to 30",
   "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
   "units": [],
@@ -2518,10 +2498,10 @@
   ]
  },
  {
-  "day": "2027-04-12",
+  "day": "2027-04-10",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 3 of 4",
+  "week": "Practice exams · Exam 3 of 5",
   "title": "Practice exam 3, questions 31 to 60",
   "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
   "units": [],
@@ -2536,10 +2516,10 @@
   ]
  },
  {
-  "day": "2027-04-13",
+  "day": "2027-04-11",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 3 of 4",
+  "week": "Practice exams · Exam 3 of 5",
   "title": "Mark practice exam 3",
   "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 3, write one sentence on why the right answer is right.",
   "units": [],
@@ -2550,10 +2530,10 @@
   ]
  },
  {
-  "day": "2027-04-14",
+  "day": "2027-04-12",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Practice exams · Exam 3 of 4",
+  "week": "Practice exams · Exam 3 of 5",
   "title": "Your two weakest topics after exam 3",
   "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
   "units": [],
@@ -2564,10 +2544,10 @@
   ]
  },
  {
-  "day": "2027-04-15",
+  "day": "2027-04-13",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 4 of 4",
+  "week": "Practice exams · Exam 4 of 5",
   "title": "Practice exam 4, questions 1 to 30",
   "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
   "units": [],
@@ -2582,20 +2562,10 @@
   ]
  },
  {
-  "day": "2027-04-16",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Practice exams · Exam 4 of 4",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-04-17",
+  "day": "2027-04-14",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 4 of 4",
+  "week": "Practice exams · Exam 4 of 5",
   "title": "Practice exam 4, questions 31 to 60",
   "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
   "units": [],
@@ -2610,10 +2580,10 @@
   ]
  },
  {
-  "day": "2027-04-18",
+  "day": "2027-04-15",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Practice exams · Exam 4 of 4",
+  "week": "Practice exams · Exam 4 of 5",
   "title": "Mark practice exam 4",
   "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 4, write one sentence on why the right answer is right.",
   "units": [],
@@ -2624,10 +2594,10 @@
   ]
  },
  {
-  "day": "2027-04-19",
+  "day": "2027-04-16",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Practice exams · Exam 4 of 4",
+  "week": "Practice exams · Exam 4 of 5",
   "title": "Your two weakest topics after exam 4",
   "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
   "units": [],
@@ -2638,7 +2608,71 @@
   ]
  },
  {
+  "day": "2027-04-17",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 5 of 5",
+  "title": "Practice exam 5, questions 1 to 30",
+  "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "parts": [
+   "Practice exam 5, questions 1 to 30"
+  ]
+ },
+ {
+  "day": "2027-04-18",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 5 of 5",
+  "title": "Practice exam 5, questions 31 to 60",
+  "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "parts": [
+   "Practice exam 5, questions 31 to 60"
+  ]
+ },
+ {
+  "day": "2027-04-19",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 5 of 5",
+  "title": "Mark practice exam 5",
+  "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 5, write one sentence on why the right answer is right.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Mark practice exam 5",
+   "Learn from your wrong answers"
+  ]
+ },
+ {
   "day": "2027-04-20",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Practice exams · Exam 5 of 5",
+  "title": "Your two weakest topics after exam 5",
+  "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Your weakest topic",
+   "Your second-weakest topic"
+  ]
+ },
+ {
+  "day": "2027-04-21",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Last days",
@@ -2652,34 +2686,16 @@
   ]
  },
  {
-  "day": "2027-04-21",
-  "kind": "Daily",
-  "minutes": 60,
-  "week": "Practice exams · Last days",
-  "title": "Common mistakes, then questions on every section",
-  "task": "First half hour: Read the common-mistakes boxes you marked as hard. Skip the ones you know.\nSecond half hour: Answer six questions in each of the five sections. Write down each score.",
-  "units": [],
-  "links": [
-   {
-    "label": "Practice questions",
-    "href": "https://claudecertificationguide.com/drill"
-   }
-  ],
-  "parts": [
-   "Common mistakes: every section",
-   "Practice questions: every section"
-  ]
- },
- {
   "day": "2027-04-22",
   "kind": "Daily",
   "minutes": 60,
   "week": "Practice exams · Last days",
-  "title": "Last study day",
-  "task": "Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.",
+  "title": "Common mistakes, then your last look",
+  "task": "First half hour: Read the common-mistakes boxes you marked as hard. Skip the ones you know.\nSecond half hour: Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.",
   "units": [],
   "links": [],
   "parts": [
+   "Common mistakes: every section",
    "Last study day"
   ]
  },

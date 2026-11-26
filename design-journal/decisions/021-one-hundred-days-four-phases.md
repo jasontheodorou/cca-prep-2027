@@ -32,7 +32,7 @@ And on the dates: "this will go to end of april now and thats fine. lets get it 
 - Days 11 to 40, "What decides the mark": day 11 is the test of all five sections. The other 29 days are split by each section's share of the marks in the exam guide: Agents 27% (8 days), Claude Code 20% (6), Prompts and output 20% (6), Tools and MCP 18% (6), Context and reliability 15% (3). The lessons studied are 1.1 to 1.6, 3.1 to 3.4, 4.1 to 4.4, 2.1 to 2.4, 5.1 and 5.2, each read, built and tested.
 - Days 41 to 50, "Hard practice": exam guide exercises 1 and 2 in full, exercise 3 steps 1 to 3 and exercise 4 steps 1 and 2, all in empty folders, plus four builds from memory.
 - Days 51 to 100: ten sprints of five days. Each sprint learns one new lesson (1.7, 3.5, 3.6, 4.5, 4.6, 2.5, 5.3, 5.4, 5.5, 5.6), practises, sits 20 questions on its section and fixes the worst two, then reviews. The six exam situations and the last five exercise steps sit inside the sprints.
-- 1 to 22 April: four practice exams, each as two one-hour sittings, a marking day and a day rebuilding the two weakest topics. Fridays are spare. 23 April is rest. The exam is Saturday 24 April 2027. It is not booked.
+- 1 to 22 April: five practice exams, each as two one-hour sittings, a marking day and a day rebuilding the two weakest topics, then two last days. No day is spare: Jason asked "whats up with april why so many dead days" when the first version left Fridays free. 23 April is rest. The exam is Saturday 24 April 2027. It is not booked.
 - Week labels now read "Day 12 of 100 · What decides the mark · Agents".
 
 ## Consequences
@@ -40,6 +40,6 @@ And on the dates: "this will go to end of april now and thats fine. lets get it 
 - The guide gives marks by section, not by lesson. Picking each section's first lessons as "highest value" is Claude's judgement: the later lessons build on them.
 - Days 1 to 100 have no spare days. A missed day has to be doubled up, or the day count slips.
 - Context and reliability gets only two lessons before the sprints, so sprints 7 to 10 are all on it.
-- Whether the study site's practice exam gives different questions each time is not checked. Four sittings assume it does.
+- Whether the study site's practice exam gives different questions each time is not checked. Five sittings assume it does.
 - Each practice exam is split in two. The real exam is the first 2-hour sitting.
 - Decision 020's plan is kept at `artefacts/2026-11-26-schedule-27-march-exam.json`, with its script beside it.
