@@ -56,9 +56,9 @@ export const GUIDE = {
 
 export const EXAM = {
   /** The planned exam day: 20 March, then 22 May, 29 May, 26 June, 27 March
-   * 24 April, 9 May and now Wednesday 5 May (26 November 2026): 100 days of study from
+   * 24 April, 9 May, 5 May and now 15 May (26 November 2026): 100 days of study from
    * 1 December with three rest days a month, then practice exams. */
-  day: '2027-05-05',
+  day: '2027-05-15',
   items: 60,
   format: 'Multiple-choice and multiple-response items. Each item says how many answers to choose.',
   minutes: 120,

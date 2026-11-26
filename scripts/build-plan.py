@@ -20,9 +20,9 @@ The calendar rules are:
     If we need to push this into may that is fine";
   - one session a day, never more than 60 minutes;
   - most days hold two half-hour jobs, kept in the day's "parts";
-  - 14 April to 3 May is four practice exams. No day is left empty: Jason,
-    26 November, "whats up with april why so many dead days". 4 May is rest
-    and Wednesday 5 May is the exam: "sit the exam on wesnesday".
+  - 14 April to 13 May is six practice exams. No day is left empty: Jason,
+    26 November, "whats up with april why so many dead days". 14 May is rest
+    and Saturday 15 May is the exam: "sit exam on 15 may".
 Uses the standard library only.
 """
 
@@ -44,7 +44,7 @@ SITE, LESSONS, SECTIONS = _old.SITE, _old.LESSONS, _old.SECTIONS
 
 D = date.fromisoformat
 START = D('2026-12-01')
-EXAM = D('2027-05-05')          # a Wednesday, two days after the last study day
+EXAM = D('2027-05-15')          # Jason's choice, 26 November 2026
 RESTS_A_MONTH = 3
 DAYS = 100                      # days of study before the practice exams
 DAY = 60                        # minutes in a study day
@@ -352,7 +352,7 @@ def skim(units, name, title=None):
 
 SURVEY = phase('See the whole course', [
     two(read('The exam guide: how the exam works', 'Read the start of the exam guide: how the exam is marked, the five sections and their share of the marks, and the six situations. Write the five shares in Notes.'),
-        read('Book your exam', 'Book the exam for Wednesday 5 May. Check the name on your ID matches the booking exactly.'),
+        read('Book your exam', 'Book the exam for Saturday 15 May. Check the name on your ID matches the booking exactly.'),
         'How the exam works, then book it'),
     skim(['1.1', '1.2', '1.3', '1.4'], 'Agents'),
     skim(['1.5', '1.6', '1.7'], 'Agents'),
@@ -439,7 +439,7 @@ SPRINTS = [
 # After day 100: practice exams until the exam.
 def mock(number):
     again = 'Read its common-mistakes box, then build it again in your practice project from an empty file.'
-    return phase(f'Practice exams · Exam {number} of 4', [
+    return phase(f'Practice exams · Exam {number} of 6', [
         hour(read(f'Practice exam {number}, questions 1 to 30', 'Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.', links=[MOCK])),
         hour(read(f'Practice exam {number}, questions 31 to 60', 'Questions 31 to 60 of the practice exam. One hour, no notes.', links=[MOCK])),
         two(read(f'Mark practice exam {number}', 'Write each section\'s score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.'),
@@ -450,14 +450,16 @@ def mock(number):
 
 
 MOCKS = [
-    *mock(1), *mock(2), *mock(3), *mock(4),
+    *mock(1), *mock(2), *mock(3), *mock(4), *mock(5), *mock(6),
     *phase('Practice exams · Last days', [
         two(read('The six exam situations', 'Read all six situations in the exam guide again. For each, say out loud the three questions you would expect.'),
             read('The sample questions', 'Answer the 12 sample questions in the exam guide without looking. Then read the guide\'s list of what is not in the exam.'),
             'The exam guide: situations and sample questions'),
         two(read('Common mistakes: every section', 'Read the common-mistakes boxes you marked as hard. Skip the ones you know.'),
-            read('Last study day', 'Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.'),
-            'Common mistakes, then your last look'),
+            MIXED,
+            'Common mistakes, then questions on every section'),
+        two(EXPLAIN, RULES, 'Explain it out loud, then write your nine answer rules again'),
+        hour(read('Last study day', 'Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.')),
     ]),
 ]
 

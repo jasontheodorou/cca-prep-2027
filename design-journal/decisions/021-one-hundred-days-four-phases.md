@@ -3,7 +3,7 @@ id: decision-021-one-hundred-days-four-phases
 type: decision
 date: 2026-11-26
 topic: schedule
-summary: The plan is 100 one-hour study days from 1 December 2026 to 13 April 2027 in four phases (see the whole course, what decides the mark, hard practice, ten sprints), with three rest days a month, then four practice exams and the exam on Wednesday 5 May 2027.
+summary: The plan is 100 one-hour study days from 1 December 2026 to 13 April 2027 in four phases (see the whole course, what decides the mark, hard practice, ten sprints), with three rest days a month, then six practice exams and the exam on Saturday 15 May 2027.
 tags: [schedule, momentum, study-plan, exam-date, hands-on-practice, sprints]
 status: accepted
 related: [decision-020-one-hour-a-day-exam-in-march, decision-019-step-by-step-help, logbook-2026-11-26]
@@ -33,7 +33,7 @@ And on the dates: "this will go to end of april now and thats fine. lets get it 
 - Days 11 to 40, "What decides the mark": day 11 is the test of all five sections. The other 29 days are split by each section's share of the marks in the exam guide: Agents 27% (8 days), Claude Code 20% (6), Prompts and output 20% (6), Tools and MCP 18% (6), Context and reliability 15% (3). The lessons studied are 1.1 to 1.6, 3.1 to 3.4, 4.1 to 4.4, 2.1 to 2.4, 5.1 and 5.2, each read, built and tested.
 - Days 41 to 50, "Hard practice": exam guide exercises 1 and 2 in full, exercise 3 steps 1 to 3 and exercise 4 steps 1 and 2, all in empty folders, plus four builds from memory.
 - Days 51 to 100: ten sprints of five days. Each sprint learns one new lesson (1.7, 3.5, 3.6, 4.5, 4.6, 2.5, 5.3, 5.4, 5.5, 5.6), practises, sits 20 questions on its section and fixes the worst two, then reviews. The six exam situations and the last five exercise steps sit inside the sprints.
-- 14 April to 3 May: four practice exams, each as two one-hour sittings, a marking day and a day rebuilding the two weakest topics, then two last days. No day is spare: Jason asked "whats up with april why so many dead days" when the first version left Fridays free. 4 May is rest. The exam is Wednesday 5 May 2027. Jason, after the plan first landed on Sunday 9 May: "no sit the exam on wesnesday ok". The fifth practice exam was dropped so that no day is left empty before it. It is not booked.
+- 14 April to 13 May: six practice exams, each as two one-hour sittings, a marking day and a day rebuilding the two weakest topics, then four last days. No day is spare: Jason asked "whats up with april why so many dead days" when the first version left Fridays free. 14 May is rest. The exam is Saturday 15 May 2027. The date first landed on Sunday 9 May; Jason said "no sit the exam on wesnesday ok", then, once it was set to Wednesday 5 May, "sit exam on 15 may". The practice exams grew from four to six so that no day is left empty before it. It is not booked.
 - Week labels now read "Day 12 of 100 · What decides the mark · Agents".
 
 ## Consequences
@@ -41,6 +41,6 @@ And on the dates: "this will go to end of april now and thats fine. lets get it 
 - The guide gives marks by section, not by lesson. Picking each section's first lessons as "highest value" is Claude's judgement: the later lessons build on them.
 - There are no catch-up days. A missed day has to be doubled up or done on a rest day, or the day count slips.
 - Context and reliability gets only two lessons before the sprints, so sprints 7 to 10 are all on it.
-- Whether the study site's practice exam gives different questions each time is not checked. Four sittings assume it does.
+- Whether the study site's practice exam gives different questions each time is not checked. Six sittings assume it does.
 - Each practice exam is split in two. The real exam is the first 2-hour sitting.
 - Decision 020's plan is kept at `artefacts/2026-11-26-schedule-27-march-exam.json`, with its script beside it.
