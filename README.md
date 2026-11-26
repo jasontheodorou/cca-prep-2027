@@ -1,6 +1,6 @@
 # cca-prep-2027
 
-A small, calm site for preparing for the Claude Certified Architect – Foundations exam (planned for Sunday 9 May 2027). It shows one small thing first and reveals more only when asked.
+A small, calm site for preparing for the Claude Certified Architect – Foundations exam (planned for Wednesday 5 May 2027). It shows one small thing first and reveals more only when asked.
 
 Four tabs, and Pet:
 
@@ -15,7 +15,7 @@ Four tabs, and Pet:
 python3 scripts/build-plan.py
 ```
 
-Change the lists in the script, then run it again. The plan is 100 days of study from 1 December 2026 to 13 April 2027, with Christmas, the February holiday and three rest days a month off and not counted: 10 days to skim the whole course, 30 on the lessons that carry the most marks, 10 of hard practice and 50 in ten five-day sprints. Practice exams follow until the exam. No day is longer than one hour and most days hold two half-hour jobs. Run `scripts/build-how-to.py` afterwards. The exam is planned for Sunday 9 May 2027.
+Change the lists in the script, then run it again. The plan is 100 days of study from 1 December 2026 to 13 April 2027, with Christmas, the February holiday and three rest days a month off and not counted: 10 days to skim the whole course, 30 on the lessons that carry the most marks, 10 of hard practice and 50 in ten five-day sprints. Practice exams follow until the exam. No day is longer than one hour and most days hold two half-hour jobs. Run `scripts/build-how-to.py` afterwards. The exam is planned for Wednesday 5 May 2027.
 - **Study**: notes on one side, the open note on the other. Headings, bold, lists, links, pasted screenshots and YouTube videos. Everything saves itself as Markdown in `notes/`, committed to git a minute after the last change, and each note is tagged with the exam task statements it covers.
 - **Progress**: one ring for the whole course and one bar per section. The figures are the share ticked, not a predicted score.
 

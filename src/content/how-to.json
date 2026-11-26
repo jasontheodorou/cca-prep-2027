@@ -174,7 +174,7 @@
   "about": "Booking the exam now makes the date real. Most problems on exam day come from the name on the booking not matching your ID.",
   "steps": [
    "Find the booking link in the exam guide or on Anthropic's certification page.",
-   "Choose Sunday 9 May 2027. If that day is not offered, take the nearest day after it.",
+   "Choose Wednesday 5 May 2027. If that day is not offered, take the nearest day after it.",
    "Type your name exactly as it appears on your passport or driving licence.",
    "Finish the booking and wait for the email.",
    "Check the name in the email matches your ID, letter for letter.",
@@ -667,7 +667,7 @@
    "Read the list of what is not in the exam.",
    "Second half hour: book your exam. Booking the exam now makes the date real. Most problems on exam day come from the name on the booking not matching your ID.",
    "Find the booking link in the exam guide or on Anthropic's certification page.",
-   "Choose Sunday 9 May 2027. If that day is not offered, take the nearest day after it.",
+   "Choose Wednesday 5 May 2027. If that day is not offered, take the nearest day after it.",
    "Type your name exactly as it appears on your passport or driving licence.",
    "Finish the booking and wait for the email.",
    "Check the name in the email matches your ID, letter for letter.",
@@ -1568,32 +1568,6 @@
   ]
  },
  "Your two weakest topics after exam 4": {
-  "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
-  "steps": [
-   "First half hour: your weakest topic. Today you rebuild your weakest topic from nothing, so it sticks before the exam.",
-   "Open Notes and find the three topics you wrote down when you marked your last practice exam.",
-   "Take the weakest one. Open that lesson on the study site.",
-   "Read its common-mistakes box (Exam Traps).",
-   "Close the lesson. Make an empty file in your practice project.",
-   "Build the thing the lesson is about again, without looking.",
-   "Compare it with the lesson. Write in Notes what you got wrong.",
-   "Second half hour: your second-weakest topic. Today you rebuild your second-weakest topic from nothing, so it sticks before the exam.",
-   "Open Notes and find the three topics you wrote down when you marked your last practice exam.",
-   "Take the second-weakest one. Open that lesson on the study site.",
-   "Read its common-mistakes box (Exam Traps).",
-   "Close the lesson. Make an empty file in your practice project.",
-   "Build the thing the lesson is about again, without looking.",
-   "Compare it with the lesson. Write in Notes what you got wrong."
-  ],
-  "done": "You have rebuilt the topic and noted what you got wrong. You have rebuilt the topic and noted what you got wrong.",
-  "links": [
-   {
-    "label": "Open the study site",
-    "href": "https://claudecertificationguide.com"
-   }
-  ]
- },
- "Your two weakest topics after exam 5": {
   "about": "Two jobs today, half an hour each. Stop each one at 30 minutes.",
   "steps": [
    "First half hour: your weakest topic. Today you rebuild your weakest topic from nothing, so it sticks before the exam.",

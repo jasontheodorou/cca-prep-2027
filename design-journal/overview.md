@@ -12,14 +12,14 @@ related: [decision-009-new-study-plan, decision-010-study-notes, decision-011-ni
 
 ## What this is
 
-A calm, minimal study site, built from sanctum, for Jason's Claude Certified Architect (Foundations) exam. The exam is planned for Sunday 9 May 2027. It is not booked (decision 021).
+A calm, minimal study site, built from sanctum, for Jason's Claude Certified Architect (Foundations) exam. The exam is planned for Wednesday 5 May 2027. It is not booked (decision 021).
 
 ## Where things stand
 
 - Five tabs: Course, Progress, Momentum, Notes, Pet.
 - Jason uses only the live site, https://cca-prep-2027.vercel.app, behind a password gate (decision 018). Do not start or offer the local server. Run locally only to test a code change before a deploy.
 - The site password was changed on 11 November to one Jason chose. It is in the Mac Keychain as `cca-prep-2027-site-password`. The study log and notes are in a private Vercel Blob store.
-- Momentum shows today's job. The plan is 100 one-hour study days from 1 December 2026 to 13 April 2027. Christmas, the February holiday and three rest days a month are off and not counted (decision 021). Days 1 to 10 skim the whole course, 11 to 40 study the lessons that carry the most marks, 41 to 50 are hard practice and 51 to 100 are ten five-day sprints. 14 April to 7 May is five practice exams. Most days hold two half-hour jobs and the calendar shows December to May. `scripts/build-plan.py` writes the schedule; run `scripts/build-how-to.py` after it.
+- Momentum shows today's job. The plan is 100 one-hour study days from 1 December 2026 to 13 April 2027. Christmas, the February holiday and three rest days a month are off and not counted (decision 021). Days 1 to 10 skim the whole course, 11 to 40 study the lessons that carry the most marks, 41 to 50 are hard practice and 51 to 100 are ten five-day sprints. 14 April to 3 May is four practice exams. Most days hold two half-hour jobs and the calendar shows December to May. `scripts/build-plan.py` writes the schedule; run `scripts/build-how-to.py` after it.
 - Days with no study guide link have a "Show me how, step by step" button with numbered steps (decision 019). 38 sets of steps exist, in `scripts/build-how-to.py`.
 - Notes saves Markdown. EXAM TRAP shows in dark red; typing |word marks one word infra.
 - A shareable version for colleagues is a separate project, cca-prep-engine (decision 015). This site stays personal.
@@ -27,7 +27,7 @@ A calm, minimal study site, built from sanctum, for Jason's Claude Certified Arc
 
 ## Recent sessions
 
-- 26 Nov: plan rebuilt as 100 study days in four phases from 1 December, three rest days a month, exam moved to 9 May.
+- 26 Nov: plan rebuilt as 100 study days in four phases from 1 December, three rest days a month, exam moved to Wednesday 5 May.
 - 11 Nov: changed the site password, moved to online only, added step-by-step help for days with no study guide link.
 - 10 Nov: deadline to pass set at 30 June, exam moved to 26 June, site went live behind a password gate.
 - 9 Nov: rebuilt the plan for 30 minutes a day with hands-on practice.
@@ -42,7 +42,7 @@ A calm, minimal study site, built from sanctum, for Jason's Claude Certified Arc
 
 ## Next steps
 
-- 1 December, day 1: read how the exam works, then book it for 9 May.
+- 1 December, day 1: read how the exam works, then book it for Wednesday 5 May.
 - Fix the folder name in `scripts/build-how-to.py` if the practice project is not refund-helper.
 - Move the API key out of `~/.zshrc` into the course folder only.
 

@@ -5,7 +5,7 @@ import SESSIONS from '../content/schedule.json'
  *
  * The plan is 100 days of study from 1 December 2026 to 13 April 2027, not
  * counting Christmas, the February holiday and three rest days a month, then
- * practice exams until the exam on 9 May 2027 (decision 021). Days 1 to 10
+ * practice exams until the exam on Wednesday 5 May 2027 (decision 021). Days 1 to 10
  * skim the whole course, 11 to 40 study the lessons that carry the most
  * marks, 41 to 50 are hard practice and 51 to 100 are ten five-day sprints.
  * No day is longer than one hour, and most days hold two half-hour jobs. */
