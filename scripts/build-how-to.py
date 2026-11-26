@@ -220,7 +220,7 @@ H['Book your exam'] = {
     'about': 'Booking the exam now makes the date real. Most problems on exam day come from the name on the booking not matching your ID.',
     'steps': [
         'Find the booking link in the exam guide or on Anthropic\'s certification page.',
-        'Choose Saturday 27 March 2027.',
+        'Choose Saturday 24 April 2027. If that day is not offered, take the nearest day before it.',
         'Type your name exactly as it appears on your passport or driving licence.',
         'Finish the booking and wait for the email.',
         'Check the name in the email matches your ID, letter for letter.',
@@ -364,7 +364,7 @@ def weak(which):
     return {
         'about': f'Today you rebuild your {which} topic from nothing, so it sticks before the exam.',
         'steps': [
-            'Open Notes and find the three topics you wrote down when you marked practice exam 1.',
+            'Open Notes and find the three topics you wrote down when you marked your last practice exam.',
             f'Take the {which} one. Open that lesson on the study site.',
             'Read its common-mistakes box (Exam Traps).',
             'Close the lesson. Make an empty file in your practice project.',
@@ -375,6 +375,46 @@ def weak(which):
         'done': 'You have rebuilt the topic and noted what you got wrong.',
     }
 
+
+H['The exam guide: how the exam works'] = {
+    'about': 'Before you study anything, see what the exam is. Knowing how it is marked tells you where to spend your time.',
+    'steps': [
+        f'Open {GUIDE}.',
+        'Read the first pages: how many questions, how long, and the pass mark.',
+        'Find the five sections and the share of the marks each one has.',
+        'In Notes, write the five sections with their shares, biggest first.',
+        'Read the six situations. In the exam you get four of them.',
+        'Read the list of what is not in the exam.',
+    ],
+    'done': 'Notes has the five sections with their shares of the marks.',
+}
+
+H['Your shakiest topic'] = {
+    'about': 'Each sprint ends its practice by going back to the one thing you are least sure of. Building it again from nothing is what makes it stick.',
+    'steps': [
+        'Think back over this sprint and the ones before it. Pick the one topic you are least sure of.',
+        'Open that lesson on the study site.',
+        'Read its common-mistakes box (Exam Traps).',
+        'Close the lesson. Make an empty file in your practice project.',
+        'Build the thing the lesson is about again, without looking.',
+        'Compare it with the lesson. Write in Notes what you got wrong.',
+    ],
+    'links': [{'label': 'Open the study site', 'href': SITE}],
+    'done': 'You have rebuilt the topic and noted what you got wrong.',
+}
+
+H['Sprint review'] = {
+    'about': 'The last job of a sprint. You look back for a few minutes, so the next sprint starts from what you really know.',
+    'steps': [
+        'Open Notes and start a new note called "Sprint review".',
+        'Write one line: what you learnt in this sprint.',
+        'Write one line: what you got wrong.',
+        'Write one line: what you need to look at again.',
+        'Get your flashcards. Go through every card and say the answer before you turn it over.',
+        'Go through the cards you got wrong once more.',
+    ],
+    'done': 'Notes has three lines for this sprint, and you have been through every card.',
+}
 
 H['Your weakest topic'] = weak('weakest')
 H['Your second-weakest topic'] = weak('second-weakest')
@@ -453,14 +493,15 @@ H['Exam day'] = {
 # Days made of two half-hour jobs: join the help for each job.
 sched = json.loads((OUT.parent / 'schedule.json').read_text())
 HALVES = ('First half hour', 'Second half hour')
+JOBS = dict(H)  # help for single jobs only, so a joined day is never joined again
 for day in sched:
     parts = day.get('parts', [])
-    if len(parts) != 2 or day['title'] in H or not any(t in H for t in parts):
+    if len(parts) != 2 or day['title'] in H or not any(t in JOBS for t in parts):
         continue
     tasks = [line.split(': ', 1)[1] for line in day['task'].split('\n')]
     steps, done, links, code = [], [], [], None
     for half, title, task in zip(HALVES, parts, tasks):
-        h = H.get(title)
+        h = JOBS.get(title)
         if not h:
             steps.append(f'{half}: {task} Use the link on the day\'s card.')
             continue

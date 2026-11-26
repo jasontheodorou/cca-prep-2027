@@ -3,11 +3,12 @@ import SESSIONS from '../content/schedule.json'
 /* The study schedule, written by scripts/build-plan.py (decision 016). The
  * site never changes it.
  *
- * No day is longer than one hour, and most days hold two half-hour jobs.
- * Each lesson has three jobs: read it, build it, test it. Friday is a spare
- * day with nothing planned, which is where a missed day can go. Each section
- * ends with one of the exam guide's four exercises, two steps a day. The plan
- * runs from 1 December 2026 to the exam on 27 March 2027 (decision 020). */
+ * The plan is 100 days of study from 1 December 2026 to 31 March 2027, not
+ * counting Christmas and the February holiday, then practice exams until the
+ * exam on 24 April 2027 (decision 021). Days 1 to 10
+ * skim the whole course, 11 to 40 study the lessons that carry the most
+ * marks, 41 to 50 are hard practice and 51 to 100 are ten five-day sprints.
+ * No day is longer than one hour, and most days hold two half-hour jobs. */
 
 export type Session = {
   day: string
@@ -15,7 +16,7 @@ export type Session = {
    * Days before 9 November 2026 also use "Long block". */
   kind: string
   minutes: number
-  /** "Week 1 · Domain 1, first half" */
+  /** "Day 12 of 100 · What decides the mark · Agents" */
   week: string
   /** The day's job in a line: "Lesson 1.1 Agentic Loops". */
   title: string

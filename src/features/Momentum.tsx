@@ -177,7 +177,8 @@ export function Momentum() {
             </h2>
             {weekMinutes > 0 && <p className="muted small">{duration(weekMinutes)}</p>}
           </div>
-          {sessionOn(week[0])?.week && <p className="muted small weekcard__name">{sessionOn(week[0])!.week}</p>}
+          {/* The phase the week starts in, without the day's own number. */}
+          {sessionOn(week[0])?.week && <p className="muted small weekcard__name">{sessionOn(week[0])!.week.replace(/^Day \d+ of \d+ · /, '')}</p>}
           <ul className="week" key={wave ?? 'week'} data-wave={wave ? true : undefined}>
             {week.map((k) => (
               <li key={k}>
@@ -539,8 +540,9 @@ function HowToSteps({ h }: { h: HowTo }) {
     <div className="howto">
       <p className="howto__about">{h.about}</p>
       <ol className="howto__steps">
-        {h.steps.map((step) => (
-          <li key={step}>{withCode(step)}</li>
+        {/* Two jobs in one day can share a step's words, so the place is the key. */}
+        {h.steps.map((step, i) => (
+          <li key={i}>{withCode(step)}</li>
         ))}
       </ol>
       {h.code && (
@@ -708,7 +710,6 @@ function CaughtUp({ onCaught }: { onCaught: () => void }) {
 /** Everything the plan says about one day, with the plan's standing rules
  * that apply to it. */
 function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
-  const friday = parseDay(s.day).getDay() === 5 && s.kind === 'Daily'
   const help = howTo(s)
   const rows: [string, React.ReactNode][] = [
     ['First', startsWithCards(s) ? '5 minutes of flashcards.' : ''],
@@ -733,7 +734,6 @@ function SessionSheet({ s, onClose }: { s: Session; onClose: () => void }) {
         : '',
     ],
     ['Afterwards', isBuild(s) ? 'Write three sentences in Notes about what surprised you. It takes two minutes.' : ''],
-    ['If you have to skip a day', friday ? 'Skip this one. Never skip Saturday, and never skip the flashcards.' : ''],
   ]
   return (
     <Sheet label={s.title} wide onClose={onClose}>

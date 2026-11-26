@@ -5,7 +5,7 @@ date: 2026-11-26
 topic: schedule
 summary: The plan is rebuilt for one hour a day from 1 December 2026, with the exam on Saturday 27 March 2027; most days hold two half-hour jobs and the Momentum calendar runs December to March only.
 tags: [schedule, momentum, study-plan, exam-date, hands-on-practice]
-status: accepted
+status: superseded
 related: [decision-016-thirty-minutes-a-day-two-tries, decision-017-pass-by-30-june, decision-019-step-by-step-help, logbook-2026-11-26]
 ---
 
@@ -49,3 +49,5 @@ Then: "start the calendar on the momentum screen from december 2026 please, and 
 - Without library day 4, the real exam is the first 2-hour sitting.
 - There is no planned second try.
 - Old plan kept at `artefacts/2026-11-26-schedule-26-june-exam.json`, with its script and help file beside it.
+
+- Replaced later on 26 November 2026 by decision 021: 100 study days in four phases, exam on 24 April.

@@ -1,11 +1,328 @@
 [
  {
   "day": "2026-12-01",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 1 of 100 · See the whole course",
+  "title": "How the exam works, then book it",
+  "task": "First half hour: Read the start of the exam guide: how the exam is marked, the five sections and their share of the marks, and the six situations. Write the five shares in Notes.\nSecond half hour: Book the exam for Saturday 24 April. Check the name on your ID matches the booking exactly.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "The exam guide: how the exam works",
+   "Book your exam"
+  ]
+ },
+ {
+  "day": "2026-12-02",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 2 of 100 · See the whole course",
+  "title": "The whole course: Agents, lessons 1.1 to 1.4",
+  "task": "Skim these 4 lessons, about 15 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "1.1",
+   "1.2",
+   "1.3",
+   "1.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.1",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-1-agentic-loops"
+   },
+   {
+    "label": "Open lesson 1.2",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-2-orchestration-patterns"
+   },
+   {
+    "label": "Open lesson 1.3",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-3-subagent-invocation-context"
+   },
+   {
+    "label": "Open lesson 1.4",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-4-workflow-enforcement-handoff"
+   }
+  ],
+  "parts": [
+   "The whole course: Agents, lessons 1.1 to 1.4"
+  ]
+ },
+ {
+  "day": "2026-12-03",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 3 of 100 · See the whole course",
+  "title": "The whole course: Agents, lessons 1.5 to 1.7",
+  "task": "Skim these 3 lessons, about 20 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "1.5",
+   "1.6",
+   "1.7"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.5",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks"
+   },
+   {
+    "label": "Open lesson 1.6",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition"
+   },
+   {
+    "label": "Open lesson 1.7",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
+   }
+  ],
+  "parts": [
+   "The whole course: Agents, lessons 1.5 to 1.7"
+  ]
+ },
+ {
+  "day": "2026-12-04",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 4 of 100 · See the whole course",
+  "title": "The whole course: Claude Code, lessons 3.1 to 3.3",
+  "task": "Skim these 3 lessons, about 20 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "3.1",
+   "3.2",
+   "3.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.1",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-1-claude-md-hierarchy"
+   },
+   {
+    "label": "Open lesson 3.2",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-2-slash-commands-skills"
+   },
+   {
+    "label": "Open lesson 3.3",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-3-path-specific-rules"
+   }
+  ],
+  "parts": [
+   "The whole course: Claude Code, lessons 3.1 to 3.3"
+  ]
+ },
+ {
+  "day": "2026-12-05",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 5 of 100 · See the whole course",
+  "title": "The whole course: Claude Code, lessons 3.4 to 3.6",
+  "task": "Skim these 3 lessons, about 20 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "3.4",
+   "3.5",
+   "3.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.4",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-4-plan-mode-execution"
+   },
+   {
+    "label": "Open lesson 3.5",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement"
+   },
+   {
+    "label": "Open lesson 3.6",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
+   }
+  ],
+  "parts": [
+   "The whole course: Claude Code, lessons 3.4 to 3.6"
+  ]
+ },
+ {
+  "day": "2026-12-06",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 6 of 100 · See the whole course",
+  "title": "The whole course: Prompts and output, lessons 4.1 to 4.3",
+  "task": "Skim these 3 lessons, about 20 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "4.1",
+   "4.2",
+   "4.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.1",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-1-system-prompts"
+   },
+   {
+    "label": "Open lesson 4.2",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-2-few-shot-prompting"
+   },
+   {
+    "label": "Open lesson 4.3",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-3-structured-output"
+   }
+  ],
+  "parts": [
+   "The whole course: Prompts and output, lessons 4.1 to 4.3"
+  ]
+ },
+ {
+  "day": "2026-12-07",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 7 of 100 · See the whole course",
+  "title": "The whole course: Prompts and output, lessons 4.4 to 4.6",
+  "task": "Skim these 3 lessons, about 20 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "4.4",
+   "4.5",
+   "4.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.4",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-4-validation-retry-loops"
+   },
+   {
+    "label": "Open lesson 4.5",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
+   },
+   {
+    "label": "Open lesson 4.6",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review"
+   }
+  ],
+  "parts": [
+   "The whole course: Prompts and output, lessons 4.4 to 4.6"
+  ]
+ },
+ {
+  "day": "2026-12-08",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 8 of 100 · See the whole course",
+  "title": "The whole course: Tools and MCP, lessons 2.1 to 2.3",
+  "task": "Skim these 3 lessons, about 20 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "2.1",
+   "2.2",
+   "2.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.1",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-1-tool-schema-design"
+   },
+   {
+    "label": "Open lesson 2.2",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-2-structured-error-responses"
+   },
+   {
+    "label": "Open lesson 2.3",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-3-tool-distribution-choice"
+   }
+  ],
+  "parts": [
+   "The whole course: Tools and MCP, lessons 2.1 to 2.3"
+  ]
+ },
+ {
+  "day": "2026-12-09",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 9 of 100 · See the whole course",
+  "title": "The whole course: lessons 2.4, 2.5, 5.1 and 5.2",
+  "task": "Skim these 4 lessons, about 15 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "2.4",
+   "2.5",
+   "5.1",
+   "5.2"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.4",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-4-mcp-server-integration"
+   },
+   {
+    "label": "Open lesson 2.5",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-5-built-in-tools"
+   },
+   {
+    "label": "Open lesson 5.1",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-1-context-window-management"
+   },
+   {
+    "label": "Open lesson 5.2",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-2-escalation-ambiguity"
+   }
+  ],
+  "parts": [
+   "The whole course: lessons 2.4, 2.5, 5.1 and 5.2"
+  ]
+ },
+ {
+  "day": "2026-12-10",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 10 of 100 · See the whole course",
+  "title": "The whole course: Context and reliability, lessons 5.3 to 5.6",
+  "task": "Skim these 4 lessons, about 15 minutes each. Read the headings, the summary and the common-mistakes box. Build nothing. Write one line on each in Notes.",
+  "units": [
+   "5.3",
+   "5.4",
+   "5.5",
+   "5.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.3",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation"
+   },
+   {
+    "label": "Open lesson 5.4",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration"
+   },
+   {
+    "label": "Open lesson 5.5",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration"
+   },
+   {
+    "label": "Open lesson 5.6",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance"
+   }
+  ],
+  "parts": [
+   "The whole course: Context and reliability, lessons 5.3 to 5.6"
+  ]
+ },
+ {
+  "day": "2026-12-11",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 11 of 100 · What decides the mark · Where you start",
+  "title": "Test all five sections",
+  "task": "Take the test of all five sections on the study site. Write each section's score in Notes. This is your starting line.",
+  "units": [],
+  "links": [
+   {
+    "label": "Test of all five sections",
+    "href": "https://claudecertificationguide.com/diagnostic"
+   }
+  ],
+  "parts": [
+   "Test all five sections"
+  ]
+ },
+ {
+  "day": "2026-12-12",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 1 of 14 · Build what you have learned",
+  "week": "Day 12 of 100 · What decides the mark · Agents",
   "title": "Add three tools, then build the agent loop",
-  "task": "First half hour: Add three tools that read your JSON file: get_customer, lookup_order and process_refund. Run each one by hand and check what comes back.\nSecond half hour: Write the loop: send a message, run the tool Claude asks for, add the result, and repeat. Stop only when stop_reason is end_turn.",
+  "task": "First half hour: Add three tools that read your JSON file: get_customer, lookup_order and process_refund. Run each one by hand and check what comes back.\nSecond half hour: Write the loop: send a message, run the tool Claude asks for, add the result, and repeat. Stop only when stop_reason is end_turn. Then ask for a refund that needs two tools and print stop_reason each time round.",
   "units": [
    "2.1",
    "1.1"
@@ -22,22 +339,17 @@
   ]
  },
  {
-  "day": "2026-12-02",
+  "day": "2026-12-13",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 1 of 14 · Build what you have learned",
-  "title": "Test the agent loop, then build two helpers",
-  "task": "First half hour: Ask for a refund that needs two tools. Print stop_reason each time round the loop. Then read lesson 1.1's common-mistakes box again.\nSecond half hour: Make a main agent that starts two helper agents in one reply, using the Task tool. Put everything each helper needs into its prompt.",
+  "week": "Day 13 of 100 · What decides the mark · Agents",
+  "title": "Build two helpers, then test what a helper knows",
+  "task": "First half hour: Make a main agent that starts two helper agents in one reply, using the Task tool. Put everything each helper needs into its prompt.\nSecond half hour: Leave one fact out of a helper's prompt and watch it fail. A helper knows only what you pass it. Put the fact back and run it again.",
   "units": [
-   "1.1",
    "1.2",
    "1.3"
   ],
   "links": [
-   {
-    "label": "Open lesson 1.1",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-1-agentic-loops"
-   },
    {
     "label": "Open lesson 1.2",
     "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-2-orchestration-patterns"
@@ -48,57 +360,42 @@
    }
   ],
   "parts": [
-   "Test 1.1: the agent loop",
-   "Build 1.2 and 1.3: one main agent, two helpers"
+   "Build 1.2 and 1.3: one main agent, two helpers",
+   "Test 1.2 and 1.3: what a helper knows"
   ]
  },
  {
-  "day": "2026-12-03",
-  "kind": "Practice",
+  "day": "2026-12-14",
+  "kind": "Daily",
   "minutes": 60,
-  "week": "Week 1 of 14 · Build what you have learned",
-  "title": "Test your helpers, then make your flashcards",
-  "task": "First half hour: Leave one fact out of a helper's prompt and watch it fail. A helper knows only what you pass it. Put the fact back and run it again.\nSecond half hour: Make a set of flashcards, on paper or in an app. Copy 15 facts from the quick reference page for Agents.",
+  "week": "Day 14 of 100 · What decides the mark · Agents",
+  "title": "Make your flashcards, then lesson 1.4: forcing steps to happen, and handing over to a person",
+  "task": "First half hour: Make a set of flashcards, on paper or in an app. Copy 15 facts from the quick reference page for Agents.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
   "units": [
-   "1.2",
-   "1.3"
+   "1.4"
   ],
   "links": [
-   {
-    "label": "Open lesson 1.2",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-2-orchestration-patterns"
-   },
-   {
-    "label": "Open lesson 1.3",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-3-subagent-invocation-context"
-   },
    {
     "label": "Quick reference: Agents",
     "href": "https://claudecertificationguide.com/quick-reference/domain-1"
+   },
+   {
+    "label": "Open lesson 1.4",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-4-workflow-enforcement-handoff"
    }
   ],
   "parts": [
-   "Test 1.2 and 1.3: what a helper knows",
-   "Make your flashcards"
+   "Make your flashcards",
+   "Lesson 1.4: forcing steps to happen, and handing over to a person"
   ]
  },
  {
-  "day": "2026-12-04",
-  "kind": "Optional",
-  "minutes": 15,
-  "week": "Week 1 of 14 · Build what you have learned",
-  "title": "Book your exam",
-  "task": "A small job for a spare day. Book the exam for Saturday 27 March. Check the name on your ID matches the booking exactly.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-05",
+  "day": "2026-12-15",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 1 of 14 · Agents",
-  "title": "Lesson 1.4: forcing steps to happen, and handing over to a person",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Stop process_refund from running until get_customer has checked who the customer is. Do it in code, not in the prompt.",
+  "week": "Day 15 of 100 · What decides the mark · Agents",
+  "title": "Build and test 1.4: forcing steps to happen, and handing over to a person",
+  "task": "First half hour: Stop process_refund from running until get_customer has checked who the customer is. Do it in code, not in the prompt.\nSecond half hour: Ask for a refund without saying who you are, and check it is blocked. Then make the agent write a handover note for a person: customer, cause, amount, what to do next. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
    "1.4"
   ],
@@ -109,64 +406,64 @@
    }
   ],
   "parts": [
-   "Lesson 1.4: forcing steps to happen, and handing over to a person",
-   "Build 1.4: check who the customer is first"
+   "Build 1.4: check who the customer is first",
+   "Test 1.4: the block and the handover note"
   ]
  },
  {
-  "day": "2026-12-06",
+  "day": "2026-12-16",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 1 of 14 · Agents",
-  "title": "Test 1.4, then lesson 1.5: hooks",
-  "task": "First half hour: Ask for a refund without saying who you are, and check it is blocked. Then make the agent write a handover note for a person: customer, cause, amount, what to do next. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
+  "week": "Day 16 of 100 · What decides the mark · Agents",
+  "title": "Lesson 1.5: hooks",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Add a hook that runs after each tool and puts every date into one format. Add a second hook that stops any refund over $500 and passes it to a person.",
   "units": [
-   "1.4",
    "1.5"
   ],
   "links": [
    {
-    "label": "Open lesson 1.4",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-4-workflow-enforcement-handoff"
+    "label": "Open lesson 1.5",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks"
+   }
+  ],
+  "parts": [
+   "Lesson 1.5: hooks",
+   "Build 1.5: two hooks"
+  ]
+ },
+ {
+  "day": "2026-12-17",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 17 of 100 · What decides the mark · Agents",
+  "title": "Test 1.5, then lesson 1.6: breaking a big job into smaller ones",
+  "task": "First half hour: Ask for a $600 refund and a $40 refund. Check the first is stopped and the second goes through. Feed in three date formats and check one comes out. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
+  "units": [
+   "1.5",
+   "1.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.5",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks"
    },
    {
-    "label": "Open lesson 1.5",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks"
+    "label": "Open lesson 1.6",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition"
    }
   ],
   "parts": [
-   "Test 1.4: the block and the handover note",
-   "Lesson 1.5: hooks"
+   "Test 1.5: the $500 rule",
+   "Lesson 1.6: breaking a big job into smaller ones"
   ]
  },
  {
-  "day": "2026-12-07",
+  "day": "2026-12-18",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 2 of 14 · Agents",
-  "title": "Build and test 1.5: hooks",
-  "task": "First half hour: Add a hook that runs after each tool and puts every date into one format. Add a second hook that stops any refund over $500 and passes it to a person.\nSecond half hour: Ask for a $600 refund and a $40 refund. Check the first is stopped and the second goes through. Feed in three date formats and check one comes out. Then read the lesson's common-mistakes box and answer its practice question.",
-  "units": [
-   "1.5"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 1.5",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks"
-   }
-  ],
-  "parts": [
-   "Build 1.5: two hooks",
-   "Test 1.5: the $500 rule"
-  ]
- },
- {
-  "day": "2026-12-08",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 2 of 14 · Agents",
-  "title": "Lesson 1.6: breaking a big job into smaller ones",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Make a code review that reads each file of your project in its own pass, then does one more pass across all the files together.",
+  "week": "Day 18 of 100 · What decides the mark · Agents",
+  "title": "Build and test 1.6: breaking a big job into smaller ones",
+  "task": "First half hour: Make a code review that reads each file of your project in its own pass, then does one more pass across all the files together.\nSecond half hour: Run the same review as one big pass. Compare what each way found, and write down which one missed more. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
    "1.6"
   ],
@@ -177,73 +474,16 @@
    }
   ],
   "parts": [
-   "Lesson 1.6: breaking a big job into smaller ones",
-   "Build 1.6: a review in small passes"
+   "Build 1.6: a review in small passes",
+   "Test 1.6: small passes against one big pass"
   ]
  },
  {
-  "day": "2026-12-09",
+  "day": "2026-12-19",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 2 of 14 · Agents",
-  "title": "Test 1.6, then lesson 1.7: picking up where you left off",
-  "task": "First half hour: Run the same review as one big pass. Compare what each way found, and write down which one missed more. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
-  "units": [
-   "1.6",
-   "1.7"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 1.6",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition"
-   },
-   {
-    "label": "Open lesson 1.7",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
-   }
-  ],
-  "parts": [
-   "Test 1.6: small passes against one big pass",
-   "Lesson 1.7: picking up where you left off"
-  ]
- },
- {
-  "day": "2026-12-10",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 2 of 14 · Agents",
-  "title": "Build and test 1.7: picking up where you left off",
-  "task": "First half hour: Start a named Claude Code session on your project and ask it to map the code. Close it. Open it again with --resume and carry on.\nSecond half hour: Change one file, resume the session and tell it which file changed. Then fork the session and try two different fixes side by side. Then read the lesson's common-mistakes box and answer its practice question.",
-  "units": [
-   "1.7"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 1.7",
-    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
-   }
-  ],
-  "parts": [
-   "Build 1.7: a session you can come back to",
-   "Test 1.7: resume and fork"
-  ]
- },
- {
-  "day": "2026-12-11",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Week 2 of 14 · Agents",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-12",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 2 of 14 · Agents",
-  "title": "Practice questions: Agents",
+  "week": "Day 19 of 100 · What decides the mark · Agents",
+  "title": "Questions on Agents, then fix what you got wrong",
   "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
   "units": [],
   "links": [
@@ -258,10 +498,10 @@
   ]
  },
  {
-  "day": "2026-12-13",
+  "day": "2026-12-20",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 2 of 14 · Claude Code",
+  "week": "Day 20 of 100 · What decides the mark · Claude Code",
   "title": "Lesson 3.1: where CLAUDE.md files go",
   "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Give your practice project a CLAUDE.md. Add one at user level too. Move one long part into its own file and pull it in with @import.",
   "units": [
@@ -279,10 +519,150 @@
   ]
  },
  {
-  "day": "2026-12-14",
+  "day": "2026-12-21",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-22",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-23",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-24",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-25",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-26",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-27",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-28",
+  "kind": "Optional",
+  "minutes": 10,
+  "week": "Christmas · Time off",
+  "title": "Flashcards, if you like",
+  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-29",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-30",
+  "kind": "Optional",
+  "minutes": 10,
+  "week": "Christmas · Time off",
+  "title": "Flashcards, if you like",
+  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2026-12-31",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-01",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-02",
+  "kind": "Optional",
+  "minutes": 10,
+  "week": "Christmas · Time off",
+  "title": "Flashcards, if you like",
+  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-03",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Christmas · Time off",
+  "title": "Christmas",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-01-04",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 3 of 14 · Claude Code",
+  "week": "Day 21 of 100 · What decides the mark · Claude Code",
   "title": "Test 3.1, then lesson 3.2: your own commands and skills",
   "task": "First half hour: Run /memory and check which files loaded. Move a project rule to user level, and write why a new teammate would never get it. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
   "units": [
@@ -305,10 +685,10 @@
   ]
  },
  {
-  "day": "2026-12-15",
+  "day": "2027-01-05",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 3 of 14 · Claude Code",
+  "week": "Day 22 of 100 · What decides the mark · Claude Code",
   "title": "Build and test 3.2: your own commands and skills",
   "task": "First half hour: Make a /review command in .claude/commands/. Make a skill that has context: fork, allowed-tools and argument-hint at the top.\nSecond half hour: Run both. Check the skill cannot use a tool you left out. Check its long output stays out of your main chat. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
@@ -326,10 +706,10 @@
   ]
  },
  {
-  "day": "2026-12-16",
+  "day": "2027-01-06",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 3 of 14 · Claude Code",
+  "week": "Day 23 of 100 · What decides the mark · Claude Code",
   "title": "Lesson 3.3: rules for certain files only",
   "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Add two files in .claude/rules/ with paths at the top. One covers test files wherever they sit. One covers a single folder.",
   "units": [
@@ -347,10 +727,10 @@
   ]
  },
  {
-  "day": "2026-12-17",
+  "day": "2027-01-07",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 3 of 14 · Claude Code",
+  "week": "Day 24 of 100 · What decides the mark · Claude Code",
   "title": "Test 3.3, then lesson 3.4: plan first, or just do it",
   "task": "First half hour: Open a file that matches a rule, then one that does not. Each time, ask Claude which rules it has loaded. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
   "units": [
@@ -373,20 +753,10 @@
   ]
  },
  {
-  "day": "2026-12-18",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Week 3 of 14 · Claude Code",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-19",
+  "day": "2027-01-08",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 3 of 14 · Claude Code",
+  "week": "Day 25 of 100 · What decides the mark · Claude Code",
   "title": "Build and test 3.4: plan first, or just do it",
   "task": "First half hour: Ask Claude for a change that touches many files. Use plan mode, agree the plan, then let it do the work.\nSecond half hour: Give Claude a one-line bug with its error message and let it fix it directly. Write one line on when each way is the right one. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
@@ -404,310 +774,10 @@
   ]
  },
  {
-  "day": "2026-12-20",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 3 of 14 · Claude Code",
-  "title": "Lesson 3.5: improving the result over several rounds",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Pick a small function. Write its tests first, with odd cases such as empty values. Then ask Claude to make them pass.",
-  "units": [
-   "3.5"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 3.5",
-    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement"
-   }
-  ],
-  "parts": [
-   "Lesson 3.5: improving the result over several rounds",
-   "Build 3.5: tests first"
-  ]
- },
- {
-  "day": "2026-12-21",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-22",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-23",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-24",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-25",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-26",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-27",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-28",
-  "kind": "Optional",
-  "minutes": 10,
-  "week": "Christmas · Time off",
-  "title": "Flashcards, if you like",
-  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-29",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-30",
-  "kind": "Optional",
-  "minutes": 10,
-  "week": "Christmas · Time off",
-  "title": "Flashcards, if you like",
-  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2026-12-31",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-01-01",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-01-02",
-  "kind": "Optional",
-  "minutes": 10,
-  "week": "Christmas · Time off",
-  "title": "Flashcards, if you like",
-  "task": "10 minutes, so you do not forget them. Skip it if the house is busy.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-01-03",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Christmas · Time off",
-  "title": "Christmas",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-01-04",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 4 of 14 · Claude Code",
-  "title": "Test 3.5, then lesson 3.6: Claude Code in automatic checks",
-  "task": "First half hour: Ask for a feature in vague words. Ask again with three examples of what goes in and what comes out. Compare the two results. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
-  "units": [
-   "3.5",
-   "3.6"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 3.5",
-    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement"
-   },
-   {
-    "label": "Open lesson 3.6",
-    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
-   }
-  ],
-  "parts": [
-   "Test 3.5: vague words against examples",
-   "Lesson 3.6: Claude Code in automatic checks"
-  ]
- },
- {
-  "day": "2027-01-05",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 4 of 14 · Claude Code",
-  "title": "Build and test 3.6: Claude Code in automatic checks",
-  "task": "First half hour: Run Claude Code from a script with -p and --output-format json. Add --json-schema so the findings come out in a fixed shape.\nSecond half hour: Put your script in a GitHub Action that reviews a pull request, or run it twice by hand. On the second run, check it reports only new problems. Then read the lesson's common-mistakes box and answer its practice question.",
-  "units": [
-   "3.6"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 3.6",
-    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
-   }
-  ],
-  "parts": [
-   "Build 3.6: Claude Code run by a script",
-   "Test 3.6: a review that runs itself"
-  ]
- },
- {
-  "day": "2027-01-06",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 4 of 14 · Claude Code",
-  "title": "Practice questions: Claude Code",
-  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Copy every file location and setting name you got wrong onto a flashcard. Then make each one for real in your practice project.",
-  "units": [],
-  "links": [
-   {
-    "label": "Practice questions: Claude Code",
-    "href": "https://claudecertificationguide.com/drill?domain=3"
-   }
-  ],
-  "parts": [
-   "Practice questions: Claude Code",
-   "Fix what you got wrong: Claude Code"
-  ]
- },
- {
-  "day": "2027-01-07",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 4 of 14 · Exercise 2 · Claude Code for a team",
-  "title": "Exercise 2, steps 1 and 2 of 5",
-  "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Write a project CLAUDE.md with rules for how code is written and how it is tested. Tick step 1 of exercise 2 on the Progress page.\nSecond half hour: Add two files in .claude/rules/ with paths at the top. Check each one loads only for files that match. Tick step 2 of exercise 2 on the Progress page.",
-  "units": [
-   "E2"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 2, step 1 of 5: a CLAUDE.md for a team",
-   "Exercise 2, step 2 of 5: rules for some files only"
-  ]
- },
- {
-  "day": "2027-01-08",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Week 4 of 14 · Exercise 2 · Claude Code for a team",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
   "day": "2027-01-09",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 4 of 14 · Exercise 2 · Claude Code for a team",
-  "title": "Exercise 2, steps 3 and 4 of 5",
-  "task": "First half hour: Make a project skill with context: fork and allowed-tools. Check it runs apart from your main chat. Tick step 3 of exercise 2 on the Progress page.\nSecond half hour: Set up a project MCP server with its token in an environment variable, and a personal one in ~/.claude.json. Check both work. Tick step 4 of exercise 2 on the Progress page.",
-  "units": [
-   "E2"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 2, step 3 of 5: a skill that runs apart",
-   "Exercise 2, step 4 of 5: two MCP servers"
-  ]
- },
- {
-  "day": "2027-01-10",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 4 of 14 · Exercise 2 · Claude Code for a team",
-  "title": "Exercise 2, step 5 of 5, then write your own questions",
-  "task": "First half hour: Try plan mode and doing it directly on three jobs: a one-file fix, a change across many files, and a feature with several ways to build it. Tick step 5 of exercise 2 on the Progress page.\nSecond half hour: Write four exam-style questions about Claude Code. Give each one the right answer and three wrong answers that sound right.",
-  "units": [
-   "E2"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 2, step 5 of 5: plan mode or not",
-   "Write four questions of your own"
-  ]
- },
- {
-  "day": "2027-01-11",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 5 of 14 · Prompts and output",
+  "week": "Day 26 of 100 · What decides the mark · Prompts and output",
   "title": "Lesson 4.1: clear instructions that avoid false alarms",
   "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Write a code review prompt. Say what to report (bugs, security) and what to skip (style). Give one code example for each level of seriousness.",
   "units": [
@@ -725,10 +795,10 @@
   ]
  },
  {
-  "day": "2027-01-12",
+  "day": "2027-01-10",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 5 of 14 · Prompts and output",
+  "week": "Day 27 of 100 · What decides the mark · Prompts and output",
   "title": "Test 4.1, then lesson 4.2: teaching with examples",
   "task": "First half hour: Run your prompt on three files and count the false alarms. Rewrite the vaguest rule and run it again. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
   "units": [
@@ -751,10 +821,10 @@
   ]
  },
  {
-  "day": "2027-01-13",
+  "day": "2027-01-11",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 5 of 14 · Prompts and output",
+  "week": "Day 28 of 100 · What decides the mark · Prompts and output",
   "title": "Build and test 4.2: teaching with examples",
   "task": "First half hour: Add three examples to your review prompt. Each one shows a tricky case, the right answer and why. Show the exact output format.\nSecond half hour: Run it on the same three files as last time. Check the format is the same every time and that there are fewer false alarms. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
@@ -772,10 +842,10 @@
   ]
  },
  {
-  "day": "2027-01-14",
+  "day": "2027-01-12",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 5 of 14 · Prompts and output",
+  "week": "Day 29 of 100 · What decides the mark · Prompts and output",
   "title": "Lesson 4.3: getting answers in a fixed format",
   "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Add a tool that pulls set facts out of a refund letter, described as a JSON schema. Let any fact be left empty. Add \"unclear\" and \"other\" to each list of choices.",
   "units": [
@@ -793,20 +863,10 @@
   ]
  },
  {
-  "day": "2027-01-15",
-  "kind": "Optional",
-  "minutes": 300,
-  "week": "Week 5 of 14 · Prompts and output",
-  "title": "Library day 1, if you can: exercise 2 again",
-  "task": "A whole day somewhere quiet. Finish any step of exercise 2 that an hour was too short for. Then do it all again in an empty folder, from memory. Move this day to any date near it that suits you.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-01-16",
+  "day": "2027-01-13",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 5 of 14 · Prompts and output",
+  "week": "Day 30 of 100 · What decides the mark · Prompts and output",
   "title": "Test 4.3, then lesson 4.4: checking answers and trying again",
   "task": "First half hour: Feed it letters with facts missing. Check it leaves them empty and makes nothing up. Then force the tool with tool_choice. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
   "units": [
@@ -829,10 +889,10 @@
   ]
  },
  {
-  "day": "2027-01-17",
+  "day": "2027-01-14",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 5 of 14 · Prompts and output",
+  "week": "Day 31 of 100 · What decides the mark · Prompts and output",
   "title": "Build and test 4.4: checking answers and trying again",
   "task": "First half hour: Add a check on each answer. If the check fails, send back the letter, the failed answer and the exact error, and try again.\nSecond half hour: Cause one mistake a retry can fix (a wrong format) and one it cannot (the fact is not in the letter). Watch what happens to each. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
@@ -850,170 +910,10 @@
   ]
  },
  {
-  "day": "2027-01-18",
+  "day": "2027-01-15",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 6 of 14 · Prompts and output",
-  "title": "Lesson 4.5: sending lots of work at once",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Send ten letters through the Message Batches API. Give each one a custom_id. Results can take hours, so collect them tomorrow.",
-  "units": [
-   "4.5"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 4.5",
-    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
-   }
-  ],
-  "parts": [
-   "Lesson 4.5: sending lots of work at once",
-   "Build 4.5: ten letters in one batch"
-  ]
- },
- {
-  "day": "2027-01-19",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 6 of 14 · Prompts and output",
-  "title": "Test 4.5, then lesson 4.6: getting a second, independent check",
-  "task": "First half hour: Collect yesterday's results. Make two letters fail on purpose and send only those again, by custom_id. Write when you would not use a batch. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
-  "units": [
-   "4.5",
-   "4.6"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 4.5",
-    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
-   },
-   {
-    "label": "Open lesson 4.6",
-    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review"
-   }
-  ],
-  "parts": [
-   "Test 4.5: send only the failures again",
-   "Lesson 4.6: getting a second, independent check"
-  ]
- },
- {
-  "day": "2027-01-20",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 6 of 14 · Prompts and output",
-  "title": "Build and test 4.6: getting a second, independent check",
-  "task": "First half hour: Have one Claude write a small function. Have a second, fresh Claude review it, without seeing how the first one got there.\nSecond half hour: Ask the first Claude to review its own work in the same chat. Compare what each review found. Then read the lesson's common-mistakes box and answer its practice question.",
-  "units": [
-   "4.6"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 4.6",
-    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review"
-   }
-  ],
-  "parts": [
-   "Build 4.6: a second Claude as reviewer",
-   "Test 4.6: fresh eyes against the same eyes"
-  ]
- },
- {
-  "day": "2027-01-21",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 6 of 14 · Prompts and output",
-  "title": "Practice questions: Prompts and output",
-  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Change your review prompt or your fact-finding tool to try each one out.",
-  "units": [],
-  "links": [
-   {
-    "label": "Practice questions: Prompts and output",
-    "href": "https://claudecertificationguide.com/drill?domain=4"
-   }
-  ],
-  "parts": [
-   "Practice questions: Prompts and output",
-   "Fix what you got wrong: Prompts and output"
-  ]
- },
- {
-  "day": "2027-01-22",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Week 6 of 14 · Prompts and output",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-01-23",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 6 of 14 · Exercise 3 · Facts from documents",
-  "title": "Exercise 3, steps 1 and 2 of 5",
-  "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Make a tool with facts that must be there, facts that may be empty, and a list with \"other\" plus a note. Check missing facts come back empty. Tick step 1 of exercise 3 on the Progress page.\nSecond half hour: Add the step that checks each answer and tries again. Write down which errors a retry can fix and which it cannot. Tick step 2 of exercise 3 on the Progress page.",
-  "units": [
-   "E3"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 3, step 1 of 5: the fact-finding tool",
-   "Exercise 3, step 2 of 5: check and try again"
-  ]
- },
- {
-  "day": "2027-01-24",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 6 of 14 · Exercise 3 · Facts from documents",
-  "title": "Exercise 3, steps 3 and 4 of 5",
-  "task": "First half hour: Add examples for documents laid out in different ways. Check the answers get better. Tick step 3 of exercise 3 on the Progress page.\nSecond half hour: Send 100 documents as one batch. Tomorrow, send only the failures again by custom_id. Compare the time it took with a deadline you set. Tick step 4 of exercise 3 on the Progress page.",
-  "units": [
-   "E3"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 3, step 3 of 5: examples for odd documents",
-   "Exercise 3, step 4 of 5: a batch of 100"
-  ]
- },
- {
-  "day": "2027-01-25",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 7 of 14 · Exercise 3 · Facts from documents",
-  "title": "Exercise 3, step 5 of 5, then write your own questions",
-  "task": "First half hour: Send facts with low confidence to a person to check. Work out how often the tool is right, for each type of document and each fact. Tick step 5 of exercise 3 on the Progress page.\nSecond half hour: Write four exam-style questions about Prompts and output. Give each one the right answer and three wrong answers that sound right.",
-  "units": [
-   "E3"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 3, step 5 of 5: unsure answers go to a person",
-   "Write four questions of your own"
-  ]
- },
- {
-  "day": "2027-01-26",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 7 of 14 · Tools and MCP",
+  "week": "Day 32 of 100 · What decides the mark · Tools and MCP",
   "title": "Lesson 2.1: describing tools clearly",
   "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Add a second tool that looks a lot like lookup_order. Write both descriptions so it is clear what each is for, what goes in and when to use it.",
   "units": [
@@ -1031,10 +931,10 @@
   ]
  },
  {
-  "day": "2027-01-27",
+  "day": "2027-01-16",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 7 of 14 · Tools and MCP",
+  "week": "Day 33 of 100 · What decides the mark · Tools and MCP",
   "title": "Test 2.1, then lesson 2.2: helpful error messages from tools",
   "task": "First half hour: Ask ten questions and note which tool Claude picks each time. Make one description vague and watch the picks go wrong. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
   "units": [
@@ -1057,10 +957,10 @@
   ]
  },
  {
-  "day": "2027-01-28",
+  "day": "2027-01-17",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 7 of 14 · Tools and MCP",
+  "week": "Day 34 of 100 · What decides the mark · Tools and MCP",
   "title": "Build and test 2.2: helpful error messages from tools",
   "task": "First half hour: Make every tool report an error with three things: errorCategory, isRetryable and a plain message.\nSecond half hour: Cause four errors: a timeout, a bad input, no permission and a broken shop rule. Check the agent retries only the timeout. Check \"found nothing\" is not an error. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
@@ -1078,20 +978,10 @@
   ]
  },
  {
-  "day": "2027-01-29",
-  "kind": "Optional",
-  "minutes": 300,
-  "week": "Week 7 of 14 · Tools and MCP",
-  "title": "Library day 2, if you can: exercise 3 again",
-  "task": "A whole day somewhere quiet. Finish any step of exercise 3 that an hour was too short for. Then do it all again in an empty folder, from memory. Move this day to any date near it that suits you.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-01-30",
+  "day": "2027-01-18",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 7 of 14 · Tools and MCP",
+  "week": "Day 35 of 100 · What decides the mark · Tools and MCP",
   "title": "Lesson 2.3: which agent gets which tools",
   "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Give each helper agent only the tools its job needs. Swap one do-anything tool for a narrow one.",
   "units": [
@@ -1109,10 +999,10 @@
   ]
  },
  {
-  "day": "2027-01-31",
+  "day": "2027-01-19",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 7 of 14 · Tools and MCP",
+  "week": "Day 36 of 100 · What decides the mark · Tools and MCP",
   "title": "Test 2.3, then lesson 2.4: connecting MCP servers",
   "task": "First half hour: Use tool_choice to force one tool to run first. Then set it to \"any\". Write down what Claude does each time. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
   "units": [
@@ -1135,10 +1025,10 @@
   ]
  },
  {
-  "day": "2027-02-01",
+  "day": "2027-01-20",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 8 of 14 · Tools and MCP",
+  "week": "Day 37 of 100 · What decides the mark · Tools and MCP",
   "title": "Build and test 2.4: connecting MCP servers",
   "task": "First half hour: Put your tools in an MCP server. List it in the project's .mcp.json, with its token written as ${SOME_TOKEN}.\nSecond half hour: Add a personal server in ~/.claude.json. Check Claude Code sees both. Then offer your list of orders as an MCP resource. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
@@ -1156,193 +1046,10 @@
   ]
  },
  {
-  "day": "2027-02-02",
+  "day": "2027-01-21",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 8 of 14 · Tools and MCP",
-  "title": "Lesson 2.5: Claude Code's built-in tools",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: In Claude Code, find every place process_refund is called, using Grep. Find every test file, using Glob. Ask for an edit where the same text appears twice, so Edit cannot find one place. Watch Claude use Read, then Write. Then read the lesson's common-mistakes box and answer its practice question.",
-  "units": [
-   "2.5"
-  ],
-  "links": [
-   {
-    "label": "Open lesson 2.5",
-    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-5-built-in-tools"
-   }
-  ],
-  "parts": [
-   "Lesson 2.5: Claude Code's built-in tools",
-   "Build and test 2.5: find things with Grep and Glob"
-  ]
- },
- {
-  "day": "2027-02-03",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 8 of 14 · Tools and MCP",
-  "title": "Practice questions: Tools and MCP",
-  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Change a tool, its description or its error in your practice project to try each one out.",
-  "units": [],
-  "links": [
-   {
-    "label": "Practice questions: Tools and MCP",
-    "href": "https://claudecertificationguide.com/drill?domain=2"
-   }
-  ],
-  "parts": [
-   "Practice questions: Tools and MCP",
-   "Fix what you got wrong: Tools and MCP"
-  ]
- },
- {
-  "day": "2027-02-04",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 8 of 14 · Exercise 1 · The support agent",
-  "title": "Exercise 1, steps 1 and 2 of 5",
-  "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Make three or four tools with clear descriptions. Two of them should be alike, so the wording has to tell them apart. Tick step 1 of exercise 1 on the Progress page.\nSecond half hour: Write the agent loop. Carry on when stop_reason is tool_use and stop when it is end_turn. Tick step 2 of exercise 1 on the Progress page.",
-  "units": [
-   "E1"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 1, step 1 of 5: the tools",
-   "Exercise 1, step 2 of 5: the loop"
-  ]
- },
- {
-  "day": "2027-02-05",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Week 8 of 14 · Exercise 1 · The support agent",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-06",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 8 of 14 · Exercise 1 · The support agent",
-  "title": "Exercise 1, steps 3 and 4 of 5",
-  "task": "First half hour: Make the tools report errors in a clear shape. Check the agent retries a timeout and explains a broken shop rule to the customer. Tick step 3 of exercise 1 on the Progress page.\nSecond half hour: Add a hook that blocks any refund over a set amount and passes it to a person. Tick step 4 of exercise 1 on the Progress page.",
-  "units": [
-   "E1"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 1, step 3 of 5: clear errors",
-   "Exercise 1, step 4 of 5: the hook"
-  ]
- },
- {
-  "day": "2027-02-07",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 8 of 14 · Exercise 1 · The support agent",
-  "title": "Exercise 1, step 5 of 5, then write your own questions",
-  "task": "First half hour: Send messages that ask for several things at once. Check the agent splits them up, deals with each and gives one answer. Tick step 5 of exercise 1 on the Progress page.\nSecond half hour: Write four exam-style questions about Tools and MCP. Give each one the right answer and three wrong answers that sound right.",
-  "units": [
-   "E1"
-  ],
-  "links": [
-   {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
-   }
-  ],
-  "parts": [
-   "Exercise 1, step 5 of 5: several requests in one message",
-   "Write four questions of your own"
-  ]
- },
- {
-  "day": "2027-02-08",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Holiday",
-  "title": "Holiday",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-09",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Holiday",
-  "title": "Holiday",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-10",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Holiday",
-  "title": "Holiday",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-11",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Holiday",
-  "title": "Holiday",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-12",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Holiday",
-  "title": "Holiday",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-13",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Holiday",
-  "title": "Holiday",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-14",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Holiday",
-  "title": "Holiday",
-  "task": "Time off. No studying.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-15",
-  "kind": "Practice",
-  "minutes": 60,
-  "week": "Week 9 of 14 · Context and reliability",
+  "week": "Day 38 of 100 · What decides the mark · Context and reliability",
   "title": "Lesson 5.1: keeping track in long conversations",
   "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Keep a short block of case facts (customer, order, amount, dates) and put it in every prompt. Cut tool results down to the fields that matter.",
   "units": [
@@ -1360,10 +1067,10 @@
   ]
  },
  {
-  "day": "2027-02-16",
+  "day": "2027-01-22",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 9 of 14 · Context and reliability",
+  "week": "Day 39 of 100 · What decides the mark · Context and reliability",
   "title": "Test 5.1, then lesson 5.2: when to pass to a person, and unclear requests",
   "task": "First half hour: Have a long chat about two orders. Check the agent still has both amounts right at the end. Take the block out and try again. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
   "units": [
@@ -1386,10 +1093,10 @@
   ]
  },
  {
-  "day": "2027-02-17",
+  "day": "2027-01-23",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 9 of 14 · Context and reliability",
+  "week": "Day 40 of 100 · What decides the mark · Context and reliability",
   "title": "Build and test 5.2: when to pass to a person, and unclear requests",
   "task": "First half hour: Write rules in the system prompt for when to pass a customer to a person. Add three examples.\nSecond half hour: Try four messages: \"get me a human\", an angry customer, a request the rules do not cover, and a name that matches two customers. Then read the lesson's common-mistakes box and answer its practice question.",
   "units": [
@@ -1407,185 +1114,178 @@
   ]
  },
  {
-  "day": "2027-02-18",
+  "day": "2027-01-24",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 9 of 14 · Context and reliability",
-  "title": "Lesson 5.3: passing errors between agents",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Make one helper agent time out on purpose. Make it report what failed, what it tried and what it did manage to find.",
+  "week": "Day 41 of 100 · Hard practice",
+  "title": "Exercise 1, steps 1 and 2 of 5",
+  "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Make three or four tools with clear descriptions. Two of them should be alike, so the wording has to tell them apart. Tick step 1 of exercise 1 on the Progress page.\nSecond half hour: Write the agent loop. Carry on when stop_reason is tool_use and stop when it is end_turn. Tick step 2 of exercise 1 on the Progress page.",
   "units": [
-   "5.3"
+   "E1"
   ],
   "links": [
    {
-    "label": "Open lesson 5.3",
-    "href": "https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation"
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
    }
   ],
   "parts": [
-   "Lesson 5.3: passing errors between agents",
-   "Build 5.3: a helper that fails well"
+   "Exercise 1, step 1 of 5: the tools",
+   "Exercise 1, step 2 of 5: the loop"
   ]
  },
  {
-  "day": "2027-02-19",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Week 9 of 14 · Context and reliability",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-20",
+  "day": "2027-01-25",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 9 of 14 · Context and reliability",
-  "title": "Test 5.3, then lesson 5.4: finding your way around a big codebase",
-  "task": "First half hour: Check the main agent still finishes and says which part is missing. Check \"found nothing\" is reported differently from \"could not look\". Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
+  "week": "Day 42 of 100 · Hard practice",
+  "title": "Exercise 1, steps 3 and 4 of 5",
+  "task": "First half hour: Make the tools report errors in a clear shape. Check the agent retries a timeout and explains a broken shop rule to the customer. Tick step 3 of exercise 1 on the Progress page.\nSecond half hour: Add a hook that blocks any refund over a set amount and passes it to a person. Tick step 4 of exercise 1 on the Progress page.",
   "units": [
-   "5.3",
-   "5.4"
+   "E1"
   ],
   "links": [
    {
-    "label": "Open lesson 5.3",
-    "href": "https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation"
-   },
-   {
-    "label": "Open lesson 5.4",
-    "href": "https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration"
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
    }
   ],
   "parts": [
-   "Test 5.3: the main agent carries on",
-   "Lesson 5.4: finding your way around a big codebase"
+   "Exercise 1, step 3 of 5: clear errors",
+   "Exercise 1, step 4 of 5: the hook"
   ]
  },
  {
-  "day": "2027-02-21",
+  "day": "2027-01-26",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 9 of 14 · Context and reliability",
-  "title": "Build and test 5.4: finding your way around a big codebase",
-  "task": "First half hour: Explore a big codebase with Claude Code. Have it keep a notes file of what it finds, and use helper agents for single questions.\nSecond half hour: Use /compact part of the way through. Then start a new session from the notes file alone and check it can carry on. Then read the lesson's common-mistakes box and answer its practice question.",
+  "week": "Day 43 of 100 · Hard practice",
+  "title": "Exercise 1, step 5, then build from memory: Agents",
+  "task": "First half hour: Send messages that ask for several things at once. Check the agent splits them up, deals with each and gives one answer. Tick step 5 of exercise 1 on the Progress page.\nSecond half hour: With an empty file and no notes, write the agent loop and the block on refunds over $500. Then compare them with your practice project.",
   "units": [
-   "5.4"
+   "E1"
   ],
   "links": [
    {
-    "label": "Open lesson 5.4",
-    "href": "https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration"
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
    }
   ],
   "parts": [
-   "Build 5.4: explore with a notes file",
-   "Test 5.4: carry on from the notes"
+   "Exercise 1, step 5 of 5: several requests in one message",
+   "Build from memory: Agents"
   ]
  },
  {
-  "day": "2027-02-22",
+  "day": "2027-01-27",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 10 of 14 · Context and reliability",
-  "title": "Lesson 5.5: when a person should check the work",
-  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Make your fact-finding tool give a confidence score for each fact. Send the low scores to a list for a person to check.",
+  "week": "Day 44 of 100 · Hard practice",
+  "title": "Exercise 2, steps 1 and 2 of 5",
+  "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Write a project CLAUDE.md with rules for how code is written and how it is tested. Tick step 1 of exercise 2 on the Progress page.\nSecond half hour: Add two files in .claude/rules/ with paths at the top. Check each one loads only for files that match. Tick step 2 of exercise 2 on the Progress page.",
   "units": [
-   "5.5"
+   "E2"
   ],
   "links": [
    {
-    "label": "Open lesson 5.5",
-    "href": "https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration"
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
    }
   ],
   "parts": [
-   "Lesson 5.5: when a person should check the work",
-   "Build 5.5: a score for each fact"
+   "Exercise 2, step 1 of 5: a CLAUDE.md for a team",
+   "Exercise 2, step 2 of 5: rules for some files only"
   ]
  },
  {
-  "day": "2027-02-23",
+  "day": "2027-01-28",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 10 of 14 · Context and reliability",
-  "title": "Test 5.5, then lesson 5.6: where facts came from",
-  "task": "First half hour: Run 20 letters. Check a random few of the confident answers by hand, for each type of letter. Write down where it was wrong. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.",
+  "week": "Day 45 of 100 · Hard practice",
+  "title": "Exercise 2, steps 3 and 4 of 5",
+  "task": "First half hour: Make a project skill with context: fork and allowed-tools. Check it runs apart from your main chat. Tick step 3 of exercise 2 on the Progress page.\nSecond half hour: Set up a project MCP server with its token in an environment variable, and a personal one in ~/.claude.json. Check both work. Tick step 4 of exercise 2 on the Progress page.",
   "units": [
-   "5.5",
-   "5.6"
+   "E2"
   ],
   "links": [
    {
-    "label": "Open lesson 5.5",
-    "href": "https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration"
-   },
-   {
-    "label": "Open lesson 5.6",
-    "href": "https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance"
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
    }
   ],
   "parts": [
-   "Test 5.5: check the confident answers too",
-   "Lesson 5.6: where facts came from"
+   "Exercise 2, step 3 of 5: a skill that runs apart",
+   "Exercise 2, step 4 of 5: two MCP servers"
   ]
  },
  {
-  "day": "2027-02-24",
+  "day": "2027-01-29",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 10 of 14 · Context and reliability",
-  "title": "Build and test 5.6: where facts came from",
-  "task": "First half hour: Make each helper agent return every claim with its source, a quote and a date. Make the final report keep them.\nSecond half hour: Give it two sources that disagree on a number. Check the report shows both numbers with their sources, and does not pick one. Then read the lesson's common-mistakes box and answer its practice question.",
+  "week": "Day 46 of 100 · Hard practice",
+  "title": "Exercise 2, step 5, then build from memory: Claude Code",
+  "task": "First half hour: Try plan mode and doing it directly on three jobs: a one-file fix, a change across many files, and a feature with several ways to build it. Tick step 5 of exercise 2 on the Progress page.\nSecond half hour: In an empty folder and with no notes, make a CLAUDE.md, a rule with paths, a command and a skill. Check each one loads.",
   "units": [
-   "5.6"
+   "E2"
   ],
   "links": [
    {
-    "label": "Open lesson 5.6",
-    "href": "https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance"
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
    }
   ],
   "parts": [
-   "Build 5.6: every claim with its source",
-   "Test 5.6: two sources that disagree"
+   "Exercise 2, step 5 of 5: plan mode or not",
+   "Build from memory: Claude Code"
   ]
  },
  {
-  "day": "2027-02-25",
+  "day": "2027-01-30",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 10 of 14 · Context and reliability",
-  "title": "Practice questions: Context and reliability",
-  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
-  "units": [],
+  "week": "Day 47 of 100 · Hard practice",
+  "title": "Exercise 3, steps 1 and 2 of 5",
+  "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Make a tool with facts that must be there, facts that may be empty, and a list with \"other\" plus a note. Check missing facts come back empty. Tick step 1 of exercise 3 on the Progress page.\nSecond half hour: Add the step that checks each answer and tries again. Write down which errors a retry can fix and which it cannot. Tick step 2 of exercise 3 on the Progress page.",
+  "units": [
+   "E3"
+  ],
   "links": [
    {
-    "label": "Practice questions: Context and reliability",
-    "href": "https://claudecertificationguide.com/drill?domain=5"
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
    }
   ],
   "parts": [
-   "Practice questions: Context and reliability",
-   "Fix what you got wrong: Context and reliability"
+   "Exercise 3, step 1 of 5: the fact-finding tool",
+   "Exercise 3, step 2 of 5: check and try again"
   ]
  },
  {
-  "day": "2027-02-26",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Week 10 of 14 · Context and reliability",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-02-27",
+  "day": "2027-01-31",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 10 of 14 · Exercise 4 · Agents doing research",
+  "week": "Day 48 of 100 · Hard practice",
+  "title": "Exercise 3, step 3, then build from memory: Prompts and output",
+  "task": "First half hour: Add examples for documents laid out in different ways. Check the answers get better. Tick step 3 of exercise 3 on the Progress page.\nSecond half hour: With no notes, write a fact-finding tool that allows empty facts, \"unclear\" and \"other\". Add the step that checks the answer and tries again.",
+  "units": [
+   "E3"
+  ],
+  "links": [
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "parts": [
+   "Exercise 3, step 3 of 5: examples for odd documents",
+   "Build from memory: Prompts and output"
+  ]
+ },
+ {
+  "day": "2027-02-01",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 49 of 100 · Hard practice",
   "title": "Exercise 4, steps 1 and 2 of 5",
   "task": "First half hour: Start in a new, empty folder and do not look at your practice project. Make a main agent that is allowed the Task tool and passes what it has found to each helper in the helper's prompt. Tick step 1 of exercise 4 on the Progress page.\nSecond half hour: Start the helpers at the same time from one reply. Time it against running them one after another. Tick step 2 of exercise 4 on the Progress page.",
   "units": [
@@ -1603,54 +1303,106 @@
   ]
  },
  {
-  "day": "2027-02-28",
+  "day": "2027-02-02",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 10 of 14 · Exercise 4 · Agents doing research",
-  "title": "Exercise 4, steps 3 and 4 of 5",
-  "task": "First half hour: Give each finding a claim, a quote, a source and a date. Check the final report keeps them. Tick step 3 of exercise 4 on the Progress page.\nSecond half hour: Make one helper time out. Check the main agent carries on with what it has and says what is missing. Tick step 4 of exercise 4 on the Progress page.",
-  "units": [
-   "E4"
-  ],
+  "week": "Day 50 of 100 · Hard practice",
+  "title": "Build from memory: Tools and MCP, then practice questions: every section",
+  "task": "First half hour: With no notes, write three tool descriptions and one error with errorCategory and isRetryable. Check Claude picks the right tool.\nSecond half hour: Answer six questions in each of the five sections. Write down each score.",
+  "units": [],
   "links": [
    {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
+    "label": "Practice questions",
+    "href": "https://claudecertificationguide.com/drill"
    }
   ],
   "parts": [
-   "Exercise 4, step 3 of 5: every finding with its source",
-   "Exercise 4, step 4 of 5: a helper that times out"
+   "Build from memory: Tools and MCP",
+   "Practice questions: every section"
   ]
  },
  {
-  "day": "2027-03-01",
+  "day": "2027-02-03",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 11 of 14 · Exercise 4 · Agents doing research",
-  "title": "Exercise 4, step 5 of 5, then write your own questions",
-  "task": "First half hour: Give it two sources with different numbers. Check the report keeps both, each with its source. Tick step 5 of exercise 4 on the Progress page.\nSecond half hour: Write four exam-style questions about Context and reliability. Give each one the right answer and three wrong answers that sound right.",
+  "week": "Day 51 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Lesson 1.7: picking up where you left off",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Start a named Claude Code session on your project and ask it to map the code. Close it. Open it again with --resume and carry on.",
   "units": [
-   "E4"
+   "1.7"
   ],
   "links": [
    {
-    "label": "Hands-on exercises",
-    "href": "https://claudecertificationguide.com/exercises"
+    "label": "Open lesson 1.7",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
    }
   ],
   "parts": [
-   "Exercise 4, step 5 of 5: numbers that disagree",
-   "Write four questions of your own"
+   "Lesson 1.7: picking up where you left off",
+   "Build 1.7: a session you can come back to"
   ]
  },
  {
-  "day": "2027-03-02",
+  "day": "2027-02-04",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 11 of 14 · Second look · Agents",
-  "title": "Second look: Agents",
-  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: With an empty file and no notes, write the agent loop and the block on refunds over $500. Then compare them with your practice project.",
+  "week": "Day 52 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Test 1.7, then exam situation 1",
+  "task": "First half hour: Change one file, resume the session and tell it which file changed. Then fork the session and try two different fixes side by side. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: In the exam guide, read situation 1, about a customer support agent. Write five questions it could lead to, then answer them.",
+  "units": [
+   "1.7"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 1.7",
+    "href": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
+   }
+  ],
+  "parts": [
+   "Test 1.7: resume and fork",
+   "Exam situation 1"
+  ]
+ },
+ {
+  "day": "2027-02-05",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 53 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Exam situation 3, then your shakiest topic",
+  "task": "First half hour: In the exam guide, read situation 3, about several agents doing research together. Write five questions it could lead to, then answer them.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Exam situation 3",
+   "Your shakiest topic"
+  ]
+ },
+ {
+  "day": "2027-02-06",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 54 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Sprint 1 test: Agents",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Agents",
+    "href": "https://claudecertificationguide.com/drill?domain=1"
+   }
+  ],
+  "parts": [
+   "Practice questions: Agents",
+   "Fix what you got wrong: Agents"
+  ]
+ },
+ {
+  "day": "2027-02-07",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 55 of 100 · Sprint 1 of 10 · Lesson 1.7",
+  "title": "Sprint 1 review: Agents",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
   "units": [],
   "links": [
    {
@@ -1660,35 +1412,161 @@
   ],
   "parts": [
    "Common mistakes: Agents",
-   "Build from memory: Agents"
+   "Sprint review"
   ]
  },
  {
-  "day": "2027-03-03",
-  "kind": "Daily",
-  "minutes": 60,
-  "week": "Week 11 of 14 · Second look · Agents",
-  "title": "Questions again: Agents, then exam situation 1",
-  "task": "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right?\nSecond half hour: In the exam guide, read situation 1, about a customer support agent. Write five questions it could lead to, then answer them.",
+  "day": "2027-02-08",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Holiday",
+  "title": "Holiday",
+  "task": "Time off. No studying. The 100 days do not count this one.",
   "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-09",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Holiday",
+  "title": "Holiday",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-10",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Holiday",
+  "title": "Holiday",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-11",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Holiday",
+  "title": "Holiday",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-12",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Holiday",
+  "title": "Holiday",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-13",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Holiday",
+  "title": "Holiday",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-14",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Holiday",
+  "title": "Holiday",
+  "task": "Time off. No studying. The 100 days do not count this one.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-02-15",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 56 of 100 · Sprint 2 of 10 · Lesson 3.5",
+  "title": "Lesson 3.5: improving the result over several rounds",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Pick a small function. Write its tests first, with odd cases such as empty values. Then ask Claude to make them pass.",
+  "units": [
+   "3.5"
+  ],
   "links": [
    {
-    "label": "Practice questions: Agents",
-    "href": "https://claudecertificationguide.com/drill?domain=1"
+    "label": "Open lesson 3.5",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement"
    }
   ],
   "parts": [
-   "Practice questions: Agents again",
-   "Exam situation 1"
+   "Lesson 3.5: improving the result over several rounds",
+   "Build 3.5: tests first"
   ]
  },
  {
-  "day": "2027-03-04",
+  "day": "2027-02-16",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 11 of 14 · Second look · Claude Code",
-  "title": "Second look: Claude Code",
-  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: In an empty folder and with no notes, make a CLAUDE.md, a rule with paths, a command and a skill. Check each one loads.",
+  "week": "Day 57 of 100 · Sprint 2 of 10 · Lesson 3.5",
+  "title": "Test 3.5, then exam situation 2",
+  "task": "First half hour: Ask for a feature in vague words. Ask again with three examples of what goes in and what comes out. Compare the two results. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: In the exam guide, read situation 2. Write five questions it could lead to, then answer them.",
+  "units": [
+   "3.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.5",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement"
+   }
+  ],
+  "parts": [
+   "Test 3.5: vague words against examples",
+   "Exam situation 2"
+  ]
+ },
+ {
+  "day": "2027-02-17",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 58 of 100 · Sprint 2 of 10 · Lesson 3.5",
+  "title": "Exam situation 5, then your shakiest topic",
+  "task": "First half hour: In the exam guide, read situation 5. Write five questions it could lead to, then answer them.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Exam situation 5",
+   "Your shakiest topic"
+  ]
+ },
+ {
+  "day": "2027-02-18",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 59 of 100 · Sprint 2 of 10 · Lesson 3.5",
+  "title": "Sprint 2 test: Claude Code",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Copy every file location and setting name you got wrong onto a flashcard. Then make each one for real in your practice project.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Claude Code",
+    "href": "https://claudecertificationguide.com/drill?domain=3"
+   }
+  ],
+  "parts": [
+   "Practice questions: Claude Code",
+   "Fix what you got wrong: Claude Code"
+  ]
+ },
+ {
+  "day": "2027-02-19",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 60 of 100 · Sprint 2 of 10 · Lesson 3.5",
+  "title": "Sprint 2 review: Claude Code",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
   "units": [],
   "links": [
    {
@@ -1698,26 +1576,72 @@
   ],
   "parts": [
    "Common mistakes: Claude Code",
-   "Build from memory: Claude Code"
+   "Sprint review"
   ]
  },
  {
-  "day": "2027-03-05",
-  "kind": "Optional",
-  "minutes": 300,
-  "week": "Week 11 of 14 · Second look · Claude Code",
-  "title": "Library day 3, if you can: exercises 1 and 4 again",
-  "task": "A whole day somewhere quiet. Finish any step of exercises 1 and 4 that an hour was too short for. Then do it all again in an empty folder, from memory. Move this day to any date near it that suits you.",
-  "units": [],
-  "links": []
+  "day": "2027-02-20",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 61 of 100 · Sprint 3 of 10 · Lesson 3.6",
+  "title": "Lesson 3.6: Claude Code in automatic checks",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Run Claude Code from a script with -p and --output-format json. Add --json-schema so the findings come out in a fixed shape.",
+  "units": [
+   "3.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.6",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
+   }
+  ],
+  "parts": [
+   "Lesson 3.6: Claude Code in automatic checks",
+   "Build 3.6: Claude Code run by a script"
+  ]
  },
  {
-  "day": "2027-03-06",
-  "kind": "Daily",
+  "day": "2027-02-21",
+  "kind": "Practice",
   "minutes": 60,
-  "week": "Week 11 of 14 · Second look · Claude Code",
-  "title": "Questions again: Claude Code, then exam situation 2",
-  "task": "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right?\nSecond half hour: In the exam guide, read situation 2. Write five questions it could lead to, then answer them.",
+  "week": "Day 62 of 100 · Sprint 3 of 10 · Lesson 3.6",
+  "title": "Test 3.6, then write four questions of your own",
+  "task": "First half hour: Put your script in a GitHub Action that reviews a pull request, or run it twice by hand. On the second run, check it reports only new problems. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Write four exam-style questions about Claude Code. Give each one the right answer and three wrong answers that sound right.",
+  "units": [
+   "3.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 3.6",
+    "href": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
+   }
+  ],
+  "parts": [
+   "Test 3.6: a review that runs itself",
+   "Write four questions of your own"
+  ]
+ },
+ {
+  "day": "2027-02-22",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 63 of 100 · Sprint 3 of 10 · Lesson 3.6",
+  "title": "Build from memory: Claude Code, then your shakiest topic",
+  "task": "First half hour: In an empty folder and with no notes, make a CLAUDE.md, a rule with paths, a command and a skill. Check each one loads.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Build from memory: Claude Code",
+   "Your shakiest topic"
+  ]
+ },
+ {
+  "day": "2027-02-23",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 64 of 100 · Sprint 3 of 10 · Lesson 3.6",
+  "title": "Sprint 3 test: Claude Code",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Copy every file location and setting name you got wrong onto a flashcard. Then make each one for real in your practice project.",
   "units": [],
   "links": [
    {
@@ -1726,31 +1650,116 @@
    }
   ],
   "parts": [
-   "Practice questions: Claude Code again",
-   "Exam situation 2"
+   "Practice questions: Claude Code",
+   "Fix what you got wrong: Claude Code"
   ]
  },
  {
-  "day": "2027-03-07",
+  "day": "2027-02-24",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 11 of 14 · Second look · Claude Code",
-  "title": "Exam situations 3 and 5",
-  "task": "First half hour: In the exam guide, read situation 3, about several agents doing research together. Write five questions it could lead to, then answer them.\nSecond half hour: In the exam guide, read situation 5. Write five questions it could lead to, then answer them.",
+  "week": "Day 65 of 100 · Sprint 3 of 10 · Lesson 3.6",
+  "title": "Sprint 3 review: Claude Code",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference: Claude Code",
+    "href": "https://claudecertificationguide.com/quick-reference/domain-3"
+   }
+  ],
+  "parts": [
+   "Common mistakes: Claude Code",
+   "Sprint review"
+  ]
+ },
+ {
+  "day": "2027-02-25",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 66 of 100 · Sprint 4 of 10 · Lesson 4.5",
+  "title": "Lesson 4.5: sending lots of work at once",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Send ten letters through the Message Batches API. Give each one a custom_id. Results can take hours, so collect them tomorrow.",
+  "units": [
+   "4.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.5",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
+   }
+  ],
+  "parts": [
+   "Lesson 4.5: sending lots of work at once",
+   "Build 4.5: ten letters in one batch"
+  ]
+ },
+ {
+  "day": "2027-02-26",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 67 of 100 · Sprint 4 of 10 · Lesson 4.5",
+  "title": "Test 4.5, then exercise 3, step 4",
+  "task": "First half hour: Collect yesterday's results. Make two letters fail on purpose and send only those again, by custom_id. Write when you would not use a batch. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Send 100 documents as one batch. Tomorrow, send only the failures again by custom_id. Compare the time it took with a deadline you set. Tick step 4 of exercise 3 on the Progress page.",
+  "units": [
+   "4.5",
+   "E3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.5",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
+   },
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "parts": [
+   "Test 4.5: send only the failures again",
+   "Exercise 3, step 4 of 5: a batch of 100"
+  ]
+ },
+ {
+  "day": "2027-02-27",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 68 of 100 · Sprint 4 of 10 · Lesson 4.5",
+  "title": "Exam situation 6, then your shakiest topic",
+  "task": "First half hour: In the exam guide, read situation 6, about pulling facts out of documents. Write five questions it could lead to, then answer them.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
   "units": [],
   "links": [],
   "parts": [
-   "Exam situation 3",
-   "Exam situation 5"
+   "Exam situation 6",
+   "Your shakiest topic"
   ]
  },
  {
-  "day": "2027-03-08",
+  "day": "2027-02-28",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 12 of 14 · Second look · Prompts and output",
-  "title": "Second look: Prompts and output",
-  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: With no notes, write a fact-finding tool that allows empty facts, \"unclear\" and \"other\". Add the step that checks the answer and tries again.",
+  "week": "Day 69 of 100 · Sprint 4 of 10 · Lesson 4.5",
+  "title": "Sprint 4 test: Prompts and output",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Change your review prompt or your fact-finding tool to try each one out.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Prompts and output",
+    "href": "https://claudecertificationguide.com/drill?domain=4"
+   }
+  ],
+  "parts": [
+   "Practice questions: Prompts and output",
+   "Fix what you got wrong: Prompts and output"
+  ]
+ },
+ {
+  "day": "2027-03-01",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 70 of 100 · Sprint 4 of 10 · Lesson 4.5",
+  "title": "Sprint 4 review: Prompts and output",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
   "units": [],
   "links": [
    {
@@ -1760,16 +1769,72 @@
   ],
   "parts": [
    "Common mistakes: Prompts and output",
-   "Build from memory: Prompts and output"
+   "Sprint review"
   ]
  },
  {
-  "day": "2027-03-09",
-  "kind": "Daily",
+  "day": "2027-03-02",
+  "kind": "Practice",
   "minutes": 60,
-  "week": "Week 12 of 14 · Second look · Prompts and output",
-  "title": "Questions again: Prompts and output, then exam situation 6",
-  "task": "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right?\nSecond half hour: In the exam guide, read situation 6, about pulling facts out of documents. Write five questions it could lead to, then answer them.",
+  "week": "Day 71 of 100 · Sprint 5 of 10 · Lesson 4.6",
+  "title": "Lesson 4.6: getting a second, independent check",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Have one Claude write a small function. Have a second, fresh Claude review it, without seeing how the first one got there.",
+  "units": [
+   "4.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.6",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review"
+   }
+  ],
+  "parts": [
+   "Lesson 4.6: getting a second, independent check",
+   "Build 4.6: a second Claude as reviewer"
+  ]
+ },
+ {
+  "day": "2027-03-03",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 72 of 100 · Sprint 5 of 10 · Lesson 4.6",
+  "title": "Test 4.6, then write four questions of your own",
+  "task": "First half hour: Ask the first Claude to review its own work in the same chat. Compare what each review found. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Write four exam-style questions about Prompts and output. Give each one the right answer and three wrong answers that sound right.",
+  "units": [
+   "4.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 4.6",
+    "href": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review"
+   }
+  ],
+  "parts": [
+   "Test 4.6: fresh eyes against the same eyes",
+   "Write four questions of your own"
+  ]
+ },
+ {
+  "day": "2027-03-04",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 73 of 100 · Sprint 5 of 10 · Lesson 4.6",
+  "title": "Build from memory: Prompts and output, then your shakiest topic",
+  "task": "First half hour: With no notes, write a fact-finding tool that allows empty facts, \"unclear\" and \"other\". Add the step that checks the answer and tries again.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Build from memory: Prompts and output",
+   "Your shakiest topic"
+  ]
+ },
+ {
+  "day": "2027-03-05",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 74 of 100 · Sprint 5 of 10 · Lesson 4.6",
+  "title": "Sprint 5 test: Prompts and output",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Change your review prompt or your fact-finding tool to try each one out.",
   "units": [],
   "links": [
    {
@@ -1778,17 +1843,104 @@
    }
   ],
   "parts": [
-   "Practice questions: Prompts and output again",
-   "Exam situation 6"
+   "Practice questions: Prompts and output",
+   "Fix what you got wrong: Prompts and output"
+  ]
+ },
+ {
+  "day": "2027-03-06",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 75 of 100 · Sprint 5 of 10 · Lesson 4.6",
+  "title": "Sprint 5 review: Prompts and output",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference: Prompts and output",
+    "href": "https://claudecertificationguide.com/quick-reference/domain-4"
+   }
+  ],
+  "parts": [
+   "Common mistakes: Prompts and output",
+   "Sprint review"
+  ]
+ },
+ {
+  "day": "2027-03-07",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 76 of 100 · Sprint 6 of 10 · Lesson 2.5",
+  "title": "Lesson 2.5: Claude Code's built-in tools",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: In Claude Code, find every place process_refund is called, using Grep. Find every test file, using Glob. Ask for an edit where the same text appears twice, so Edit cannot find one place. Watch Claude use Read, then Write. Then read the lesson's common-mistakes box and answer its practice question.",
+  "units": [
+   "2.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 2.5",
+    "href": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-5-built-in-tools"
+   }
+  ],
+  "parts": [
+   "Lesson 2.5: Claude Code's built-in tools",
+   "Build and test 2.5: find things with Grep and Glob"
+  ]
+ },
+ {
+  "day": "2027-03-08",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 77 of 100 · Sprint 6 of 10 · Lesson 2.5",
+  "title": "Exam situation 4, then write four questions of your own",
+  "task": "First half hour: In the exam guide, read situation 4. Write five questions it could lead to, then answer them.\nSecond half hour: Write four exam-style questions about Tools and MCP. Give each one the right answer and three wrong answers that sound right.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Exam situation 4",
+   "Write four questions of your own"
+  ]
+ },
+ {
+  "day": "2027-03-09",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 78 of 100 · Sprint 6 of 10 · Lesson 2.5",
+  "title": "Build from memory: Tools and MCP, then your shakiest topic",
+  "task": "First half hour: With no notes, write three tool descriptions and one error with errorCategory and isRetryable. Check Claude picks the right tool.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Build from memory: Tools and MCP",
+   "Your shakiest topic"
   ]
  },
  {
   "day": "2027-03-10",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 12 of 14 · Second look · Tools and MCP",
-  "title": "Second look: Tools and MCP",
-  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: With no notes, write three tool descriptions and one error with errorCategory and isRetryable. Check Claude picks the right tool.",
+  "week": "Day 79 of 100 · Sprint 6 of 10 · Lesson 2.5",
+  "title": "Sprint 6 test: Tools and MCP",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Change a tool, its description or its error in your practice project to try each one out.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Tools and MCP",
+    "href": "https://claudecertificationguide.com/drill?domain=2"
+   }
+  ],
+  "parts": [
+   "Practice questions: Tools and MCP",
+   "Fix what you got wrong: Tools and MCP"
+  ]
+ },
+ {
+  "day": "2027-03-11",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 80 of 100 · Sprint 6 of 10 · Lesson 2.5",
+  "title": "Sprint 6 review: Tools and MCP",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
   "units": [],
   "links": [
    {
@@ -1798,45 +1950,103 @@
   ],
   "parts": [
    "Common mistakes: Tools and MCP",
-   "Build from memory: Tools and MCP"
-  ]
- },
- {
-  "day": "2027-03-11",
-  "kind": "Daily",
-  "minutes": 60,
-  "week": "Week 12 of 14 · Second look · Tools and MCP",
-  "title": "Questions again: Tools and MCP, then exam situation 4",
-  "task": "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right?\nSecond half hour: In the exam guide, read situation 4. Write five questions it could lead to, then answer them.",
-  "units": [],
-  "links": [
-   {
-    "label": "Practice questions: Tools and MCP",
-    "href": "https://claudecertificationguide.com/drill?domain=2"
-   }
-  ],
-  "parts": [
-   "Practice questions: Tools and MCP again",
-   "Exam situation 4"
+   "Sprint review"
   ]
  },
  {
   "day": "2027-03-12",
-  "kind": "Off",
-  "minutes": 0,
-  "week": "Week 12 of 14 · Second look · Tools and MCP",
-  "title": "Spare day",
-  "task": "Nothing planned. Catch up on a missed day, or rest.",
-  "units": [],
-  "links": []
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 81 of 100 · Sprint 7 of 10 · Lesson 5.3",
+  "title": "Lesson 5.3: passing errors between agents",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Make one helper agent time out on purpose. Make it report what failed, what it tried and what it did manage to find.",
+  "units": [
+   "5.3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.3",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation"
+   }
+  ],
+  "parts": [
+   "Lesson 5.3: passing errors between agents",
+   "Build 5.3: a helper that fails well"
+  ]
  },
  {
   "day": "2027-03-13",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 12 of 14 · Second look · Context and reliability",
-  "title": "Second look: Context and reliability",
-  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: With no notes, make a helper agent fail and report it properly. Then make a report show both of two numbers that disagree.",
+  "week": "Day 82 of 100 · Sprint 7 of 10 · Lesson 5.3",
+  "title": "Test 5.3, then exercise 4, step 3",
+  "task": "First half hour: Check the main agent still finishes and says which part is missing. Check \"found nothing\" is reported differently from \"could not look\". Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Give each finding a claim, a quote, a source and a date. Check the final report keeps them. Tick step 3 of exercise 4 on the Progress page.",
+  "units": [
+   "5.3",
+   "E4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.3",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation"
+   },
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "parts": [
+   "Test 5.3: the main agent carries on",
+   "Exercise 4, step 3 of 5: every finding with its source"
+  ]
+ },
+ {
+  "day": "2027-03-14",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 83 of 100 · Sprint 7 of 10 · Lesson 5.3",
+  "title": "Exercise 4, step 4, then your shakiest topic",
+  "task": "First half hour: Make one helper time out. Check the main agent carries on with what it has and says what is missing. Tick step 4 of exercise 4 on the Progress page.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [
+   "E4"
+  ],
+  "links": [
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "parts": [
+   "Exercise 4, step 4 of 5: a helper that times out",
+   "Your shakiest topic"
+  ]
+ },
+ {
+  "day": "2027-03-15",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 84 of 100 · Sprint 7 of 10 · Lesson 5.3",
+  "title": "Sprint 7 test: Context and reliability",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Context and reliability",
+    "href": "https://claudecertificationguide.com/drill?domain=5"
+   }
+  ],
+  "parts": [
+   "Practice questions: Context and reliability",
+   "Fix what you got wrong: Context and reliability"
+  ]
+ },
+ {
+  "day": "2027-03-16",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 85 of 100 · Sprint 7 of 10 · Lesson 5.3",
+  "title": "Sprint 7 review: Context and reliability",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
   "units": [],
   "links": [
    {
@@ -1846,16 +2056,72 @@
   ],
   "parts": [
    "Common mistakes: Context and reliability",
-   "Build from memory: Context and reliability"
+   "Sprint review"
   ]
  },
  {
-  "day": "2027-03-14",
-  "kind": "Daily",
+  "day": "2027-03-17",
+  "kind": "Practice",
   "minutes": 60,
-  "week": "Week 12 of 14 · Second look · Context and reliability",
-  "title": "Questions again: Context and reliability, then your nine answer rules",
-  "task": "First half hour: Answer 20 practice questions. Write one sentence on each one you get wrong: why is the right answer right?\nSecond half hour: By hand, on one page, write the nine rules from your plan that help you pick the right answer. Use your own words.",
+  "week": "Day 86 of 100 · Sprint 8 of 10 · Lesson 5.4",
+  "title": "Lesson 5.4: finding your way around a big codebase",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Explore a big codebase with Claude Code. Have it keep a notes file of what it finds, and use helper agents for single questions.",
+  "units": [
+   "5.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.4",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration"
+   }
+  ],
+  "parts": [
+   "Lesson 5.4: finding your way around a big codebase",
+   "Build 5.4: explore with a notes file"
+  ]
+ },
+ {
+  "day": "2027-03-18",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 87 of 100 · Sprint 8 of 10 · Lesson 5.4",
+  "title": "Test 5.4, then write your nine answer rules",
+  "task": "First half hour: Use /compact part of the way through. Then start a new session from the notes file alone and check it can carry on. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: By hand, on one page, write the nine rules from your plan that help you pick the right answer. Use your own words.",
+  "units": [
+   "5.4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.4",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration"
+   }
+  ],
+  "parts": [
+   "Test 5.4: carry on from the notes",
+   "Write your nine answer rules"
+  ]
+ },
+ {
+  "day": "2027-03-19",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 88 of 100 · Sprint 8 of 10 · Lesson 5.4",
+  "title": "Write four questions of your own, then your shakiest topic",
+  "task": "First half hour: Write four exam-style questions about Context and reliability. Give each one the right answer and three wrong answers that sound right.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Write four questions of your own",
+   "Your shakiest topic"
+  ]
+ },
+ {
+  "day": "2027-03-20",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 89 of 100 · Sprint 8 of 10 · Lesson 5.4",
+  "title": "Sprint 8 test: Context and reliability",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
   "units": [],
   "links": [
    {
@@ -1864,15 +2130,232 @@
    }
   ],
   "parts": [
-   "Practice questions: Context and reliability again",
-   "Write your nine answer rules"
+   "Practice questions: Context and reliability",
+   "Fix what you got wrong: Context and reliability"
   ]
  },
  {
-  "day": "2027-03-15",
+  "day": "2027-03-21",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 13 of 14 · Practice exam 1",
+  "week": "Day 90 of 100 · Sprint 8 of 10 · Lesson 5.4",
+  "title": "Sprint 8 review: Context and reliability",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference: Context and reliability",
+    "href": "https://claudecertificationguide.com/quick-reference/domain-5"
+   }
+  ],
+  "parts": [
+   "Common mistakes: Context and reliability",
+   "Sprint review"
+  ]
+ },
+ {
+  "day": "2027-03-22",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 91 of 100 · Sprint 9 of 10 · Lesson 5.5",
+  "title": "Lesson 5.5: when a person should check the work",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Make your fact-finding tool give a confidence score for each fact. Send the low scores to a list for a person to check.",
+  "units": [
+   "5.5"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.5",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration"
+   }
+  ],
+  "parts": [
+   "Lesson 5.5: when a person should check the work",
+   "Build 5.5: a score for each fact"
+  ]
+ },
+ {
+  "day": "2027-03-23",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 92 of 100 · Sprint 9 of 10 · Lesson 5.5",
+  "title": "Test 5.5, then exercise 3, step 5",
+  "task": "First half hour: Run 20 letters. Check a random few of the confident answers by hand, for each type of letter. Write down where it was wrong. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Send facts with low confidence to a person to check. Work out how often the tool is right, for each type of document and each fact. Tick step 5 of exercise 3 on the Progress page.",
+  "units": [
+   "5.5",
+   "E3"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.5",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration"
+   },
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "parts": [
+   "Test 5.5: check the confident answers too",
+   "Exercise 3, step 5 of 5: unsure answers go to a person"
+  ]
+ },
+ {
+  "day": "2027-03-24",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 93 of 100 · Sprint 9 of 10 · Lesson 5.5",
+  "title": "Build from memory: Agents, then your shakiest topic",
+  "task": "First half hour: With an empty file and no notes, write the agent loop and the block on refunds over $500. Then compare them with your practice project.\nSecond half hour: Pick the topic you are least sure of so far. Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Build from memory: Agents",
+   "Your shakiest topic"
+  ]
+ },
+ {
+  "day": "2027-03-25",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 94 of 100 · Sprint 9 of 10 · Lesson 5.5",
+  "title": "Sprint 9 test: Context and reliability",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Context and reliability",
+    "href": "https://claudecertificationguide.com/drill?domain=5"
+   }
+  ],
+  "parts": [
+   "Practice questions: Context and reliability",
+   "Fix what you got wrong: Context and reliability"
+  ]
+ },
+ {
+  "day": "2027-03-26",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 95 of 100 · Sprint 9 of 10 · Lesson 5.5",
+  "title": "Sprint 9 review: Context and reliability",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference: Context and reliability",
+    "href": "https://claudecertificationguide.com/quick-reference/domain-5"
+   }
+  ],
+  "parts": [
+   "Common mistakes: Context and reliability",
+   "Sprint review"
+  ]
+ },
+ {
+  "day": "2027-03-27",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 96 of 100 · Sprint 10 of 10 · Lesson 5.6",
+  "title": "Lesson 5.6: where facts came from",
+  "task": "First half hour: Read it, then do its quick quiz. Stop at 30 minutes, even if you are not finished.\nSecond half hour: Make each helper agent return every claim with its source, a quote and a date. Make the final report keep them.",
+  "units": [
+   "5.6"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.6",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance"
+   }
+  ],
+  "parts": [
+   "Lesson 5.6: where facts came from",
+   "Build 5.6: every claim with its source"
+  ]
+ },
+ {
+  "day": "2027-03-28",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 97 of 100 · Sprint 10 of 10 · Lesson 5.6",
+  "title": "Test 5.6, then exercise 4, step 5",
+  "task": "First half hour: Give it two sources that disagree on a number. Check the report shows both numbers with their sources, and does not pick one. Then read the lesson's common-mistakes box and answer its practice question.\nSecond half hour: Give it two sources with different numbers. Check the report keeps both, each with its source. Tick step 5 of exercise 4 on the Progress page.",
+  "units": [
+   "5.6",
+   "E4"
+  ],
+  "links": [
+   {
+    "label": "Open lesson 5.6",
+    "href": "https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance"
+   },
+   {
+    "label": "Hands-on exercises",
+    "href": "https://claudecertificationguide.com/exercises"
+   }
+  ],
+  "parts": [
+   "Test 5.6: two sources that disagree",
+   "Exercise 4, step 5 of 5: numbers that disagree"
+  ]
+ },
+ {
+  "day": "2027-03-29",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 98 of 100 · Sprint 10 of 10 · Lesson 5.6",
+  "title": "Build from memory: Context and reliability, then explain it out loud",
+  "task": "First half hour: With no notes, make a helper agent fail and report it properly. Then make a report show both of two numbers that disagree.\nSecond half hour: With no notes, explain in three minutes how one main agent runs several helpers. Then do the same for hooks. Check both against your Notes.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Build from memory: Context and reliability",
+   "Explain it out loud"
+  ]
+ },
+ {
+  "day": "2027-03-30",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Day 99 of 100 · Sprint 10 of 10 · Lesson 5.6",
+  "title": "Sprint 10 test: Context and reliability",
+  "task": "First half hour: Answer 20 practice questions. Write down the number of each one you get wrong.\nSecond half hour: Pick the two questions you got most wrong. Build or run each one in your practice project until you can see why the right answer is right.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions: Context and reliability",
+    "href": "https://claudecertificationguide.com/drill?domain=5"
+   }
+  ],
+  "parts": [
+   "Practice questions: Context and reliability",
+   "Fix what you got wrong: Context and reliability"
+  ]
+ },
+ {
+  "day": "2027-03-31",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Day 100 of 100 · Sprint 10 of 10 · Lesson 5.6",
+  "title": "Sprint 10 review: Context and reliability",
+  "task": "First half hour: Read every common-mistakes box in this section. Turn anything you had forgotten into a flashcard.\nSecond half hour: Write three lines in Notes: what you learnt, what you got wrong and what to look at again. Then go through your flashcards.",
+  "units": [],
+  "links": [
+   {
+    "label": "Quick reference: Context and reliability",
+    "href": "https://claudecertificationguide.com/quick-reference/domain-5"
+   }
+  ],
+  "parts": [
+   "Common mistakes: Context and reliability",
+   "Sprint review"
+  ]
+ },
+ {
+  "day": "2027-04-01",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 1 of 4",
   "title": "Practice exam 1, questions 1 to 30",
   "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
   "units": [],
@@ -1887,10 +2370,20 @@
   ]
  },
  {
-  "day": "2027-03-16",
+  "day": "2027-04-02",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Practice exams · Exam 1 of 4",
+  "title": "Spare day",
+  "task": "Nothing planned. Catch up on a missed day, or rest.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-03",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 13 of 14 · Practice exam 1",
+  "week": "Practice exams · Exam 1 of 4",
   "title": "Practice exam 1, questions 31 to 60",
   "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
   "units": [],
@@ -1905,10 +2398,10 @@
   ]
  },
  {
-  "day": "2027-03-17",
+  "day": "2027-04-04",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 13 of 14 · Practice exam 1",
+  "week": "Practice exams · Exam 1 of 4",
   "title": "Mark practice exam 1",
   "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 1, write one sentence on why the right answer is right.",
   "units": [],
@@ -1919,11 +2412,11 @@
   ]
  },
  {
-  "day": "2027-03-18",
+  "day": "2027-04-05",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 13 of 14 · Practice exam 1",
-  "title": "Your two weakest topics",
+  "week": "Practice exams · Exam 1 of 4",
+  "title": "Your two weakest topics after exam 1",
   "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
   "units": [],
   "links": [],
@@ -1933,20 +2426,10 @@
   ]
  },
  {
-  "day": "2027-03-19",
-  "kind": "Optional",
-  "minutes": 300,
-  "week": "Week 13 of 14 · Practice exam 1",
-  "title": "Library day 4, if you can: a full practice exam",
-  "task": "A whole day somewhere quiet. Morning: all 60 questions in 2 hours, with no notes, like the real exam. After lunch: mark it, then build your two weakest topics again from an empty file. If you can only manage one library day, make it this one. Move this day to any date near it that suits you.",
-  "units": [],
-  "links": []
- },
- {
-  "day": "2027-03-20",
+  "day": "2027-04-06",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 13 of 14 · Practice exam 2",
+  "week": "Practice exams · Exam 2 of 4",
   "title": "Practice exam 2, questions 1 to 30",
   "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
   "units": [],
@@ -1961,10 +2444,10 @@
   ]
  },
  {
-  "day": "2027-03-21",
+  "day": "2027-04-07",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 13 of 14 · Practice exam 2",
+  "week": "Practice exams · Exam 2 of 4",
   "title": "Practice exam 2, questions 31 to 60",
   "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
   "units": [],
@@ -1979,10 +2462,10 @@
   ]
  },
  {
-  "day": "2027-03-22",
+  "day": "2027-04-08",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 14 of 14 · Practice exam 2",
+  "week": "Practice exams · Exam 2 of 4",
   "title": "Mark practice exam 2",
   "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 2, write one sentence on why the right answer is right.",
   "units": [],
@@ -1993,11 +2476,21 @@
   ]
  },
  {
-  "day": "2027-03-23",
+  "day": "2027-04-09",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Practice exams · Exam 2 of 4",
+  "title": "Spare day",
+  "task": "Nothing planned. Catch up on a missed day, or rest.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-10",
   "kind": "Practice",
   "minutes": 60,
-  "week": "Week 14 of 14 · Practice exam 2",
-  "title": "Your two weakest topics",
+  "week": "Practice exams · Exam 2 of 4",
+  "title": "Your two weakest topics after exam 2",
   "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
   "units": [],
   "links": [],
@@ -2007,10 +2500,148 @@
   ]
  },
  {
-  "day": "2027-03-24",
+  "day": "2027-04-11",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 14 of 14 · Last days before the exam",
+  "week": "Practice exams · Exam 3 of 4",
+  "title": "Practice exam 3, questions 1 to 30",
+  "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "parts": [
+   "Practice exam 3, questions 1 to 30"
+  ]
+ },
+ {
+  "day": "2027-04-12",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 3 of 4",
+  "title": "Practice exam 3, questions 31 to 60",
+  "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "parts": [
+   "Practice exam 3, questions 31 to 60"
+  ]
+ },
+ {
+  "day": "2027-04-13",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 3 of 4",
+  "title": "Mark practice exam 3",
+  "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 3, write one sentence on why the right answer is right.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Mark practice exam 3",
+   "Learn from your wrong answers"
+  ]
+ },
+ {
+  "day": "2027-04-14",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Practice exams · Exam 3 of 4",
+  "title": "Your two weakest topics after exam 3",
+  "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Your weakest topic",
+   "Your second-weakest topic"
+  ]
+ },
+ {
+  "day": "2027-04-15",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 4 of 4",
+  "title": "Practice exam 4, questions 1 to 30",
+  "task": "Questions 1 to 30 of the practice exam. One hour, no notes. Note where you stopped and carry on tomorrow.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "parts": [
+   "Practice exam 4, questions 1 to 30"
+  ]
+ },
+ {
+  "day": "2027-04-16",
+  "kind": "Off",
+  "minutes": 0,
+  "week": "Practice exams · Exam 4 of 4",
+  "title": "Spare day",
+  "task": "Nothing planned. Catch up on a missed day, or rest.",
+  "units": [],
+  "links": []
+ },
+ {
+  "day": "2027-04-17",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 4 of 4",
+  "title": "Practice exam 4, questions 31 to 60",
+  "task": "Questions 31 to 60 of the practice exam. One hour, no notes.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice exam",
+    "href": "https://claudecertificationguide.com/mock-exam"
+   }
+  ],
+  "parts": [
+   "Practice exam 4, questions 31 to 60"
+  ]
+ },
+ {
+  "day": "2027-04-18",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Exam 4 of 4",
+  "title": "Mark practice exam 4",
+  "task": "First half hour: Write each section's score in Notes. List the three topics you did worst on by number, such as 2.3, 5.1 and 1.6.\nSecond half hour: For every question you got wrong in practice exam 4, write one sentence on why the right answer is right.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Mark practice exam 4",
+   "Learn from your wrong answers"
+  ]
+ },
+ {
+  "day": "2027-04-19",
+  "kind": "Practice",
+  "minutes": 60,
+  "week": "Practice exams · Exam 4 of 4",
+  "title": "Your two weakest topics after exam 4",
+  "task": "First half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.\nSecond half hour: Read its common-mistakes box, then build it again in your practice project from an empty file.",
+  "units": [],
+  "links": [],
+  "parts": [
+   "Your weakest topic",
+   "Your second-weakest topic"
+  ]
+ },
+ {
+  "day": "2027-04-20",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Last days",
   "title": "The exam guide: situations and sample questions",
   "task": "First half hour: Read all six situations in the exam guide again. For each, say out loud the three questions you would expect.\nSecond half hour: Answer the 12 sample questions in the exam guide without looking. Then read the guide's list of what is not in the exam.",
   "units": [],
@@ -2021,31 +2652,49 @@
   ]
  },
  {
-  "day": "2027-03-25",
+  "day": "2027-04-21",
   "kind": "Daily",
   "minutes": 60,
-  "week": "Week 14 of 14 · Last days before the exam",
+  "week": "Practice exams · Last days",
+  "title": "Common mistakes, then questions on every section",
+  "task": "First half hour: Read the common-mistakes boxes you marked as hard. Skip the ones you know.\nSecond half hour: Answer six questions in each of the five sections. Write down each score.",
+  "units": [],
+  "links": [
+   {
+    "label": "Practice questions",
+    "href": "https://claudecertificationguide.com/drill"
+   }
+  ],
+  "parts": [
+   "Common mistakes: every section",
+   "Practice questions: every section"
+  ]
+ },
+ {
+  "day": "2027-04-22",
+  "kind": "Daily",
+  "minutes": 60,
+  "week": "Practice exams · Last days",
   "title": "Last study day",
-  "task": "First half hour: Read the common-mistakes boxes you marked as hard. Skip the ones you know.\nSecond half hour: Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.",
+  "task": "Say your nine answer rules out loud. Go through all your flashcards once. Then stop. Nothing new today.",
   "units": [],
   "links": [],
   "parts": [
-   "Common mistakes: every section",
    "Last study day"
   ]
  },
  {
-  "day": "2027-03-26",
+  "day": "2027-04-23",
   "kind": "Off",
   "minutes": 0,
-  "week": "Last days before the exam",
+  "week": "Practice exams · Last days",
   "title": "Rest",
   "task": "No studying. Get your ID ready and go to bed early.",
   "units": [],
   "links": []
  },
  {
-  "day": "2027-03-27",
+  "day": "2027-04-24",
   "kind": "Exam",
   "minutes": 0,
   "week": "Exam day",
